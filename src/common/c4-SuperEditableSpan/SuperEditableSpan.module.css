@@ -1,0 +1,16 @@
+.superSpan {
+    display: inline-block;
+
+    height: 24px;
+    margin-top: 20px;
+
+    cursor: pointer;
+}
+
+.superSpan::before {
+    content: '✎ ';
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    margin-right: 8px;
+}
