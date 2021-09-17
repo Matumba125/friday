@@ -10,7 +10,6 @@ function App() {
     <div className="App">
           <HashRouter>
               <Routing/>
-              <TestComponent/>
           </HashRouter>
     </div>
   );
