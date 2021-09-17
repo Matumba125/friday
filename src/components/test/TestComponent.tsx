@@ -4,16 +4,24 @@ import SuperSelect from "../../common/c5-SuperSelect/SuperSelect";
 import SuperCheckbox from "../../common/c3-SuperCheckbox/SuperCheckbox";
 import SuperRadio from "../../common/c6-SuperRadio/SuperRadio";
 import SuperEditableSpan from "../../common/c4-SuperEditableSpan/SuperEditableSpan";
+import {useState} from "react";
 
 const TestComponent = () => {
+
+    const [editableSpan, setEditableSpan] = useState<string>('')
+
+    const onEditableSpanHandler = (value: string) =>{
+        setEditableSpan(value)
+    }
+
     return (
         <div>
             <SuperInputText type={'password'}/>
-            <SuperButton/>
+            <SuperButton value={'hello'}/>
             <SuperSelect/>
             <SuperCheckbox/>
             <SuperRadio/>
-            <SuperEditableSpan/>
+            <SuperEditableSpan value={editableSpan} onChangeText={onEditableSpanHandler}/>
         </div>
     );
 }
