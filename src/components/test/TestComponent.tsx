@@ -8,7 +8,7 @@ import SuperEditableSpan from "../../common/c4-SuperEditableSpan/SuperEditableSp
 const TestComponent = () => {
     return (
         <div>
-            <SuperInputText/>
+            <SuperInputText type={'password'}/>
             <SuperButton/>
             <SuperSelect/>
             <SuperCheckbox/>
@@ -16,6 +16,6 @@ const TestComponent = () => {
             <SuperEditableSpan/>
         </div>
     );
-};
+}
 
 export default TestComponent;
