@@ -11,15 +11,22 @@ const Loginization = () => {
                 <form action="" method="">
                     <label>
                         <p className="inputText"> Email</p>
-                        <input type="email" placeholder="Please enter email" />
+                        <input type="email" placeholder="Please enter email" required/>
+                        <span className="errorText">This field is requared</span>
                     </label>
 
                     <label>
                         <p className="inputText"> Password</p>
-                        <input type="password" placeholder="Please enter password" />
+                        <input type="password" placeholder="Please enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="password must contain at least 8 characters, one number, one uppercase letter and one lowercase" required/>
                     </label>
 
-                    <Link to={'/password-recovery'}>Forgot password</Link>
+                    <Link className="passForgot" to={'/password-recovery'}>Forgot password</Link>
+
+                    <button className="submitButton" type="submit">Login</button>
+
+                    <p className="formText">Don’t have an account?</p>
+
+                    <Link className="linkRegistration" to={'/registration'}>Sign Up</Link>
                 </form>
             </div>
         </div>
