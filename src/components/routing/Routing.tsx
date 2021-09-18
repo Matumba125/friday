@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router";
+import {Redirect, Route, Switch} from "react-router";
 import Loginization from '../loginization/Loginization';
 import NotFound from "../NotFound/NotFound";
 import NewPassword from "../newPassword/NewPassword";
@@ -20,6 +20,7 @@ const Routing = () => {
     return (
         <>
             <Switch>
+                <Route exact path={'/'} render={()=> <Redirect to={PATH.LOGIN}/>} />
                 <Route path={PATH.LOGIN} render={()=> <Loginization/>} />
                 <Route path={PATH.NOT_FOUND} render={()=> <NotFound/>} />
                 <Route path={PATH.NEW_PASSWORD} render={()=> <NewPassword/>} />
