@@ -17,7 +17,7 @@ const Loginization = () => {
 
                     <label  className={s.formItem}>
                         <p className={s.inputText}> Password</p>
-                        <input className={s.input} type="password" placeholder="Please enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="password must contain at least 8 characters, one number, one uppercase letter and one lowercase" required />
+                        <input className={s.input} type="password" placeholder="Please enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Password must contain at least 8 characters, one number, one uppercase letter and one lowercase" required />
                     </label>
 
                    <div className={s.linkWrap}>
