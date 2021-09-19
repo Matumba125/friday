@@ -14,7 +14,7 @@
 }
 
 .globalTitle {
-    font-family: Poppins,sans-serif;
+    font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 1.63rem;
     line-height: 1.5;
@@ -24,7 +24,7 @@
 }
 
 .listTitle {
-    font-family: Poppins,sans-serif;
+    font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 1.38rem;
     line-height: 1.5;
@@ -61,6 +61,26 @@
     font-size: 1rem;
     line-height: 2;
     color: #2D2E46;
+}
+
+.passwordWrap {
+    position: relative;
+}
+
+.passwordControl {
+    border: none;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 1em;
+    background: url('../../assets/images/eyeView.svg') no-repeat center/80%;
+    position: absolute;
+    top: 0;
+    right: 1em;
+}
+
+/* !password control */
+.passwordControl.vieu {
+    background: url('../../assets/images/eyeNoView.svg') no-repeat center/80%;
 }
 
 .linkWrap {
