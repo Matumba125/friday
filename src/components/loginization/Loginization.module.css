@@ -1,0 +1,114 @@
+.container {
+    padding-top: 3.75em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.boxForm {
+    margin: auto;
+    padding: 1.56em 2.06em 1.63em 2.06em;
+    background-color: #F9F9FE;
+    border-radius: 8px;
+    max-width: 25.8em;
+    min-height: 37.5em;
+}
+
+.globalTitle {
+    font-weight: 600;
+    font-size: 1.63rem;
+    line-height: 1.5;
+    color: #2D2E46;
+    margin-bottom: 1.23em;
+
+}
+
+.listTitle {
+    font-weight: 600;
+    font-size: 1.38rem;
+    line-height: 1.5;
+    color: #2D2E46;
+    margin-bottom: 1.73em;
+}
+
+.formWrap {
+    text-align: start;
+}
+
+.input {
+    margin-bottom: 1.5em;
+    width: 100%;
+    border: none;
+    padding-bottom: 0.25em;
+    border-bottom: 1.6px solid rgba(36, 37, 74, .2);
+}
+
+.inputText {
+    font-weight: 400;
+    font-size: 0.81rem;
+    line-height: 1.54;
+    color: #24254A;
+    opacity: 0.5;
+}
+
+input[placeholder] {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2;
+    color: #2D2E46;
+}
+
+.linkWrap {
+    padding-top: 0.88em;
+}
+
+.passForgot {
+    display: block;
+    font-weight: 400;
+    font-size: 0.88rem;
+    line-height: 2.86;
+    text-align: center;
+    color: #2D2E46;
+    text-decoration: none;
+    max-width: 8.7em;
+    margin-bottom: 5.7em;
+    padding: 0 0.58em;
+    margin-left: auto;
+
+}
+
+.buttonWrap {
+    margin-bottom: 1.94em;
+}
+
+.submitButton {
+    display: inline-block;
+    background: #21268F;
+    box-shadow: 0px 4px 18px rgba(33, 38, 143, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
+    border: transparent;
+    border-radius: 30px;
+    color: #ECECF9;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.9;
+    width: 100%;
+}
+
+.formText {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.88rem;
+    line-height: 1.71;
+    color: rgba(45, 46, 70, .5);
+    margin-bottom: 0.5em;
+}
+
+.linkRegistration {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2;
+    color: #21268F;
+}
