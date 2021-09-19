@@ -38,10 +38,11 @@
 
 .input {
     margin-bottom: 1.5em;
-    width: 100%;
+    width: 88%;
     border: transparent;
     padding-bottom: 0.25em;
     border-bottom: 1.6px solid rgba(36, 37, 74, .2);
+    padding-right: 3em;
 }
 
 /* !styles with invalid value  */
@@ -79,7 +80,7 @@
 }
 
 /* !password control */
-.passwordControl.vieu {
+.view {
     background: url('../../assets/images/eyeNoView.svg') no-repeat center/80%;
 }
 
@@ -115,7 +116,7 @@
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
     font-family: 'SFUIDisplayMedium', sans-serif;
     font-size: 1rem;
-    line-height: 1.9;
+    line-height: 2.18;
     width: 100%;
 }
 

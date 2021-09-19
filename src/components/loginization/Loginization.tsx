@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './Loginization.module.css';
 
 const Loginization = () => {
+
+    // !password control
+    const [viewPass, setViewPass] = useState(false);
+    const onViewPass = () => {
+        setViewPass(state => !state)
+    }
+    const viewPassStyle = viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
+    // !password control
+
     return (
         <div className={s.container}>
             <div className={s.boxForm}>
@@ -11,17 +20,24 @@ const Loginization = () => {
                 <form className={s.formWrap} action="" method="">
                     <label className={s.formItem}>
                         <p className={s.inputText}> Email</p>
-                        <input className={s.input} type="email" placeholder="Please enter email" required />
-                        {/* <span className={s.errorText}>This field is requared</span> */}
+                        <input className={s.input}
+                            type="email"
+                            placeholder="Please enter email"
+                            required />
                     </label>
 
                     <label className={s.formItem}>
                         <p className={s.inputText}> Password</p>
                         <div className={s.passwordWrap}>
-                            <input className={s.input} type="password" placeholder="Please enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Password must contain at least 8 characters, one number, one uppercase letter and one lowercase" required />
+                            <input
+                                className={s.input}
+                                type={viewPass ? "text" : "password"}
+                                placeholder="Please enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                title="Password must contain at least 8 characters, one number, one uppercase letter and one lowercase"
+                                required
+                            />
 
-                            <button className={s.passwordControl}>
-                            </button>
+                            <button className={viewPassStyle} onClick={onViewPass} />
                         </div>
                     </label>
 

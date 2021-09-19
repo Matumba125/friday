@@ -36,3 +36,8 @@ p {
   margin: 0;
 }
 
+button,
+input{
+cursor: pointer;
+}
+
