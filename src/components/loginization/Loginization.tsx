@@ -41,8 +41,8 @@ const Loginization = () => {
                         text={'Password'}
                         type={'password'}
                         placeholder={'Please enter password'}
-                        pattern={'(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*'}
-                        title={'Password must contain at least 8 characters, one number, one uppercase letter and one lowercase'}
+                        pattern={'(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                        title={'the password must be at least 6 characters long including one number one capital letter, one small letter and one of the special characters ! @ # $% ^ & *'}
                         viewPass={viewPass}
                         onViewPass={onViewPass}
                     />
