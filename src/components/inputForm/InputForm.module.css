@@ -1,0 +1,47 @@
+.input {
+    margin-bottom: 1.5em;
+    width: 100%;
+    border: transparent;
+    padding-bottom: 0.25em;
+    border-bottom: 1.6px solid rgba(36, 37, 74, .2);
+    padding-right: 3em;
+}
+
+/* !styles with invalid value  */
+.input.invalid:invalid {
+    border: 1px solid rgb(230, 20, 20);
+}
+
+.inputText {
+    font-size: 0.81rem;
+    line-height: 1.54;
+    color: #24254A;
+    opacity: 0.5;
+}
+
+.input[placeholder] {
+    font-family: 'SFUIDisplayMedium', sans-serif;
+    font-size: 1rem;
+    line-height: 2;
+    color: #2D2E46;
+}
+
+.inputBox {
+    position: relative;
+}
+
+.passwordControl {
+    border: none;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 1em;
+    background: url('../../assets/images/eyeView.svg') no-repeat center/80%;
+    position: absolute;
+    top: 0;
+    right: 1em;
+}
+
+/* !password control */
+.view {
+    background: url('../../assets/images/eyeNoView.svg') no-repeat center/80%;
+}

@@ -1,0 +1,67 @@
+.container {
+    padding-top: 3.75em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.boxForm {
+    margin: auto;
+    padding: 1.56em 2.06em 1.63em 2.06em;
+    background-color: #F9F9FE;
+    border-radius: 8px;
+    max-width: 25.8em;
+    }
+
+.globalTitleBox {
+    margin-bottom: 1.23em;
+}
+
+.listTitleBox {
+    margin-bottom: 1.73em;
+}
+
+.formWrap {
+    text-align: start;
+}
+
+.buttonContainer {
+    max-width: 16.6em;
+    margin: 0 auto 2em;
+}
+
+.linkWrap {
+    padding-top: 0.88em;
+}
+
+.passForgot {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 2.86;
+    text-align: center;
+    color: #2D2E46;
+    text-decoration: none;
+    max-width: 8.7em;
+    margin-bottom: 5.7em;
+    padding: 0 0.58em;
+    margin-left: auto;
+
+}
+
+.formText {
+    text-align: center;
+    font-family: 'SFUIDisplaySemibold', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.71;
+    color: rgba(45, 46, 70, .5);
+    margin-bottom: 0.5em;
+}
+
+.linkRegistration {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'SFUIDisplaySemibold', sans-serif;
+    font-size: 1rem;
+    line-height: 2;
+    color: #21268F;
+}
