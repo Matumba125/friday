@@ -13,16 +13,6 @@
     min-height: 37.5em;
 }
 
-.globalTitle {
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    font-size: 1.63rem;
-    line-height: 1.5;
-    color: #2D2E46;
-    margin-bottom: 1.23em;
-
-}
-
 .listTitle {
     font-family: Poppins, sans-serif;
     font-weight: 600;
@@ -111,7 +101,7 @@
     background: #21268F;
     box-shadow: 0px 4px 18px rgba(33, 38, 143, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
     border: transparent;
-    border-radius: 30px;
+    border-radius: 2em;
     color: #ECECF9;
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
     font-family: 'SFUIDisplayMedium', sans-serif;

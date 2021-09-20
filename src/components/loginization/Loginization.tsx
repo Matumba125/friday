@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './Loginization.module.css';
-
+import GlobalTitle from '../globalTitle/GlobalTitle'
 const Loginization = () => {
 
     // !password control
@@ -15,7 +15,9 @@ const Loginization = () => {
     return (
         <div className={s.container}>
             <div className={s.boxForm}>
-                <h1 className={s.globalTitle}>It-incubator</h1>
+
+                <GlobalTitle/>
+                
                 <h2 className={s.listTitle}>Sign In</h2>
                 <form className={s.formWrap} action="" method="">
                     <label className={s.formItem}>
