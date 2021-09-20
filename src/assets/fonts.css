@@ -8,6 +8,7 @@ font-weight:700 / Bold
 font-weight:800 / Extra Bold
 font-weight:900 / Black */
 
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@500;600&display=swap');
 
 @font-face {
     font-family: 'SFUIDisplayNormal';
