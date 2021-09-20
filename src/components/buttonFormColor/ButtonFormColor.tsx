@@ -14,4 +14,4 @@ const ButtonFormColor = (props: ButtonFormColorPropsType) => {
     )
 }
 
-export default ButtonFormColor
+export default ButtonFormColor 
