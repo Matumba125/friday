@@ -19,8 +19,14 @@ const Loginization = () => {
         <div className={s.container}>
             <div className={s.boxForm}>
 
-                <GlobalTitle />
-                <ListTitle />
+                <div className={s.globalTitleBox}>
+                    <GlobalTitle />
+                </div>
+
+
+              <div className={s.listTitleBox}>
+                    <ListTitle />
+              </div>
 
                 <form className={s.formWrap} action="" method="">
 

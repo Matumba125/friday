@@ -10,15 +10,13 @@
     background-color: #F9F9FE;
     border-radius: 8px;
     max-width: 25.8em;
-    min-height: 37.5em;
+    }
+
+.globalTitleBox {
+    margin-bottom: 1.23em;
 }
 
-.listTitle {
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    font-size: 1.38rem;
-    line-height: 1.5;
-    color: #2D2E46;
+.listTitleBox {
     margin-bottom: 1.73em;
 }
 
@@ -26,7 +24,7 @@
     text-align: start;
 }
 
-.buttonContainer{
+.buttonContainer {
     max-width: 16.6em;
     margin: 0 auto 2em;
 }
