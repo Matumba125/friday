@@ -26,7 +26,7 @@
     text-align: start;
 }
 
-.input {
+/* .input {
     margin-bottom: 1.5em;
     width: 88%;
     border: transparent;
@@ -36,7 +36,7 @@
 }
 
 /* !styles with invalid value  */
-.input.invalid:invalid {
+/* .input.invalid:invalid {
     border: 1px solid rgb(230, 20, 20);
 }
 
@@ -54,7 +54,7 @@
     color: #2D2E46;
 }
 
-.passwordWrap {
+.inputBox {
     position: relative;
 }
 
@@ -67,12 +67,12 @@
     position: absolute;
     top: 0;
     right: 1em;
-}
+} */
 
 /* !password control */
-.view {
+/* .view {
     background: url('../../assets/images/eyeNoView.svg') no-repeat center/80%;
-}
+} */
 
 .linkWrap {
     padding-top: 0.88em;
