@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './Loginization.module.css';
-import GlobalTitle from '../globalTitle/GlobalTitle'
+import GlobalTitle from '../globalTitle/GlobalTitle';
+import ListTitle from '../listTitle/ListTitle';
+
 const Loginization = () => {
 
     // !password control
@@ -17,14 +19,16 @@ const Loginization = () => {
             <div className={s.boxForm}>
 
                 <GlobalTitle/>
-                
-                <h2 className={s.listTitle}>Sign In</h2>
+                <ListTitle/>
+
                 <form className={s.formWrap} action="" method="">
                     <label className={s.formItem}>
                         <p className={s.inputText}> Email</p>
                         <input className={s.input}
                             type="email"
                             placeholder="Please enter email"
+                            pattern=""
+                            title="Please enter email"
                             required />
                     </label>
 
@@ -34,7 +38,8 @@ const Loginization = () => {
                             <input
                                 className={s.input}
                                 type={viewPass ? "text" : "password"}
-                                placeholder="Please enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                placeholder="Please enter password"
+                                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
                                 title="Password must contain at least 8 characters, one number, one uppercase letter and one lowercase"
                                 required
                             />
