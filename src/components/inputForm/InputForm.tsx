@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import s from './InputForm.module.css';
 
 type InputFormPropsType = {
@@ -7,20 +7,24 @@ type InputFormPropsType = {
     placeholder: string
     title: string
     pattern?: string
-    viewPass?: boolean
-    onViewPass?: () => void
 }
 
 const InputForm = (props: InputFormPropsType) => {
+    
+    // !password control
+    const [viewPass, setViewPass] = useState(false);
+    const onViewPass = () => {
+        setViewPass(state => !state)
+    }
+    // !password control
+
     const type = props.type === 'email'
      ? 'email'
-     : props.viewPass ? 'password' : 'text';
-    const viewPassStyle = props.viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
+     : viewPass ? 'text' : 'password';
+    const viewPassStyle = viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
 
     const onClick = () => {
-        if (props.onViewPass) {
-            props.onViewPass()
-        }
+        setViewPass(state => !state)
     }
 
     return (
