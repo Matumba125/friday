@@ -14,47 +14,49 @@ const Loginization = () => {
 
         <CardContainer>
             <>
-            <div className={s.globalTitleBox}>
-                <GlobalTitle />
-            </div>
-
-
-            <div className={s.listTitleBox}>
-                <ListTitle />
-            </div>
-
-            <form className={s.formWrap} action="" method="">
-
-                <InputForm
-                    text={'Email'}
-                    type={'email'}
-                    placeholder={'Please enter email'}
-                    title={'Please enter email'}
-                />
-
-                <InputForm
-                    text={'Password'}
-                    type={'password'}
-                    placeholder={'Please enter password'}
-                    pattern={'(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
-                    title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'}
-                />
-
-
-                <div className={s.linkWrap}>
-                    <Link className={s.passForgot} to={'/password-recovery'}>Forgot password</Link>
-                </div>
-
-                <div className={s.buttonContainer}>
-                    <ButtonFormColor
-                        text='Login' />
+                <div className={s.globalTitleBox}>
+                    <GlobalTitle />
                 </div>
 
 
-                <p className={s.formText}>Don’t have an account?</p>
+                <div className={s.listTitleBox}>
+                    <ListTitle />
+                </div>
+
+                <form className={s.formWrap} action="" method="">
+
+                    <InputForm
+                        text={'Email'}
+                        type={'email'}
+                        placeholder={'Please enter email'}
+                        title={'Please enter email'}
+                    />
+
+                    <InputForm
+                        text={'Password'}
+                        type={'password'}
+                        placeholder={'Please enter password'}
+                        pattern={'(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                        title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'}
+                    />
+
+
+                    <div className={s.linkWrap}>
+                        <Link className={s.passForgot} to={'/password-recovery'}>Forgot password</Link>
+                    </div>
+
+                    <div className={s.buttonContainer}>
+                        <ButtonFormColor
+                            text='Login' />
+                    </div>
+
+
+                    <p className={s.formText}>Don’t have an account?</p>
+
+                </form>
 
                 <Link className={s.linkCardBottom} to={PATH.REGISTRATION}>Sign Up</Link>
-            </form>
+
             </>
         </CardContainer>
     );

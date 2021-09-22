@@ -1,10 +1,10 @@
 .input {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5rem;
     width: 100%;
     border: transparent;
-    padding-bottom: 0.25em;
+    padding-bottom: 0.25rem;
     border-bottom: 1.6px solid rgba(36, 37, 74, .2);
-    padding-right: 4em;
+    padding-right: 4rem;
 }
 
 /* !styles with invalid value  */
@@ -31,10 +31,11 @@
 }
 
 .passwordControl {
+    display: inline;
     border: none;
-    width: 1.5em;
-    height: 1.5em;
-    padding: 1em;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 1rem;
     background: url('../../assets/images/eyeView.svg') no-repeat center/80%;
     position: absolute;
     top: 0;

@@ -1,9 +1,9 @@
 .globalTitleBox {
-    margin-bottom: 1.23em;
+    margin-bottom: 1.23rem;
 }
 
 .listTitleBox {
-    margin-bottom: 1.73em;
+    margin-bottom: 1.73rem;
 }
 
 .formWrap {
@@ -11,17 +11,17 @@
 }
 
 .buttonsContainer {
-    padding-top: 3.75em;
+    padding-top: 3.75rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2.2em;
+    margin-bottom: 2.2rem;
 
 }
 
 .buttonContainer {
-    width: 11.7em;
-    margin-left: 0.5em;
+    width: 11.7rem;
+    margin-left: 0.5rem;
 
 }
 

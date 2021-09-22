@@ -12,7 +12,6 @@ import { PATH } from '../routing/Routing';
 
 const PasswordRecovery = () => {
     return (
-        <div>
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>
@@ -45,13 +44,12 @@ const PasswordRecovery = () => {
                             Did you remember your password?
                         </p>
 
-                        <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
-
                     </form>
+
+                    <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
 
                 </>
             </CardContainer>
-        </div>
     );
 };
 

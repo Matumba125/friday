@@ -10,7 +10,7 @@ const ButtonFormColor = (props: ButtonFormColorPropsType) => {
 
     return (
        
-            <button className={s.submitButton} type="submit">{props.text}</button>
+            <button className={s.submitColor} type="submit">{props.text}</button>
     )
 }
 
