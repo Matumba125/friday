@@ -6,6 +6,7 @@ import GlobalTitle from '../globalTitle/GlobalTitle';
 import ListTitle from '../listTitle/ListTitle';
 import InputForm from '../inputForm/InputForm';
 import ButtonFormColor from '../buttonFormColor/ButtonFormColor';
+import { PATH } from '../routing/Routing';
 
 const Loginization = () => {
 
@@ -52,7 +53,7 @@ const Loginization = () => {
 
                 <p className={s.formText}>Don’t have an account?</p>
 
-                <Link className={s.linkRegistration} to={'/registration'}>Sign Up</Link>
+                <Link className={s.linkCardBottom} to={PATH.REGISTRATION}>Sign Up</Link>
             </form>
             </>
         </CardContainer>

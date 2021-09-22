@@ -20,7 +20,6 @@ const Registration = () => {
                     <GlobalTitle />
                 </div>
 
-
                 <div className={s.listTitleBox}>
                     <ListTitle />
                 </div>

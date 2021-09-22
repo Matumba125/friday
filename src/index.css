@@ -12,6 +12,8 @@
 }
 
 :root {
+
+  /* 16 px  for 1440px*/
   font-size: calc(0.8rem + 0.225vw);
 }
 
