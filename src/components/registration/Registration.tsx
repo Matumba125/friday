@@ -21,7 +21,9 @@ const Registration = () => {
                 </div>
 
                 <div className={s.listTitleBox}>
-                    <ListTitle />
+                    <ListTitle
+                    text='Sign Up'
+                    />
                 </div>
 
                 <form className={s.formWrap} action="" method="">

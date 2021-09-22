@@ -4,7 +4,7 @@ import CardContainer from '../cardContainer/CardContainer';
 import GlobalTitle from '../globalTitle/GlobalTitle';
 import ListTitle from '../listTitle/ListTitle';
 import InputForm from '../inputForm/InputForm';
-import ButtonFormColor from '../buttonFormColor/ButtonFormColor'
+import ButtonFormColor from '../buttonFormColor/ButtonFormColor';
 import { PATH } from '../routing/Routing';
 
 
@@ -19,7 +19,9 @@ const PasswordRecovery = () => {
                     </div>
 
                     <div className={s.listTitleBox}>
-                        <ListTitle />
+                        <ListTitle
+                        text='Forgot your password?'
+                        />
                     </div>
 
                     <form className={s.formWrap} action="" method="">

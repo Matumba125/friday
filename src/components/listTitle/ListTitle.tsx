@@ -1,10 +1,14 @@
 import React from "react";
 import s from './ListTitle.module.css';
 
-const ListTitle = () => {
+type ListTitlePropsType = {
+    text: string
+}
+
+const ListTitle = (props: ListTitlePropsType) => {
 
     return (
-        <h2 className={s.listTitle}>Sign In</h2>
+        <h2 className={s.listTitle}>{props.text}</h2>
     )
 }
 

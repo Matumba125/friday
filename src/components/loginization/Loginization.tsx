@@ -20,7 +20,9 @@ const Loginization = () => {
 
 
                 <div className={s.listTitleBox}>
-                    <ListTitle />
+                    <ListTitle
+                        text='Sign In'
+                    />
                 </div>
 
                 <form className={s.formWrap} action="" method="">
@@ -42,7 +44,7 @@ const Loginization = () => {
 
 
                     <div className={s.linkWrap}>
-                        <Link className={s.passForgot} to={'/password-recovery'}>Forgot password</Link>
+                        <Link className={s.passForgot} to={PATH.PASSWORD_RECOVERY}>Forgot password</Link>
                     </div>
 
                     <div className={s.buttonContainer}>
