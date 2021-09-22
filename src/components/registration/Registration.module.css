@@ -1,0 +1,27 @@
+.globalTitleBox {
+    margin-bottom: 1.23em;
+}
+
+.listTitleBox {
+    margin-bottom: 1.73em;
+}
+
+.formWrap {
+    text-align: start;
+}
+
+.buttonsContainer {
+    padding-top: 3.75em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.2em;
+
+}
+
+.buttonContainer {
+    width: 11.7em;
+    margin-left: 0.5em;
+
+}
+

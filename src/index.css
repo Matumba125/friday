@@ -1,18 +1,54 @@
+
+@import url('../src/assets/fonts.css');
+
+*{
+  box-sizing: border-box;
+}
+
+:root,
+::before,
+::after{
+  box-sizing: inherit;
+}
+
+:root {
+
+  /* 16 px  for 1440px*/
+  font-size: calc(0.8rem + 0.225vw);
+}
+
+/* @media (min-width:1440px) {
+  :root {
+    font-size: 1em;
+  }
+} */
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  font-family: 'SFUIDisplayNormal', sans-serif;
+  overflow: hidden;
+   }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
-.container{
-  background-color: #E5E5E5;
-  height: 100vh;
- }
+button,
+input{
+cursor: pointer;
+}
+
