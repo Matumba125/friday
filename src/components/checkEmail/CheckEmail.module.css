@@ -13,9 +13,51 @@
 
 .imgCard {
     position: absolute;
-    bottom: 50%;
-    transform: translate(-50%, 50%);
+    bottom: 20%;
+    left: 20%;
+    perspective: 500px;
+    animation: rotate 2s ease-in infinite;
+    opacity: 1;
+}
 
+@keyframes rotate{
+    0% {
+        transform: rotateY(90deg);
+        
+    }
+
+    20% {
+        transform: rotateY(60deg);
+        
+    }
+
+    40% {
+        transform: rotateY(30deg);
+        
+    }
+
+    50% {
+        transform: rotateY(0deg);
+        
+    }
+
+
+    60% {
+        transform: rotateY(-30deg);
+        
+    }
+
+    80% {
+        transform: rotateY(-60deg);
+        
+    }
+
+
+
+    100% {
+        transform: rotateY(-90deg);
+        
+    }
 }
 
 .listTitleBox {
@@ -30,3 +72,5 @@
     margin-bottom: 7rem;
 
 }
+
+

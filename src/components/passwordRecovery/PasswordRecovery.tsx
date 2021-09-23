@@ -10,10 +10,14 @@ import { useState } from 'react';
 import CheckEmail from './../checkEmail/CheckEmail';
 
 const PasswordRecovery = () => {
-    const [isPasswordSent, setIspasswordSent] = useState(true);
+    const [isPasswordSent, setIsPasswordSent] = useState(false);
+
+    const sendPassword = () => {
+        setIsPasswordSent(true);
+    }
 
     return (
-        isPasswordSent ? 
+        !isPasswordSent ? 
             <CardContainer>
             <>
                 <div className={s.globalTitleBox}>
@@ -41,7 +45,7 @@ const PasswordRecovery = () => {
 
                     <div className={s.buttonContainer}>
                         <ButtonFormColor
-                            text='Send Instructions' />
+                            text='Send Instructions' callback={sendPassword} />
                     </div>
 
                     <p className={`${s.cardText} ${s.cardTextBottom}`}>
