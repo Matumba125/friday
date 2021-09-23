@@ -1,0 +1,32 @@
+.globalTitleBox {
+    margin-bottom: 2.2rem;
+}
+
+.cardImgBlock {
+    margin: 0 auto 1.2rem;
+    max-width: 6.75rem;
+    height: 6.75rem;
+    border-radius: 50%;
+    background-color: #D7D8EF;
+    position: relative;
+}
+
+.imgCard {
+    position: absolute;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+
+}
+
+.listTitleBox {
+    margin-bottom: 1.3rem;
+}
+
+.cardText {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #2D2E46;
+    opacity: 0.5;
+    margin-bottom: 7rem;
+
+}

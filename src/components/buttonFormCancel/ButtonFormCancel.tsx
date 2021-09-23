@@ -1,5 +1,5 @@
 import React from "react";
-import s from './ButtonFormCancel.module.css'
+import s from './ButtonFormCancel.module.css';
 import { useHistory } from 'react-router';
 
 const ButtonFormCancel = () => {

@@ -1,4 +1,4 @@
-.submitColor {
+.buttonSubmitColor {
     display: inline-block;
     background: #21268F;
     box-shadow: 0px 4px 18px rgba(33, 38, 143, 0.35), inset 0px 1px 0px rgba(255, 255, 255, 0.3);
@@ -8,6 +8,16 @@
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
     font-family: 'SFUIDisplayMedium', sans-serif;
     font-size: 1rem;
-    line-height: 2.18;
+    line-height: 2.1;
     width: 100%;
+}
+
+.buttonSubmitColor:hover{
+    box-shadow: inset 0 0 0 3px #D7D8EF;
+}
+
+
+.buttonSubmitColor:focus,
+.buttonSubmitColor:active {
+    box-shadow: 0 0 0 3px #D7D8EF;
 }
