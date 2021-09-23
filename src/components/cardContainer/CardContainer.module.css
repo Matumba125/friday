@@ -2,10 +2,18 @@
     padding-top: 3.75rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    perspective: 500px;
-    animation: rotate 1s ease-in forwards;
+    perspective: 38rem;
+   }
+
+   .boxForm {
+    margin: auto;
+    padding: 1.56rem 2.06rem 1.63rem 2.06rem;
+    background-color: #F9F9FE;
+    border-radius: .5rem;
+    max-width: 25.8rem;
+    animation: rotate .5s ease-in forwards;
     opacity: 0;
-}
+    }
 
 @keyframes rotate{
     0% {
@@ -36,12 +44,6 @@
     }
 }
 
-.boxForm {
-    margin: auto;
-    padding: 1.56rem 2.06rem 1.63rem 2.06rem;
-    background-color: #F9F9FE;
-    border-radius: .5rem;
-    max-width: 25.8rem;
-    }
+
 
     
