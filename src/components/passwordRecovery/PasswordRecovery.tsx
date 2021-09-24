@@ -1,18 +1,23 @@
 import { Link } from 'react-router-dom';
 import s from './PasswordRecovery.module.css';
-import CardContainer from '../cardContainer/CardContainer';
-import GlobalTitle from '../globalTitle/GlobalTitle';
-import ListTitle from '../listTitle/ListTitle';
-import InputForm from '../inputForm/InputForm';
-import ButtonFormColor from '../buttonFormColor/ButtonFormColor'
+import CardContainer from '../../common/cardContainer/CardContainer';
+import GlobalTitle from '../../common/globalTitle/GlobalTitle';
+import ListTitle from '../../common/listTitle/ListTitle';
+import InputForm from '../../common/inputForm/InputForm';
+import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import { PATH } from '../routing/Routing';
-
-
-
+import { useState } from 'react';
+import CheckEmail from '../../common/checkEmail/CheckEmail';
 
 const PasswordRecovery = () => {
+    const [isPasswordSent, setIsPasswordSent] = useState(false);
+
+    const sendPassword = () => {
+        setIsPasswordSent(true);
+    }
+
     return (
-        <div>
+        !isPasswordSent ?
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>
@@ -20,7 +25,9 @@ const PasswordRecovery = () => {
                     </div>
 
                     <div className={s.listTitleBox}>
-                        <ListTitle />
+                        <ListTitle
+                            text='Forgot your password?'
+                        />
                     </div>
 
                     <form className={s.formWrap} action="" method="">
@@ -38,20 +45,20 @@ const PasswordRecovery = () => {
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
-                                text='Send Instructions' />
+                                text='Send Instructions' callback={sendPassword} />
                         </div>
 
                         <p className={`${s.cardText} ${s.cardTextBottom}`}>
                             Did you remember your password?
                         </p>
 
-                        <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
-
                     </form>
+
+                    <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
 
                 </>
             </CardContainer>
-        </div>
+            : <CheckEmail />
     );
 };
 

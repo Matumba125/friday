@@ -1,9 +1,9 @@
 .globalTitleBox {
-    margin-bottom: 1.23em;
+    margin-bottom: 2rem;
 }
 
 .listTitleBox {
-    margin-bottom: 1.73em;
+    margin-bottom: 2.38rem;
 }
 
 .formWrap {
@@ -11,12 +11,12 @@
 }
 
 .buttonContainer {
-    max-width: 16.6em;
-    margin: 0 auto 2em;
+    max-width: 16.6rem;
+    margin: 0 auto 2rem;
 }
 
 .linkWrap {
-    padding-top: 0.88em;
+    padding-top: 0.88rem;
 }
 
 .passForgot {
@@ -26,10 +26,9 @@
     text-align: center;
     color: #2D2E46;
     text-decoration: none;
-    max-width: 8.7em;
-    margin-bottom: 5.7em;
-    padding: 0 0.58em;
-    margin-left: auto;
+    max-width: 8.7rem;
+    margin-bottom: 5rem;
+       margin-left: auto;
 
 }
 
@@ -39,7 +38,7 @@
     font-size: 0.88rem;
     line-height: 1.71;
     color: rgba(45, 46, 70, .5);
-    margin-bottom: 0.5em;
+    margin-bottom: 0.4rem;
 }
 
 .linkCardBottom {

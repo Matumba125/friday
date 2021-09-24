@@ -1,13 +1,12 @@
-
 @import url('../src/assets/fonts.css');
 
-*{
+* {
   box-sizing: border-box;
 }
 
 :root,
 ::before,
-::after{
+::after {
   box-sizing: inherit;
 }
 
@@ -17,7 +16,7 @@
   font-size: calc(0.8rem + 0.225vw);
 }
 
-/* @media (min-width:1440px) {
+/* @media (min-width:1441px) {
   :root {
     font-size: 1em;
   }
@@ -29,13 +28,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'SFUIDisplayNormal', sans-serif;
-  overflow: hidden;
-   }
+  font-size: 1rem;
+   overflow: hidden;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  }
+}
 
 h1,
 h2,
@@ -48,7 +48,22 @@ p {
 }
 
 button,
-input{
-cursor: pointer;
+input {
+  cursor: pointer;
 }
 
+button {
+  transition: all .2s;
+}
+
+
+a {
+  border: 1px solid transparent;
+  border-radius: 1em;
+  transition: all .2s;
+}
+
+a:hover {
+  border: 1px solid;
+  border-radius: 2em;
+}

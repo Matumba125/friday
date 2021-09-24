@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import s from './Registration.module.css';
-import CardContainer from '../cardContainer/CardContainer';
-import GlobalTitle from '../globalTitle/GlobalTitle';
-import ListTitle from '../listTitle/ListTitle';
-import InputForm from '../inputForm/InputForm';
-import ButtonFormColor from '../buttonFormColor/ButtonFormColor';
-import ButtonFormCancel from '../buttonFormCancel/ButtonFormCancel'
+import CardContainer from '../../common/cardContainer/CardContainer';
+import GlobalTitle from '../../common/globalTitle/GlobalTitle';
+import ListTitle from '../../common/listTitle/ListTitle';
+import InputForm from '../../common/inputForm/InputForm';
+import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
+import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
 import { useHistory } from 'react-router';
 
 const Registration = () => {
@@ -21,7 +21,9 @@ const Registration = () => {
                 </div>
 
                 <div className={s.listTitleBox}>
-                    <ListTitle />
+                    <ListTitle
+                    text='Sign Up'
+                    />
                 </div>
 
                 <form className={s.formWrap} action="" method="">

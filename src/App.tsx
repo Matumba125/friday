@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
-import {HashRouter} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Routing from "./components/routing/Routing";
 import TestComponent from "./components/test/TestComponent";
-import Loginization from './components/loginization/Loginization';
+import NewPassword from './components/newPassword/NewPassword';
 
 // first commit
 function App() {
   return (
     <div className="App">
-          <HashRouter>
-              <Routing/>
-          </HashRouter>
+      <HashRouter>
+        <Routing />
+      </HashRouter>
+
     </div>
   );
 }
