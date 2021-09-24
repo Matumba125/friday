@@ -34,7 +34,11 @@ const Loginization = () => {
     setRememberMe(!rememberMe);
   };
   const onClickHandler = () => {
-    // dispatch(loginTC());
+    dispatch(loginTC({
+      email: email,
+      password: password,
+      rememberMe: rememberMe
+    }));
   };
 
   return (

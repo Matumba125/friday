@@ -22,6 +22,7 @@ export const loginizationReducer = (state: LoginizetionReducerInititialStateType
 }
 
 //action
+export const setUserDataAC = () => () 
 export const setLoggedAC = (value: boolean) => ({ type: 'LOGIN/SET-LOGGED', value } as const)
 export const setErrorAC = (error: string | undefined) => ({ type: 'LOGIN/SET-ERROR', error } as const)
 
@@ -29,15 +30,10 @@ export const setErrorAC = (error: string | undefined) => ({ type: 'LOGIN/SET-ERR
 export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<LoginizetionReducerActionType>) => {
     authApi.login(data)
         .then((res) => {
-            if (res.status === 200) {
                 dispatch(setLoggedAC(true))
-            } else {
-                dispatch(setErrorAC(res.data.error))
-            }
         })
-        .catch((e) => {
-            const error = e.response ? e.response.data.error : (e.message + ',more details in the console');
-            dispatch(setErrorAC(error))
+        .catch((error) => {
+            dispatch(setErrorAC(error.response.data.error))
         })
 
 }
