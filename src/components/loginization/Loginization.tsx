@@ -1,16 +1,15 @@
-import { Link, Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import s from './Loginization.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import { PATH } from '../routing/Routing';
-import React,{useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppStateType } from '../../store/store';
-import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
-import {getIsLoggedIn, getLoginError } from '../../store/selectots';
+import {PATH} from '../routing/Routing';
+import React, {FormEvent, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
+import {getIsLoggedIn, getLoginError} from '../../store/selectots';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -32,7 +31,8 @@ const Loginization = () => {
   const onRememberMeChangeHandler = () => {
     setRememberMe(!rememberMe);
   };
-  const onClickHandler = () => {
+  const onClickHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     dispatch(loginTC({
       email: email,
       password: password,
@@ -55,7 +55,7 @@ const Loginization = () => {
           <ListTitle text="Sign In" />
         </div>
 
-        <form className={s.formWrap} action="" method="">
+        <form className={s.formWrap} onSubmit={onClickHandler} action="" method="">
           <InputForm
             text={'Email'}
             inputType={'email'}
@@ -92,7 +92,7 @@ const Loginization = () => {
           </div>
 
           <div className={s.buttonContainer}>
-            <ButtonFormColor text="Login" onClick={onClickHandler} />
+            <ButtonFormColor text="Login" type={'submit'}/>
           </div>
 
           <p className={s.formText}>Don’t have an account?</p>
