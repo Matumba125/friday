@@ -92,7 +92,7 @@ const Loginization = () => {
           </div>
 
           <div className={s.buttonContainer}>
-            <ButtonFormColor text="Login" callback={onClickHandler} />
+            <ButtonFormColor text="Login" onClick={onClickHandler} />
           </div>
 
           <p className={s.formText}>Don’t have an account?</p>
