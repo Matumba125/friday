@@ -7,72 +7,92 @@ import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import { PATH } from '../routing/Routing';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppStateType } from '../../store/store';
+import { loginTC } from '../../store/loginizationReducer';
 
 const Loginization = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
 
-    const onEmailChangeHandler = (email: string) => {
-        setEmail(email);
-    };
-    const onPasswordChangeHandler = (email: string) => {
-        setPassword(password);
-    };
+  const dispatch = useDispatch();
+  const error = useSelector<AppStateType, string | undefined>(
+    (store) => store.loginization.error
+  );
+  const isLoggedIn = useSelector<AppStateType, boolean>(
+    (store) => store.loginization.isLoggedIn
+  );
 
-    return (
-        <CardContainer>
-            <>
-                <div className={s.globalTitleBox}>
-                    <GlobalTitle />
-                </div>
+  const onEmailChangeHandler = (getEmail: string) => {
+    setEmail(getEmail);
+  };
+  const onPasswordChangeHandler = (getPassword: string) => {
+    setPassword(getPassword);
+  };
+  const onRememberMeChangeHandler = () => {
+    setRememberMe(!rememberMe);
+  };
+  const onClickHandler = () => {
+    // dispatch(loginTC());
+  };
 
-                <div className={s.listTitleBox}>
-                    <ListTitle text="Sign In" />
-                </div>
+  return (
+    <CardContainer>
+      <>
+        <div className={s.globalTitleBox}>
+          <GlobalTitle />
+        </div>
 
-                <form className={s.formWrap} action="" method="">
-                    <InputForm
-                        text={'Email'}
-                        inputType={'email'}
-                        placeholder={'Please enter email'}
-                        title={'Please enter email'}
-                        value={email}
-                        onChangeText={onEmailChangeHandler}
-                    />
+        <div className={s.listTitleBox}>
+          <ListTitle text="Sign In" />
+        </div>
 
-                    <InputForm
-                        text={'Password'}
-                        inputType={'password'}
-                        placeholder={'Please enter password'}
-                        pattern={
-                            '(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'
-                        }
-                        title={
-                            'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'
-                        }
-                        value={password}
-                        onChangeText={onPasswordChangeHandler}
-                    />
+        <form className={s.formWrap} action="" method="">
+          <InputForm
+            text={'Email'}
+            inputType={'email'}
+            placeholder={'Please enter email'}
+            title={'Please enter email'}
+            value={email}
+            onChangeText={onEmailChangeHandler}
+          />
 
-                    <div className={s.linkWrap}>
-                        <Link className={s.passForgot} to={PATH.PASSWORD_RECOVERY}>
-                            Forgot password
-                        </Link>
-                    </div>
+          <InputForm
+            text={'Password'}
+            inputType={'password'}
+            placeholder={'Please enter password'}
+            pattern={
+              '(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'
+            }
+            title={
+              'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'
+            }
+            value={password}
+            onChangeText={onPasswordChangeHandler}
+          />
 
-                    <div className={s.buttonContainer}>
-                        <ButtonFormColor text="Login" />
-                    </div>
+          <input type="checkbox" checked={rememberMe} onClick={onRememberMeChangeHandler}/>
 
-                    <p className={s.formText}>Don’t have an account?</p>
-                </form>
+          <div className={s.linkWrap}>
+            <Link className={s.passForgot} to={PATH.PASSWORD_RECOVERY}>
+              Forgot password
+            </Link>
+          </div>
 
-                <Link className={s.linkCardBottom} to={PATH.REGISTRATION}>
-                    Sign Up
-                </Link>
-            </>
-        </CardContainer>
-    );
+          <div className={s.buttonContainer}>
+            <ButtonFormColor text="Login" callback={onClickHandler} />
+          </div>
+
+          <p className={s.formText}>Don’t have an account?</p>
+        </form>
+
+        <Link className={s.linkCardBottom} to={PATH.REGISTRATION}>
+          Sign Up
+        </Link>
+      </>
+    </CardContainer>
+  );
 };
 
 export default Loginization;
