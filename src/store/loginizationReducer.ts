@@ -1,5 +1,5 @@
-import {Dispatch} from "redux"
-import {authApi, LoginParamsType, UserDataType} from "../api/auth-api"
+import { Dispatch } from "redux"
+import { authApi, LoginParamsType, UserDataType } from "../api/auth-api"
 
 
 const inititialState = {
@@ -29,31 +29,30 @@ type LoginizationReducerActionType = ReturnType<typeof setLoggedAC>
 export const loginizationReducer = (state: LoginizationReducerInititialStateType = inititialState, action: LoginizationReducerActionType): LoginizationReducerInititialStateType => {
     switch (action.type) {
         case 'LOGIN/SET-ERROR':
-            return {...state, error: action.error}
+            return { ...state, error: action.error }
         case 'LOGIN/SET-LOGGED':
-            return {...state, isLoggedIn: action.isLoggedIn}
+            return { ...state, isLoggedIn: action.isLoggedIn }
         case 'LOGIN/SET-USER-DATA':
-            return {...state, userData: action.data}
+            return { ...state, userData: action.data }
     }
     return state;
 }
 
 //action
-export const setUserDataAC = (data: UserDataType) => ({type: 'LOGIN/SET-USER-DATA', data} as const)
-export const setLoggedAC = (isLoggedIn: boolean) => ({type: 'LOGIN/SET-LOGGED', isLoggedIn} as const)
-export const setLoginErrorAC = (error: string) => ({type: 'LOGIN/SET-ERROR', error} as const)
+export const setUserDataAC = (data: UserDataType) => ({ type: 'LOGIN/SET-USER-DATA', data } as const)
+export const setLoggedAC = (isLoggedIn: boolean) => ({ type: 'LOGIN/SET-LOGGED', isLoggedIn } as const)
+export const setLoginErrorAC = (error: string) => ({ type: 'LOGIN/SET-ERROR', error } as const)
 
 //thunks
-export const loginTC = (data: LoginParamsType) =>(
+export const loginTC = (data: LoginParamsType) => (
     (dispatch: Dispatch) => {
-    authApi.login(data)
-        .then((res) => {
-            dispatch(setLoggedAC(true))
-            dispatch(setUserDataAC(res.data))
-        })
-        .catch((error) => {
-            dispatch(setLoggedAC(false))
-            dispatch(setLoginErrorAC(error.response.data.error))
-        })
-
-})
+        authApi.login(data)
+            .then((res) => {
+                dispatch(setLoggedAC(true))
+                dispatch(setUserDataAC(res.data))
+            })
+            .catch((error) => {
+                dispatch(setLoggedAC(false))
+                dispatch(setLoginErrorAC(error.response.data.error))
+            })
+    })

@@ -5,12 +5,17 @@ import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import IsLoading from '../../common/isLoading/IsLoading'
+import IsLoading from '../../common/isLoading/IsLoading';
 import { PATH } from '../routing/Routing';
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
-import {getIsLoading, getIsLoggedIn, getLoginError } from '../../store/selectots';
+import {
+  getIsLoading,
+  getIsLoggedIn,
+  getLoginError,
+} from '../../store/selectots';
+import SuperCheckbox from '../../common/trash/c3-SuperCheckbox/SuperCheckbox';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -18,38 +23,39 @@ const Loginization = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const dispatch = useDispatch();
-  const error = useSelector(getLoginError)
+  const error = useSelector(getLoginError);
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const isLoading = useSelector(getIsLoading)
+  const isLoading = useSelector(getIsLoading);
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
-    if (error) dispatch(setLoginErrorAC(''))
+    if (error) dispatch(setLoginErrorAC(''));
   };
   const onPasswordChangeHandler = (getPassword: string) => {
     setPassword(getPassword);
-    if (error) dispatch(setLoginErrorAC(''))
+    if (error) dispatch(setLoginErrorAC(''));
   };
   const onRememberMeChangeHandler = () => {
     setRememberMe(!rememberMe);
   };
   const onClickHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(loginTC({
-      email: email,
-      password: password,
-      rememberMe: rememberMe
-    }));
+    dispatch(
+      loginTC({
+        email: email,
+        password: password,
+        rememberMe: rememberMe,
+      })
+    );
   };
 
   if (isLoggedIn) {
-    return <Redirect to={PATH.PROFILE} />
+    return <Redirect to={PATH.PROFILE} />;
   }
 
   return (
-
     <>
-      { isLoading && <IsLoading/>}
+      {isLoading && <IsLoading />}
 
       <CardContainer>
         <>
@@ -61,7 +67,12 @@ const Loginization = () => {
             <ListTitle text="Sign In" />
           </div>
 
-          <form className={s.formWrap} onSubmit={onClickHandler} action="" method="">
+          <form
+            className={s.formWrap}
+            onSubmit={onClickHandler}
+            action=""
+            method=""
+          >
             <InputForm
               text={'Email'}
               inputType={'email'}
@@ -85,11 +96,14 @@ const Loginization = () => {
               onChangeText={onPasswordChangeHandler}
             />
 
-            <input type="checkbox" checked={rememberMe} onChange={onRememberMeChangeHandler} />
+            <SuperCheckbox
+              checked={rememberMe}
+              onChange={onRememberMeChangeHandler}
+            >
+              remember me
+            </SuperCheckbox>
 
-            {
-              error && <p className={s.error}>{error}</p>
-            }
+            {error && <p className={s.error}>{error}</p>}
 
             <div className={s.linkWrap}>
               <Link className={s.passForgot} to={PATH.PASSWORD_RECOVERY}>
@@ -109,7 +123,6 @@ const Loginization = () => {
           </Link>
         </>
       </CardContainer>
-
     </>
   );
 };
