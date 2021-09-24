@@ -34,7 +34,7 @@ const PasswordRecovery = () => {
 
                         <InputForm
                             text={''}
-                            type={'email'}
+                            inputType={'email'}
                             placeholder={'Email'}
                             title={'Please enter your email'}
                         />

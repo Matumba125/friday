@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
 import s from './InputForm.module.css';
 
-type InputFormPropsType = {
+type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
+
+
+type InputFormPropsType = DefaultInputPropsType & {
     text: string
-    type: string
-    placeholder: string
-    title: string
-    pattern?: string
+    inputType: string
+    onChangeText?: (value: string) => void
 }
 
-const InputForm = (props: InputFormPropsType) => {
+const InputForm: React.FC<InputFormPropsType>= props => {
+
+    const{
+        inputType,
+        text,
+        onChangeText,
+        placeholder,
+        title,
+        pattern,
+        value
+    }=props
     
     // !password control
     const [viewPass, setViewPass] = useState(false);
@@ -18,7 +29,7 @@ const InputForm = (props: InputFormPropsType) => {
     }
     // !password control
 
-    const type = props.type === 'email'
+    const type = inputType === 'email'
      ? 'email'
      : viewPass ? 'text' : 'password';
     const viewPassStyle = viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
@@ -26,21 +37,26 @@ const InputForm = (props: InputFormPropsType) => {
     const onClick = () => {
         setViewPass(state => !state)
     }
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>{
+        onChangeText && onChangeText(e.currentTarget.value)
+    }
 
     return (
         <label className={s.formItem}>
-            <p className={s.inputText}>{props.text}</p>
+            <p className={s.inputText}>{text}</p>
             <div className={s.inputBox}>
                 <input
                     className={s.input}
                     type={type}
-                    placeholder={props.placeholder}
-                    title={props.title}
-                    pattern={props.pattern}
+                    placeholder={placeholder}
+                    title={title}
+                    pattern={pattern}
+                    value={value}
+                    onChange={onChangeHandler}
                     required
                 />
 
-               {props.type === 'password' && <button className={viewPassStyle} onClick={onClick} />}
+               {inputType === 'password' && <button className={viewPassStyle} onClick={onClick} />}
             </div>
         </label>
 

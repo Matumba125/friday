@@ -29,14 +29,14 @@ const Loginization = () => {
 
                 <InputForm
                     text={'Email'}
-                    type={'email'}
+                    inputType={'email'}
                     placeholder={'Please enter email'}
                     title={'Please enter email'}
                 />
 
                 <InputForm
                     text={'Password'}
-                    type={'password'}
+                    inputType={'password'}
                     placeholder={'Please enter password'}
                     pattern={'(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
                     title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'}

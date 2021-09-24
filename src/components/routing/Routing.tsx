@@ -15,7 +15,6 @@ export const PATH ={
     PROFILE: '/profile',
     REGISTRATION: '/registration',
 }
-
 const Routing = () => {
     return (
         <>
