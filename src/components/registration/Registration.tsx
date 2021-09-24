@@ -14,6 +14,8 @@ import { PATH } from '../routing/Routing';
 
 const Registration = () => {
 
+    //testing comment
+
     const dispatch = useDispatch();
 
     const error = useSelector(getRegistrationError)
