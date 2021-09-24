@@ -59,6 +59,8 @@ const Registration = () => {
     }
 
     return (
+    <>
+        { isLoading && <IsLoading/>}
 
         <CardContainer>
             <>
@@ -125,6 +127,7 @@ const Registration = () => {
                 </form>
             </>
         </CardContainer>
+    </>
 
     );
 };

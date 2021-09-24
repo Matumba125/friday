@@ -10,7 +10,7 @@ import { PATH } from '../routing/Routing';
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
-import { getIsLoggedIn, getLoginError } from '../../store/selectots';
+import {getIsLoading, getIsLoggedIn, getLoginError } from '../../store/selectots';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -20,6 +20,7 @@ const Loginization = () => {
   const dispatch = useDispatch();
   const error = useSelector(getLoginError)
   const isLoggedIn = useSelector(getIsLoggedIn);
+  const isLoading = useSelector(getIsLoading)
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
@@ -48,7 +49,7 @@ const Loginization = () => {
   return (
 
     <>
-      {/* <IsLoading /> */}
+      { isLoading && <IsLoading/>}
 
       <CardContainer>
         <>
