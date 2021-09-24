@@ -83,7 +83,7 @@ const Registration = () => {
                         inputType={'password'}
                         placeholder={'Please enter password'}
                         pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
-                        title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'}
+                        title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter.'}
                         value={password}
                         onChangeText={onPasswordChangeHandler}
                     />
@@ -97,7 +97,6 @@ const Registration = () => {
                         value={confirmPassword}
                         onChangeText={onPasswordConfirmChangeHandler}
                     />
-
                     {
                         error && <p className={s.error}>{error}</p>
                     }
