@@ -112,7 +112,7 @@ const Registration = () => {
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
                                 text='Register'
-                                callback={onClickHandler}
+                                onClick={onClickHandler}
                                 disabled={isLoading}
                             />
                         </div>

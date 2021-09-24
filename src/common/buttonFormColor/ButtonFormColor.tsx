@@ -6,7 +6,6 @@ type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
 
 type ButtonFormColorPropsType = DefaultButtonPropsType & {
     text: string
-    callback?: () => void;
 }
 
 
@@ -16,7 +15,7 @@ const ButtonFormColor: React.FC<ButtonFormColorPropsType> = props => {
        
             <button 
                 className={s.buttonSubmitColor} 
-                type="submit" onClick={props?.callback}
+                type="submit" onClick={props.onClick}
                 disabled={props.disabled}
             >{props.text}</button>
     )
