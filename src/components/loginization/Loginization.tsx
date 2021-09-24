@@ -1,11 +1,11 @@
 
 import { Link } from 'react-router-dom';
 import s from './Loginization.module.css';
-import CardContainer from '../cardContainer/CardContainer';
-import GlobalTitle from '../globalTitle/GlobalTitle';
-import ListTitle from '../listTitle/ListTitle';
-import InputForm from '../inputForm/InputForm';
-import ButtonFormColor from '../buttonFormColor/ButtonFormColor';
+import CardContainer from '../../common/cardContainer/CardContainer';
+import GlobalTitle from '../../common/globalTitle/GlobalTitle';
+import ListTitle from '../../common/listTitle/ListTitle';
+import InputForm from '../../common/inputForm/InputForm';
+import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import { PATH } from '../routing/Routing';
 
 const Loginization = () => {
