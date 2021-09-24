@@ -41,7 +41,7 @@ export const loginizationReducer = (state: LoginizetionReducerInititialStateType
 //action
 export const setUserDataAC = (data:UserDataType) => ({type: 'LOGIN/SET-USER-DATA', data} as const) 
 export const setLoggedAC = (value: boolean) => ({ type: 'LOGIN/SET-LOGGED', value } as const)
-export const setErrorAC = (error: string | undefined) => ({ type: 'LOGIN/SET-ERROR', error } as const)
+export const setErrorAC = (error: string) => ({ type: 'LOGIN/SET-ERROR', error } as const)
 
 //thunks
 export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch) => {
