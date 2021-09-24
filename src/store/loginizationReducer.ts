@@ -4,7 +4,7 @@ import { authApi, LoginParamsType } from "../api/auth-api"
 
 const inititialState = {
     isLoggedIn: false,
-    error: '' as string | undefined
+    error: ''
 }
 type LoginizetionReducerInititialStateType = typeof inititialState
 
@@ -22,17 +22,18 @@ export const loginizationReducer = (state: LoginizetionReducerInititialStateType
 }
 
 //action
-export const setUserDataAC = () => () 
 export const setLoggedAC = (value: boolean) => ({ type: 'LOGIN/SET-LOGGED', value } as const)
-export const setErrorAC = (error: string | undefined) => ({ type: 'LOGIN/SET-ERROR', error } as const)
+export const setErrorAC = (error: string) => ({ type: 'LOGIN/SET-ERROR', error } as const)
 
 //thunks
 export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<LoginizetionReducerActionType>) => {
     authApi.login(data)
         .then((res) => {
+            debugger
                 dispatch(setLoggedAC(true))
         })
         .catch((error) => {
+            debugger
             dispatch(setErrorAC(error.response.data.error))
         })
 
