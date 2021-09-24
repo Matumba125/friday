@@ -4,6 +4,7 @@ import {passwordReducer} from "./passwordReducer";
 import {loginizationReducer} from "./loginizationReducer";
 import {profileReducer} from "./profileReducer";
 import {registrationReducer} from "./registrationReducer";
+import { appReducer } from "./appReducer";
 
 
 export const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ export const rootReducer = combineReducers({
     loginization: loginizationReducer,
     profile: profileReducer,
     registration: registrationReducer,
+    app: appReducer,
 })
 
 export type AppStateType = ReturnType<typeof rootReducer>

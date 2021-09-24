@@ -9,16 +9,16 @@ import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
 import {Redirect, useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerTC, setErrorAC } from '../../store/registrationReducer';
-import { getRegistrationError, getRegistrationStatus } from '../../store/selectots';
+import {getIsLoading, getRegistrationError, getRegistrationStatus } from '../../store/selectots';
 import { PATH } from '../routing/Routing';
 
 const Registration = () => {
 
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const error = useSelector(getRegistrationError)
     const registered = useSelector(getRegistrationStatus)
+    const isLoading = useSelector(getIsLoading)
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -108,12 +108,13 @@ const Registration = () => {
 
                     <div className={s.buttonsContainer}>
 
-                        <ButtonFormCancel/>
+                        <ButtonFormCancel disabled={isLoading}/>
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
                                 text='Register'
                                 callback={onClickHandler}
+                                disabled={isLoading}
                             />
                         </div>
                     </div>

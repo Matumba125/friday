@@ -1,5 +1,6 @@
 import {Dispatch} from "redux"
 import {authApi, RegisterParamsType} from "../api/auth-api"
+import { setIsLoading } from "./appReducer"
 
 
 ///Action Tyes
@@ -16,8 +17,8 @@ export type SetRegisteredActionType = {
 export type RegistrartionReducerActionTypes = SetErrorActionType | SetRegisteredActionType
 
 type RegistrationInitialStateType = {
-    error?: string
-    registered?: boolean
+    error: string
+    registered: boolean
 }
 
 const initialState = {
@@ -60,12 +61,15 @@ const setRegisteredAC = (registered: boolean): SetRegisteredActionType => ({
 
 export const registerTC = (regData: RegisterParamsType) => (
     (dispatch: Dispatch) => {
+        dispatch(setIsLoading(true))
         authApi.register(regData).then(() => {
             dispatch(setRegisteredAC(true))
             dispatch(setErrorAC(''))
+            dispatch(setIsLoading(false))
         }).catch((error) => {
             // console.dir(error)
             dispatch(setErrorAC(error.response.data.error))
+            dispatch(setIsLoading(false))
         })
     }
 )
