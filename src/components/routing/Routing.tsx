@@ -8,12 +8,12 @@ import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
 
 export const PATH ={
-    LOGIN: 'friday/login',
-    NOT_FOUND: 'friday/404',
-    NEW_PASSWORD: 'friday/new-password',
-    PASSWORD_RECOVERY: 'friday/password-recovery',
-    PROFILE: 'friday/profile',
-    REGISTRATION: 'friday/registration',
+    LOGIN: '/login',
+    NOT_FOUND: '/404',
+    NEW_PASSWORD: '/new-password',
+    PASSWORD_RECOVERY: '/password-recovery',
+    PROFILE: '/profile',
+    REGISTRATION: '/registration',
 }
 const Routing = () => {
     return (
