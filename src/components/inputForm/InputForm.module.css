@@ -46,3 +46,7 @@
 .view {
     background: url('../../assets/images/eyeNoView.svg') no-repeat center/80%;
 }
+
+/* .input:invalid.error{
+    outline: 1px solid red;
+} */
