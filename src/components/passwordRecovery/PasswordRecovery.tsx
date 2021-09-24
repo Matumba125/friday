@@ -45,7 +45,7 @@ const PasswordRecovery = () => {
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
-                                text='Send Instructions' callback={sendPassword} />
+                                text='Send Instructions' onClick={sendPassword} />
                         </div>
 
                         <p className={`${s.cardText} ${s.cardTextBottom}`}>

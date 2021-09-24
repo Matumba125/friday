@@ -15,6 +15,8 @@ import { PATH } from '../routing/Routing';
 
 const Registration = () => {
 
+    //testing comment
+
     const dispatch = useDispatch();
 
     const error = useSelector(getRegistrationError)
@@ -57,80 +59,73 @@ const Registration = () => {
     }
 
     return (
-        <>
 
-{/*  modale - circleadd */}
-            {/* <IsLoading /> */}
+        <CardContainer>
+            <>
+                <div className={s.globalTitleBox}>
+                    <GlobalTitle />
+                </div>
 
-            <CardContainer>
-                <>
+                <div className={s.listTitleBox}>
+                    <ListTitle
+                        text='Sign Up'
+                    />
+                </div>
 
-                    <div className={s.globalTitleBox}>
-                        <GlobalTitle />
-                    </div>
+                <form className={s.formWrap} action="" method="">
 
-                    <div className={s.listTitleBox}>
-                        <ListTitle
-                            text='Sign Up'
-                        />
-                    </div>
+                    <InputForm
+                        text={'Email'}
+                        inputType={'email'}
+                        placeholder={'Please enter email'}
+                        title={'Please enter email'}
+                        value={email}
+                        onChangeText={onEmailChangeHandler}
+                    />
 
-                    <form className={s.formWrap} action="" method="">
+                    <InputForm
+                        text={'Password'}
+                        inputType={'password'}
+                        placeholder={'Please enter password'}
+                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                        title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter.'}
+                        value={password}
+                        onChangeText={onPasswordChangeHandler}
+                    />
 
-                        <InputForm
-                            text={'Email'}
-                            inputType={'email'}
-                            placeholder={'Please enter email'}
-                            title={'Please enter email'}
-                            value={email}
-                            onChangeText={onEmailChangeHandler}
-                        />
+                    <InputForm
+                        text={'Сonfirm password'}
+                        inputType={'password'}
+                        placeholder={'Please confirm password'}
+                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                        title={'Please confirm password'}
+                        value={confirmPassword}
+                        onChangeText={onPasswordConfirmChangeHandler}
+                    />
+                    {
+                        error && <p className={s.error}>{error}</p>
+                    }
 
-                        <InputForm
-                            text={'Password'}
-                            inputType={'password'}
-                            placeholder={'Please enter password'}
-                            pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
-                            title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'}
-                            value={password}
-                            onChangeText={onPasswordChangeHandler}
-                        />
+                    {
+                        passwordsUnmatch && <p className={s.error}>Passwords don't match</p>
+                    }
 
-                        <InputForm
-                            text={'Сonfirm password'}
-                            inputType={'password'}
-                            placeholder={'Please confirm password'}
-                            pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
-                            title={'Please confirm password'}
-                            value={confirmPassword}
-                            onChangeText={onPasswordConfirmChangeHandler}
-                        />
+                    <div className={s.buttonsContainer}>
 
-                        {
-                            error && <p className={s.error}>{error}</p>
-                        }
+                        <ButtonFormCancel disabled={isLoading} />
 
-                        {
-                            passwordsUnmatch && <p className={s.error}>Passwords don't match</p>
-                        }
-
-                        <div className={s.buttonsContainer}>
-
-                            <ButtonFormCancel disabled={isLoading} />
-
-                            <div className={s.buttonContainer}>
-                                <ButtonFormColor
-                                    text='Register'
-                                    callback={onClickHandler}
-                                    disabled={isLoading}
-                                />
-                            </div>
+                        <div className={s.buttonContainer}>
+                            <ButtonFormColor
+                                text='Register'
+                                onClick={onClickHandler}
+                                disabled={isLoading}
+                            />
                         </div>
+                    </div>
+                </form>
+            </>
+        </CardContainer>
 
-                    </form>
-                </>
-            </CardContainer>
-        </>
     );
 };
 
