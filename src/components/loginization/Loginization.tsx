@@ -48,7 +48,7 @@ const Loginization = () => {
   return (
 
     <>
-      {/* <IsLoading /> */}
+    {/* <IsLoading/> */}
 
       <CardContainer>
         <>
