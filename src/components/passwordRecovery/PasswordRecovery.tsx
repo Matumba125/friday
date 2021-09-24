@@ -17,48 +17,48 @@ const PasswordRecovery = () => {
     }
 
     return (
-        !isPasswordSent ? 
+        !isPasswordSent ?
             <CardContainer>
-            <>
-                <div className={s.globalTitleBox}>
-                    <GlobalTitle />
-                </div>
-
-                <div className={s.listTitleBox}>
-                    <ListTitle
-                    text='Forgot your password?'
-                    />
-                </div>
-
-                <form className={s.formWrap} action="" method="">
-
-                    <InputForm
-                        text={''}
-                        type={'email'}
-                        placeholder={'Email'}
-                        title={'Please enter your email'}
-                    />
-
-                    <p className={`${s.cardText} ${s.cardTextTop}`}>
-                        Enter your email address and we will send you further instructions
-                    </p>
-
-                    <div className={s.buttonContainer}>
-                        <ButtonFormColor
-                            text='Send Instructions' callback={sendPassword} />
+                <>
+                    <div className={s.globalTitleBox}>
+                        <GlobalTitle />
                     </div>
 
-                    <p className={`${s.cardText} ${s.cardTextBottom}`}>
-                        Did you remember your password?
-                    </p>
+                    <div className={s.listTitleBox}>
+                        <ListTitle
+                            text='Forgot your password?'
+                        />
+                    </div>
 
-                </form>
+                    <form className={s.formWrap} action="" method="">
 
-                <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
+                        <InputForm
+                            text={''}
+                            type={'email'}
+                            placeholder={'Email'}
+                            title={'Please enter your email'}
+                        />
 
-            </>
-        </CardContainer>
-         : <CheckEmail/>
+                        <p className={`${s.cardText} ${s.cardTextTop}`}>
+                            Enter your email address and we will send you further instructions
+                        </p>
+
+                        <div className={s.buttonContainer}>
+                            <ButtonFormColor
+                                text='Send Instructions' callback={sendPassword} />
+                        </div>
+
+                        <p className={`${s.cardText} ${s.cardTextBottom}`}>
+                            Did you remember your password?
+                        </p>
+
+                    </form>
+
+                    <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
+
+                </>
+            </CardContainer>
+            : <CheckEmail />
     );
 };
 

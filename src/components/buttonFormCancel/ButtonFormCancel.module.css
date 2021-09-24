@@ -16,10 +16,10 @@
 }
 
 .buttonCancel:hover{
-  box-shadow: inset 0 0 0 3px #21268F;  
-}
+  box-shadow: 0 0 0 3px #21268F;  
+ }
 
 
 .buttonCancel:active {
-    box-shadow: 0 0 0 3px #21268F;  
+    box-shadow:inset 0 0 0 3px #21268F;  
 }

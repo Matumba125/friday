@@ -19,6 +19,12 @@
     opacity: 1;
 }
 
+.cardText{
+    line-height: 1.5;
+    color: #2D2E46;
+    opacity: 0.7;
+}
+
 @keyframes rotate {
     0% {
         transform: rotateY(90deg);
