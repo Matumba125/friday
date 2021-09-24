@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import s from './Loginization.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
@@ -6,10 +6,11 @@ import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import { PATH } from '../routing/Routing';
-import { useState } from 'react';
+import React,{useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStateType } from '../../store/store';
-import { loginTC } from '../../store/loginizationReducer';
+import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
+import {getIsLoggedIn, getLoginError } from '../../store/selectots';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -17,18 +18,16 @@ const Loginization = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const dispatch = useDispatch();
-  const error = useSelector<AppStateType, string | undefined>(
-    (store) => store.loginization.error
-  );
-  const isLoggedIn = useSelector<AppStateType, boolean>(
-    (store) => store.loginization.isLoggedIn
-  );
+  const error = useSelector(getLoginError)
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
+    if(error) dispatch(setLoginErrorAC(''))
   };
   const onPasswordChangeHandler = (getPassword: string) => {
     setPassword(getPassword);
+    if(error) dispatch(setLoginErrorAC(''))
   };
   const onRememberMeChangeHandler = () => {
     setRememberMe(!rememberMe);
@@ -40,6 +39,10 @@ const Loginization = () => {
       rememberMe: rememberMe
     }));
   };
+
+  if(isLoggedIn){
+    return <Redirect to={PATH.PROFILE}/>
+  }
 
   return (
     <CardContainer>
@@ -76,7 +79,11 @@ const Loginization = () => {
             onChangeText={onPasswordChangeHandler}
           />
 
-          <input type="checkbox" checked={rememberMe} onClick={onRememberMeChangeHandler}/>
+          <input type="checkbox" checked={rememberMe} onChange={onRememberMeChangeHandler}/>
+
+          {
+            error && <p className={s.error}>{error}</p>
+          }
 
           <div className={s.linkWrap}>
             <Link className={s.passForgot} to={PATH.PASSWORD_RECOVERY}>
