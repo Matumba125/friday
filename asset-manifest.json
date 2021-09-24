@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.89495337.chunk.css",
-    "main.js": "/static/js/main.e008f94f.chunk.js",
-    "main.js.map": "/static/js/main.e008f94f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.2f18074e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.2f18074e.js.map",
-    "static/css/2.679831fc.chunk.css": "/static/css/2.679831fc.chunk.css",
-    "static/js/2.7bb0ea5a.chunk.js": "/static/js/2.7bb0ea5a.chunk.js",
-    "static/js/2.7bb0ea5a.chunk.js.map": "/static/js/2.7bb0ea5a.chunk.js.map",
-    "static/js/3.f3ca3a97.chunk.js": "/static/js/3.f3ca3a97.chunk.js",
-    "static/js/3.f3ca3a97.chunk.js.map": "/static/js/3.f3ca3a97.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.679831fc.chunk.css.map": "/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.89495337.chunk.css.map": "/static/css/main.89495337.chunk.css.map",
-    "static/js/2.7bb0ea5a.chunk.js.LICENSE.txt": "/static/js/2.7bb0ea5a.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/SFUIDisplay-Semibold.d3f53e85.woff2",
-    "static/media/InputForm.module.css": "/static/media/eyeView.935daeca.svg"
+    "main.css": "/friday/static/css/main.e11f539e.chunk.css",
+    "main.js": "/friday/static/js/main.e008f94f.chunk.js",
+    "main.js.map": "/friday/static/js/main.e008f94f.chunk.js.map",
+    "runtime-main.js": "/friday/static/js/runtime-main.72461605.js",
+    "runtime-main.js.map": "/friday/static/js/runtime-main.72461605.js.map",
+    "static/css/2.679831fc.chunk.css": "/friday/static/css/2.679831fc.chunk.css",
+    "static/js/2.7bb0ea5a.chunk.js": "/friday/static/js/2.7bb0ea5a.chunk.js",
+    "static/js/2.7bb0ea5a.chunk.js.map": "/friday/static/js/2.7bb0ea5a.chunk.js.map",
+    "static/js/3.f3ca3a97.chunk.js": "/friday/static/js/3.f3ca3a97.chunk.js",
+    "static/js/3.f3ca3a97.chunk.js.map": "/friday/static/js/3.f3ca3a97.chunk.js.map",
+    "index.html": "/friday/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/friday/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.e11f539e.chunk.css.map": "/friday/static/css/main.e11f539e.chunk.css.map",
+    "static/js/2.7bb0ea5a.chunk.js.LICENSE.txt": "/friday/static/js/2.7bb0ea5a.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/friday/static/media/SFUIDisplay-Semibold.d3f53e85.woff2",
+    "static/media/InputForm.module.css": "/friday/static/media/eyeView.935daeca.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2f18074e.js",
+    "static/js/runtime-main.72461605.js",
     "static/css/2.679831fc.chunk.css",
     "static/js/2.7bb0ea5a.chunk.js",
-    "static/css/main.89495337.chunk.css",
+    "static/css/main.e11f539e.chunk.css",
     "static/js/main.e008f94f.chunk.js"
   ]
 }
