@@ -44,7 +44,7 @@ const InputForm: React.FC<InputFormPropsType>= props => {
             <div className={s.inputBox}>
                 <input
                     className={s.input}
-                    type={type}
+                    type={inputType}
                     placeholder={placeholder}
                     title={title}
                     pattern={pattern}
