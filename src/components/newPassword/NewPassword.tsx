@@ -55,8 +55,8 @@ const NewPassword = () => {
                             text={''}
                             inputType={'password'}
                             placeholder={'Password'}
-                            title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter, and one of the special characters ! @ # $% ^ & *'}
-                            pattern={'(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                            title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter'}
+                            pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
 
                         />
 
