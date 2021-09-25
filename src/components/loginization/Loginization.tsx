@@ -17,7 +17,6 @@ const Loginization = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [rememberMe, setRememberMe] = useState<boolean>(false);
-  console.log(rememberMe);
 
   const dispatch = useDispatch();
   const error = useSelector(getLoginError)

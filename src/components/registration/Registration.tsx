@@ -89,8 +89,8 @@ const Registration = () => {
                         text={'Password'}
                         inputType={'password'}
                         placeholder={'Please enter password'}
-                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
-                        title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter.'}
+                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}'}
+                        title={'the password must be at least 8 characters long including, one number, one capital letter, one small letter.'}
                         value={password}
                         onChangeText={onPasswordChangeHandler}
                     />
@@ -99,7 +99,7 @@ const Registration = () => {
                         text={'Сonfirm password'}
                         inputType={'password'}
                         placeholder={'Please confirm password'}
-                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}'}
                         title={'Please confirm password'}
                         value={confirmPassword}
                         onChangeText={onPasswordConfirmChangeHandler}

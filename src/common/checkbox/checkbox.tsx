@@ -24,11 +24,11 @@ const Checkbox: React.FC<CheckboxPropsType> = props => {
     return (
         <label className={s.formCheckbox}>
             <input
-            checked={props.checked}
                 className={s.checkbox}
                 type="checkbox"
                 name={props.name}
                 value={props.value}
+                checked={props.checked}
                 onChange={props.onChange}
             />
             <span className={s.checkStyle}></span>
