@@ -35,3 +35,7 @@ export const getIsSended = (state: AppStateType): boolean =>{
 export const getPasswordRecoveryError = (state: AppStateType): string =>{
     return state.password.error
 }
+
+export const getPasswordSetted = (state: AppStateType): boolean =>{
+    return state.password.passwordSetted
+}

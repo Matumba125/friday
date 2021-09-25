@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import s from './Registration.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
@@ -7,11 +7,11 @@ import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
 import IsLoading from '../../common/isLoading/IsLoading';
-import { Redirect, useHistory } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerTC, setErrorAC } from '../../store/registrationReducer';
-import { getIsLoading, getRegistrationError, getRegistrationStatus } from '../../store/selectots';
-import { PATH } from '../routing/Routing';
+import {Redirect} from 'react-router';
+import {useDispatch, useSelector} from 'react-redux';
+import {registerTC, setErrorAC} from '../../store/registrationReducer';
+import {getIsLoading, getRegistrationError, getRegistrationStatus} from '../../store/selectots';
+import {PATH} from '../routing/Routing';
 
 const Registration = () => {
 

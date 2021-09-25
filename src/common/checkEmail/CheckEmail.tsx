@@ -5,7 +5,11 @@ import GlobalTitle from '../globalTitle/GlobalTitle';
 import ListTitle from '../listTitle/ListTitle';
 import checkEmailImg from '../../assets/images/checkEmailImg.png';
 
-const CheckEmail = () => {
+type CheckEmailPropsType ={
+    email: string
+}
+
+const CheckEmail = (props: CheckEmailPropsType) => {
 
     return (
         <CardContainer>
@@ -24,7 +28,7 @@ const CheckEmail = () => {
                     />
                 </div>
 
-                <p className={s.cardText}>We’ve sent an Email with instructions to example@mail.com</p>
+                <p className={s.cardText}>We’ve sent an Email with instructions to {props.email}</p>
             </>
         </CardContainer>
     )
