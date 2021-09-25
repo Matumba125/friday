@@ -5,9 +5,20 @@ import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
+import { useParams } from 'react-router-dom';
 
+type ParamsType = {
+    token: string
+}
 
 const NewPassword = () => {
+    
+    let params = useParams<ParamsType>()
+
+    let token = params.token
+
+    alert(token)
+    
     return (
         <div>
             <CardContainer>
