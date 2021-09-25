@@ -25,3 +25,13 @@ export const getIsLoggedIn = (state: AppStateType): boolean =>{
 export const getLoginError = (state: AppStateType): string =>{
     return state.loginization.error
 }
+
+//// Password Recovery Selectors
+
+export const getIsSended = (state: AppStateType): boolean =>{
+    return state.password.isSended
+}
+
+export const getPasswordRecoveryError = (state: AppStateType): string =>{
+    return state.password.error
+}

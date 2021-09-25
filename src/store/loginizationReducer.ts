@@ -1,5 +1,6 @@
 import {Dispatch} from "redux"
 import {authApi, LoginParamsType, UserDataType} from "../api/auth-api"
+import { setIsLoading } from "./appReducer"
 
 
 const inititialState = {
@@ -16,8 +17,6 @@ const inititialState = {
         tokenDeathTime: 0,
         updated: '',
         verified: false,
-        __v: 0,
-        _id: ''
     }
 }
 type LoginizationReducerInititialStateType = typeof inititialState
@@ -46,12 +45,15 @@ export const setLoginErrorAC = (error: string) => ({type: 'LOGIN/SET-ERROR', err
 //thunks
 export const loginTC = (data: LoginParamsType) =>(
     (dispatch: Dispatch) => {
-    authApi.login(data)
+        dispatch(setIsLoading(true))
+        authApi.login(data)
         .then((res) => {
+            dispatch(setIsLoading(false))
             dispatch(setLoggedAC(true))
             dispatch(setUserDataAC(res.data))
         })
         .catch((error) => {
+            dispatch(setIsLoading(false))
             dispatch(setLoggedAC(false))
             dispatch(setLoginErrorAC(error.response.data.error))
         })
