@@ -7,16 +7,18 @@ const inititialState = {
     isLoggedIn: false,
     error: '',
     userData: {
-        created: '',
+        _id: '',
         email: '',
-        isAdmin: false,
         name: '',
-        publicCardPacksCount: 0,
+        publicCardPacksCount: 0, 
+
+        created: new Date(),
+        updated: new Date(),
+        isAdmin: false,
+        verified: false, 
         rememberMe: false,
-        token: '',
-        tokenDeathTime: 0,
-        updated: '',
-        verified: false,
+        
+        
     }
 }
 type LoginizationReducerInititialStateType = typeof inititialState
@@ -59,3 +61,21 @@ export const loginTC = (data: LoginParamsType) =>(
         })
 
 })
+
+
+//////////////////////// AUTH ME
+
+export const authMeTC = ()=>(
+    (dispatch: Dispatch)=>{
+        dispatch(setIsLoading(true))
+        authApi.me()
+            .then((res)=>{
+                dispatch(setIsLoading(false))
+                dispatch(setLoggedAC(true))
+                dispatch(setUserDataAC(res.data))
+            })
+            .catch((error)=>{
+                dispatch(setIsLoading(false))
+            })
+    }
+)

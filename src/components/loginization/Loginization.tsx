@@ -8,10 +8,10 @@ import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import Checkbox from '../../common/checkbox/checkbox';
 import IsLoading from '../../common/isLoading/IsLoading';
 import { PATH } from '../routing/Routing';
-import React, { FormEvent, useState } from 'react';
-import {useDispatch, useSelector } from 'react-redux';
-import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
-import { getIsLoading, getIsLoggedIn, getLoginError } from '../../store/selectots';
+import React, {FormEvent, useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {authMeTC, loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
+import {getIsLoading, getIsLoggedIn, getLoginError} from '../../store/selectots';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -22,6 +22,10 @@ const Loginization = () => {
   const error = useSelector(getLoginError)
   const isLoggedIn = useSelector(getIsLoggedIn);
   const isLoading = useSelector(getIsLoading)
+
+  useEffect(() => {
+    if (!isLoggedIn) dispatch(authMeTC())
+  }, [])
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
