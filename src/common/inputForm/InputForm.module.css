@@ -1,5 +1,4 @@
 .input {
-    margin-bottom: 1.5rem;
     width: 100%;
     border: transparent;
     padding-bottom: 0.25rem;
@@ -20,13 +19,13 @@
 }
 
 .input[placeholder] {
-    font-family: 'SFUIDisplayMedium', sans-serif;
     line-height: 2;
     color: #2D2E46;
 }
 
 .inputBox {
     position: relative;
+    margin-bottom: 1.5rem;
 }
 
 .passwordControl {

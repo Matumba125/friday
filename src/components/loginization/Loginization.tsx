@@ -85,7 +85,11 @@ const Loginization = () => {
               onChangeText={onPasswordChangeHandler}
             />
 
-            <input type="checkbox" checked={rememberMe} onChange={onRememberMeChangeHandler} />
+            <input className={s.input}
+              type="checkbox"
+              checked={rememberMe}
+              onChange={onRememberMeChangeHandler} />
+
 
             {
               error && <p className={s.error}>{error}</p>

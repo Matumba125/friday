@@ -48,7 +48,9 @@ p {
 }
 
 button,
-input {
+input,
+label
+ {
   cursor: pointer;
 }
 
