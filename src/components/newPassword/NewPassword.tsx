@@ -26,6 +26,10 @@ const NewPassword = () => {
 
     const params = useParams<ParamsType>()
 
+    const onPasswordChangeHandler = (gainedPass: string) =>{
+        setPassword(gainedPass)
+    }
+
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
         dispatch(setNewPasswordTC(password, params.token))
@@ -57,6 +61,8 @@ const NewPassword = () => {
                             placeholder={'Password'}
                             title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter'}
                             pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                            value={password}
+                            onChangeText={onPasswordChangeHandler}
 
                         />
 
