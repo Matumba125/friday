@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {FormEvent, useState} from 'react';
 import s from './NewPassword.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import { useParams } from 'react-router-dom';
+import {Redirect, useParams} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {getPasswordRecoveryError, getPasswordSetted } from '../../store/selectots';
+import { PATH } from '../routing/Routing';
+import { setNewPasswordTC } from '../../store/passwordReducer';
 
 type ParamsType = {
     token: string
@@ -13,11 +17,23 @@ type ParamsType = {
 
 const NewPassword = () => {
     
-    let params = useParams<ParamsType>()
+    const [password, setPassword] = useState<string>('')
 
-    let token = params.token
+    const dispatch = useDispatch()
 
-    alert(token)
+    const passwordSetted = useSelector(getPasswordSetted)
+    const error = useSelector(getPasswordRecoveryError)
+
+    const params = useParams<ParamsType>()
+
+    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) =>{
+        e.preventDefault()
+        dispatch(setNewPasswordTC(password, params.token))
+    }
+
+    if(passwordSetted){
+        return <Redirect to={PATH.LOGIN}/>
+    }
     
     return (
         <div>
@@ -33,7 +49,7 @@ const NewPassword = () => {
                         />
                     </div>
 
-                    <form className={s.formWrap} action="" method="">
+                    <form className={s.formWrap} onSubmit={onSubmitHandler}>
 
                         <InputForm
                             text={''}
@@ -44,8 +60,12 @@ const NewPassword = () => {
 
                         />
 
+                        {
+                            error && <p className={s.error}>{error}</p>
+                        }
+
                         <p className={s.cardText}>
-                            Create new password and we will send you further instructions to email
+                            Create new password
                         </p>
 
                         <div className={s.buttonContainer}>

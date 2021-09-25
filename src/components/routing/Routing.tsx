@@ -10,7 +10,7 @@ import Registration from "../registration/Registration";
 export const PATH ={
     LOGIN: '/login',
     NOT_FOUND: '/404',
-    NEW_PASSWORD: '/new-password',
+    NEW_PASSWORD: '/new-password/:token',
     PASSWORD_RECOVERY: '/password-recovery',
     PROFILE: '/profile',
     REGISTRATION: '/registration',

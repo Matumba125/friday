@@ -8,7 +8,7 @@ import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import IsLoading from '../../common/isLoading/IsLoading'
 import { PATH } from '../routing/Routing';
 import React, { FormEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux';
 import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
 import {getIsLoading, getIsLoggedIn, getLoginError } from '../../store/selectots';
 
