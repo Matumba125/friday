@@ -11,6 +11,13 @@ import CheckEmail from '../../common/checkEmail/CheckEmail';
 
 const PasswordRecovery = () => {
     const [isPasswordSent, setIsPasswordSent] = useState(false);
+    const [email, setEmail] = useState<string>('')
+    
+    const onEmailChangeHandler = (gainedEmail: string) =>{
+        setEmail(gainedEmail)
+    }
+
+    
 
     const sendPassword = () => {
         setIsPasswordSent(true);
@@ -37,6 +44,8 @@ const PasswordRecovery = () => {
                             inputType={'email'}
                             placeholder={'Email'}
                             title={'Please enter your email'}
+                            value={email}
+                            onChangeText={onEmailChangeHandler}
                         />
 
                         <p className={`${s.cardText} ${s.cardTextTop}`}>

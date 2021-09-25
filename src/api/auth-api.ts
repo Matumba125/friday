@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    //baseURL: "http://localhost:7542/2.0/",
-    baseURL: "https://neko-back.herokuapp.com/2.0",
+    baseURL: "http://localhost:7542/2.0/",
+    // baseURL: "https://neko-back.herokuapp.com/2.0",
     withCredentials: true,
     headers: {
         'API-KEY': ''
@@ -79,8 +79,6 @@ export type UserDataType = {
     tokenDeathTime: number
     updated: string
     verified: boolean
-    __v: number
-    _id: string
 }
 
 export type RegisterResponseType = {
@@ -100,11 +98,8 @@ export type InfoResponseType = {
 
 export type ForgotParamsType = {
     email: string
-    from: "test-front-admin <lonely__wind@mail.ru>"
-    message: `<div style="background-color: lime; padding: 15px"
-	          password recovery link: 
-	          <a href='http://localhost:3000/#/set-new-password/$token$'>	//бэк должен вставить токен!!
-	          link</a></div>`
+    from: string
+    message: string
 }
 
 export type SetNewPasswordParamsType = {

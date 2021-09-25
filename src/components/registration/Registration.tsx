@@ -114,13 +114,12 @@ const Registration = () => {
 
                     <div className={s.buttonsContainer}>
 
-                        <ButtonFormCancel disabled={isLoading} />
+                        <ButtonFormCancel/>
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
                                 text='Register'
                                 onClick={onClickHandler}
-                                disabled={isLoading}
                             />
                         </div>
                     </div>
