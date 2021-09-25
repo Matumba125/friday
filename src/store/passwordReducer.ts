@@ -61,10 +61,9 @@ export const sendRecoveryMailTC = (email: string) =>(
      const forgotData: ForgotParamsType ={
         email: email,
         from: "test-front-admin <lonely__wind@mail.ru>",
-        message: `<div style="background-color: lime; padding: 15px"
-	          password recovery link: 
-	          <a href='http://matumba125.github.io/friday/#/new-password/$token$'>	
-	          Click Here</a></div>`
+        message: `<div> password recovery link:  
+                        <link href='https://matumba125.github.io/friday/#/new-password/$token$'>
+                             Click Here </link></div>`
     }
     authApi.forgot(forgotData)
         .then(()=>{
