@@ -5,7 +5,8 @@ import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import IsLoading from '../../common/isLoading/IsLoading'
+import Checkbox from '../../common/checkbox/checkbox';
+import IsLoading from '../../common/isLoading/IsLoading';
 import { PATH } from '../routing/Routing';
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +17,7 @@ const Loginization = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [rememberMe, setRememberMe] = useState<boolean>(false);
+  console.log(rememberMe);
 
   const dispatch = useDispatch();
   const error = useSelector(getLoginError)
@@ -85,12 +87,13 @@ const Loginization = () => {
               onChangeText={onPasswordChangeHandler}
             />
 
-            <input className={s.input}
-              type="checkbox"
+            <Checkbox
               checked={rememberMe}
+              name={'remember'}
+              value={'remember'}
+              text={'Remember me'}
+              // checked={'checked'}
               onChange={onRememberMeChangeHandler} />
-
-
             {
               error && <p className={s.error}>{error}</p>
             }
