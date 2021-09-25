@@ -6,10 +6,11 @@ import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {Redirect, useParams} from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import {getPasswordRecoveryError, getPasswordSetted } from '../../store/selectots';
-import { PATH } from '../routing/Routing';
-import { setNewPasswordTC } from '../../store/passwordReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {getIsLoading, getPasswordRecoveryError, getPasswordSetted} from '../../store/selectots';
+import {PATH} from '../routing/Routing';
+import {setNewPasswordTC} from '../../store/passwordReducer';
+import IsLoading from '../../common/isLoading/IsLoading';
 
 type ParamsType = {
     token: string
@@ -23,6 +24,7 @@ const NewPassword = () => {
 
     const passwordSetted = useSelector(getPasswordSetted)
     const error = useSelector(getPasswordRecoveryError)
+    const isLoading = useSelector(getIsLoading)
 
     const params = useParams<ParamsType>()
 
@@ -40,7 +42,9 @@ const NewPassword = () => {
     }
     
     return (
-        <div>
+        <>
+            { isLoading && <IsLoading/>}
+            
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>
@@ -85,7 +89,7 @@ const NewPassword = () => {
             </CardContainer>
 
 
-        </div>
+        </>
     );
 };
 

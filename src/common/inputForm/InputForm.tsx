@@ -24,9 +24,6 @@ const InputForm: React.FC<InputFormPropsType>= props => {
     
     // !password control
     const [viewPass, setViewPass] = useState(false);
-    const onViewPass = () => {
-        setViewPass(state => !state)
-    }
     // !password control
 
     const type = inputType === 'email'
@@ -35,7 +32,7 @@ const InputForm: React.FC<InputFormPropsType>= props => {
     const viewPassStyle = viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
 
     const onClick = () => {
-        setViewPass(state => !state)
+        setViewPass(!viewPass)
     }
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>{
         onChangeText && onChangeText(e.currentTarget.value)
