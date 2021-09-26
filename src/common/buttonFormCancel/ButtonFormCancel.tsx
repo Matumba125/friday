@@ -10,6 +10,7 @@ const ButtonFormCancel: React.FC<DefaultButtonPropsType> = props => {
 
     const onClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
         e.preventDefault()
+        console.log(history)
         history.goBack()
     }
 

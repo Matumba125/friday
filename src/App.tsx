@@ -5,12 +5,18 @@ import Routing from "./components/routing/Routing";
 import { useSelector } from 'react-redux';
 import { AppStateType } from './store/store';
 import Header from './common/header/Header'
+import {getIsLoading, getIsLoggedIn } from './store/selectots';
+import IsLoading from './common/isLoading/IsLoading';
 
 function App() {
-  const isLoggedIn = useSelector<AppStateType, boolean>(state => state.loginization.isLoggedIn);
+  
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  const isLoading = useSelector(getIsLoading)
+
   return (
     <HashRouter>
-    <div className="App">
+      { isLoading && <IsLoading/>}
+      <div className="App">
       {isLoggedIn && <Header />}
         <Routing />
     </div>

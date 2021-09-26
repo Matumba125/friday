@@ -21,7 +21,6 @@ const Registration = () => {
 
     const error = useSelector(getRegistrationError)
     const registered = useSelector(getRegistrationStatus)
-    const isLoading = useSelector(getIsLoading)
 
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -60,7 +59,6 @@ const Registration = () => {
 
     return (
     <>
-        { isLoading && <IsLoading/>}
 
         <CardContainer>
             <>

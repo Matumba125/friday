@@ -1,7 +1,9 @@
 import { Dispatch } from "redux"
 import { authApi } from "../api/auth-api"
 import { setIsLoading } from "./appReducer"
-import { setLoggedAC, setUserDataAC } from "./loginizationReducer"
+import { setLoggedAC} from "./loginizationReducer"
+import {setProfileIsEditingAC, setUserDataAC } from "./profileReducer"
+import { AppStateType } from "./store"
 
 
 
@@ -32,6 +34,23 @@ export const logOutTC = () =>(
                 dispatch(setLoggedAC(false))
             })
             .catch((error) =>{
+                dispatch(setIsLoading(false))
+            })
+    }
+)
+
+
+export const updateProfileTC = (name: string, avatar: string | undefined) =>(
+    (dispatch: Dispatch, getState: AppStateType)=>{
+        
+        dispatch(setIsLoading(true))
+        authApi.update({name: name, avatar: avatar})
+            .then((res)=> {
+                dispatch(setIsLoading(false))
+                dispatch(setUserDataAC(res.data.updatedUser))
+                dispatch(setProfileIsEditingAC(false))
+            })
+            .catch((error)=>{
                 dispatch(setIsLoading(false))
             })
     }

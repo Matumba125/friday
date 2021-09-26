@@ -19,7 +19,6 @@ const PasswordRecovery = () => {
 
     const isSended = useSelector(getIsSended)
     const error = useSelector(getPasswordRecoveryError)
-    const isLoading = useSelector(getIsLoading)
 
 
     const [email, setEmail] = useState<string>('')
@@ -35,7 +34,6 @@ const PasswordRecovery = () => {
 
     return (
         <>
-            { isLoading && <IsLoading/>}
             
             {!isSended ?
                 <CardContainer>

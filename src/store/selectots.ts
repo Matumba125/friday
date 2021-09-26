@@ -39,3 +39,17 @@ export const getPasswordRecoveryError = (state: AppStateType): string =>{
 export const getPasswordSetted = (state: AppStateType): boolean =>{
     return state.password.passwordSetted
 }
+
+//// Profile Page Selectors
+
+export const getIsProfileEditing = (state:AppStateType): boolean =>{
+    return state.profile.isEditing
+}
+
+export const getUserName = (state: AppStateType): string =>{
+    return state.profile.userData.name
+}
+
+export const getUserAvatar = (state: AppStateType): string | undefined =>{
+    return state.profile.userData.avatar
+}

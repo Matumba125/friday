@@ -26,7 +26,7 @@ const Header = () => {
                         <GlobalTitle />
                     </div>
                     <div className={s.headerLinks}>
-                        <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.NEW_PASSWORD}>
+                        <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.CARDS_PACKS}>
                             <img className={s.headerLinkImg} src={PacksList} alt="Card img" />
                             Packs list
                         </NavLink>
