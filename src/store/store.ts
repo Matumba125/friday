@@ -7,6 +7,7 @@ import {registrationReducer} from "./registrationReducer";
 import { appReducer } from "./appReducer";
 import { cardsPacksReducer } from "./cardsPacksReducer";
 import { cardsReducer } from "./cardsReducer";
+import { findReducer } from "./findReducer";
 
 
 export const rootReducer = combineReducers({
@@ -17,6 +18,7 @@ export const rootReducer = combineReducers({
     app: appReducer,
     cardsPack: cardsPacksReducer,
     cards: cardsReducer,
+    find: findReducer,
 })
 
 export type AppStateType = ReturnType<typeof rootReducer>
