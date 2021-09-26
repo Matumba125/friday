@@ -1,11 +1,15 @@
 import { UserDataType } from "../api/auth-api"
 
-type SetUserDataType ={
+type SetUserDataActionType ={
     type: 'PROFILE/SET-USER-DATA',
     data: UserDataType
 }
+type SetProfileIsEditingActionType ={
+    type: 'PROFILE/SET-IS-EDITING',
+    isEditing: boolean
+}
 
-type ProfileReducerActionType = SetUserDataType
+type ProfileReducerActionType = SetUserDataActionType | SetProfileIsEditingActionType
 
 const initialState = {
     userData: {
@@ -22,11 +26,13 @@ const initialState = {
         rememberMe: false,
 
 
-    }
+    },
+    isEditing: false,
 }
 
 type ProfileReducerInitialStateType = {
-    userData: UserDataType
+    userData: UserDataType,
+    isEditing: boolean
 }
 
 export const profileReducer = (state:ProfileReducerInitialStateType = initialState, action: ProfileReducerActionType): ProfileReducerInitialStateType =>{
@@ -36,10 +42,16 @@ export const profileReducer = (state:ProfileReducerInitialStateType = initialSta
                 ...state,
                 userData: action.data
             }
+        case 'PROFILE/SET-IS-EDITING':
+            return {
+                ...state,
+                isEditing: action.isEditing
+            }
         default:
             return state
     }
 
 }
 
-export const setUserDataAC = (data: UserDataType): SetUserDataType => ({type: 'PROFILE/SET-USER-DATA', data})
+export const setUserDataAC = (data: UserDataType): SetUserDataActionType => ({type: 'PROFILE/SET-USER-DATA', data})
+export const setProfileIsEditingAC = (isEditing: boolean): SetProfileIsEditingActionType =>({type:"PROFILE/SET-IS-EDITING", isEditing})

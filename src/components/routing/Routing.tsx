@@ -14,6 +14,7 @@ export const PATH ={
     PASSWORD_RECOVERY: '/password-recovery',
     PROFILE: '/profile',
     REGISTRATION: '/registration',
+    EDIT_PROFILE: '/edit-profile'
 }
 const Routing = () => {
     return (
@@ -26,6 +27,7 @@ const Routing = () => {
                 <Route path={PATH.PASSWORD_RECOVERY} render={()=> <PasswordRecovery/>} />
                 <Route path={PATH.PROFILE} render={()=> <Profile/>} />
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
+                {/*<Route path={PATH.EDIT_PROFILE} render={()=> <EditProfile/>} />*/}
             </Switch>
         </>
     );

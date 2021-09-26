@@ -42,8 +42,10 @@ export const logOutTC = () =>(
 
 export const updateProfileTC = (gainedName?: string, gainedAvatar?: string) =>(
     (dispatch: Dispatch, getState: AppStateType)=>{
+
         let name = gainedName ? gainedName : getState.profile.userData.name
-        let avatar = gainedAvatar ? gainedAvatar : ''
+        let avatar = gainedAvatar ? gainedAvatar : getState.profile.userData.avatar
+
         dispatch(setIsLoading(true))
         authApi.update({name: name, avatar: avatar})
             .then((res)=> {

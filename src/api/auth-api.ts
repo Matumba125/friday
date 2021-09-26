@@ -67,24 +67,6 @@ export type UserDataType = {
 
 }
 
-// export type UserDataType = {
-//
-//     email: string
-//     name: string
-//     publicCardPacksCount: number
-//
-//
-//     created: string
-//     updated: string
-//     rememberMe: boolean
-//     verified: boolean
-//     isAdmin: boolean
-//
-//
-//     token: string
-//     tokenDeathTime: number
-// }
-
 export type RegisterResponseType = {
     addedUser: {}
     error?: string
@@ -92,7 +74,7 @@ export type RegisterResponseType = {
 
 export type UpdateParamsType = {
     name: string
-    avatar: string
+    avatar?: string
 }
 
 export type InfoResponseType = {

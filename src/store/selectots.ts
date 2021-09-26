@@ -39,3 +39,9 @@ export const getPasswordRecoveryError = (state: AppStateType): string =>{
 export const getPasswordSetted = (state: AppStateType): boolean =>{
     return state.password.passwordSetted
 }
+
+//// Profile Page Selectors
+
+export const getIsProfileEditing = (state:AppStateType): boolean =>{
+    return state.profile.isEditing
+}
