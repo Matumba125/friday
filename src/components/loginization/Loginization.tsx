@@ -22,7 +22,6 @@ const Loginization = () => {
   const dispatch = useDispatch();
   const error = useSelector(getLoginError)
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const isLoading = useSelector(getIsLoading)
 
   useEffect(() => {
     if (!isLoggedIn) dispatch(authMeTC())
@@ -55,7 +54,6 @@ const Loginization = () => {
   return (
 
     <>
-      {isLoading && <IsLoading />}
 
       <CardContainer>
         <>

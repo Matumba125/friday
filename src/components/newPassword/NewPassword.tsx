@@ -24,7 +24,6 @@ const NewPassword = () => {
 
     const passwordSetted = useSelector(getPasswordSetted)
     const error = useSelector(getPasswordRecoveryError)
-    const isLoading = useSelector(getIsLoading)
 
     const params = useParams<ParamsType>()
 
@@ -43,8 +42,7 @@ const NewPassword = () => {
     
     return (
         <>
-            { isLoading && <IsLoading/>}
-            
+
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>

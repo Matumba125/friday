@@ -1,5 +1,6 @@
 
+const initialState ={}
 
-export const cardsPackReducer = (state: any, action: any) =>{
+export const cardsPackReducer = (state: any = initialState, action: any) =>{
     return state
 }
