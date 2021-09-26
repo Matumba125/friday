@@ -16,7 +16,7 @@ type LoginizationReducerActionType = ReturnType<typeof setLoggedAC>
 export const loginizationReducer = (state: LoginizationReducerInititialStateType = inititialState, action: LoginizationReducerActionType): LoginizationReducerInititialStateType => {
     switch (action.type) {
         case 'LOGIN/SET-ERROR':
-            return { ...state, error: action.error }
+            return {...state, error: action.error}
         case 'LOGIN/SET-LOGGED':
             return {...state, isLoggedIn: action.isLoggedIn}
     }
@@ -28,7 +28,7 @@ export const setLoggedAC = (isLoggedIn: boolean) => ({type: 'LOGIN/SET-LOGGED', 
 export const setLoginErrorAC = (error: string) => ({type: 'LOGIN/SET-ERROR', error} as const)
 
 //thunks
-export const loginTC = (data: LoginParamsType) => (
+export const loginTC = (data: LoginParamsType) =>(
     (dispatch: Dispatch) => {
         dispatch(setIsLoading(true))
         authApi.login(data)

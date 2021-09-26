@@ -20,21 +20,20 @@ const Loginization = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const dispatch = useDispatch();
-  const error = useSelector(getLoginError);
+  const error = useSelector(getLoginError)
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const isLoading = useSelector(getIsLoading);
 
   useEffect(() => {
     if (!isLoggedIn) dispatch(authMeTC());
-  }, [dispatch, isLoggedIn]);
+  }, [isLoggedIn]);
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
-    if (error) dispatch(setLoginErrorAC(''));
+    if (error) dispatch(setLoginErrorAC(''))
   };
   const onPasswordChangeHandler = (getPassword: string) => {
     setPassword(getPassword);
-    if (error) dispatch(setLoginErrorAC(''));
+    if (error) dispatch(setLoginErrorAC(''))
   };
   const onRememberMeChangeHandler = () => {
     setRememberMe(!rememberMe);
@@ -51,12 +50,11 @@ const Loginization = () => {
   };
 
   if (isLoggedIn) {
-    return <Redirect to={PATH.PROFILE} />;
+    return <Redirect to={PATH.PROFILE} />
   }
 
   return (
     <>
-      {isLoading && <IsLoading />}
 
       <CardContainer>
         <>
@@ -71,8 +69,6 @@ const Loginization = () => {
           <form
             className={s.formWrap}
             onSubmit={onClickHandler}
-            action=""
-            method=""
           >
             <InputForm
               text={'Email'}
