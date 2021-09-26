@@ -2,7 +2,7 @@ import { Dispatch } from "redux"
 import { cardsPackAPI } from "../api/cardsPackAPI"
 import store, { AppStateType } from "./store"
 
-type CardsType ={
+type CardsType = {
     _id: string
     user_id: string
     name: string
@@ -25,12 +25,14 @@ type ControlsType = {
     pageCount: number
 }
 
-type CardsPackInitialStateType ={
+type CardsPacksReducerType = ReturnType<typeof findPacksAC>
+
+type CardsPackInitialStateType = {
     cards: CardsType[]
     controls: ControlsType
 }
 
-const initialState ={
+const initialState = {
     cards: [],
     controls: {
         packName: undefined,
@@ -42,21 +44,27 @@ const initialState ={
     }
 }
 
-export const cardsPacksReducer = (state: CardsPackInitialStateType = initialState, action: any) =>{
+export const cardsPacksReducer = (state: CardsPackInitialStateType = initialState, action: CardsPacksReducerType) => {
+    switch (action.type) {
+        case 'CARD/FIND-CARDS-PACK':
+        return state.cards.map(card => card.name === action.payload.userName ?{...card, userName: action.payload.userName} : card)
+    }
     return state
 }
 
+export const findPacksAC = (packName?: string, userName?: string) => ({ type: 'CARD/FIND-CARDS-PACK', payload: { packName, userName } } as const)
 
 
 
-export const getCardsPacksTC = (isPrivate?: boolean) =>(
+
+export const getCardsPacksTC = (isPrivate?: boolean) => (
     // @ts-ignore
-    (dispatch: Dispatch, getState: ()=> store)=>{
+    (dispatch: Dispatch, getState: () => store) => {
         let controls: ControlsType = getState().cardsPack.controls
-        let urlWithParams = `/?${controls.packName ?`packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}`: ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
-        
+        let urlWithParams = `/?${controls.packName ? `packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}` : ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
+
         cardsPackAPI.get(urlWithParams)
-            .then((res)=>{
+            .then((res) => {
                 console.log(res)
             })
     }
