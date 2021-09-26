@@ -44,7 +44,7 @@ export const updateProfileTC = (name: string, avatar: string | undefined) =>(
     (dispatch: Dispatch, getState: AppStateType)=>{
         
         dispatch(setIsLoading(true))
-        authApi.update({name: name, avatar: avatar})
+        authApi.update({name, avatar})
             .then((res)=> {
                 dispatch(setIsLoading(false))
                 dispatch(setUserDataAC(res.data.updatedUser))

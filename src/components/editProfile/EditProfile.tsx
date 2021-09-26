@@ -1,4 +1,4 @@
-import React, {MouseEvent, useState} from 'react';
+import React, {MouseEvent, useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Redirect, useHistory} from 'react-router-dom';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
@@ -20,19 +20,18 @@ const EditProfile = () => {
 
     const [name, setName] = useState(userName)
     const [avatar, setAvatar] = useState(userAvatar)
-
-
-
+    
+    
     const onUserNameChangeHandler = (gainedName: string) => {
+      
         setName(gainedName)
     }
 
     const onUserAvatarChangeHandler = (gainedAvatar: string) => {
         setAvatar(gainedAvatar)
-    }
+    };
 
     const onSaveButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
         dispatch(updateProfileTC(name, avatar))
     }
 
@@ -51,14 +50,14 @@ const EditProfile = () => {
                 <img style={{width: '50px', height: '50px', borderRadius: '50%'}} src={avatar}/>
                 <InputForm
                     text={'Avatar'}
-                    inputType={'email'}
+                    inputType={'text'}
                     placeholder={'Enter link to your new avatar'}
                     value={avatar}
                     onChangeText={onUserAvatarChangeHandler}
                 />
                 <InputForm
                     text={'Nickname'}
-                    inputType={'email'}
+                    inputType={'text'}
                     placeholder={'Enter your new nickname'}
                     value={name}
                     onChangeText={onUserNameChangeHandler}

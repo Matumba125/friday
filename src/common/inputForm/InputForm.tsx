@@ -30,8 +30,8 @@ const InputForm: React.FC<InputFormPropsType>= props => {
     }
     // !password control
 
-    const type = inputType === 'email'
-     ? 'email'
+    const type = inputType !== 'password'
+     ? inputType
      : viewPass ? 'text' : 'password';
     const viewPassStyle = viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
 
