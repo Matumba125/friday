@@ -24,8 +24,8 @@ const Loginization = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   useEffect(() => {
-    if (!isLoggedIn) dispatch(authMeTC())
-  }, [])
+    if (!isLoggedIn) dispatch(authMeTC());
+  }, [isLoggedIn]);
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
@@ -40,11 +40,13 @@ const Loginization = () => {
   };
   const onClickHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(loginTC({
-      email: email,
-      password: password,
-      rememberMe: rememberMe
-    }));
+    dispatch(
+      loginTC({
+        email: email,
+        password: password,
+        rememberMe: rememberMe,
+      })
+    );
   };
 
   if (isLoggedIn) {
@@ -52,7 +54,6 @@ const Loginization = () => {
   }
 
   return (
-
     <>
 
       <CardContainer>
@@ -65,7 +66,10 @@ const Loginization = () => {
             <ListTitle text="Sign In" />
           </div>
 
-          <form className={s.formWrap} onSubmit={onClickHandler} action="" method="">
+          <form
+            className={s.formWrap}
+            onSubmit={onClickHandler}
+          >
             <InputForm
               text={'Email'}
               inputType={'email'}
@@ -118,7 +122,6 @@ const Loginization = () => {
           </Link>
         </>
       </CardContainer>
-
     </>
   );
 };
