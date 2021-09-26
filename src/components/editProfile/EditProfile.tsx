@@ -1,7 +1,6 @@
 import React, {MouseEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Redirect, useHistory} from 'react-router-dom';
-import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import InputForm from '../../common/inputForm/InputForm';
@@ -21,6 +20,8 @@ const EditProfile = () => {
 
     const [name, setName] = useState(userName)
     const [avatar, setAvatar] = useState(userAvatar)
+
+
 
     const onUserNameChangeHandler = (gainedName: string) => {
         setName(gainedName)

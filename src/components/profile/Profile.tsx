@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import s from '.Profile.module.css'
-import Header from '../../common/header/Header';
-import {useDispatch, useSelector } from 'react-redux';
-import { getIsLoggedIn, getIsProfileEditing, getUserAvatar, getUserName } from '../../store/selectots';
-import { Redirect } from 'react-router-dom';
-import { PATH } from '../routing/Routing';
-import { setProfileIsEditingAC } from '../../store/profileReducer';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {getIsLoggedIn, getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
+import {Redirect} from 'react-router-dom';
+import {PATH} from '../routing/Routing';
+import {setProfileIsEditingAC} from '../../store/profileReducer';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 
 const Profile = () => {
@@ -16,6 +14,7 @@ const Profile = () => {
     const isEditing = useSelector(getIsProfileEditing)
     const userName = useSelector(getUserName)
     const userAvatar = useSelector(getUserAvatar)
+
 
     useEffect(()=>{},[userAvatar, userName])
 
