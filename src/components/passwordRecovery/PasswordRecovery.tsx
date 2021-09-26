@@ -6,59 +6,88 @@ import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import { PATH } from '../routing/Routing';
-import { useState } from 'react';
+import {FormEvent, useState } from 'react';
 import CheckEmail from '../../common/checkEmail/CheckEmail';
+import {useDispatch, useSelector } from 'react-redux';
+import {getIsLoading, getIsSended, getPasswordRecoveryError } from '../../store/selectots';
+import { sendRecoveryMailTC } from '../../store/passwordReducer';
+import IsLoading from '../../common/isLoading/IsLoading';
 
 const PasswordRecovery = () => {
-    const [isPasswordSent, setIsPasswordSent] = useState(false);
 
-    const sendPassword = () => {
-        setIsPasswordSent(true);
+    const dispatch = useDispatch()
+
+    const isSended = useSelector(getIsSended)
+    const error = useSelector(getPasswordRecoveryError)
+    const isLoading = useSelector(getIsLoading)
+
+
+    const [email, setEmail] = useState<string>('')
+    
+    const onEmailChangeHandler = (gainedEmail: string) =>{
+        setEmail(gainedEmail)
+    }
+
+    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) =>{
+        e.preventDefault()
+        dispatch(sendRecoveryMailTC(email))
     }
 
     return (
-        !isPasswordSent ?
-            <CardContainer>
-                <>
-                    <div className={s.globalTitleBox}>
-                        <GlobalTitle />
-                    </div>
-
-                    <div className={s.listTitleBox}>
-                        <ListTitle
-                            text='Forgot your password?'
-                        />
-                    </div>
-
-                    <form className={s.formWrap} action="" method="">
-
-                        <InputForm
-                            text={''}
-                            inputType={'email'}
-                            placeholder={'Email'}
-                            title={'Please enter your email'}
-                        />
-
-                        <p className={`${s.cardText} ${s.cardTextTop}`}>
-                            Enter your email address and we will send you further instructions
-                        </p>
-
-                        <div className={s.buttonContainer}>
-                            <ButtonFormColor
-                                text='Send Instructions' onClick={sendPassword} />
+        <>
+            { isLoading && <IsLoading/>}
+            
+            {!isSended ?
+                <CardContainer>
+                    <>
+                        <div className={s.globalTitleBox}>
+                            <GlobalTitle/>
                         </div>
 
-                        <p className={`${s.cardText} ${s.cardTextBottom}`}>
-                            Did you remember your password?
-                        </p>
+                        <div className={s.listTitleBox}>
+                            <ListTitle
+                                text='Forgot your password?'
+                            />
+                        </div>
 
-                    </form>
+                        <form className={s.formWrap} onSubmit={onSubmitHandler} action="" method="">
 
-                    <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
+                            <InputForm
+                                text={''}
+                                inputType={'email'}
+                                placeholder={'Email'}
+                                title={'Please enter your email'}
+                                value={email}
+                                onChangeText={onEmailChangeHandler}
+                            />
 
-                </>
-            </CardContainer>
-            : <CheckEmail />
+                            {
+                                error && <p className={s.error}>{error}</p>
+                            }
+
+                            <p className={`${s.cardText} ${s.cardTextTop}`}>
+                                Enter your email address and we will send you further instructions
+                            </p>
+
+                            <div className={s.buttonContainer}>
+                                <ButtonFormColor
+                                    text='Send Instructions'
+                                />
+                            </div>
+
+                            <p className={`${s.cardText} ${s.cardTextBottom}`}>
+                                Did you remember your password?
+                            </p>
+
+                        </form>
+
+                        <Link className={s.linkCardBottom} to={PATH.LOGIN}>Try logging in</Link>
+
+                    </>
+                </CardContainer>
+                : <CheckEmail email={email} />
+            }
+        </>
     );
 };
 

@@ -5,17 +5,14 @@ import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
+import Checkbox from '../../common/checkbox/checkbox';
 import IsLoading from '../../common/isLoading/IsLoading';
 import { PATH } from '../routing/Routing';
-import React, { FormEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
-import {
-  getIsLoading,
-  getIsLoggedIn,
-  getLoginError,
-} from '../../store/selectots';
-import SuperCheckbox from '../../common/trash/c3-SuperCheckbox/SuperCheckbox';
+import React, {FormEvent, useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
+import {getIsLoading, getIsLoggedIn, getLoginError} from '../../store/selectots';
+import { authMeTC } from '../../store/authReducer';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -26,6 +23,10 @@ const Loginization = () => {
   const error = useSelector(getLoginError);
   const isLoggedIn = useSelector(getIsLoggedIn);
   const isLoading = useSelector(getIsLoading);
+
+  useEffect(() => {
+    if (!isLoggedIn) dispatch(authMeTC());
+  }, [dispatch, isLoggedIn]);
 
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
@@ -96,14 +97,16 @@ const Loginization = () => {
               onChangeText={onPasswordChangeHandler}
             />
 
-            <SuperCheckbox
+            <Checkbox
               checked={rememberMe}
-              onChange={onRememberMeChangeHandler}
-            >
-              remember me
-            </SuperCheckbox>
-
-            {error && <p className={s.error}>{error}</p>}
+              name={'remember'}
+              value={'remember'}
+              text={'Remember me'}
+              // checked={'checked'}
+              onChange={onRememberMeChangeHandler} />
+            {
+              error && <p className={s.error}>{error}</p>
+            }
 
             <div className={s.linkWrap}>
               <Link className={s.passForgot} to={PATH.PASSWORD_RECOVERY}>

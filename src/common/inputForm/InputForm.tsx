@@ -1,4 +1,4 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState, MouseEvent} from 'react';
 import s from './InputForm.module.css';
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -24,8 +24,9 @@ const InputForm: React.FC<InputFormPropsType>= props => {
     
     // !password control
     const [viewPass, setViewPass] = useState(false);
-    const onViewPass = () => {
-        setViewPass(state => !state)
+    const onViewPass = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setViewPass(!viewPass)
     }
     // !password control
 
@@ -34,10 +35,8 @@ const InputForm: React.FC<InputFormPropsType>= props => {
      : viewPass ? 'text' : 'password';
     const viewPassStyle = viewPass ? s.passwordControl : `${s.passwordControl} ${s.view}`;
 
-    const onClick = () => {
-        setViewPass(state => !state)
-    }
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>{
+
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChangeText && onChangeText(e.currentTarget.value)
     }
 
@@ -56,7 +55,7 @@ const InputForm: React.FC<InputFormPropsType>= props => {
                     required
                 />
 
-               {inputType === 'password' && <button className={viewPassStyle} onClick={onClick} />}
+               {inputType === 'password' && <button className={viewPassStyle} onClick={(e:  MouseEvent<HTMLButtonElement>) => onViewPass(e)} />}
             </div>
         </label>
 

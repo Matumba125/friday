@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import s from './Registration.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
@@ -7,11 +7,11 @@ import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
 import IsLoading from '../../common/isLoading/IsLoading';
-import { Redirect, useHistory } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerTC, setErrorAC } from '../../store/registrationReducer';
-import { getIsLoading, getRegistrationError, getRegistrationStatus } from '../../store/selectots';
-import { PATH } from '../routing/Routing';
+import {Redirect} from 'react-router';
+import {useDispatch, useSelector} from 'react-redux';
+import {registerTC, setErrorAC} from '../../store/registrationReducer';
+import {getIsLoading, getRegistrationError, getRegistrationStatus} from '../../store/selectots';
+import {PATH} from '../routing/Routing';
 
 const Registration = () => {
 
@@ -89,8 +89,8 @@ const Registration = () => {
                         text={'Password'}
                         inputType={'password'}
                         placeholder={'Please enter password'}
-                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
-                        title={'the password must be at least 6 characters long including, one number, one capital letter, one small letter.'}
+                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}'}
+                        title={'the password must be at least 8 characters long including, one number, one capital letter, one small letter.'}
                         value={password}
                         onChangeText={onPasswordChangeHandler}
                     />
@@ -99,7 +99,7 @@ const Registration = () => {
                         text={'Сonfirm password'}
                         inputType={'password'}
                         placeholder={'Please confirm password'}
-                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}'}
+                        pattern={'(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}'}
                         title={'Please confirm password'}
                         value={confirmPassword}
                         onChangeText={onPasswordConfirmChangeHandler}
@@ -114,13 +114,12 @@ const Registration = () => {
 
                     <div className={s.buttonsContainer}>
 
-                        <ButtonFormCancel disabled={isLoading} />
+                        <ButtonFormCancel/>
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
                                 text='Register'
                                 onClick={onClickHandler}
-                                disabled={isLoading}
                             />
                         </div>
                     </div>

@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    //baseURL: "http://localhost:7542/2.0/",
-    baseURL: "https://neko-back.herokuapp.com/2.0",
+    baseURL: "http://localhost:7542/2.0/",
+    // baseURL: "https://neko-back.herokuapp.com/2.0",
     withCredentials: true,
     headers: {
         'API-KEY': ''
@@ -20,11 +20,11 @@ export const authApi = {
     },
 
     me() {
-        return instance.post<ResponseType>(`/auth/me`)
+        return instance.post<UserDataType>(`/auth/me`)
     },
 
     update(data: UpdateParamsType) {
-        return instance.put<ResponseType>(`/auth/me`, data)
+        return instance.put<UserDataType>(`/auth/me`, data)
     },
 
     logout() {
@@ -52,7 +52,7 @@ export type RegisterParamsType = {
     password: string
 }
 
-export type ResponseType = {
+export type UserDataType = {
     _id: string
     email: string
     name: string
@@ -65,23 +65,25 @@ export type ResponseType = {
     verified: boolean // подтвердил ли почту
     rememberMe: boolean
 
-    error?: string
 }
 
-export type UserDataType = {
-    created: string
-    email: string
-    isAdmin: boolean
-    name: string
-    publicCardPacksCount: number
-    rememberMe: boolean
-    token: string
-    tokenDeathTime: number
-    updated: string
-    verified: boolean
-    __v: number
-    _id: string
-}
+// export type UserDataType = {
+//
+//     email: string
+//     name: string
+//     publicCardPacksCount: number
+//
+//
+//     created: string
+//     updated: string
+//     rememberMe: boolean
+//     verified: boolean
+//     isAdmin: boolean
+//
+//
+//     token: string
+//     tokenDeathTime: number
+// }
 
 export type RegisterResponseType = {
     addedUser: {}
@@ -100,11 +102,8 @@ export type InfoResponseType = {
 
 export type ForgotParamsType = {
     email: string
-    from: "test-front-admin <lonely__wind@mail.ru>"
-    message: `<div style="background-color: lime; padding: 15px"
-	          password recovery link: 
-	          <a href='http://localhost:3000/#/set-new-password/$token$'>	//бэк должен вставить токен!!
-	          link</a></div>`
+    from: string
+    message: string
 }
 
 export type SetNewPasswordParamsType = {
