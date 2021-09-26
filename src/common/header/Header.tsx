@@ -4,6 +4,7 @@ import s from './Header.module.css';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import PacksList from '../../../src/assets/images/packsListInactive.png';
 import User from '../../../src/assets/images/userActive.png';
+import LogOut from '../../../src/assets/images/log-out1.svg';
 import { PATH } from '../../components/routing/Routing';
 import { useDispatch } from 'react-redux';
 import { logOutTC } from '../../store/authReducer';
@@ -33,7 +34,9 @@ const Header = () => {
                             <img className={s.headerLinkImg} src={User} alt="User img" />
                             Profile
                         </NavLink>
-                        <button onClick={onClickHandler}>Log Out</button>
+                        <button className={s.headerButton} onClick={onClickHandler}>
+                        <img className={s.headerButtonImg} src={LogOut} alt="log out img"/>
+                            Log Out</button>
                     </div>
                 </div>
             </header>
