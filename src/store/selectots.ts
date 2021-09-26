@@ -45,3 +45,11 @@ export const getPasswordSetted = (state: AppStateType): boolean =>{
 export const getIsProfileEditing = (state:AppStateType): boolean =>{
     return state.profile.isEditing
 }
+
+export const getUserName = (state: AppStateType): string =>{
+    return state.profile.userData.name
+}
+
+export const getUserAvatar = (state: AppStateType): string | undefined =>{
+    return state.profile.userData.avatar
+}

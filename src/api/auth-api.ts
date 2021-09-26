@@ -24,7 +24,7 @@ export const authApi = {
     },
 
     update(data: UpdateParamsType) {
-        return instance.put<UserDataType>(`/auth/me`, data)
+        return instance.put<UpdateProfileDataType>(`/auth/me`, data)
     },
 
     logout() {
@@ -65,6 +65,12 @@ export type UserDataType = {
     verified: boolean // подтвердил ли почту
     rememberMe: boolean
 
+}
+
+export type UpdateProfileDataType ={
+    token: string
+    tokenDeathTime: number
+    updatedUser: UserDataType
 }
 
 export type RegisterResponseType = {
