@@ -10,8 +10,9 @@ import IsLoading from '../../common/isLoading/IsLoading';
 import { PATH } from '../routing/Routing';
 import React, {FormEvent, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {authMeTC, loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
+import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
 import {getIsLoading, getIsLoggedIn, getLoginError} from '../../store/selectots';
+import { authMeTC } from '../../store/authReducer';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');

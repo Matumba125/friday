@@ -1,11 +1,21 @@
+import React, {MouseEvent} from 'react'
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import s from './Header.module.css';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import PacksList from '../../../src/assets/images/packsListInactive.png';
 import User from '../../../src/assets/images/userActive.png';
 import { PATH } from '../../components/routing/Routing';
+import { useDispatch } from 'react-redux';
+import { logOutTC } from '../../store/authReducer';
 
 const Header = () => {
+    
+    const dispatch = useDispatch()
+    
+    const onClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        dispatch(logOutTC())
+    }
 
     return (
         <>
@@ -23,6 +33,7 @@ const Header = () => {
                             <img className={s.headerLinkImg} src={User} alt="User img" />
                             Profile
                         </NavLink>
+                        <button onClick={onClickHandler}>Log Out</button>
                     </div>
                 </div>
             </header>

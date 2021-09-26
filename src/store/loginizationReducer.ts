@@ -61,21 +61,3 @@ export const loginTC = (data: LoginParamsType) =>(
         })
 
 })
-
-
-//////////////////////// AUTH ME
-
-export const authMeTC = ()=>(
-    (dispatch: Dispatch)=>{
-        dispatch(setIsLoading(true))
-        authApi.me()
-            .then((res)=>{
-                dispatch(setIsLoading(false))
-                dispatch(setLoggedAC(true))
-                dispatch(setUserDataAC(res.data))
-            })
-            .catch((error)=>{
-                dispatch(setIsLoading(false))
-            })
-    }
-)
