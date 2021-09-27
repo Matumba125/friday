@@ -6,7 +6,7 @@ const ButtonsShowPacks = () => {
     return (
         <>
             <h3 className={s.title}>
-                Number of cards
+                Show packs cards
             </h3>
             <div className={s.buttonsBlock}>
                 <button className={s.button}>

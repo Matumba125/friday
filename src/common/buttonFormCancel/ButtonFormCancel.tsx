@@ -28,4 +28,4 @@ const ButtonFormCancel: React.FC<DefaultButtonPropsType> = props => {
     )
 }
 
-export default ButtonFormCancel
+export default ButtonFormCancel;
