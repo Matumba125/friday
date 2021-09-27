@@ -1,7 +1,32 @@
-.mainCardList{
+.container{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-basis: 76.2%;
      padding: 1.5rem 3rem;
      background-color: #FEFEFF;
+}
+
+.titleWrap{
+    margin-bottom: 1rem;
+}
+
+.controlBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.inputsContainer{
+    flex-basis: 72.8%;
+}
+
+.inputWrap{
+    margin-bottom: .5rem;
+}
+
+.buttonContainer{
+    flex-basis: 27.5%;
+    margin-left: 1.5rem;
 }
