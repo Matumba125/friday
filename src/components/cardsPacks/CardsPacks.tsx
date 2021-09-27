@@ -5,6 +5,7 @@ import CardListContainer from '../../common/cardListContainer/CardListContainer'
 import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
 import CardListMain from '../../common/cardListMain/CardListMain';
 import ButtonsShowPacks from '../../common/buttonsShowPacks/ButtonsShowPacks';
+import InputRange from '../../common/inputRange/InputRange';
 import { getCardsPacksTC } from '../../store/cardsPacksReducer';
 
 const CardsPacks = () => {
@@ -23,8 +24,8 @@ const CardsPacks = () => {
                 <>
                     <CardListSaidbar>
                         <>
-                            <ButtonsShowPacks/>
-
+                            <ButtonsShowPacks />
+                            <InputRange />
                             <div>
                                 <ButtonFormColor text={'Get Packs'} onClick={onGetPacksClickHandler} />
                             </div>
