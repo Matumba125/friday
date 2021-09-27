@@ -2,6 +2,9 @@ import React, { MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
+import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
+import CardListMain from '../../common/cardListMain/CardListMain';
+import ButtonsShowPacks from '../../common/buttonsShowPacks/ButtonsShowPacks';
 import { getCardsPacksTC } from '../../store/cardsPacksReducer';
 
 const CardsPacks = () => {
@@ -15,13 +18,26 @@ const CardsPacks = () => {
 
     return (
         <>
+
             <CardListContainer>
-                <div>
-                    <ButtonFormColor text={'Get Packs'} onClick={onGetPacksClickHandler} />
-                </div>
+                <>
+                    <CardListSaidbar>
+                        <>
+                            <ButtonsShowPacks/>
+
+                            <div>
+                                <ButtonFormColor text={'Get Packs'} onClick={onGetPacksClickHandler} />
+                            </div>
+                        </>
+                    </CardListSaidbar>
+                    <CardListMain>
+                        <>
+                        </>
+                    </CardListMain>
+                </>
+
             </CardListContainer>
         </>
-
     );
 };
 

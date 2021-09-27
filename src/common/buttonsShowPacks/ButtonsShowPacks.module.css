@@ -1,0 +1,25 @@
+.title {
+    font-family: 'SFUIDisplaySemibold';
+    line-height: 1.2;
+    margin-bottom: 1.25em;
+}
+
+.buttonsBlock {
+    display: flex;
+    width: 12.5rem;
+    margin-bottom: 2.8rem;
+}
+
+.button {
+    flex-basis: 50%;
+    font-size: .9rem;
+    line-height: 2.25;
+    color: #2D2E46;
+    border: transparent;
+    transform: all .5s;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #9A91C8;
+}

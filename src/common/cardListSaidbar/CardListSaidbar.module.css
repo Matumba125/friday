@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem .5rem 0 1.5rem;
+    background-color: #ECECF9;
+    flex-basis: 24%;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+}
