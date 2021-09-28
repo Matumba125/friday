@@ -2,7 +2,9 @@ import React from "react";
 import s from './CardListMain.module.css';
 import ListTitle from '../listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import InputSearch from '../../common/inputSearch/InputSearch'
+import InputSearch from '../../common/inputSearch/InputSearch';
+import TableHead from '../tableHead/TableHead';
+import TableLeine from '../tableLeine/TableLeine';
 
 const CardListMain = () => {
 
@@ -33,6 +35,21 @@ const CardListMain = () => {
                         <ButtonFormColor
                             text={'Add new pack'} />
                     </div>
+
+                </div>
+
+                {/* ! tabble */}
+
+                <div className={s.tabWrap}>
+                    <table className={s.table}>
+
+                        <TableHead />
+
+                        <tbody className={s.tableBody}>
+                            <TableLeine />
+
+                        </tbody>
+                    </table>
 
                 </div>
             </main>

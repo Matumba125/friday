@@ -1,14 +1,8 @@
-.title {
-    font-family: 'SFUIDisplaySemibold';
-    line-height: 1.2;
-    margin-bottom: 1.25em;
-}
 
 .buttonsBlock {
     display: flex;
     width: 12.5rem;
-    margin-bottom: 2.8rem;
-}
+  }
 
 .button {
     flex-basis: 50%;

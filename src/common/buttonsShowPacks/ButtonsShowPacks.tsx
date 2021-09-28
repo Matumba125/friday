@@ -5,9 +5,6 @@ const ButtonsShowPacks = () => {
 
     return (
         <>
-            <h3 className={s.title}>
-                Show packs cards
-            </h3>
             <div className={s.buttonsBlock}>
                 <button className={s.button}>
                     My

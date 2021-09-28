@@ -1,25 +1,31 @@
 .header {
     background-color: #EBE0E9;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .headerInner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 9.5%;
-    max-width: 90rem;
-    /* padding-right: 9.5%; */
+    flex-wrap: wrap;
+        width: 90rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
 
 }
 
-.globalTitleInner {
-    margin-right: 11.7%;
+.headerNavigation{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
 }
 
 .headerLinks {
     display: flex;
-    align-items: center;
+      flex-wrap: wrap;
 }
 
 .headerLink {

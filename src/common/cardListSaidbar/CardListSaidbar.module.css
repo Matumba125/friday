@@ -4,12 +4,16 @@
     align-items: flex-start;
     padding: 2rem 1.5rem 0 1.5rem;
     background-color: #ECECF9;
-    flex-basis: 23.8%;
+    width: 15rem;;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
 }
 
 .buttonContainer{
     width: 100%;
+}
+
+.saidbarItem{
+    margin-bottom: 2.8rem;
 }
 

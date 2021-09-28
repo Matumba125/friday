@@ -1,4 +1,4 @@
-import React, {MouseEvent} from 'react'
+import React, { MouseEvent } from 'react'
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import s from './Header.module.css';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
@@ -10,10 +10,10 @@ import { useDispatch } from 'react-redux';
 import { logOutTC } from '../../store/authReducer';
 
 const Header = () => {
-    
+
     const dispatch = useDispatch()
-    
-    const onClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+
+    const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         dispatch(logOutTC())
     }
@@ -25,19 +25,23 @@ const Header = () => {
                     <div className={s.globalTitleInner}>
                         <GlobalTitle />
                     </div>
-                    <div className={s.headerLinks}>
-                        <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.CARDS_PACKS}>
-                            <img className={s.headerLinkImg} src={PacksList} alt="Card img" />
-                            Packs list
-                        </NavLink>
-                        <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.PROFILE}>
-                            <img className={s.headerLinkImg} src={User} alt="User img" />
-                            Profile
-                        </NavLink>
+                    <div className={s.headerNavigation}>
+                        <div className={s.headerLinks}>
+                            <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.CARDS_PACKS}>
+                                <img className={s.headerLinkImg} src={PacksList} alt="Card img" />
+                                Packs list
+                            </NavLink>
+                            <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.PROFILE}>
+                                <img className={s.headerLinkImg} src={User} alt="User img" />
+                                Profile
+                            </NavLink>
+                        </div>
                         <button className={s.headerButton} onClick={onClickHandler}>
-                        <img className={s.headerButtonImg} src={LogOut} alt="log out img"/>
+                            <img className={s.headerButtonImg} src={LogOut} alt="log out img" />
                             Log Out</button>
                     </div>
+
+
                 </div>
             </header>
         </>

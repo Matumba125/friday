@@ -80,7 +80,10 @@ const EditProfile = () => {
                   
                    <div className={s.buttonsBox}>
                       <div className={s.buttonWrap}>
-                            <ButtonFormColor text={'Cancel'} onClick={onCancelButtonClickHandler}/>
+                      <ButtonFormColor text={'Cancel'} onClick={onSaveButtonClickHandler}/>
+                          
+                            {/* <ButtonFormCancel/> */}
+                        
                       </div>
                       <div className={s.buttonWrap}>
                             <ButtonFormColor text={'Save'} onClick={onSaveButtonClickHandler}/>

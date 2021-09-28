@@ -1,0 +1,19 @@
+.tabLeine{
+    transition: all .5s;
+}
+
+.tableHeadItem {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    white-space: pre-wrap;
+}
+
+.tableHead {
+    background-color: rgba(33, 38, 143, .2);
+    }
+
+    .tabLeine:hover{
+        background-color:rgba(33, 38, 143, .3)
+    }

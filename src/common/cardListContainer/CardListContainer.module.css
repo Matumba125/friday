@@ -1,15 +1,18 @@
 .container {
-    padding-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+       padding-left: 0.5rem;
     padding-right: 0.5rem;
     perspective: 30rem;
 }
 
-.boxCardList{
+.boxCardList {
     display: flex;
-    margin: 0 auto;
-    max-width: 63rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 63rem;
     background-color: #fff;
-  border-radius: .5rem;
+    border-radius: .5rem;
     animation: rotate .6s ease-in forwards;
     opacity: 0;
     box-shadow: 0 0 10px #9890c7;
@@ -31,4 +34,3 @@
         opacity: 1;
     }
 }
-

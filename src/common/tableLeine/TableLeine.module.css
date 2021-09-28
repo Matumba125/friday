@@ -1,0 +1,56 @@
+.tabLeine{
+    transition: all .5s;
+}
+
+.tableBodyItem {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    white-space: pre-wrap;
+}
+
+.tableBody .tabLeine:nth-child(even) {
+    background-color: rgba(33, 38, 143, .1);
+}
+
+.tableButtonsblock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tableButton {
+    display: inline-block;
+    background-color: #D7D8EF;
+    font-family: 'SFUIDisplaySemibold', sans-serif;
+    font-size: .8rem;
+    line-height: 2;
+    color: #21268F;
+    border-radius: .3em;
+    border: transparent;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all .5s;
+    }
+
+.tableButtonDelete {
+    display: inline-block;
+    font-family: 'SFUIDisplaySemibold', sans-serif;
+    font-size: .8rem;
+    line-height: 2;
+    background-color: #F1453D;
+    color: #fff;
+    border-radius: .3em;
+    border: transparent;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all .5s;
+}
+
+.tableButton:hover {
+    box-shadow: 0 0 10px #19077e;
+}
+
+.tabLeine:hover{
+    background-color:rgba(33, 38, 143, .3)
+}
