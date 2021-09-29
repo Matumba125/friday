@@ -2,16 +2,19 @@ import * as React from 'react';
 import Pagination from '@material-ui/core/Pagination';
 import Stack from '@material-ui/core/Stack';
 import { makeStyles } from '@material-ui/styles';
+import s from './Pagination.module.css';
 
 const useStyles: any = makeStyles({
   root: {
     '& button.Mui-selected': {
       backgroundColor: '#21268F',
       color: '#FFFFFF',
-    },
+      Width: '18.25rem',
+         },
 
     '& button': {
-      fontSize: '.75rem'
+      fontSize: '.75rem',
+      fontFamily: 'Lato',
     }
 
   },

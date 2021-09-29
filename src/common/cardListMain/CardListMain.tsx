@@ -6,6 +6,7 @@ import InputSearch from '../../common/inputSearch/InputSearch';
 import TableHead from '../tableHead/TableHead';
 import TableLeine from '../tableLeine/TableLeine';
 import PaginationRounded from '../pagination/Pagination';
+import Select from '../select/Select';
 
 const CardListMain = () => {
 
@@ -55,7 +56,21 @@ const CardListMain = () => {
                     </div>
 
                     <div className={s.tableNavigation}>
+
                         <PaginationRounded />
+
+                        <div className={s.select}>
+                            <span className={s.selectText}>
+                                Show
+                            </span>
+
+                            <Select />
+                            
+                            <span className={s.selectText}>
+                                Cards per Page
+                            </span>
+                        </div>
+
                     </div>
 
 
