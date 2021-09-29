@@ -1,16 +1,18 @@
 .container {
-    padding-top: 3.75rem;
-    padding-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+       padding-left: 0.5rem;
     padding-right: 0.5rem;
     perspective: 30rem;
 }
 
-.boxForm {
-    margin: auto;
-    padding: 1.56rem 2.06rem 1.63rem 2.06rem;
-    background-color: #F9F9FE;
+.boxCardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 63rem;
+    background-color: #fff;
     border-radius: .5rem;
-    max-width: 25.8rem;
     animation: rotate .6s ease-in forwards;
     opacity: 0;
     box-shadow: 0 0 10px #9890c7;

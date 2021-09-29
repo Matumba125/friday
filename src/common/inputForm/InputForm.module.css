@@ -36,7 +36,7 @@
     padding: 1rem;
     background: url('../../assets/images/eyeView.svg') no-repeat center/80%;
     position: absolute;
-    top: 0;
+    top: 4px;
     right: 1em;
 }
 

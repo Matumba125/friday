@@ -1,0 +1,14 @@
+.title {
+    font-family: 'SFUIDisplaySemibold';
+    line-height: 1.2;
+    margin-bottom: 1.25em;
+}
+
+.inputBlock {
+    margin-bottom: 2.8rem;
+}
+
+.input {
+    display: inline-block;
+}
+

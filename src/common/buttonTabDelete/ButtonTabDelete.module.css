@@ -1,0 +1,19 @@
+
+
+.tableButton {
+    display: inline-block;
+    font-family: 'SFUIDisplaySemibold', sans-serif;
+    font-size: .8rem;
+    line-height: 2;
+    background-color: #F1453D;
+    color: #fff;
+    border-radius: .3em;
+    border: transparent;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    transition: all .5s;
+}
+
+.tableButton:hover {
+    box-shadow: 0 0 10px #19077e;
+}

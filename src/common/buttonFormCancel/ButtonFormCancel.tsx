@@ -9,7 +9,8 @@ const ButtonFormCancel: React.FC<DefaultButtonPropsType> = props => {
     const history = useHistory();
 
     const onClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
-        e.preventDefault()
+        // debugger
+        // e.preventDefault()
         console.log(history)
         history.goBack()
     }
@@ -28,4 +29,4 @@ const ButtonFormCancel: React.FC<DefaultButtonPropsType> = props => {
     )
 }
 
-export default ButtonFormCancel
+export default ButtonFormCancel;
