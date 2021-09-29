@@ -39,7 +39,7 @@ const Profile = () => {
             <div className={s.profileInner}>
                 <div className={s.profileWrap}>
 
-                  <Avatar avatar={userAvatar}/>
+                  <Avatar/>
 
                     <span className={s.userName}>{userName}</span>
 

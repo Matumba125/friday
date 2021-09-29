@@ -1,13 +1,13 @@
 import React from "react";
 import s from './Avatar.module.css';
 import UserImages from '../../../src/assets/images/Users/user.jpg';
+import { useSelector } from "react-redux";
+import { getUserAvatar } from "../../store/selectots";
 
-type AvatarPropstype = {
-    avatar?: string
-}
+const Avatar = () => {
+    const userAvatar = useSelector(getUserAvatar)
 
-const Avatar = (props: AvatarPropstype) => {
-    const avatarImg = props.avatar ? props.avatar : UserImages;
+    const avatarImg = userAvatar ? userAvatar : UserImages;
 
     return (
 
