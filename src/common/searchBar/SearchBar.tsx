@@ -1,19 +1,22 @@
-import React, { ChangeEvent, MouseEvent, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { findPacksAC } from '../../store/cardsPacksReducer';
 
-export const SearchBar=()=> {
+export const SearchBar = () => {
+  const [searchPackName, setSearchPackName] = useState<string>('');
+  const [searchUserName, setSearchUserName] = useState<string>('');
 
-  const [searchPackName, setSearchPackName] = useState<string>('')
-  const [searchUserName, setSearchUserName] = useState<string>('')
-
+  const dispatch = useDispatch();
   const onChangePackName = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchPackName(e.currentTarget.value);
   };
-   const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) => {
-     setSearchUserName(e.currentTarget.value);
-   };
+  const onChangeUserName = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchUserName(e.currentTarget.value);
+  };
 
   const findPacks = (e: MouseEvent<HTMLButtonElement>) => {
     console.log('search', searchPackName, searchUserName);
+    dispatch(findPacksAC(searchPackName, searchUserName));
   };
 
   return (
@@ -33,4 +36,4 @@ export const SearchBar=()=> {
       <button onClick={findPacks}>click</button>
     </div>
   );
-} 
+};

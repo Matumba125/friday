@@ -1,6 +1,6 @@
 import { Dispatch } from "redux"
 import { cardsPackAPI } from "../api/cardsPackAPI"
-import store, { AppStateType } from "./store"
+import store from "./store"
 
 type CardsType = {
     _id: string
@@ -46,13 +46,17 @@ const initialState = {
 
 export const cardsPacksReducer = (state: CardsPackInitialStateType = initialState, action: CardsPacksReducerType) => {
     switch (action.type) {
-        case 'CARD/FIND-CARDS-PACK':
-        return state.cards.map(card => card.name === action.payload.userName ?{...card, userName: action.payload.userName} : card)
+        case 'CARD/FIND-CARDS-PACK':{
+            const value = action.payload.packName;
+            //@ts-ignore
+            const find = state.cards.filter(card => card.name.includes(value))
+            return {...state, find}
+        }      
     }
     return state
 }
 
-export const findPacksAC = (packName?: string, userName?: string) => ({ type: 'CARD/FIND-CARDS-PACK', payload: { packName, userName } } as const)
+export const findPacksAC = (packName?: string | undefined, userName?: string) => ({ type: 'CARD/FIND-CARDS-PACK', payload: { packName, userName } } as const)
 
 
 
@@ -69,3 +73,5 @@ export const getCardsPacksTC = (isPrivate?: boolean) => (
             })
     }
 )
+
+export const getFilterCardsPackTC = (packName?: string | undefined, userName?: string) =>(dispatch: Dispatch) => {}

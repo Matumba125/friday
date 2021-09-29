@@ -1,5 +1,5 @@
 import {Dispatch} from "redux"
-import {authApi, LoginParamsType, UserDataType} from "../api/auth-api"
+import {authApi, LoginParamsType} from "../api/auth-api"
 import { setIsLoading } from "./appReducer"
 import { setUserDataAC } from "./profileReducer"
 
