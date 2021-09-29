@@ -1,4 +1,4 @@
-.tabLeine{
+.tabLeine {
     transition: all .5s;
 }
 
@@ -16,7 +16,6 @@
 
 .tableButtonsblock {
     display: flex;
-    justify-content: space-between;
 }
 
 .tableButton {
@@ -31,7 +30,7 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     transition: all .5s;
-    }
+}
 
 .tableButtonDelete {
     display: inline-block;
@@ -51,6 +50,10 @@
     box-shadow: 0 0 10px #19077e;
 }
 
-.tabLeine:hover{
-    background-color:rgba(33, 38, 143, .3)
+.tabLeine:nth-child(even) {
+    background-color: rgba(33, 38, 143, .1)
+}
+
+.tabLeine:hover {
+    background-color: rgba(33, 38, 143, .3)
 }

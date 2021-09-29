@@ -1,0 +1,5 @@
+.tableNavigation{
+    display: flex;
+    justify-content: space-around;
+    min-width: 30.25rem;
+}

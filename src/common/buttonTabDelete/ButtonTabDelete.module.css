@@ -2,6 +2,7 @@
 
 .tableButton {
     display: inline-block;
+    margin-right: 0.4rem;
     font-family: 'SFUIDisplaySemibold', sans-serif;
     font-size: .8rem;
     line-height: 2;
