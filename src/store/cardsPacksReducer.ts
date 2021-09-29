@@ -1,8 +1,8 @@
 import { Dispatch } from "redux"
-import { cardsPackAPI } from "../api/cardsPackAPI"
-import store from "./store"
+import { CardPacksType, cardsPackAPI } from "../api/cardsPackAPI"
+import { AppStateType } from "./store"
 
-type CardsType = {
+export type CardsType = {
     _id: string
     user_id: string
     name: string
@@ -16,6 +16,8 @@ type CardsType = {
     updated: Date
 }
 
+
+
 type ControlsType = {
     packName: string | undefined
     min: number
@@ -25,12 +27,21 @@ type ControlsType = {
     pageCount: number
 }
 
-type CardsPacksReducerType = ReturnType<typeof findPacksAC>
+type CardsPacksReducerType = ReturnType<typeof findPacksNameAC>
+    | ReturnType<typeof findUserNameAC>
+    | ReturnType<typeof setCardsPackAC>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setCardsPackCount>
 
-type CardsPackInitialStateType = {
-    cards: CardsType[]
+export type CardsPackInitialStateType = {
+    cards: CardPacksType[]
     controls: ControlsType
+    currentPage: number
+    totalCount: number
+    page: number
+    perPage: number
 }
+
 
 const initialState = {
     cards: [],
@@ -41,37 +52,77 @@ const initialState = {
         sortPacks: 0,
         page: 1,
         pageCount: 20,
-    }
+    },
+    currentPage: 1,
+    totalCount: 0,
+    page: 0,
+    perPage: 10
 }
 
-export const cardsPacksReducer = (state: CardsPackInitialStateType = initialState, action: CardsPacksReducerType) => {
+export const cardsPacksReducer = (state: CardsPackInitialStateType = initialState, action: CardsPacksReducerType): CardsPackInitialStateType => {
     switch (action.type) {
-        case 'CARD/FIND-CARDS-PACK':{
-            const value = action.payload.packName;
-            //@ts-ignore
-            const find = state.cards.filter(card => card.name.includes(value))
-            return {...state, find}
-        }      
+        case 'CARD/FIND-CARDS-PACK-NAME': {
+            const value = action.packName;
+            if (value) {
+                const find = state.cards.filter(card => card.name.includes(value))
+                return { ...state, cards: find }
+            }
+            return { ...state }
+        }
+        case 'CARD/FIND-CARDS-USER-NAME': {
+            const value = action.userName;
+            if (value) {
+                const find = state.cards.filter(card => card.user_name.includes(value))
+                return { ...state, cards: find }
+            }
+            return { ...state }
+        }
+        case 'SET-PACKS-CARDS':
+            return {
+                ...state,
+                cards: action.payload
+            }
+        case 'SET-CURRENT-PAGE':
+            return { ...state, currentPage: action.page }
+
+        case 'SET-CARDS-PACK-COUNT':
+            return { ...state, totalCount: action.totalCount }
+        default: {
+            return state
+        }
     }
-    return state
 }
 
-export const findPacksAC = (packName?: string | undefined, userName?: string) => ({ type: 'CARD/FIND-CARDS-PACK', payload: { packName, userName } } as const)
-
-
+export const setCardsPackAC = (payload: CardPacksType[]) => ({ type: 'SET-PACKS-CARDS', payload } as const)
+export const setCurrentPage = (page: number) => ({ type: 'SET-CURRENT-PAGE', page } as const)
+export const setCardsPackCount = (totalCount: number) => ({ type: 'SET-CARDS-PACK-COUNT', totalCount } as const)
+export const findPacksNameAC = (packName: string | undefined) => ({ type: 'CARD/FIND-CARDS-PACK-NAME', packName } as const)
+export const findUserNameAC = (userName: string) => ({ type: 'CARD/FIND-CARDS-USER-NAME', userName } as const)
 
 
 export const getCardsPacksTC = (isPrivate?: boolean) => (
-    // @ts-ignore
-    (dispatch: Dispatch, getState: () => store) => {
+
+    (dispatch: Dispatch, getState: () => AppStateType) => {
         let controls: ControlsType = getState().cardsPack.controls
         let urlWithParams = `/?${controls.packName ? `packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}` : ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
 
         cardsPackAPI.get(urlWithParams)
             .then((res) => {
-                console.log(res)
+                console.log(res.data);
+                // dispatch(setCardsPackAC(res.data.cardPacks))
             })
     }
 )
 
-export const getFilterCardsPackTC = (packName?: string | undefined, userName?: string) =>(dispatch: Dispatch) => {}
+export const changePageCardTC = (page: number, pageCount: number) => (dispatch: Dispatch) => {
+
+    cardsPackAPI.getCardsPack(page, pageCount)
+        .then((res) => {
+            dispatch(setCurrentPage(page))
+            dispatch(setCardsPackAC(res.data.cardPacks))
+            dispatch(setCardsPackCount(res.data.cardPacksTotalCount))
+        })
+
+}
+
+

@@ -22,5 +22,7 @@ export const rootReducer = combineReducers({
 export type AppStateType = ReturnType<typeof rootReducer>
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+//@ts-ignore
+window.store = store
 
 export default store
