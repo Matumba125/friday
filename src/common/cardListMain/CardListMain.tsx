@@ -19,6 +19,8 @@ const CardListMain = () => {
                                                  userName={m.user_name}
                                                  packName={m.name}
                                                  key={m.more_id}
+                                                 _id={m._id}
+                                                 user_id={m.user_id}
     />)
     
     return (
@@ -54,12 +56,11 @@ const CardListMain = () => {
 
                     {/* ! tabble */}
 
+                    <TableHead />
                     <div className={s.tabWrap}>
                         <table className={s.table}>
-
-                            <TableHead />
-
                             <tbody className={s.tableBody}>
+                            <TableLeine cardsCount={5} user_id={'1'} _id={'1'} key={2} userName={'none'} packName={'hey'} created={new Date()} />
                             {tBody}
                             </tbody>
                         </table>
