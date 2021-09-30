@@ -21,12 +21,16 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
         ...restProps
     } = props
 
+    const date = new Date(created)
+
+    const newDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+
     return (
         <>
             <tr className={s.tabLeine}>
                 <td className={s.tableBodyItem}>{packName}</td>
                 <td className={s.tableBodyItem}>{cardsCount}</td>
-                <td className={s.tableBodyItem}>{created}</td>
+                <td className={s.tableBodyItem}>{newDate}</td>
                 <td className={s.tableBodyItem}>{userName}</td>
                 <td className={s.tableBodyItem}>
                     <div className={s.tableButtonsblock}>
