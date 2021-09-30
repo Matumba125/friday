@@ -1,5 +1,6 @@
 .tableButton {
     display: inline-block;
+    margin-right: 0.4rem;
     background-color: #D7D8EF;
     font-family: 'SFUIDisplaySemibold', sans-serif;
     font-size: .8rem;

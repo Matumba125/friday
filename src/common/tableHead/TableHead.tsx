@@ -9,8 +9,16 @@ const TableHead = () => {
                 <tr className={s.tabLeine}>
                     <th className={s.tableHeadItem}>Name</th>
                     <th className={s.tableHeadItem}>Cards</th>
-                    <th className={s.tableHeadItem}>Last Updated</th>
-                    <th className={s.tableHeadItem}>Created by</th>
+                    <th className={s.tableHeadItem}>
+                        <button className={s.buttonHead}>
+                            Last Updated
+                            <div className={s.buttonArrow}>
+                            </div>
+                        </button>
+                    </th>
+                    <th className={s.tableHeadItem}>
+                        Created by
+                    </th>
                     <th className={s.tableHeadItem}>Actions</th>
                 </tr>
             </thead>

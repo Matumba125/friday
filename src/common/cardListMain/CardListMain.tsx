@@ -5,6 +5,8 @@ import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import InputSearch from '../../common/inputSearch/InputSearch';
 import TableHead from '../tableHead/TableHead';
 import TableLeine from '../tableLeine/TableLeine';
+import PaginationRounded from '../pagination/Pagination';
+import Select from '../select/Select';
 
 const CardListMain = () => {
 
@@ -17,41 +19,63 @@ const CardListMain = () => {
                         text={"Packs list"} />
                 </div>
 
+                <div className={s.mainBlock}>
 
-                <div className={s.controlBlock}>
+                    <div className={s.controlBlock}>
 
-                    <div className={s.inputsContainer}>
-                        <div className={s.inputWrap}>
+                        <div className={s.inputsContainer}>
+                            <div className={s.inputWrap}>
+                                <InputSearch
+                                    placeholder={"Search by pack name"} />
+                            </div>
+
                             <InputSearch
-                                placeholder={"Search by pack name"} />
+                                placeholder={"Search by author"}
+                            />
                         </div>
 
-                        <InputSearch
-                            placeholder={"Search by author"}
-                        />
+                        <div className={s.buttonContainer}>
+                            <ButtonFormColor
+                                text={'Add new pack'} />
+                        </div>
+
                     </div>
 
-                    <div className={s.buttonContainer}>
-                        <ButtonFormColor
-                            text={'Add new pack'} />
+                    {/* ! tabble */}
+
+                    <div className={s.tabWrap}>
+                        <table className={s.table}>
+
+                            <TableHead />
+
+                            <tbody className={s.tableBody}>
+                                <TableLeine />
+                            </tbody>
+                        </table>
+
                     </div>
+
+                    <div className={s.tableNavigation}>
+
+                        <PaginationRounded />
+
+                        <div className={s.select}>
+                            <span className={s.selectText}>
+                                Show
+                            </span>
+
+                            <Select />
+                            
+                            <span className={s.selectText}>
+                                Cards per Page
+                            </span>
+                        </div>
+
+                    </div>
+
 
                 </div>
 
-                {/* ! tabble */}
-
-                <div className={s.tabWrap}>
-                    <table className={s.table}>
-
-                        <TableHead />
-
-                        <tbody className={s.tableBody}>
-                            <TableLeine />
-
-                        </tbody>
-                    </table>
-
-                </div>
             </main>
         </>
     )
