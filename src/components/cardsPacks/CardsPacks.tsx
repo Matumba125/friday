@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
 import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
@@ -7,8 +7,15 @@ import s from './CardPacks.module.css';
 import { Redirect } from 'react-router-dom';
 import { PATH } from '../routing/Routing';
 import { getIsLoggedIn } from '../../store/selectots';
+import { getCardsPacksTC } from '../../store/cardsPacksReducer';
 
 const CardsPacks = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(getCardsPacksTC())
+    },[])
 
     const isLoggedIn = useSelector(getIsLoggedIn)
 

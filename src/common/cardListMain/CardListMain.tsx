@@ -7,9 +7,20 @@ import TableHead from '../tableHead/TableHead';
 import TableLeine from '../tableLeine/TableLeine';
 import PaginationRounded from '../pagination/Pagination';
 import Select from '../select/Select';
+import { useSelector } from "react-redux";
+import { getCardPacks } from "../../store/selectots";
 
 const CardListMain = () => {
+    
+    const cardPacks = useSelector(getCardPacks)
 
+    const tBody = cardPacks.map(m => <TableLeine cardsCount={m.cardsCount}
+                                                 created={m.created}
+                                                 userName={m.user_name}
+                                                 packName={m.name}
+                                                 key={m.more_id}
+    />)
+    
     return (
         <>
             <main className={s.container}>
@@ -49,7 +60,7 @@ const CardListMain = () => {
                             <TableHead />
 
                             <tbody className={s.tableBody}>
-                                <TableLeine />
+                            {tBody}
                             </tbody>
                         </table>
 

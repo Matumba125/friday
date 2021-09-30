@@ -4,15 +4,30 @@ import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 
-const TableLeine = () => {
+type TableLinePropsType ={
+    packName: string
+    cardsCount: number
+    created: Date
+    userName: string
+}
+
+const TableLeine: React.FC<TableLinePropsType> = props => {
+    
+    const{
+        packName,
+        cardsCount,
+        created,
+        userName,
+        ...restProps
+    } = props
 
     return (
         <>
             <tr className={s.tabLeine}>
-                <td className={s.tableBodyItem}>Pack Name</td>
-                <td className={s.tableBodyItem}>4</td>
-                <td className={s.tableBodyItem}>18.03.2021</td>
-                <td className={s.tableBodyItem}>Ivan Ivanov</td>
+                <td className={s.tableBodyItem}>{packName}</td>
+                <td className={s.tableBodyItem}>{cardsCount}</td>
+                <td className={s.tableBodyItem}>{created}</td>
+                <td className={s.tableBodyItem}>{userName}</td>
                 <td className={s.tableBodyItem}>
                     <div className={s.tableButtonsblock}>
                        <ButtonTabDelete/>
