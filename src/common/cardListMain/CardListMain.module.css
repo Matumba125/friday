@@ -5,6 +5,8 @@
     max-width: 48rem;
     padding: 1.5rem 2rem 1.5rem 2rem;
     background-color: #FEFEFF;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
 }
 
 .titleWrap {
@@ -64,6 +66,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 36rem;
+    margin-bottom: 2rem;
 }
 
 .selectText {

@@ -7,7 +7,7 @@ import s from './InputRange.module.css';
 const useStyles: any = makeStyles({
     root: {
         maxWidth: '100%',
-        paddingTop: '1rem',
+        paddingTop: '1.3rem',
         paddingBottom: '2.8rem',
       
         '& span .MuiSlider-valueLabel': {
