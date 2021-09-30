@@ -29,7 +29,7 @@ type ControlsType = {
 
 type CardsPacksReducerType = ReturnType<typeof findPacksNameAC>
     | ReturnType<typeof findUserNameAC>
-    | ReturnType<typeof setCardsPacksAC>
+    | ReturnType<typeof setCardsPackAC>
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setCardsPacksCount>
     | ReturnType<typeof setCardsPacksSize>
@@ -40,7 +40,7 @@ export type CardsPackInitialStateType = {
     currentPage: number
     totalCount: number
     page: number
-    perPage: number
+    pageCount: number
 }
 
 
@@ -57,7 +57,7 @@ const initialState = {
     currentPage: 1,
     totalCount: 0,
     page: 0,
-    perPage: 10
+    pageCount: 10
 }
 
 export const cardsPacksReducer = (state: CardsPackInitialStateType = initialState, action: CardsPacksReducerType): CardsPackInitialStateType => {
@@ -89,7 +89,7 @@ export const cardsPacksReducer = (state: CardsPackInitialStateType = initialStat
         case 'SET-CARDS-PACKS-COUNT':
             return { ...state, totalCount: action.totalCount }
         case 'SET-CARDS-PACKS-SIZE':
-            return { ...state }
+            return { ...state, pageCount: action.pageCount }
         default: {
             return state
         }
@@ -97,7 +97,7 @@ export const cardsPacksReducer = (state: CardsPackInitialStateType = initialStat
 }
 
 export const setCardsPackAC = (payload: CardPacksType[]) => ({ type: 'SET-PACKS-CARDS', payload } as const)
-export const setCardsPacksSize = (packsSize: number) => ({ type: 'SET-CARDS-PACKS-SIZE', packsSize} as const)
+export const setCardsPacksSize = (pageCount: number) => ({ type: 'SET-CARDS-PACKS-SIZE', pageCount} as const)
 export const setCurrentPage = (page: number) => ({ type: 'SET-CURRENT-PAGE', page } as const)
 export const setCardsPacksCount = (totalCount: number) => ({ type: 'SET-CARDS-PACKS-COUNT', totalCount } as const)
 
@@ -124,6 +124,7 @@ export const changePageCardTC = (page: number, pageCount: number) => (dispatch: 
     cardsPackAPI.getCardsPack(page, pageCount)
         .then((res) => {
             dispatch(setCurrentPage(page))
+            dispatch(setCardsPacksSize(pageCount))
             dispatch(setCardsPackAC(res.data.cardPacks))
             dispatch(setCardsPacksCount(res.data.cardPacksTotalCount))
         })

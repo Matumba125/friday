@@ -6,7 +6,7 @@ export const cardsPackAPI = {
         return instance.get<ResponceType>('cards/pack' + urlParams)
     },
     getCardsPack: (page: number, pageCount: number) => {
-        return instance.get<ResponceType>(`cards/pack?page=${page}`)
+        return instance.get<ResponceType>(`cards/pack?page=${page}&pageCount=${pageCount}`)
     }
 }
 
