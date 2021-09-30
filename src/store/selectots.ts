@@ -1,3 +1,4 @@
+import { CardPacksType } from "./cardsPacksReducer"
 import { AppStateType } from "./store"
 
 
@@ -52,4 +53,10 @@ export const getUserName = (state: AppStateType): string =>{
 
 export const getUserAvatar = (state: AppStateType): string | undefined =>{
     return state.profile.userData.avatar
+}
+
+//// Card Packs Selectors
+
+export const getCardPacks = (state: AppStateType): CardPacksType[] =>{
+    return state.cardsPack.cardPacks
 }

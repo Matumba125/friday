@@ -18,7 +18,9 @@
     position: relative;
 }
 
-.select:hover {
+.select:hover,
+.select:active,
+.select:focus {
     box-shadow: 0 0 10px #19077e;
 }
 

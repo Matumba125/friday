@@ -49,12 +49,13 @@ p {
 
 button,
 input,
-label {
+label,
+table {
   cursor: pointer;
 }
 
 button {
-  transition: all .2s;
+  transition: all .5s;
 }
 
 
