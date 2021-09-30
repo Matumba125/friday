@@ -8,10 +8,10 @@ import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import Checkbox from '../../common/checkbox/checkbox';
 import IsLoading from '../../common/isLoading/IsLoading';
 import { PATH } from '../routing/Routing';
-import React, {FormEvent, useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
-import {getIsLoading, getIsLoggedIn, getLoginError} from '../../store/selectots';
+import React, { FormEvent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
+import { getIsLoading, getIsLoggedIn, getLoginError } from '../../store/selectots';
 import { authMeTC } from '../../store/authReducer';
 
 const Loginization = () => {
@@ -93,13 +93,15 @@ const Loginization = () => {
               onChangeText={onPasswordChangeHandler}
             />
 
-            <Checkbox
-              checked={rememberMe}
-              name={'remember'}
-              value={'remember'}
-              text={'Remember me'}
-              // checked={'checked'}
-              onChange={onRememberMeChangeHandler} />
+            <div className={s.checkboxWrap}>
+              <Checkbox
+                checked={rememberMe}
+                name={'remember'}
+                value={'remember'}
+                text={'Remember me'}
+                // checked={'checked'}
+                onChange={onRememberMeChangeHandler} />
+            </div>
             {
               error && <p className={s.error}>{error}</p>
             }
