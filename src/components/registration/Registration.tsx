@@ -6,11 +6,10 @@ import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
-import IsLoading from '../../common/isLoading/IsLoading';
 import {Redirect} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
 import {registerTC, setErrorAC} from '../../store/registrationReducer';
-import {getIsLoading, getRegistrationError, getRegistrationStatus} from '../../store/selectots';
+import {getRegistrationError, getRegistrationStatus} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 
 const Registration = () => {
