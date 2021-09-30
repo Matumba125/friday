@@ -37,11 +37,12 @@
     background-color: transparent;
 }
 
-.buttonHead:hover{
+.buttonHead:hover {
     box-shadow: 0 0 10px #19077e;
 }
 
-.buttonHead:active{
+.buttonHead:active,
+.buttonHead:focus {
     box-shadow: 0 0 19px 4px #19077e;
 }
 
@@ -54,19 +55,23 @@
     right: .7rem;
 }
 
-.buttonHead:hover .buttonArrow {
-     border-color: transparent transparent #000;
-    position: absolute;
-    top: 1rem;
-    right: .7rem;
-}
-
-/* ! to filter in ascending order */
-
-.active .buttonArrow{
+.buttonHead:hover .buttonArrow
+ /*!for layout*/
+/* .buttonHead:active .buttonArrow, */
+/*!for layout*/
+/* .buttonHead:focus .buttonArrow  */
+ {
     border-color: transparent transparent #000;
     position: absolute;
     top: 1rem;
     right: .7rem;
 }
 
+
+/* ! to filter in ascending order TSX*/
+.active .buttonArrow {
+    border-color: transparent transparent #000;
+    position: absolute;
+    top: 1rem;
+    right: .7rem;
+}
