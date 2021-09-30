@@ -33,6 +33,14 @@ const useStyles: any = makeStyles({
             height: '1rem',
         },
 
+        '& .MuiSlider-thumb.Mui-active': {
+           boxShadow: 'none',
+        },
+
+        '& .MuiSlider-thumb:hover': {
+            boxShadow: 'none',
+         },
+
         '& span .MuiSlider-rail': {
             backgroundColor: '#21268F',
             opacity: '.5', 
