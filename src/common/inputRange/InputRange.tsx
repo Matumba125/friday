@@ -5,7 +5,7 @@ const InputRange = () => {
 
     return (
 
-        <input className={s.input} type="range" />
+        <input className={s.input} type="range"/>
 
     )
 }

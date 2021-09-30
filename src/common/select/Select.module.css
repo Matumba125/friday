@@ -9,7 +9,7 @@
     font-weight: 400;
     font-size: .8rem;
     line-height: 1.5;
-    margin-right: 0.3rem;
+    margin-right: 0.4rem;
     border: 1px solid rgba(99, 93, 128, .4);
     cursor: pointer;
     appearance: none;
@@ -27,9 +27,7 @@
     position: absolute;
     content: '';
     left: 0;
-    top: 36%;
-    right: 0;
-    bottom: 0;
+    top: 7.5px;
     height: .3rem;
     width: 1px;
     background-color: #5B6C71;
@@ -37,11 +35,11 @@
 }
 
 .selectWrap::before {
-    left: 60%;
+    left: 26px;
     transform: rotate(-45deg);
 }
 
 .selectWrap::after {
-    left: 68%;
+    left: 29px;
     transform: rotate(45deg);
 }
