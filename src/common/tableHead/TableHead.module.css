@@ -1,15 +1,13 @@
 .tabLeine {
     transition: all .5s;
     width: 100%;
-    /* display: flex; */
-    justify-content: space-between;
 }
 
 .tabLeine:hover {
     background-color: rgba(33, 38, 143, .3)
 }
 
-.tableHeadItem {
+.tableItem {
     font-family: 'SFUIDisplayBold', sans-serif;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -18,24 +16,24 @@
     word-wrap: break-word;
 }
 
-.tableHeadItem:nth-child(1) {
+.tableItem:nth-child(1) {
     max-width: 21%;
 }
 
-.tableHeadItem:nth-child(2) {
+.tableItem:nth-child(2) {
     width: 9%;
 }
 
-.tableHeadItem:nth-child(3) {
+.tableItem:nth-child(3) {
     width: 18%;
     padding: 0;
 }
 
-.tableHeadItem:nth-child(4) {
-    width: 28%;
+.tableItem:nth-child(4) {
+    width: 27%;
 }
 
-.tableHeadItem:nth-child(5) {
+.tableItem:nth-child(5) {
     width: 25%;
 }
 
@@ -73,7 +71,7 @@
     border-color: #000 transparent transparent;
     position: absolute;
     top: 46%;
-    right: .7rem;
+    right: 10%;
 }
 
 /*!for layout*/
