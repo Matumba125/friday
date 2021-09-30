@@ -1,16 +1,13 @@
-
 .buttonsBlock {
     display: flex;
-    width: 12.5rem;
-  }
+}
 
 .button {
-    flex-basis: 50%;
+    flex: 1;
     font-size: .9rem;
-    line-height: 2.25;
+    line-height: 2.5;
     color: #2D2E46;
     border: transparent;
-    transform: all .5s;
 }
 
 .button:hover {
@@ -18,7 +15,7 @@
     background-color: #9A91C8;
 }
 
-.active{
+.active {
     color: #fff;
     background-color: #9A91C8;
 }
