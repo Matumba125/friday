@@ -52,6 +52,7 @@
 
 .table {
     width: 100%;
+    table-layout: fixed;
     min-width: 500px;
     box-shadow: 0px -2px 5px 0px #9890c7;
     text-align: justify;

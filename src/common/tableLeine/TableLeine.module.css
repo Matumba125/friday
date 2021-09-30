@@ -1,13 +1,14 @@
 .tabLeine {
     transition: all .5s;
+    width: 100%;
 }
 
 .tableBodyItem {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    white-space: pre-wrap;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    word-wrap: break-word;
 }
 
 .tableBody .tabLeine:nth-child(even) {
