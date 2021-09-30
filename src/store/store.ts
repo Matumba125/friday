@@ -7,6 +7,7 @@ import {registrationReducer} from "./registrationReducer";
 import { appReducer } from "./appReducer";
 import { cardsPacksReducer } from "./cardsPacksReducer";
 import { cardsReducer } from "./cardsReducer";
+import { configureStore } from "@reduxjs/toolkit";
 
 
 export const rootReducer = combineReducers({
@@ -19,8 +20,11 @@ export const rootReducer = combineReducers({
     cards: cardsReducer,
 })
 
-export type AppStateType = ReturnType<typeof rootReducer>
+export const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>getDefaultMiddleware().prepend(thunkMiddleware),
+})
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+export type AppStateType = ReturnType<typeof rootReducer>
 
 export default store
