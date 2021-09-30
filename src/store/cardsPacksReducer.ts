@@ -29,9 +29,10 @@ type ControlsType = {
 
 type CardsPacksReducerType = ReturnType<typeof findPacksNameAC>
     | ReturnType<typeof findUserNameAC>
-    | ReturnType<typeof setCardsPackAC>
+    | ReturnType<typeof setCardsPacksAC>
     | ReturnType<typeof setCurrentPage>
-    | ReturnType<typeof setCardsPackCount>
+    | ReturnType<typeof setCardsPacksCount>
+    | ReturnType<typeof setCardsPacksSize>
 
 export type CardsPackInitialStateType = {
     cards: CardPacksType[]
@@ -85,8 +86,10 @@ export const cardsPacksReducer = (state: CardsPackInitialStateType = initialStat
         case 'SET-CURRENT-PAGE':
             return { ...state, currentPage: action.page }
 
-        case 'SET-CARDS-PACK-COUNT':
+        case 'SET-CARDS-PACKS-COUNT':
             return { ...state, totalCount: action.totalCount }
+        case 'SET-CARDS-PACKS-SIZE':
+            return { ...state }
         default: {
             return state
         }
@@ -94,8 +97,10 @@ export const cardsPacksReducer = (state: CardsPackInitialStateType = initialStat
 }
 
 export const setCardsPackAC = (payload: CardPacksType[]) => ({ type: 'SET-PACKS-CARDS', payload } as const)
+export const setCardsPacksSize = (packsSize: number) => ({ type: 'SET-CARDS-PACKS-SIZE', packsSize} as const)
 export const setCurrentPage = (page: number) => ({ type: 'SET-CURRENT-PAGE', page } as const)
-export const setCardsPackCount = (totalCount: number) => ({ type: 'SET-CARDS-PACK-COUNT', totalCount } as const)
+export const setCardsPacksCount = (totalCount: number) => ({ type: 'SET-CARDS-PACKS-COUNT', totalCount } as const)
+
 export const findPacksNameAC = (packName: string | undefined) => ({ type: 'CARD/FIND-CARDS-PACK-NAME', packName } as const)
 export const findUserNameAC = (userName: string) => ({ type: 'CARD/FIND-CARDS-USER-NAME', userName } as const)
 
@@ -120,7 +125,7 @@ export const changePageCardTC = (page: number, pageCount: number) => (dispatch: 
         .then((res) => {
             dispatch(setCurrentPage(page))
             dispatch(setCardsPackAC(res.data.cardPacks))
-            dispatch(setCardsPackCount(res.data.cardPacksTotalCount))
+            dispatch(setCardsPacksCount(res.data.cardPacksTotalCount))
         })
 
 }
