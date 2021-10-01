@@ -38,6 +38,10 @@
 
 }
 
+.checkboxWrap{
+    padding-left: .4rem;
+}
+
 .formText {
     text-align: center;
     font-family: 'SFUIDisplaySemibold', sans-serif;

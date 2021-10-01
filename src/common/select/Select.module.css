@@ -16,6 +16,7 @@
     width: 2.6rem;
     padding-left: .2rem;
     position: relative;
+    outline: none;
 }
 
 .select:hover,

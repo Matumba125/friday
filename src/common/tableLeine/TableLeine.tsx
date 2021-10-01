@@ -15,7 +15,7 @@ type TableLinePropsType = {
 
 const TableLeine: React.FC<TableLinePropsType> = props => {
 
-    const {
+    const{
         packName,
         cardsCount,
         created,

@@ -3,7 +3,9 @@
     border: transparent;
     padding-bottom: 0.25rem;
     border-bottom: 1.6px solid rgba(36, 37, 74, .2);
+    outline-color: #21268F;
     padding-right: 4rem;
+    padding-left: .4rem;
 }
 
 /* !styles with invalid value  */
@@ -16,6 +18,7 @@
     line-height: 1.54;
     color: #24254A;
     opacity: 0.5;
+    padding-left: .4rem;
 }
 
 .input[placeholder] {
