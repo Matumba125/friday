@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import s from './CardListMain.module.css';
 import ListTitle from '../listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import InputSearch from '../../common/inputSearch/InputSearch';
+import {InputSearch} from '../../common/inputSearch/InputSearch';
 import TableHead from '../tableHead/TableHead';
 import TableLeine from '../tableLeine/TableLeine';
 import {PaginationRounded} from '../pagination/Pagination';
 import Select from '../select/Select';
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
 import { getCardPacks } from "../../store/selectots";
+import { setPackNameAC } from "../../store/cardsPacksReducer";
 
 const CardListMain = () => {
 
     const cardPacks = useSelector(getCardPacks)
 
+    const dispatch = useDispatch()
+
+    const[packName, setPackName] = useState<string>('')
+
+    const onPackNameChangeHandler = (newPackName: string) =>{
+        setPackName(newPackName)
+        dispatch(setPackNameAC({packName: newPackName}))
+    }
 
     const tBody = cardPacks.map((m,index) => <TableLeine cardsCount={m.cardsCount}
         created={m.created}
@@ -40,7 +49,10 @@ const CardListMain = () => {
                         <div className={s.inputsContainer}>
                             <div className={s.inputWrap}>
                                 <InputSearch
-                                    placeholder={"Search by pack name"} />
+                                    placeholder={"Search by pack name"}
+                                    value={packName}
+                                    onChangeText={onPackNameChangeHandler}
+                                />
                             </div>
                         </div>
 
@@ -58,7 +70,6 @@ const CardListMain = () => {
                             <TableHead />
 
                             <tbody className={s.tableBody}>
-                                <TableLeine cardsCount={5} user_id={'1'} _id={'1'} key={2} userName={'none'} packName={'hey'} created={new Date()} />
                                 {tBody}
                             </tbody>
                         </table>

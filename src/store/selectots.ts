@@ -1,5 +1,5 @@
-import { CardPacksType } from "./cardsPacksReducer"
-import { AppStateType } from "./store"
+import {CardPacksType} from "./cardsPacksReducer"
+import {AppStateType} from "./store"
 
 
 //// Registration Selectors
@@ -74,8 +74,13 @@ export const getPageCount = (state: AppStateType): number => {
 }
 
 export const getMinCardsCount = (state: AppStateType): number => {
- return state.cardsPack.controls.min
+    return state.cardsPack.controls.min
 }
+
 export const getMaxCardsCount = (state: AppStateType): number => {
- return state.cardsPack.controls.max
+    return state.cardsPack.controls.max
+}
+
+export const getIsPrivate = (state: AppStateType): boolean => {
+    return state.cardsPack.controls.isPrivate
 }
