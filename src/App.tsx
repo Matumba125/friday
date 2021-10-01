@@ -2,10 +2,9 @@ import React from 'react';
 import './App.css';
 import {HashRouter} from "react-router-dom";
 import Routing from "./components/routing/Routing";
-import { useSelector } from 'react-redux';
-import { AppStateType } from './store/store';
+import {useSelector} from 'react-redux';
 import Header from './common/header/Header'
-import {getIsLoading, getIsLoggedIn } from './store/selectots';
+import {getIsLoading, getIsLoggedIn} from './store/selectots';
 import IsLoading from './common/isLoading/IsLoading';
 
 function App() {

@@ -35,6 +35,7 @@ export const logOutTC = () =>(
             })
             .catch((error) =>{
                 dispatch(setIsLoading(false))
+                dispatch(setLoggedAC(false))
             })
     }
 )

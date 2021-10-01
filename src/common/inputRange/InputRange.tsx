@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { ClassNames } from '@emotion/react';
-import { Box, Slider } from '@material-ui/core';
-import s from './InputRange.module.css';
+import {makeStyles} from '@material-ui/styles';
+import {Box, Slider} from '@material-ui/core';
+import {useDispatch, useSelector} from 'react-redux';
+import {setMinMaxCardsAC} from '../../store/cardsPacksReducer';
+import {getMaxCardsCount, getMinCardsCount} from '../../store/selectots';
 
 const useStyles: any = makeStyles({
     root: {
@@ -63,12 +64,18 @@ function valuetext(value: number) {
     return `${value}°C`;
 }
 
-export default function RangeSlider() {
+export const RangeSlider = () => {
     const classes = useStyles();
-    const [value, setValue] = React.useState<number[]>([20, 80]);
+
+    const minCardsCount = useSelector(getMinCardsCount)
+    const maxCardsCount = useSelector(getMaxCardsCount)
+    const dispatch = useDispatch()
+    const [value, setValue] = React.useState<number[]>([minCardsCount, maxCardsCount]);
 
     const handleChange = (event: Event, newValue: number | number[]) => {
-        setValue(newValue as number[]);
+        let value = newValue as number[]
+        setValue(value);
+        dispatch(setMinMaxCardsAC({min: value[0], max: value[1]}))
     };
 
     return (
@@ -80,7 +87,7 @@ export default function RangeSlider() {
                     onChange={handleChange}
                     valueLabelDisplay="on"
                     getAriaValueText={valuetext}
-                    max={100}
+                    max={110}
                 />
             </Box>
         </>

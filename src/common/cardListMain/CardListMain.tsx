@@ -42,10 +42,6 @@ const CardListMain = () => {
                                 <InputSearch
                                     placeholder={"Search by pack name"} />
                             </div>
-
-                            <InputSearch
-                                placeholder={"Search by author"}
-                            />
                         </div>
 
                         <div className={s.buttonContainer}>

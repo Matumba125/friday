@@ -1,13 +1,13 @@
-import {applyMiddleware, combineReducers, createStore } from "redux";
+import {combineReducers} from "redux";
 import thunkMiddleware from "redux-thunk"
 import {passwordReducer} from "./passwordReducer";
 import {loginizationReducer} from "./loginizationReducer";
 import {profileReducer} from "./profileReducer";
 import {registrationReducer} from "./registrationReducer";
-import { appReducer } from "./appReducer";
-import { cardsPacksReducer } from "./cardsPacksReducer";
-import { cardsReducer } from "./cardsReducer";
-import { configureStore } from "@reduxjs/toolkit";
+import {appReducer} from "./appReducer";
+import {cardsPacksReducer} from "./cardsPacksReducer";
+import {cardsReducer} from "./cardsReducer";
+import {configureStore} from "@reduxjs/toolkit";
 
 
 export const rootReducer = combineReducers({
