@@ -38,13 +38,16 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                 <td className={s.tableItem}>{userName}</td>
                 <td className={s.tableItem}>
                     <div className={s.tableButtonsblock}>
-
-                        <div className={s.buttonContainer}>
-                            <ButtonTabDelete />
-                        </div>
-                        <div className={s.buttonContainer}>
+                        {isPacksBelogsToUser &&
+                            <>
+                            <div className={s.buttonContainer}>
+                                <ButtonTabDelete/>
+                            </div>
+                            <div className={s.buttonContainer}>
                             <ButtonTabEdit />
-                        </div>
+                            </div>
+                        </>
+                        }
                         <div className={s.buttonContainer}>
                             <ButtonLearn />
                         </div>
