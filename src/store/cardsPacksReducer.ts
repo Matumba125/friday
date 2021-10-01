@@ -80,7 +80,7 @@ const slice = createSlice({
         setTotalPagesCountAC(state, action: PayloadAction<{pageCount: number, cardPacksTotalCount: number}>){
             state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount/action.payload.pageCount)
         },
-        getSearchPackNameAC(state, action: PayloadAction<{ packName: string | undefined}>){
+        setSearchPackNameAC(state, action: PayloadAction<{ packName: string | undefined}>){
             state.controls.packName = action.payload.packName
         }     
     }
@@ -88,7 +88,7 @@ const slice = createSlice({
 
 export const cardsPacksReducer = slice.reducer
 
-export const { setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC, getSearchPackNameAC} = slice.actions
+export const { setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC, setSearchPackNameAC} = slice.actions
 
 
 

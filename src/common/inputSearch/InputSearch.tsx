@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import s from './InputSearch.module.css';
 
 type InputSearchPropstype = {
@@ -7,6 +8,9 @@ type InputSearchPropstype = {
 
 const InputSearch = (props: InputSearchPropstype) => {
 
+    const dispatch = useDispatch();
+
+    
     return (
 <input
 className={s.input}
