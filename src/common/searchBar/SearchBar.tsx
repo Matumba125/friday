@@ -1,6 +1,6 @@
 import React, { ChangeEvent, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { findPacksNameAC, findUserNameAC } from '../../store/cardsPacksReducer';
+// import { findPacksNameAC, findUserNameAC } from '../../store/cardsPacksReducer';
 
 export const SearchBar = () => {
   const [searchPackName, setSearchPackName] = useState<string>('');
@@ -14,11 +14,11 @@ export const SearchBar = () => {
     setSearchUserName(e.currentTarget.value);
   };
 
-  const findPacks = (e: MouseEvent<HTMLButtonElement>) => {
-    console.log('search', searchPackName, searchUserName);
-    dispatch(findPacksNameAC(searchPackName));
-    dispatch(findUserNameAC(searchUserName));
-  };
+  // const findPacks = (e: MouseEvent<HTMLButtonElement>) => {
+  //   console.log('search', searchPackName, searchUserName);
+  //   dispatch(findPacksNameAC(searchPackName));
+  //   dispatch(findUserNameAC(searchUserName));
+  // };
 
   return (
     <div>
@@ -34,7 +34,7 @@ export const SearchBar = () => {
         onChange={onChangeUserName}
         value={searchUserName}
       />
-      <button onClick={findPacks}>click</button>
+      <button>click</button>
       {}
     </div>
   );

@@ -27,6 +27,7 @@ type ControlsType = {
     page: number
     pageCount: number
     isPrivate: boolean
+    totalPagesCount: number
 }
 
 type CardsPackInitialStateType ={
@@ -42,8 +43,9 @@ const initialState: CardsPackInitialStateType ={
         max: 100,
         sortPacks: 0,
         page: 1,
-        pageCount: 20,
-        isPrivate: false
+        pageCount: 10,
+        isPrivate: false,
+        totalPagesCount: 0
     }
 }
 
@@ -52,7 +54,7 @@ const slice = createSlice({
     initialState: initialState,
     reducers:{
         setPageAC(state, action:PayloadAction<{ page: number }>){
-            state.controls.page = action.payload.page
+            if(state.controls.page !== action.payload.page)state.controls.page = action.payload.page
         },
         setMinCardsAC(state, action:PayloadAction<{ min: number }>){
             state.controls.min = action.payload.min
@@ -73,7 +75,10 @@ const slice = createSlice({
             state.controls.isPrivate = action.payload.isPrivate
         },
         setCardsPacks(state, action:PayloadAction<{ cardPacks: CardPacksType[]}>){
-            state.cardPacks = action.payload.cardPacks
+            state.cardPacks = [...action.payload.cardPacks]
+        },
+        setTotalPagesCountAC(state, action: PayloadAction<{pageCount: number, cardPacksTotalCount: number}>){
+            state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount/action.payload.pageCount)
         }
         
     }
@@ -81,7 +86,7 @@ const slice = createSlice({
 
 export const cardsPacksReducer = slice.reducer
 
-export const {setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC} = slice.actions
+export const {setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC} = slice.actions
 
 
 
@@ -94,6 +99,7 @@ export const getCardsPacksTC = () =>(
         cardsApi.getPack(urlWithParams)
             .then((res)=>{
                 dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
+                dispatch(setTotalPagesCountAC({pageCount: res.data.pageCount, cardPacksTotalCount: res.data.cardPacksTotalCount}))
             })
     }
 )
