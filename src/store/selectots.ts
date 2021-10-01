@@ -60,3 +60,11 @@ export const getUserAvatar = (state: AppStateType): string | undefined =>{
 export const getCardPacks = (state: AppStateType): CardPacksType[] =>{
     return state.cardsPack.cardPacks
 }
+
+export const getCardsPage = (state: AppStateType): number => {
+    return state.cardsPack.controls.page
+}
+
+export const getTotalPagesCount = (state: AppStateType): number => {
+    return  state.cardsPack.controls.totalPagesCount
+}

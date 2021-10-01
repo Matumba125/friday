@@ -5,7 +5,7 @@ import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import InputSearch from '../../common/inputSearch/InputSearch';
 import TableHead from '../tableHead/TableHead';
 import TableLeine from '../tableLeine/TableLeine';
-import PaginationRounded from '../pagination/Pagination';
+import {PaginationRounded} from '../pagination/Pagination';
 import Select from '../select/Select';
 import { useSelector } from "react-redux";
 import { getCardPacks } from "../../store/selectots";
@@ -14,11 +14,12 @@ const CardListMain = () => {
 
     const cardPacks = useSelector(getCardPacks)
 
-    const tBody = cardPacks.map(m => <TableLeine cardsCount={m.cardsCount}
+
+    const tBody = cardPacks.map((m,index) => <TableLeine cardsCount={m.cardsCount}
         created={m.created}
         userName={m.user_name}
         packName={m.name}
-        key={m.more_id}
+        key={index}
         _id={m._id}
         user_id={m.user_id}
     />)

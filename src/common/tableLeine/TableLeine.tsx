@@ -13,39 +13,42 @@ type TableLinePropsType = {
     user_id: string
 }
 
-const TableLeine: React.FC<TableLinePropsType> = props => {
+const TableLine: React.FC<TableLinePropsType> = props => {
 
     const {
         packName,
         cardsCount,
         created,
         userName,
+        _id,
+        user_id,
         ...restProps
     } = props
 
-    const isPacksBelogsToUser = restProps._id === restProps.user_id
+    const isPacksBelogsToUser = _id === user_id
 
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
 
-
     return (
         <>
-            <tr className={s.tabLeine}>
+            <tr className={s.tableLine}>
                 <td className={s.tableItem}>{packName}</td>
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>
                 <td className={s.tableItem}>{userName}</td>
                 <td className={s.tableItem}>
                     <div className={s.tableButtonsblock}>
-                         <div className={s.buttonContainer}>
-                            <ButtonTabDelete />
-                        </div> 
+
                         <div className={s.buttonContainer}>
-                            {/* <ButtonTabEdit /> */}
+                            <ButtonTabDelete />
                         </div>
-                      <div className={s.buttonContainer}>
+                        <div className={s.buttonContainer}>
+                            <ButtonTabEdit />
+                        </div>
+                        <div className={s.buttonContainer}>
                             <ButtonLearn />
-                      </div>
+                        </div>
+
                     </div>
                 </td>
             </tr>
@@ -53,4 +56,4 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
     )
 }
 
-export default TableLeine;
+export default TableLine;
