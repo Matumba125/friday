@@ -22,10 +22,6 @@ const Loginization = () => {
   const error = useSelector(getLoginError)
   const isLoggedIn = useSelector(getIsLoggedIn);
 
-  useEffect(() => {
-    if (!isLoggedIn) dispatch(authMeTC());
-  }, [isLoggedIn]);
-
   const onEmailChangeHandler = (getEmail: string) => {
     setEmail(getEmail);
     if (error) dispatch(setLoginErrorAC(''))
