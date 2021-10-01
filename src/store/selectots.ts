@@ -73,6 +73,9 @@ export const getPageCount = (state: AppStateType): number => {
     return state.cardsPack.controls.pageCount
 }
 
-export const getPackName = (state: AppStateType): string | undefined => {
-    return state.cardsPack.controls.packName
+export const getMinCardsCount = (state: AppStateType): number => {
+ return state.cardsPack.controls.min
+}
+export const getMaxCardsCount = (state: AppStateType): number => {
+ return state.cardsPack.controls.max
 }

@@ -7,10 +7,9 @@ import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {Redirect, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {getIsLoading, getPasswordRecoveryError, getPasswordSetted} from '../../store/selectots';
+import {getPasswordRecoveryError, getPasswordSetted} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import {setNewPasswordTC} from '../../store/passwordReducer';
-import IsLoading from '../../common/isLoading/IsLoading';
 
 type ParamsType = {
     token: string

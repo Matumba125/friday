@@ -1,12 +1,11 @@
-import React, { MouseEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import React, {MouseEvent} from 'react';
+import {useDispatch} from 'react-redux';
 import s from './CardListSaidbar.module.css';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ButtonsShowPacks from '../../common/buttonsShowPacks/ButtonsShowPacks';
-import InputRange from '../../common/inputRange/InputRange';
+import {RangeSlider} from '../../common/inputRange/InputRange';
 import SaidbarTitle from '../saidbarTitle/SaidbarTitle';
-import { getCardsPacksTC } from '../../store/cardsPacksReducer';
-import { setProfileIsEditingAC } from '../../store/profileReducer';
+import {getCardsPacksTC} from '../../store/cardsPacksReducer';
 
 const CardListSaidbar = () => {
 
@@ -31,7 +30,7 @@ const CardListSaidbar = () => {
                     <div className={s.saidbarItem}>
                         <SaidbarTitle
                             text={"Number of cards"} />
-                        <InputRange />
+                        <RangeSlider />
                     </div>
 
                     <div className={s.buttonContainer}>

@@ -1,17 +1,16 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import s from './PasswordRecovery.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import { PATH } from '../routing/Routing';
-import {FormEvent, useState } from 'react';
+import {PATH} from '../routing/Routing';
+import {FormEvent, useState} from 'react';
 import CheckEmail from '../../common/checkEmail/CheckEmail';
-import {useDispatch, useSelector } from 'react-redux';
-import {getIsLoading, getIsSended, getPasswordRecoveryError } from '../../store/selectots';
-import { sendRecoveryMailTC } from '../../store/passwordReducer';
-import IsLoading from '../../common/isLoading/IsLoading';
+import {useDispatch, useSelector} from 'react-redux';
+import {getIsSended, getPasswordRecoveryError} from '../../store/selectots';
+import {sendRecoveryMailTC} from '../../store/passwordReducer';
 
 const PasswordRecovery = () => {
 

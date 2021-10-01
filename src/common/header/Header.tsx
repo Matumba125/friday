@@ -1,13 +1,13 @@
-import React, { MouseEvent } from 'react'
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import React, {MouseEvent} from 'react'
+import {NavLink} from 'react-router-dom';
 import s from './Header.module.css';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import PacksList from '../../../src/assets/images/packsListInactive.png';
 import User from '../../../src/assets/images/userActive.png';
 import LogOut from '../../../src/assets/images/log-out1.svg';
-import { PATH } from '../../components/routing/Routing';
-import { useDispatch } from 'react-redux';
-import { logOutTC } from '../../store/authReducer';
+import {PATH} from '../../components/routing/Routing';
+import {useDispatch} from 'react-redux';
+import {logOutTC} from '../../store/authReducer';
 
 const Header = () => {
 

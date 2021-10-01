@@ -1,5 +1,4 @@
-import React, { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
-import { isPropertySignature } from "typescript";
+import React, {DetailedHTMLProps, InputHTMLAttributes} from 'react';
 import s from './checkbox.module.css';
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -7,18 +6,16 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 
 type CheckboxPropsType = DefaultInputPropsType & {
     text: string
-    // inputType: string
-    onChangeText?: (value: string) => void
-    // onChange: () => void;
 }
 
 const Checkbox: React.FC<CheckboxPropsType> = props => {
 
     const {
         name,
-        onChangeText,
+        onChange,
         value,
-        text
+        text,
+        checked,
     } = props
 
     return (
@@ -26,13 +23,13 @@ const Checkbox: React.FC<CheckboxPropsType> = props => {
             <input
                 className={s.checkbox}
                 type="checkbox"
-                name={props.name}
-                value={props.value}
-                checked={props.checked}
-                onChange={props.onChange}
+                name={name}
+                value={value}
+                checked={checked}
+                onChange={onChange}
             />
             <span className={s.checkStyle}></span>
-            <p className={s.inputText}>{props.text}</p>
+            <p className={s.inputText}>{text}</p>
         </label>
 
     )

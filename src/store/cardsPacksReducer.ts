@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Dispatch } from "redux"
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {Dispatch} from "redux"
 import {cardsApi} from "../api/cardsPackAPI"
-import { AppStateType } from './store';
+import {setIsLoading} from "./appReducer"
+import store from "./store"
 
 export type CardPacksType ={
     _id: string
@@ -56,10 +57,8 @@ const slice = createSlice({
         setPageAC(state, action:PayloadAction<{ page: number }>){
             if(state.controls.page !== action.payload.page)state.controls.page = action.payload.page
         },
-        setMinCardsAC(state, action:PayloadAction<{ min: number }>){
+        setMinMaxCardsAC(state, action:PayloadAction<{ min: number, max: number }>){
             state.controls.min = action.payload.min
-        },
-        setMaxCardsAC(state, action:PayloadAction<{ max: number }>){
             state.controls.max = action.payload.max
         },
         setPageCountAC(state, action:PayloadAction<{ pageCount: number }>){
@@ -88,7 +87,7 @@ const slice = createSlice({
 
 export const cardsPacksReducer = slice.reducer
 
-export const { setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC, setSearchPackNameAC} = slice.actions
+export const {setCardsPacks, setIsPrivateAC, setMinMaxCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC} = slice.actions
 
 
 
@@ -97,11 +96,15 @@ export const getCardsPacksTC = () =>(
     (dispatch: Dispatch, getState: ()=> store)=>{
         let controls: ControlsType = getState().cardsPack.controls
         let urlWithParams = `/?${controls.packName ?`packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}`: ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${controls.isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
-        
+        dispatch(setIsLoading(true))
         cardsApi.getPack(urlWithParams)
             .then((res)=>{
+                dispatch(setIsLoading(false))
                 dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
                 dispatch(setTotalPagesCountAC({pageCount: res.data.pageCount, cardPacksTotalCount: res.data.cardPacksTotalCount}))
+            })
+            .catch((err)=>{
+                dispatch(setIsLoading(false))
             })
     }
 )
