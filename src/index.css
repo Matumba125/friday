@@ -29,12 +29,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'SFUIDisplayNormal', sans-serif;
   font-size: 1rem;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+iframe {
+  display: none;
 }
 
 h1,
