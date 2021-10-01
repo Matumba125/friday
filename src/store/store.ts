@@ -25,12 +25,6 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>getDefaultMiddleware().prepend(thunkMiddleware),
 })
 
-<<<<<<< HEAD
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
-//@ts-ignore
-window.store = store
-=======
 export type AppStateType = ReturnType<typeof rootReducer>
->>>>>>> origin/master
 
 export default store
