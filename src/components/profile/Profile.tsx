@@ -17,9 +17,7 @@ const Profile = () => {
     const userName = useSelector(getUserName)
     const userAvatar = useSelector(getUserAvatar)
 
-
-    useEffect(() => { }, [userAvatar, userName])
-
+    
     const onEditButtonClick = () => {
         dispatch(setProfileIsEditingAC(true))
     }
