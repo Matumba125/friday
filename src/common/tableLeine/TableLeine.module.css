@@ -1,13 +1,35 @@
-.tabLeine {
+.tableLine {
     transition: all .5s;
+    width: 100%;
+    min-height: 3rem;
 }
 
-.tableBodyItem {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    white-space: pre-wrap;
+.tableItem {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    word-wrap: break-word;
+}
+
+.tableItem:nth-child(1) {
+    max-width: 21%;
+}
+
+.tableItem:nth-child(2) {
+    width: 9%;
+}
+
+.tableItem:nth-child(3) {
+    width: 18%;
+}
+
+.tableItem:nth-child(4) {
+    width: 27%;
+}
+
+.tableItem:nth-child(5) {
+    width: 25%;
 }
 
 .tableBody .tabLeine:nth-child(even) {
@@ -50,10 +72,10 @@
     box-shadow: 0 0 10px #19077e;
 }
 
-.tabLeine:nth-child(even) {
+.tableLine:nth-child(even) {
     background-color: rgba(33, 38, 143, .1)
 }
 
-.tabLeine:hover {
+.tableLine:hover {
     background-color: rgba(33, 38, 143, .3)
 }

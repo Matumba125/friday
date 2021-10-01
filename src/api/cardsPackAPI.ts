@@ -130,22 +130,3 @@ export type putCardParamsType = {
         comments?: string
     }
 }
-
-export type CardPacksType = {
-    _id: string
-    user_id: string
-    user_name: string
-    name: string
-    cardsCount: number
-    created: string
-    updated: string
-}
-
-export type ResponceType = {
-    cardPacks: CardPacksType[]
-    cardPacksTotalCount: number // количество колод
-    maxCardsCount: number
-    minCardsCount: number
-    page: number // выбранная страница
-    pageCount: number // количество элементов на странице
-}

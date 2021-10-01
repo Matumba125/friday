@@ -1,37 +1,58 @@
+.tableHead {
+    background-color: #d7d8ef;
+    position: sticky;
+    top: 0;
+}
+
+
 .tabLeine {
     transition: all .5s;
+    width: 100%;
 }
 
 .tabLeine:hover {
     background-color: rgba(33, 38, 143, .3)
 }
 
-.tableHeadItem {
+.tableItem {
     font-family: 'SFUIDisplayBold', sans-serif;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    white-space: pre-wrap;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    word-wrap: break-word;
 }
 
-.tableHeadItem:nth-child(3) {
+.tableItem:nth-child(1) {
+    max-width: 21%;
+}
+
+.tableItem:nth-child(2) {
+    width: 9%;
+}
+
+.tableItem:nth-child(3) {
+    width: 18%;
     padding: 0;
 }
 
-.tableHead {
-    background-color: rgba(33, 38, 143, .2);
+.tableItem:nth-child(4) {
+    width: 27%;
+}
+
+.tableItem:nth-child(5) {
+    width: 25%;
 }
 
 .buttonHead {
     font-family: inherit;
     position: relative;
-    display: inline-block;
+    display: block;
     text-align: start;
     width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    padding-left: 1.5rem;
+    padding-left: .5rem;
     padding-right: 1.5rem;
     border: none;
     background-color: transparent;
@@ -52,21 +73,20 @@
     border: .3rem solid;
     border-color: #000 transparent transparent;
     position: absolute;
-    top: 1.35rem;
-    right: .7rem;
+    top: 46%;
+    right: 10%;
 }
 
- /*!for layout*/
+/*!for layout*/
 .buttonHead:hover .buttonArrow,
- /*!for layout*/
+/*!for layout*/
 .buttonHead:active .buttonArrow,
 /*!for layout*/
-.buttonHead:focus .buttonArrow 
- {
+.buttonHead:focus .buttonArrow {
     border-color: transparent transparent #000;
     position: absolute;
-    top: 1rem;
-    right: .7rem;
+    top: 37%;
+    right: 10%;
 }
 
 
@@ -74,6 +94,6 @@
 .active .buttonArrow {
     border-color: transparent transparent #000;
     position: absolute;
-    top: 1rem;
-    right: .7rem;
+    top: 37%;
+    right: 10%;
 }

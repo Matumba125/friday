@@ -13,9 +13,9 @@ type TableLinePropsType = {
     user_id: string
 }
 
-const TableLeine: React.FC<TableLinePropsType> = props => {
+const TableLine: React.FC<TableLinePropsType> = props => {
 
-    const {
+    const{
         packName,
         cardsCount,
         created,
@@ -28,11 +28,10 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
     const isPacksBelogsToUser = _id === user_id
     
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
-
-
+    
     return (
         <>
-            <tr className={s.tabLeine}>
+            <tr className={s.tableLine}>
                 <td className={s.tableBodyItem}>{packName}</td>
                 <td className={s.tableBodyItem}>{cardsCount}</td>
                 <td className={s.tableBodyItem}>{newDate}</td>
@@ -50,4 +49,4 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
     )
 }
 
-export default TableLeine;
+export default TableLine;

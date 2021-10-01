@@ -3,6 +3,10 @@ import Pagination from '@material-ui/core/Pagination';
 import Stack from '@material-ui/core/Stack';
 import { makeStyles } from '@material-ui/styles';
 import s from './Pagination.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPageAC } from '../../store/cardsPacksReducer';
+import { ChangeEvent } from 'react';
+import { getTotalPagesCount } from '../../store/selectots';
 
 const useStyles: any = makeStyles({
   root: {
@@ -24,11 +28,21 @@ const useStyles: any = makeStyles({
 });
 
 
-export default function PaginationRounded() {
+
+export const PaginationRounded = () => {
+
+  const dispatch = useDispatch()
+
+  const pagesCount = useSelector(getTotalPagesCount)
+  
+  const onPaginationChangeHandler = (e: ChangeEvent<unknown> ,page: number) =>{
+    dispatch(setPageAC({page: page}))
+  }
+
   const classes = useStyles();
   return (
     <Stack spacing={2}>
-      <Pagination count={10} shape="rounded" className={classes.root} />
+      <Pagination count={pagesCount} onChange={onPaginationChangeHandler} shape="rounded" className={classes.root} />
     </Stack>
   );
 }

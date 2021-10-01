@@ -19,8 +19,6 @@ export type CardPacksType ={
     more_id: string
 }
 
-
-
 type ControlsType = {
     packName: string | undefined
     min: number 
@@ -29,15 +27,12 @@ type ControlsType = {
     page: number
     pageCount: number
     isPrivate: boolean
+    totalPagesCount: number
 }
 
 type CardsPackInitialStateType ={
     cardPacks: CardPacksType[]
     controls: ControlsType
-    currentPage: number
-    totalCount: number
-    page: number
-    pageCount: number
 }
 
 const initialState: CardsPackInitialStateType ={
@@ -48,8 +43,9 @@ const initialState: CardsPackInitialStateType ={
         max: 100,
         sortPacks: 0,
         page: 1,
-        pageCount: 20,
-        isPrivate: false
+        pageCount: 10,
+        isPrivate: false,
+        totalPagesCount: 0
     }
 }
 
@@ -58,7 +54,7 @@ const slice = createSlice({
     initialState: initialState,
     reducers:{
         setPageAC(state, action:PayloadAction<{ page: number }>){
-            state.controls.page = action.payload.page
+            if(state.controls.page !== action.payload.page)state.controls.page = action.payload.page
         },
         setMinCardsAC(state, action:PayloadAction<{ min: number }>){
             state.controls.min = action.payload.min
@@ -79,7 +75,10 @@ const slice = createSlice({
             state.controls.isPrivate = action.payload.isPrivate
         },
         setCardsPacks(state, action:PayloadAction<{ cardPacks: CardPacksType[]}>){
-            state.cardPacks = action.payload.cardPacks
+            state.cardPacks = [...action.payload.cardPacks]
+        },
+        setTotalPagesCountAC(state, action: PayloadAction<{pageCount: number, cardPacksTotalCount: number}>){
+            state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount/action.payload.pageCount)
         }
         
     }
@@ -87,10 +86,8 @@ const slice = createSlice({
 
 export const cardsPacksReducer = slice.reducer
 
-export const {setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC} = slice.actions
+export const {setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC} = slice.actions
 
-export const findPacksNameAC = (packName: string | undefined) => ({ type: 'CARD/FIND-CARDS-PACK-NAME', packName } as const)
-export const findUserNameAC = (userName: string) => ({ type: 'CARD/FIND-CARDS-USER-NAME', userName } as const)
 
 
 export const getCardsPacksTC = () =>(
@@ -102,20 +99,7 @@ export const getCardsPacksTC = () =>(
         cardsApi.getPack(urlWithParams)
             .then((res)=>{
                 dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
+                dispatch(setTotalPagesCountAC({pageCount: res.data.pageCount, cardPacksTotalCount: res.data.cardPacksTotalCount}))
             })
     }
 )
-
-export const changePageCardTC = (page: number, pageCount: number) => (dispatch: Dispatch) => {
-
-    cardsPackAPI.getCardsPack(page, pageCount)
-        .then((res) => {
-            dispatch(setCurrentPage(page))
-            dispatch(setCardsPacksSize(pageCount))
-            dispatch(setCardsPackAC(res.data.cardPacks))
-            dispatch(setCardsPacksCount(res.data.cardPacksTotalCount))
-        })
-
-}
-
-
