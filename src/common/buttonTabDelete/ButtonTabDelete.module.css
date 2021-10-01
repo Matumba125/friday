@@ -1,18 +1,14 @@
-
-
 .tableButton {
     display: inline-block;
-    margin-right: 0.4rem;
-    font-family: 'SFUIDisplaySemibold', sans-serif;
+    width: 100%;
+      font-family: 'SFUIDisplaySemibold', sans-serif;
+      text-align: center;
     font-size: .8rem;
     line-height: 2;
     background-color: #F1453D;
     color: #fff;
     border-radius: .3em;
     border: transparent;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    transition: all .5s;
 }
 
 .tableButton:hover {

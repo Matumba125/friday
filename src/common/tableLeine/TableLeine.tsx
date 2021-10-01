@@ -15,7 +15,7 @@ type TableLinePropsType = {
 
 const TableLine: React.FC<TableLinePropsType> = props => {
 
-    const{
+    const {
         packName,
         cardsCount,
         created,
@@ -26,22 +26,30 @@ const TableLine: React.FC<TableLinePropsType> = props => {
     } = props
 
     const isPacksBelogsToUser = _id === user_id
-    
+
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
-    
+
     return (
         <>
             <tr className={s.tableLine}>
-                <td className={s.tableBodyItem}>{packName}</td>
-                <td className={s.tableBodyItem}>{cardsCount}</td>
-                <td className={s.tableBodyItem}>{newDate}</td>
-                <td className={s.tableBodyItem}>{userName}</td>
-                <td className={s.tableBodyItem}>
+                <td className={s.tableItem}>{packName}</td>
+                <td className={s.tableItem}>{cardsCount}</td>
+                <td className={s.tableItem}>{newDate}</td>
+                <td className={s.tableItem}>{userName}</td>
+                <td className={s.tableItem}>
                     <div className={s.tableButtonsblock}>
-                        {
-                            isPacksBelogsToUser && <><ButtonTabDelete/> <ButtonTabEdit/></>
-                        }
-                        <ButtonLearn/>
+                        <>
+                            <div className={s.buttonContainer}>
+                                {isPacksBelogsToUser && <ButtonTabDelete/>}
+                            </div>
+                            <div className={s.buttonContainer}>
+                                {isPacksBelogsToUser && <ButtonTabEdit/>}
+                            </div>
+                        </>
+                        <div className={s.buttonContainer}>
+                            <ButtonLearn/>
+                        </div>
+
                     </div>
                 </td>
             </tr>
