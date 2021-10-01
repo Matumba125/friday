@@ -68,3 +68,7 @@ export const getCardsPage = (state: AppStateType): number => {
 export const getTotalPagesCount = (state: AppStateType): number => {
     return  state.cardsPack.controls.totalPagesCount
 }
+
+export const getPageCount = (state: AppStateType): number => {
+    return state.cardsPack.controls.pageCount
+}
