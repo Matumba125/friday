@@ -1,10 +1,11 @@
+import { CardPacksType } from "../store/cardsPacksReducer"
 import {instance} from "./api"
 
 
 
 export const cardsApi = {
-    getPack(data: getPackParamsType) {
-        return instance.get<cardsPackDataType>(`/cards/pack`, {data})
+    getPack(data: string) {
+        return instance.get<cardsPackDataType>(`/cards/pack${data}`)
     },
 
     postPack(data: postPackParamsType) {
@@ -37,34 +38,8 @@ export const cardsApi = {
 
 }
 
-
-export type getPackParamsType = {
-    packName?: string
-    min?: number
-    max?: number
-    sortPacks?: string
-    page?: number
-    pageCount?: number
-    user_id?: string
-}
-
 export type cardsPackDataType = {
-    cardPacks: [
-        {
-            _id: number
-            user_id: string
-            name: string
-            path: string
-            cardsCount: number
-            grade: number
-            shots: number
-            rating: number
-            type: string
-            created: string
-            updated: string
-            __v: number
-        },
-    ]
+    cardPacks: CardPacksType[]
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
