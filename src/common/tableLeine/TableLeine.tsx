@@ -4,7 +4,7 @@ import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 
-type TableLinePropsType ={
+type TableLinePropsType = {
     packName: string
     cardsCount: number
     created: Date
@@ -14,8 +14,8 @@ type TableLinePropsType ={
 }
 
 const TableLeine: React.FC<TableLinePropsType> = props => {
-    
-    const{
+
+    const {
         packName,
         cardsCount,
         created,
@@ -23,8 +23,8 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
         ...restProps
     } = props
 
-      const isPacksBelogsToUser = restProps._id === restProps.user_id
-    
+    const isPacksBelogsToUser = restProps._id === restProps.user_id
+
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
 
 
@@ -37,9 +37,15 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
                 <td className={s.tableItem}>{userName}</td>
                 <td className={s.tableItem}>
                     <div className={s.tableButtonsblock}>
-                       <ButtonTabDelete/>
-                      <ButtonTabEdit/>
-                       <ButtonLearn/>
+                         <div className={s.buttonContainer}>
+                            <ButtonTabDelete />
+                        </div> 
+                        <div className={s.buttonContainer}>
+                            {/* <ButtonTabEdit /> */}
+                        </div>
+                      <div className={s.buttonContainer}>
+                            <ButtonLearn />
+                      </div>
                     </div>
                 </td>
             </tr>
