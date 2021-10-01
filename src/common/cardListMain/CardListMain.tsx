@@ -58,7 +58,6 @@ const CardListMain = () => {
                             <TableHead />
 
                             <tbody className={s.tableBody}>
-                                <TableLeine cardsCount={5} user_id={'1'} _id={'1'} key={2} userName={'none'} packName={'hey'} created={new Date()} />
                                 {tBody}
                             </tbody>
                         </table>
