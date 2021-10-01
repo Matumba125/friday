@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { Dispatch } from "redux"
 import {cardsApi} from "../api/cardsPackAPI"
-import store, { AppStateType } from "./store"
+import { AppStateType } from './store';
 
 export type CardPacksType ={
     _id: string
@@ -79,14 +79,16 @@ const slice = createSlice({
         },
         setTotalPagesCountAC(state, action: PayloadAction<{pageCount: number, cardPacksTotalCount: number}>){
             state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount/action.payload.pageCount)
-        }
-        
+        },
+        getSearchPackNameAC(state, action: PayloadAction<{ packName: string | undefined}>){
+            state.controls.packName = action.payload.packName
+        }     
     }
 })
 
 export const cardsPacksReducer = slice.reducer
 
-export const {setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC} = slice.actions
+export const { setCardsPacks, setIsPrivateAC, setMaxCardsAC, setMinCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC, getSearchPackNameAC} = slice.actions
 
 
 

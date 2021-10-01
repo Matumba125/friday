@@ -1,5 +1,5 @@
-import React, {ChangeEvent, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React, {ChangeEvent} from "react";
+import {useDispatch} from "react-redux";
 import {setPageCountAC} from "../../store/cardsPacksReducer";
 import {getPageCount} from "../../store/selectots";
 import s from "./Select.module.css";
