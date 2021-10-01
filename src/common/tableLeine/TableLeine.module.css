@@ -9,7 +9,7 @@
     padding-bottom: 0.7rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    word-wrap: break-word;
+    word-wrap: break-word; /* for adaptive*/
 }
 
 .tableItem:nth-child(1) {

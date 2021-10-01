@@ -20,7 +20,7 @@
     padding-bottom: 1rem;
     padding-left: .5rem;
     padding-right: .5rem;
-    word-wrap: break-word;
+    word-wrap: break-word; /* for adaptive*/
 }
 
 .tableItem:nth-child(1) {
@@ -78,20 +78,18 @@
 }
 
 /*!for layout*/
-.buttonHead:hover .buttonArrow,
-/*!for layout*/
-.buttonHead:active .buttonArrow,
-/*!for layout*/
-.buttonHead:focus .buttonArrow {
+/* .buttonHead:hover .buttonArrow, */
+/* .buttonHead:active .buttonArrow, */
+/* .buttonHead:focus .buttonArrow {
     border-color: transparent transparent #000;
     position: absolute;
     top: 37%;
     right: 10%;
-}
+} */
 
 
 /* ! to filter in ascending order TSX*/
-.active .buttonArrow {
+.buttonHead.active .buttonArrow {
     border-color: transparent transparent #000;
     position: absolute;
     top: 37%;
