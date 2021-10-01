@@ -6,7 +6,7 @@ import CardListMain from '../../common/cardListMain/CardListMain';
 import s from './CardPacks.module.css';
 import { Redirect } from 'react-router-dom';
 import { PATH } from '../routing/Routing';
-import {getCardPacks, getCardsPage, getIsLoggedIn } from '../../store/selectots';
+import {getCardPacks, getCardsPage, getIsLoggedIn, getPageCount } from '../../store/selectots';
 import { getCardsPacksTC } from '../../store/cardsPacksReducer';
 
 const CardsPacks = () => {
@@ -14,10 +14,11 @@ const CardsPacks = () => {
     const dispatch = useDispatch()
 
     const currentPage = useSelector(getCardsPage)
+    const pageCount = useSelector(getPageCount)
 
     useEffect(()=>{
         dispatch(getCardsPacksTC())
-    },[currentPage])
+    },[currentPage, pageCount])
 
     const isLoggedIn = useSelector(getIsLoggedIn)
 
