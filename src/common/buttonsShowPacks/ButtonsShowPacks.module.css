@@ -16,6 +16,10 @@
 }
 
 .active {
-    color: #fff;
     background-color: #9A91C8;
+    flex: 1;
+    font-size: .9rem;
+    line-height: 2.5;
+    color: #2D2E46;
+    border: transparent;
 }

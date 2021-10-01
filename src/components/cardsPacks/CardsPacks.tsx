@@ -5,7 +5,7 @@ import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
 import CardListMain from '../../common/cardListMain/CardListMain';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../routing/Routing';
-import {getCardsPage, getIsLoggedIn, getPageCount} from '../../store/selectots';
+import {getCardsPage, getIsLoggedIn, getIsPrivate, getPageCount} from '../../store/selectots';
 import {getCardsPacksTC} from '../../store/cardsPacksReducer';
 
 const CardsPacks = () => {
@@ -14,10 +14,11 @@ const CardsPacks = () => {
 
     const currentPage = useSelector(getCardsPage)
     const pageCount = useSelector(getPageCount)
+    const isPrivate = useSelector(getIsPrivate)
 
     useEffect(()=>{
         dispatch(getCardsPacksTC())
-    },[currentPage, pageCount])
+    },[currentPage, pageCount, isPrivate])
 
     const isLoggedIn = useSelector(getIsLoggedIn)
 
