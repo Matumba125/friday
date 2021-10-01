@@ -7,8 +7,8 @@ const TableHead = () => {
         <>
             <thead className={s.tableHead}>
                 <tr className={s.tabLeine}>
-                    <th className={s.tableItem}>Cards</th>
                     <th className={s.tableItem}>Name</th>
+                    <th className={s.tableItem}>Cards</th>
                     <th className={s.tableItem}>
                         <button className={s.buttonHead}>
                             Last Updated
