@@ -23,9 +23,10 @@ const TableLeine: React.FC<TableLinePropsType> = props => {
         ...restProps
     } = props
 
-    const date = new Date(created)
+      const isPacksBelogsToUser = restProps._id === restProps.user_id
+    
+    const newDate = new Intl.DateTimeFormat().format(new Date(created))
 
-    const newDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 
     return (
         <>

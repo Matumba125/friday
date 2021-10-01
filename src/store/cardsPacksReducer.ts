@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { Dispatch } from "redux"
-import { cardsPackAPI } from "../api/cardsPackAPI"
+import {cardsApi} from "../api/cardsPackAPI"
 import store, { AppStateType } from "./store"
 
 export type CardPacksType ={
@@ -91,7 +91,7 @@ export const getCardsPacksTC = () =>(
         let controls: ControlsType = getState().cardsPack.controls
         let urlWithParams = `/?${controls.packName ?`packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}`: ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${controls.isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
         
-        cardsPackAPI.get(urlWithParams)
+        cardsApi.getPack(urlWithParams)
             .then((res)=>{
                 dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
             })
