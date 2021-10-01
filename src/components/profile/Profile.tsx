@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getIsLoggedIn, getIsProfileEditing, getUserAvatar, getUserName } from '../../store/selectots';
-import { Redirect } from 'react-router-dom';
-import { PATH } from '../routing/Routing';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {getIsLoggedIn, getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
+import {Redirect} from 'react-router-dom';
+import {PATH} from '../routing/Routing';
 import s from './Profile.module.css';
 import Avatar from '../../common/avatar/Avatar';
-import { setProfileIsEditingAC } from '../../store/profileReducer';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
+import {setProfileIsEditingAC} from '../../store/profileReducer';
 
 
 const Profile = () => {
