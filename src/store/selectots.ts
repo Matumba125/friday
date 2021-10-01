@@ -84,3 +84,6 @@ export const getMaxCardsCount = (state: AppStateType): number => {
 export const getIsPrivate = (state: AppStateType): boolean => {
     return state.cardsPack.controls.isPrivate
 }
+export const getSortPacks = (state: AppStateType): 0 | 1 => {
+    return state.cardsPack.controls.sortPacks
+}
