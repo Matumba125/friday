@@ -1,11 +1,23 @@
-import { CardPacksType } from "../store/cardsPacksReducer"
+import { CardPacksType, ControlsType } from "../store/cardsPacksReducer"
 import {instance} from "./api"
 
 
 
 export const cardsApi = {
-    getPack(data: string) {
-        return instance.get<cardsPackDataType>(`/cards/pack${data}`)
+    getPack(data: GetPacksParamsType) {
+        return instance.get<cardsPackDataType>(`/cards/pack`,
+            {
+                params:{
+                    packName: data.controls.packName,
+                    min: data.controls.min,
+                    max: data.controls.max,
+                    sortPacks: data.controls.sortPacks,
+                    page: data.controls.page,
+                    pageCount: data.controls.pageCount,
+                    user_id: data.user_id ? data.user_id : '',
+                }
+            }
+            )
     },
 
     postPack(data: postPackParamsType) {
@@ -45,6 +57,11 @@ export type cardsPackDataType = {
     minCardsCount: number
     page: number
     pageCount: number
+}
+
+export type GetPacksParamsType ={
+    controls: ControlsType
+    user_id: string | undefined
 }
 
 export type postPackParamsType = {
