@@ -1,8 +1,10 @@
-import React from "react";
+import React, {MouseEvent} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
+import { useDispatch } from "react-redux";
+import { deleteCardsPackTC } from "../../store/cardsPacksReducer";
 
 type TableLinePropsType = {
     packName: string
@@ -25,6 +27,13 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         ...restProps
     } = props
 
+    const dispatch = useDispatch()
+
+    const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
+        e.preventDefault()
+        dispatch(deleteCardsPackTC(_id))
+    }
+
     const isPacksBelogsToUser = _id === user_id
 
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
@@ -40,7 +49,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                     <div className={s.tableButtonsblock}>
                         <>
                             <div className={s.buttonContainer}>
-                                {isPacksBelogsToUser && <ButtonTabDelete/>}
+                                {isPacksBelogsToUser && <ButtonTabDelete onClick={onDeleteButtonClickHandler}/>}
                             </div>
                             <div className={s.buttonContainer}>
                                 {isPacksBelogsToUser && <ButtonTabEdit/>}
