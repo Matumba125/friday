@@ -70,6 +70,7 @@ const CardListMain = () => {
                             <TableHead />
 
                             <tbody className={s.tableBody}>
+                            {/*<TableLeine packName={'new'} userName={'new'} user_id={'1'} _id={'1'} key={1} created={new Date()} cardsCount={10}/>*/}
                                 {tBody}
                             </tbody>
                         </table>

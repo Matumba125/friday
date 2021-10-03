@@ -1,17 +1,27 @@
-import { UserDataType } from "../api/auth-api"
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {authApi, UserDataType} from "../api/auth-api"
+import {setIsLoading} from "./appReducer"
 
-type SetUserDataActionType ={
-    type: 'PROFILE/SET-USER-DATA',
-    data: UserDataType
-}
-type SetProfileIsEditingActionType ={
-    type: 'PROFILE/SET-IS-EDITING',
-    isEditing: boolean
-}
 
-type ProfileReducerActionType = SetUserDataActionType | SetProfileIsEditingActionType
+export const updateProfileTC = createAsyncThunk('profile/updateProfile', async (param: { name: string, avatar: string | undefined }, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        const res = await authApi.update({name: param.name, avatar: param.avatar})
+        dispatch(setUserDataAC({userData: res.data.updatedUser}))
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading({isLoading: false}))
+        dispatch(setProfileIsEditingAC({isEditing: false}))
+    }
+})
 
-const initialState = {
+
+const initialState: ProfileReducerInitialStateType = {
     userData: {
         _id: '',
         email: '',
@@ -35,23 +45,20 @@ type ProfileReducerInitialStateType = {
     isEditing: boolean
 }
 
-export const profileReducer = (state:ProfileReducerInitialStateType = initialState, action: ProfileReducerActionType): ProfileReducerInitialStateType =>{
-    switch (action.type) {
-        case 'PROFILE/SET-USER-DATA':
-            return {
-                ...state,
-                userData: action.data
-            }
-        case 'PROFILE/SET-IS-EDITING':
-            return {
-                ...state,
-                isEditing: action.isEditing
-            }
-        default:
-            return state
+const slice = createSlice({
+    name: 'profile',
+    initialState: initialState,
+    reducers: {
+        setUserDataAC(state, action: PayloadAction<{ userData: UserDataType }>) {
+            state.userData = action.payload.userData
+        },
+        setProfileIsEditingAC(state, action: PayloadAction<{ isEditing: boolean }>) {
+            state.isEditing = action.payload.isEditing
+        },
     }
+})
 
-}
 
-export const setUserDataAC = (data: UserDataType): SetUserDataActionType => ({type: 'PROFILE/SET-USER-DATA', data})
-export const setProfileIsEditingAC = (isEditing: boolean): SetProfileIsEditingActionType =>({type:"PROFILE/SET-IS-EDITING", isEditing})
+export const profileReducer = slice.reducer
+
+export const {setUserDataAC, setProfileIsEditingAC} = slice.actions

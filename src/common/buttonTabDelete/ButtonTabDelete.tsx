@@ -1,10 +1,12 @@
-import React from "react";
+import React, {ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import s from './ButtonTabDelete.module.css';
 
-const ButtonTabDelete = () => {
+type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,HTMLButtonElement>;
+
+const ButtonTabDelete: React.FC<DefaultButtonPropsType> = props => {
 
     return (
-        <button className={s.tableButton} type="button">Delete</button>
+        <button className={s.tableButton} type="button" {...props}>Delete</button>
     )
 }
 
