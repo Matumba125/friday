@@ -11,6 +11,7 @@ import React, {FormEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
 import {getIsLoggedIn, getLoginError} from '../../store/selectots';
+import ModalBox from '../../common/modalBox/ModalBox';
 
 const Loginization = () => {
   const [email, setEmail] = useState<string>('');
@@ -49,7 +50,7 @@ const Loginization = () => {
 
   return (
     <>
-
+<ModalBox/>
       <CardContainer>
         <>
           <div className={s.globalTitleBox}>

@@ -29,10 +29,9 @@
 }
 
 .buttonWrap{
-    /* margin-left: 1.5rem; */
+    margin-left: 1rem;
     min-width: 11.5rem;
-    flex-basis: calc(21.7% - 1.5rem);
-}
+   }
 
 .cardListText{
     display: inline-block;
