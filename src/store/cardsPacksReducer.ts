@@ -20,7 +20,7 @@ export type CardPacksType ={
     more_id: string
 }
 
-type ControlsType = {
+export type ControlsType = {
     packName: string | undefined
     min: number 
     max: number
@@ -101,10 +101,10 @@ export const getCardsPacksTC = () => (
     (dispatch: Dispatch, getState: () => AppStateType) => {
         let controls: ControlsType = getState().cardsPack.controls
         const user_id = controls.isPrivate ? getState().profile.userData._id : undefined
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         cardsApi.getPack({controls: controls, user_id: user_id})
             .then((res) => {
-                dispatch(setIsLoading(false))
+                dispatch(setIsLoading({isLoading:false}))
                 dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
                 dispatch(setTotalPagesCountAC({
                     pageCount: res.data.pageCount,
@@ -112,7 +112,7 @@ export const getCardsPacksTC = () => (
                 }))
             })
             .catch((err) => {
-                dispatch(setIsLoading(false))
+                dispatch(setIsLoading({isLoading:false}))
             })
     }
 )
