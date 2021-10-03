@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getIsLoggedIn, getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
 import {Redirect} from 'react-router-dom';
@@ -19,7 +19,7 @@ const Profile = () => {
 
     
     const onEditButtonClick = () => {
-        dispatch(setProfileIsEditingAC(true))
+        dispatch(setProfileIsEditingAC({isEditing: true}))
     }
 
     if (isEditing) {

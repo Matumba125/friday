@@ -4,7 +4,7 @@ import {cardsApi} from "../api/cardsAPI"
 import {setIsLoading} from "./appReducer"
 import {AppStateType} from "./store"
 
-export type CardPacksType = {
+export type CardPacksType ={
     _id: string
     user_id: string
     name: string
@@ -20,9 +20,9 @@ export type CardPacksType = {
     more_id: string
 }
 
-export type ControlsType = {
+type ControlsType = {
     packName: string | undefined
-    min: number
+    min: number 
     max: number
     sortPacks: 0 | 1
     page: number
@@ -31,7 +31,7 @@ export type ControlsType = {
     totalPagesCount: number
 }
 
-type CardsPackInitialStateType = {
+type CardsPackInitialStateType ={
     cardPacks: CardPacksType[]
     controls: ControlsType
 }
@@ -53,33 +53,33 @@ const initialState: CardsPackInitialStateType = {
 const slice = createSlice({
     name: 'cards-packs',
     initialState: initialState,
-    reducers: {
-        setPageAC(state, action: PayloadAction<{ page: number }>) {
-            if (state.controls.page !== action.payload.page) state.controls.page = action.payload.page
+    reducers:{
+        setPageAC(state, action:PayloadAction<{ page: number }>){
+            if(state.controls.page !== action.payload.page)state.controls.page = action.payload.page
         },
-        setMinMaxCardsAC(state, action: PayloadAction<{ min: number, max: number }>) {
+        setMinMaxCardsAC(state, action:PayloadAction<{ min: number, max: number }>){
             state.controls.min = action.payload.min
             state.controls.max = action.payload.max
         },
-        setPageCountAC(state, action: PayloadAction<{ pageCount: number }>) {
+        setPageCountAC(state, action:PayloadAction<{ pageCount: number }>){
             state.controls.pageCount = action.payload.pageCount
         },
-        setPackNameAC(state, action: PayloadAction<{ packName: string }>) {
+        setPackNameAC(state, action:PayloadAction<{ packName: string }>){
             state.controls.packName = action.payload.packName
         },
-        setSortPacksAC(state, action: PayloadAction<{ sortPacks: 0 | 1 }>) {
+        setSortPacksAC(state, action:PayloadAction<{ sortPacks: 0 | 1 }>){
             state.controls.sortPacks = action.payload.sortPacks
         },
-        setIsPrivateAC(state, action: PayloadAction<{ isPrivate: boolean }>) {
+        setIsPrivateAC(state, action:PayloadAction<{ isPrivate: boolean }>){
             state.controls.isPrivate = action.payload.isPrivate
         },
-        setCardsPacks(state, action: PayloadAction<{ cardPacks: CardPacksType[] }>) {
+        setCardsPacks(state, action:PayloadAction<{ cardPacks: CardPacksType[]}>){
             state.cardPacks = [...action.payload.cardPacks]
         },
-        setTotalPagesCountAC(state, action: PayloadAction<{ pageCount: number, cardPacksTotalCount: number }>) {
-            state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount / action.payload.pageCount)
+        setTotalPagesCountAC(state, action: PayloadAction<{pageCount: number, cardPacksTotalCount: number}>){
+            state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount/action.payload.pageCount)
         }
-
+        
     }
 })
 
