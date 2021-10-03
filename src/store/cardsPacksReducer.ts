@@ -51,7 +51,7 @@ const initialState: CardsPackInitialStateType = {
 }
 ///////////
 
-export const getCardsPacksTC = createAsyncThunk('auth/authMe', async (param, {dispatch, rejectWithValue, getState}) => {
+export const getCardsPacksTC = createAsyncThunk('cardsPacks/getPacks', async (param, {dispatch, rejectWithValue, getState}) => {
     const state = getState() as AppStateType
     const controls = state.cardsPack.controls
     const user_id = controls.isPrivate ? state.profile.userData._id : undefined

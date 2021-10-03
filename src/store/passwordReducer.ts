@@ -1,3 +1,4 @@
+import {createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { Dispatch } from "redux"
 import {authApi, ForgotParamsType } from "../api/auth-api"
 import { setIsLoading } from "./appReducer"
@@ -30,6 +31,53 @@ const initialState = {
     passwordSetted: false,
 }
 
+const slice = createSlice({
+    name: 'password',
+    initialState:{
+        isSended: false,
+        error: '',
+        passwordSetted: false,
+    },
+     reducers:{
+
+     }
+})
+
+export const sendRecoveryMailTC = createAsyncThunk('password/sendRecoveryMail', async (email: string, {dispatch, rejectWithValue}) => {
+    const forgotData: ForgotParamsType ={
+        email: email,
+        from: "test-front-admin <lonely__wind@mail.ru>",
+        message: `<div style="padding: 15px">
+                    Password recovery link:
+                    <a href='https://matumba125.github.io/friday/#/new-password/$token$'>Click Here</a>
+                    </div>`
+    }
+
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await authApi.forgot(forgotData)
+        dispatch(setSendedAC(true))
+    }catch (error) {
+        //@ts-ignore
+        dispatch(setPasswordRecoveryErrorAC(error.response.data.error))
+    }finally{
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
+
+export const setNewPasswordTC = createAsyncThunk('profile/updateProfile', async (param:{password: string, token: string}, {dispatch, rejectWithValue, getState}) => {
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await authApi.setNewPassword({password: param.password, resetPasswordToken: param.token})
+        dispatch(setPasswordSettedAC(true))
+    }catch (error){
+        //@ts-ignore
+        dispatch(setPasswordRecoveryErrorAC(error.response.data.error))
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
+
 export const passwordReducer = (state: PasswordReducerInitialStateType = initialState, action: PasswordReducerActionType): PasswordReducerInitialStateType =>{
     switch (action.type){
         case "PASS/SET-IS-SENDED":
@@ -58,10 +106,12 @@ export const setSendedAC = (isSended: boolean): SetSendActionType=>({
     isSended
 })
 
+
 export const setPasswordRecoveryErrorAC = (error: string): SetPasswordRecoveryErrorActionType =>({
     type: "PASS/SET-ERROR",
     error
 })
+
 export const setPasswordSettedAC = (passwordSetted: boolean): SetPasswordSettedActionType =>({
     type: "PASS/PASSWORD-SETTED",
     passwordSetted
@@ -69,41 +119,3 @@ export const setPasswordSettedAC = (passwordSetted: boolean): SetPasswordSettedA
 
 
 //// Thunks
-
-export const sendRecoveryMailTC = (email: string) =>(
- (dispatch: Dispatch) =>{
-     dispatch(setIsLoading({isLoading: true}))
-     const forgotData: ForgotParamsType ={
-        email: email,
-        from: "test-front-admin <lonely__wind@mail.ru>",
-        message: `<div style="padding: 15px">
-                    Password recovery link:
-                    <a href='https://matumba125.github.io/friday/#/new-password/$token$'>Click Here</a>
-                    </div>`
-    }
-    authApi.forgot(forgotData)
-        .then(()=>{
-            dispatch(setIsLoading({isLoading:false}))
-            dispatch(setSendedAC(true))
-        }).catch((err)=>{
-            dispatch(setIsLoading({isLoading:false}))
-            dispatch(setPasswordRecoveryErrorAC(err.response.data.error))
-    })
- }
-)
-
-
-export const setNewPasswordTC = (password: string, token: string)=>(
-    (dispatch: Dispatch)=>{
-        dispatch(setIsLoading({isLoading: true}))
-        authApi.setNewPassword({password: password, resetPasswordToken: token})
-            .then(()=>{
-                dispatch(setIsLoading({isLoading:false}))
-                dispatch(setPasswordSettedAC(true))
-            })
-            .catch((err)=>{
-                dispatch(setIsLoading({isLoading:false}))
-                dispatch(setPasswordRecoveryErrorAC(err.response.data.error))
-            })
-    }
-)
