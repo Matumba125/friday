@@ -1,3 +1,4 @@
+import { createAsyncThunk } from "@reduxjs/toolkit/dist/createAsyncThunk"
 import {Dispatch} from "redux"
 import {authApi, LoginParamsType} from "../api/auth-api"
 import { setIsLoading } from "./appReducer"
@@ -8,6 +9,19 @@ const inititialState = {
     isLoggedIn: false,
     error: '',
 }
+
+export const logOutTC_ = createAsyncThunk('auth/authMe', async (param, {dispatch, rejectWithValue}) => {
+    try {
+        dispatch(setIsLoading(true))
+        await authApi.logout()
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading(false))
+        dispatch(setLoggedAC(false))
+    }
+})
+
 type LoginizationReducerInititialStateType = typeof inititialState
 
 type LoginizationReducerActionType = ReturnType<typeof setLoggedAC>

@@ -1,4 +1,6 @@
-import { UserDataType } from "../api/auth-api"
+import { createAsyncThunk } from "@reduxjs/toolkit/dist/createAsyncThunk"
+import {authApi, UserDataType } from "../api/auth-api"
+import { setIsLoading } from "./appReducer"
 
 type SetUserDataActionType ={
     type: 'PROFILE/SET-USER-DATA',
@@ -8,6 +10,20 @@ type SetProfileIsEditingActionType ={
     type: 'PROFILE/SET-IS-EDITING',
     isEditing: boolean
 }
+
+export const updateProfileTC_ = createAsyncThunk('auth/authMe', async (param:{name: string, avatar: string | undefined}, {dispatch, rejectWithValue, getState}) => {
+    try {
+        dispatch(setIsLoading(true))
+        const res = await authApi.update({name: param.name, avatar: param.avatar})
+        return {userData: res.data.updatedUser}
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading(false))
+        dispatch(setProfileIsEditingAC(false))
+    }
+})
+
 
 type ProfileReducerActionType = SetUserDataActionType | SetProfileIsEditingActionType
 
