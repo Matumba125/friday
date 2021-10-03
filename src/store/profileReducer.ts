@@ -1,19 +1,21 @@
-import { PayloadAction } from "@reduxjs/toolkit"
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import { createSlice } from "@reduxjs/toolkit"
-import {authApi, UserDataType } from "../api/auth-api"
-import { setIsLoading } from "./appReducer"
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {authApi, UserDataType} from "../api/auth-api"
+import {setIsLoading} from "./appReducer"
 
 
-export const updateProfileTC = createAsyncThunk('profile/updateProfile', async (param:{name: string, avatar: string | undefined}, {dispatch, rejectWithValue, getState}) => {
+export const updateProfileTC = createAsyncThunk('profile/updateProfile', async (param: { name: string, avatar: string | undefined }, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
     try {
         dispatch(setIsLoading({isLoading: true}))
         const res = await authApi.update({name: param.name, avatar: param.avatar})
-        return {userData: res.data.updatedUser}
+        dispatch(setUserDataAC({userData: res.data.updatedUser}))
     } catch (error) {
         return rejectWithValue(error)
     } finally {
-        dispatch(setIsLoading({isLoading:false}))
+        dispatch(setIsLoading({isLoading: false}))
         dispatch(setProfileIsEditingAC({isEditing: false}))
     }
 })
@@ -46,11 +48,11 @@ type ProfileReducerInitialStateType = {
 const slice = createSlice({
     name: 'profile',
     initialState: initialState,
-    reducers:{
-        setUserDataAC(state, action: PayloadAction<{userData: UserDataType}>){
+    reducers: {
+        setUserDataAC(state, action: PayloadAction<{ userData: UserDataType }>) {
             state.userData = action.payload.userData
         },
-        setProfileIsEditingAC(state, action: PayloadAction<{isEditing: boolean}>){
+        setProfileIsEditingAC(state, action: PayloadAction<{ isEditing: boolean }>) {
             state.isEditing = action.payload.isEditing
         },
     }

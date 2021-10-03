@@ -69,6 +69,17 @@ export const getCardsPacksTC = createAsyncThunk('cardsPacks/getPacks', async (pa
     }
 })
 
+export const deleteCardPAckTC = createAsyncThunk('cardsPacks/getPacks', async (packId: string, {dispatch, rejectWithValue, getState}) => {
+    try{
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.deletePack(packId)
+        dispatch(getCardsPacksTC())
+    }catch (error) {
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
 
 const slice = createSlice({
     name: 'cards-packs',

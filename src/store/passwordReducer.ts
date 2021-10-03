@@ -2,7 +2,7 @@ import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
 import {authApi, ForgotParamsType} from "../api/auth-api"
 import {setIsLoading} from "./appReducer"
 
-export const setNewPasswordTC = createAsyncThunk('profile/updateProfile', async (param:{password: string, token: string}, {dispatch, rejectWithValue, getState}) => {
+export const setNewPasswordTC = createAsyncThunk('paaword/setNewPassword', async (param:{password: string, token: string}, {dispatch, rejectWithValue, getState}) => {
     try {
         dispatch(setIsLoading({isLoading: true}))
         await authApi.setNewPassword({password: param.password, resetPasswordToken: param.token})

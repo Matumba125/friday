@@ -24,8 +24,10 @@ export const cardsApi = {
         return instance.post<{}>(`/cards/pack`, {data})
 },
 
-    deletePack(data: deleteCardsParamsType) {
-        return instance.delete<{}>(`/cards/pack`, {data})
+    deletePack(packId: string) {
+        return instance.delete<{}>(`/cards/pack`, {params:{
+            id: packId
+            }})
     },
 
     putPack(data: putPackParamsType) {
@@ -40,8 +42,8 @@ export const cardsApi = {
         return instance.post<{}>(`/cards/card`, {data})
     },
 
-    deleteCard(data: deleteCardsParamsType) {
-        return instance.post<{}>(`/cards/card`, {data})
+    deleteCard() {
+        return instance.post<{}>(`/cards/card`,)
     },
 
     putCard(data: putCardParamsType) {
@@ -77,9 +79,6 @@ export type postPackParamsType = {
     }
 }
 
-export type deleteCardsParamsType = {
-    id: string
-}
 
 export type putPackParamsType = {
     cardsPack: {
