@@ -1,75 +1,41 @@
-import {Dispatch} from "redux"
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
 import {authApi, RegisterParamsType} from "../api/auth-api"
-import { setIsLoading } from "./appReducer"
+import {setIsLoading} from "./appReducer"
 
 
-///Action Tyes
-export type SetErrorActionType = {
-    type: 'REG/ERROR',
-    error: string
-}
-
-export type SetRegisteredActionType = {
-    type: 'REG/SET-REGISTERED',
-    registered: boolean
-}
-
-export type RegistrartionReducerActionTypes = SetErrorActionType | SetRegisteredActionType
-
-type RegistrationInitialStateType = {
-    error: string
-    registered: boolean
-}
-
-const initialState = {
-    error: '',
-    registered: false
-}
-
-
-export const registrationReducer = (state: RegistrationInitialStateType = initialState, action: RegistrartionReducerActionTypes): RegistrationInitialStateType => {
-    switch (action.type) {
-        case "REG/ERROR":
-            return {
-                ...state,
-                error: action.error
-            }
-        case "REG/SET-REGISTERED":
-            return {
-                ...state,
-                registered: action.registered
-            }
-        default:
-            return state
-    }
-}
-
-/// Actions
-
-export const setErrorAC = (error:string): SetErrorActionType => ({
-    type: "REG/ERROR",
-    error
-} as const)
-
-const setRegisteredAC = (registered: boolean): SetRegisteredActionType => ({
-    type: 'REG/SET-REGISTERED',
-    registered
-} as const)
-
-
-/// Thunks
-
-export const registerTC = (regData: RegisterParamsType) => (
-    (dispatch: Dispatch) => {
+export const registerTC = createAsyncThunk('registration/register', async (regData: RegisterParamsType, {dispatch, rejectWithValue})=>{
+    try{
         dispatch(setIsLoading(true))
-        authApi.register(regData).then(() => {
-            dispatch(setRegisteredAC(true))
-            dispatch(setErrorAC(''))
-            dispatch(setIsLoading(false))
-        }).catch((error) => {
-            // console.dir(error)
-            dispatch(setErrorAC(error.response.data.error))
-            dispatch(setIsLoading(false))
-        })
+        await authApi.register(regData)
+        dispatch(setRegisteredAC({registered: true}))
+        dispatch(setRegistrationErrorAC({error: ''}))
+    }catch (error){
+        //@ts-ignore
+        dispatch(setRegistrationErrorAC({error: error.response.data.error}))
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading(false))
+
     }
-)
+})
+
+
+const slice = createSlice({
+    name: 'registration',
+    initialState:{
+        error: '',
+        registered: false
+    },
+    reducers:{
+        setRegistrationErrorAC(state, action: PayloadAction<{error:string}>){
+            state.error = action.payload.error
+        },
+        setRegisteredAC(state, action: PayloadAction<{registered: boolean}>){
+            state.registered = action.payload.registered
+        }
+    }
+})
+
+export const registrationReducer = slice.reducer
+
+export const {setRegistrationErrorAC, setRegisteredAC} = slice.actions
