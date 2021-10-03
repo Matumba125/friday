@@ -9,19 +9,19 @@ import { setUserDataAC } from "./profileReducer"
 
 export const logOutTC = createAsyncThunk('login/logOut', async (param, {dispatch, rejectWithValue}) => {
     try {
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         await authApi.logout()
     } catch (error) {
         return rejectWithValue(error)
     } finally {
-        dispatch(setIsLoading(false))
+        dispatch(setIsLoading({isLoading:false}))
         dispatch(setLoggedAC({isLoggedIn: false}))
     }
 })
 
-export const loginTC_ = createAsyncThunk('login/logIn', async (data: LoginParamsType, {dispatch, rejectWithValue}) => {
+export const loginTC = createAsyncThunk('login/logIn', async (data: LoginParamsType, {dispatch, rejectWithValue}) => {
     try {
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         const res = await authApi.login(data)
         dispatch(setLoggedAC({isLoggedIn: true}))
         dispatch(setUserDataAC({userData: res.data}))
@@ -30,25 +30,9 @@ export const loginTC_ = createAsyncThunk('login/logIn', async (data: LoginParams
         dispatch(setLoginErrorAC({error: error.response.data.error}))
         return rejectWithValue(error)
     } finally {
-        dispatch(setIsLoading(false))
+        dispatch(setIsLoading({isLoading:false}))
     }
 })
-
-export const loginTC = (data: LoginParamsType) =>(
-    (dispatch: Dispatch) => {
-        dispatch(setIsLoading(true))
-        authApi.login(data)
-            .then((res) => {
-                dispatch(setIsLoading(false))
-                dispatch(setLoggedAC({isLoggedIn: true}))
-                dispatch(setUserDataAC({userData: res.data}))
-            })
-            .catch((error) => {
-                dispatch(setIsLoading(false))
-                dispatch(setLoginErrorAC(error.response.data.error))
-            })
-
-    })
 
 const slice = createSlice({
     name: 'loginization',
@@ -67,6 +51,5 @@ const slice = createSlice({
 
 })
 export const loginizationReducer = slice.reducer
-//action
 
 export const {setLoggedAC, setLoginErrorAC} = slice.actions

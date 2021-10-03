@@ -5,7 +5,7 @@ import {setIsLoading} from "./appReducer"
 
 export const registerTC = createAsyncThunk('registration/register', async (regData: RegisterParamsType, {dispatch, rejectWithValue})=>{
     try{
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         await authApi.register(regData)
         dispatch(setRegisteredAC({registered: true}))
         dispatch(setRegistrationErrorAC({error: ''}))
@@ -14,7 +14,7 @@ export const registerTC = createAsyncThunk('registration/register', async (regDa
         dispatch(setRegistrationErrorAC({error: error.response.data.error}))
         return rejectWithValue(error)
     }finally {
-        dispatch(setIsLoading(false))
+        dispatch(setIsLoading({isLoading:false}))
 
     }
 })

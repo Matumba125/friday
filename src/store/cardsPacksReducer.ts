@@ -94,15 +94,15 @@ export const getCardsPacksTC = () =>(
     (dispatch: Dispatch, getState: ()=> store)=>{
         let controls: ControlsType = getState().cardsPack.controls
         let urlWithParams = `/?${controls.packName ?`packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}`: ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${controls.isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         cardsApi.getPack(urlWithParams)
             .then((res)=>{
-                dispatch(setIsLoading(false))
+                dispatch(setIsLoading({isLoading:false}))
                 dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
                 dispatch(setTotalPagesCountAC({pageCount: res.data.pageCount, cardPacksTotalCount: res.data.cardPacksTotalCount}))
             })
             .catch((err)=>{
-                dispatch(setIsLoading(false))
+                dispatch(setIsLoading({isLoading:false}))
             })
     }
 )

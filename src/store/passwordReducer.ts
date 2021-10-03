@@ -72,7 +72,7 @@ export const setPasswordSettedAC = (passwordSetted: boolean): SetPasswordSettedA
 
 export const sendRecoveryMailTC = (email: string) =>(
  (dispatch: Dispatch) =>{
-     dispatch(setIsLoading(true))
+     dispatch(setIsLoading({isLoading: true}))
      const forgotData: ForgotParamsType ={
         email: email,
         from: "test-front-admin <lonely__wind@mail.ru>",
@@ -83,10 +83,10 @@ export const sendRecoveryMailTC = (email: string) =>(
     }
     authApi.forgot(forgotData)
         .then(()=>{
-            dispatch(setIsLoading(false))
+            dispatch(setIsLoading({isLoading:false}))
             dispatch(setSendedAC(true))
         }).catch((err)=>{
-            dispatch(setIsLoading(false))
+            dispatch(setIsLoading({isLoading:false}))
             dispatch(setPasswordRecoveryErrorAC(err.response.data.error))
     })
  }
@@ -95,14 +95,14 @@ export const sendRecoveryMailTC = (email: string) =>(
 
 export const setNewPasswordTC = (password: string, token: string)=>(
     (dispatch: Dispatch)=>{
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         authApi.setNewPassword({password: password, resetPasswordToken: token})
             .then(()=>{
-                dispatch(setIsLoading(false))
+                dispatch(setIsLoading({isLoading:false}))
                 dispatch(setPasswordSettedAC(true))
             })
             .catch((err)=>{
-                dispatch(setIsLoading(false))
+                dispatch(setIsLoading({isLoading:false}))
                 dispatch(setPasswordRecoveryErrorAC(err.response.data.error))
             })
     }

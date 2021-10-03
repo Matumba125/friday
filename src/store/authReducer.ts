@@ -5,13 +5,13 @@ import {setLoggedAC} from "./loginizationReducer"
 
 export const authMeTC = createAsyncThunk('auth/authMe', async (param, {dispatch, rejectWithValue}) => {
     try {
-        dispatch(setIsLoading(true))
+        dispatch(setIsLoading({isLoading: true}))
         const res = await authApi.me()
         dispatch(setLoggedAC({isLoggedIn: true}))
         return {userData: res.data}
     } catch (error) {
         return rejectWithValue(error)
     } finally {
-        dispatch(setIsLoading(false))
+        dispatch(setIsLoading({isLoading:false}))
     }
 })
