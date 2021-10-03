@@ -84,7 +84,19 @@ export const deleteCardPackTC = createAsyncThunk('cardsPacks/deletePack', async 
 export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async (param:{packId: string, name?: string}, {dispatch, rejectWithValue})=>{
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.putPack({_id: param.packId, name: param.name})
+        await cardsApi.updatePack({_id: param.packId, name: param.name})
+        dispatch(getCardsPacksTC())
+    }catch (error) {
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
+
+export const createCardsPackTC = createAsyncThunk('cardsPacks/createPack', async (param:{name: string, deckCover?: string}, {dispatch, rejectWithValue})=> {
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.createPack({name: param.name})
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)
