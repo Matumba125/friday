@@ -5,7 +5,7 @@ import {authApi, UserDataType } from "../api/auth-api"
 import { setIsLoading } from "./appReducer"
 
 
-export const updateProfileTC_ = createAsyncThunk('profile/updateProfile', async (param:{name: string, avatar: string | undefined}, {dispatch, rejectWithValue, getState}) => {
+export const updateProfileTC = createAsyncThunk('profile/updateProfile', async (param:{name: string, avatar: string | undefined}, {dispatch, rejectWithValue, getState}) => {
     try {
         dispatch(setIsLoading(true))
         const res = await authApi.update({name: param.name, avatar: param.avatar})

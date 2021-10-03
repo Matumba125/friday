@@ -7,7 +7,7 @@ import { setIsLoading } from "./appReducer"
 import { setUserDataAC } from "./profileReducer"
 
 
-export const logOutTC_ = createAsyncThunk('login/logOut', async (param, {dispatch, rejectWithValue}) => {
+export const logOutTC = createAsyncThunk('login/logOut', async (param, {dispatch, rejectWithValue}) => {
     try {
         dispatch(setIsLoading(true))
         await authApi.logout()

@@ -7,8 +7,7 @@ import CardContainer from '../../common/cardContainer/CardContainer';
 import InputForm from '../../common/inputForm/InputForm';
 import Avatar from '../../common/avatar/Avatar';
 import ListTitle from '../../common/listTitle/ListTitle';
-import {updateProfileTC} from '../../store/authReducer';
-import {setProfileIsEditingAC} from '../../store/profileReducer';
+import {setProfileIsEditingAC, updateProfileTC} from '../../store/profileReducer';
 import {getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 
@@ -33,7 +32,7 @@ const EditProfile = () => {
     };
 
     const onSaveButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-        dispatch(updateProfileTC(name, avatar))
+        dispatch(updateProfileTC({name, avatar}))
     }
 
     const onCancelButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {

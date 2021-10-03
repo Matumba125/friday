@@ -7,7 +7,7 @@ import User from '../../../src/assets/images/userActive.png';
 import LogOut from '../../../src/assets/images/log-out1.svg';
 import {PATH} from '../../components/routing/Routing';
 import {useDispatch} from 'react-redux';
-import {logOutTC} from '../../store/authReducer';
+import { logOutTC } from '../../store/loginizationReducer';
 
 const Header = () => {
 
