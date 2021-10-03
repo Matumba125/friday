@@ -81,10 +81,8 @@ export type postPackParamsType = {
 
 
 export type putPackParamsType = {
-    cardsPack: {
         _id: string
         name?: string
-    }
 }
 
 export type getCardParamsType = {
