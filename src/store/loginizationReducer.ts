@@ -1,10 +1,7 @@
-import { PayloadAction } from "@reduxjs/toolkit"
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import { createSlice } from "@reduxjs/toolkit"
-import {Dispatch} from "redux"
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
 import {authApi, LoginParamsType} from "../api/auth-api"
-import { setIsLoading } from "./appReducer"
-import { setUserDataAC } from "./profileReducer"
+import {setIsLoading} from "./appReducer"
+import {setUserDataAC} from "./profileReducer"
 
 
 export const logOutTC = createAsyncThunk('login/logOut', async (param, {dispatch, rejectWithValue}) => {

@@ -1,5 +1,4 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {Dispatch} from "redux"
 import {cardsApi} from "../api/cardsAPI"
 import {setIsLoading} from "./appReducer"
 import {AppStateType} from "./store"
