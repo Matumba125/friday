@@ -11,7 +11,7 @@ type SetProfileIsEditingActionType ={
     isEditing: boolean
 }
 
-export const updateProfileTC_ = createAsyncThunk('auth/authMe', async (param:{name: string, avatar: string | undefined}, {dispatch, rejectWithValue, getState}) => {
+export const updateProfileTC_ = createAsyncThunk('profile/updateProfile', async (param:{name: string, avatar: string | undefined}, {dispatch, rejectWithValue, getState}) => {
     try {
         dispatch(setIsLoading(true))
         const res = await authApi.update({name: param.name, avatar: param.avatar})
