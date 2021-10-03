@@ -7,7 +7,7 @@ import {RangeSlider} from '../../common/inputRange/InputRange';
 import SaidbarTitle from '../saidbarTitle/SaidbarTitle';
 import {getCardsPacksTC} from '../../store/cardsPacksReducer';
 
-const CardListSaidbar = () => {
+const  CardListSaidbar = () => {
 
     const dispatch = useDispatch()
 

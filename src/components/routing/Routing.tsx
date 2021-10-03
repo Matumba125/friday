@@ -4,6 +4,7 @@ import Loginization from '../loginization/Loginization';
 import NotFound from "../NotFound/NotFound";
 import NewPassword from "../newPassword/NewPassword";
 import PasswordRecovery from "../passwordRecovery/PasswordRecovery";
+import PackList from "../packList/PackList";
 import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
 import EditProfile from '../editProfile/EditProfile';
@@ -17,7 +18,8 @@ export const PATH ={
     PROFILE: '/profile',
     EDIT_PROFILE: '/edit-profile',
     REGISTRATION: '/registration',
-    CARDS_PACKS: '/cards-packs'
+    CARDS_PACKS: '/cards-packs',
+    PACK_LIST: '/pack-list',
 }
 const Routing = () => {
     return (
@@ -32,6 +34,7 @@ const Routing = () => {
                 <Route path={PATH.EDIT_PROFILE} render={()=> <EditProfile/>} />
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
                 <Route path={PATH.CARDS_PACKS} render={()=> <CardsPacks/>} />
+                <Route path={PATH.PACK_LIST} render={()=><PackList/>}/>
             </Switch>
         </>
     );

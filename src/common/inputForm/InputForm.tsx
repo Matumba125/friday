@@ -1,3 +1,4 @@
+import { on } from 'events';
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState, MouseEvent} from 'react';
 import s from './InputForm.module.css';
 
@@ -52,6 +53,7 @@ const InputForm: React.FC<InputFormPropsType>= props => {
                     pattern={pattern}
                     value={value}
                     onChange={onChangeHandler}
+                    autoComplete="on"
                     required
                 />
 
