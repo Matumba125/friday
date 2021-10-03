@@ -1,4 +1,4 @@
-import {createAsyncThunk} from "@reduxjs/toolkit/dist/createAsyncThunk"
+import {createAsyncThunk} from "@reduxjs/toolkit"
 import {Dispatch} from "redux"
 import {authApi} from "../api/auth-api"
 import {setIsLoading} from "./appReducer"
@@ -10,7 +10,7 @@ export const authMeTC_ = createAsyncThunk('auth/authMe', async (param, {dispatch
     try {
         dispatch(setIsLoading(true))
         const res = await authApi.me()
-        dispatch(setLoggedAC(true))
+        dispatch(setLoggedAC({isLoggedIn: true}))
         return {userData: res.data}
     } catch (error) {
         return rejectWithValue(error)
@@ -28,8 +28,8 @@ export const updateProfileTC = (name: string, avatar: string | undefined) => (
         authApi.update({name, avatar})
             .then((res) => {
                 dispatch(setIsLoading(false))
-                dispatch(setUserDataAC(res.data.updatedUser))
-                dispatch(setProfileIsEditingAC(false))
+                dispatch(setUserDataAC({userData: res.data.updatedUser}))
+                dispatch(setProfileIsEditingAC({isEditing: false}))
             })
             .catch((error) => {
                 dispatch(setIsLoading(false))
@@ -43,11 +43,11 @@ export const logOutTC = () => (
         authApi.logout()
             .then(() => {
                 dispatch(setIsLoading(false))
-                dispatch(setLoggedAC(false))
+                dispatch(setLoggedAC({isLoggedIn: false}))
             })
             .catch((error) => {
                 dispatch(setIsLoading(false))
-                dispatch(setLoggedAC(false))
+                dispatch(setLoggedAC({isLoggedIn: false}))
             })
     }
 )
@@ -61,8 +61,8 @@ export const authMeTC = () => (
         authApi.me()
             .then((res) => {
                 dispatch(setIsLoading(false))
-                dispatch(setLoggedAC(true))
-                dispatch(setUserDataAC(res.data))
+                dispatch(setLoggedAC({isLoggedIn: false}))
+                dispatch(setUserDataAC({userData: res.data}))
             })
             .catch((error) => {
                 dispatch(setIsLoading(false))

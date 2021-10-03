@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getIsLoggedIn, getIsProfileEditing, getUserName} from '../../store/selectots';
+import {getIsLoggedIn, getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../routing/Routing';
 import s from './Profile.module.css';
@@ -15,12 +15,13 @@ const Profile = () => {
     const isLoggedIn = useSelector(getIsLoggedIn)
     const isEditing = useSelector(getIsProfileEditing)
     const userName = useSelector(getUserName)
+    const userAvatar = useSelector(getUserAvatar)
 
 
     useEffect(() => { }, [userAvatar, userName])
 
     const onEditButtonClick = () => {
-        dispatch(setProfileIsEditingAC(true))
+        dispatch(setProfileIsEditingAC({isEditing: true}))
     }
 
     if (isEditing) {

@@ -38,7 +38,7 @@ const EditProfile = () => {
 
     const onCancelButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        dispatch(setProfileIsEditingAC(false))
+        dispatch(setProfileIsEditingAC({isEditing: false}))
     }
 
     if (!isEditing) {
