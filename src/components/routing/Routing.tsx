@@ -9,7 +9,6 @@ import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
 import EditProfile from '../editProfile/EditProfile';
 import CardsPacks from '../cardsPacks/CardsPacks';
-import ModalAddPack from '../modalAddPack/ModalAddPack';
 
 export const PATH ={
     LOGIN: '/login',

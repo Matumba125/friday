@@ -39,7 +39,7 @@ const initialState: CardsPackInitialStateType = {
     cardPacks: [],
     controls: {
         packName: undefined,
-        min: 1,
+        min: 0,
         max: 100,
         sortPacks: 0,
         page: 1,

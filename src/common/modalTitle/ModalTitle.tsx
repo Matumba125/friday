@@ -1,4 +1,4 @@
-import React, {DetailedHTMLProps} from "react";
+import React from "react";
 import s from './ModalTitle.module.css';
 
 type ModalTitlePropsType = {

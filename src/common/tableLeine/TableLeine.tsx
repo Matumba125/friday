@@ -1,13 +1,12 @@
-import React, {ChangeEvent, MouseEvent, useState, KeyboardEvent} from "react";
+import React, {ChangeEvent, KeyboardEvent, MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
-import { useDispatch, useSelector } from "react-redux";
-import { deleteCardsPackTC, updateCardsPackTC } from "../../store/cardsPacksReducer";
-import { getCurrentUserIdAvatar } from "../../store/selectots";
+import {useDispatch, useSelector} from "react-redux";
+import {updateCardsPackTC} from "../../store/cardsPacksReducer";
+import {getCurrentUserIdAvatar} from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
-import InputForm from "../inputForm/InputForm";
 
 type TableLinePropsType = {
     packName: string
