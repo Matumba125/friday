@@ -1,6 +1,7 @@
 import React from "react";
 import s from './ModalAddPack.module.css';
 import ModalBox from '../../common/modalBox/ModalBox';
+import ModalTitle from '../../common/modalTitle/ModalTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonCloseModal from '../../common/buttonCloseModal/ButtonCloseModal';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
@@ -13,10 +14,10 @@ const ModalAddPack = () => {
         <ModalBox>
             <>
                 <div className={s.headerModal}>
-                    <h3 className={s.modalTitle}>
-                        Add new pack
-                    </h3>
-                    <ButtonCloseModal/>
+                    <ModalTitle
+                        text={'Add new pack'}
+                    />
+                    <ButtonCloseModal />
                 </div>
 
                 <div className={s.inputBox}>

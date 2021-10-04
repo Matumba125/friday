@@ -1,9 +1,6 @@
-.buttonContainerCancel {
-    width: 7.75rem;
-}
-
 .buttonCancel {
     display: inline-block;
+    width: 7.75rem;
     background: #D7D8EF;
     border: transparent;
     border-radius: 2rem;
@@ -12,14 +9,13 @@
     font-family: 'SFUIDisplayMedium', sans-serif;
     font-size: 1rem;
     line-height: 2.1;
-    width: 100%;
 }
 
-.buttonCancel:hover{
-    background-color: #a5a7eb;   
- }
+.buttonCancel:hover {
+    background-color: #a5a7eb;
+}
 
 
 .buttonCancel:active {
-    box-shadow: 0 0 0 3px #21268F;  
+    box-shadow: 0 0 0 3px #21268F;
 }
