@@ -7,8 +7,8 @@ import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCanc
 
 const ModalDeletePack = () => {
 
-    return (
-        <ModalBox>
+    return(
+    /*<ModalBox>*/
             <>
             <div className={s.headerModal}>
                 <ModalTitle
@@ -26,7 +26,7 @@ const ModalDeletePack = () => {
                 <button className={s.buttonDelete} type='button'>Delete</button>
             </div>
             </>
-        </ModalBox>
+/*        </ModalBox>*/
 
     )
 }

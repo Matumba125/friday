@@ -3,8 +3,9 @@ import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteCardsPackTC } from "../../store/cardsPacksReducer";
+import { getCurrentUserIdAvatar } from "../../store/selectots";
 
 type TableLinePropsType = {
     packName: string
@@ -29,12 +30,14 @@ const TableLine: React.FC<TableLinePropsType> = props => {
 
     const dispatch = useDispatch()
 
+    const currentUserId = useSelector(getCurrentUserIdAvatar)
+
     const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
         dispatch(deleteCardsPackTC(_id))
     }
 
-    const isPacksBelogsToUser = _id === user_id
+    const isPacksBelogsToUser = user_id === currentUserId
 
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
 

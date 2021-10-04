@@ -50,7 +50,6 @@ const Loginization = () => {
 
   return (
     <>
-<ModalDeletePack/>
       <CardContainer>
         <>
           <div className={s.globalTitleBox}>

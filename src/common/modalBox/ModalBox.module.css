@@ -7,6 +7,13 @@
     z-index: 2;
 }
 
+.headerModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
 .wrap::before {
     content: "";
     position: fixed;

@@ -1,9 +1,4 @@
-.headerModal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-}
+
 
 .modalTitle{
     font-family: Poppins, sans-serif;

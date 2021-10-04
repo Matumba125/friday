@@ -54,6 +54,9 @@ export const getUserName = (state: AppStateType): string => {
 export const getUserAvatar = (state: AppStateType): string | undefined => {
     return state.profile.userData.avatar
 }
+export const getCurrentUserIdAvatar = (state: AppStateType): string => {
+    return state.profile.userData._id
+}
 
 //// Card Packs Selectors
 

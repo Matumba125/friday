@@ -1,38 +1,52 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './ModalAddPack.module.css';
 import ModalBox from '../../common/modalBox/ModalBox';
-import ModalTitle from '../../common/modalTitle/ModalTitle';
 import InputForm from '../../common/inputForm/InputForm';
-import ButtonCloseModal from '../../common/buttonCloseModal/ButtonCloseModal';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
+import {useDispatch} from "react-redux";
+import {createCardsPackTC} from "../../store/cardsPacksReducer";
+
+type ModalAddPackType={
+    open: boolean
+    setClose: (open: boolean)=> void
+    title: string
+}
 
 
-const ModalAddPack = () => {
+const ModalAddPack = (props: ModalAddPackType) => {
+
+    const[newPackName, setNewPackName] = useState<string>('')
+
+    const dispatch = useDispatch()
+
+    const onTextChangeHandler = (text: string)=>{
+        setNewPackName(text)
+    }
+
+    const onSaveButtonClickHandler = () =>{
+        dispatch(createCardsPackTC({name: newPackName}))
+        props.setClose(false)
+    }
 
     return (
-        <ModalBox>
+        <ModalBox open={props.open} setClose={props.setClose} title={props.title}>
             <>
-                <div className={s.headerModal}>
-                    <ModalTitle
-                        text={'Add new pack'}
-                    />
-                    <ButtonCloseModal />
-                </div>
-
                 <div className={s.inputBox}>
                     <InputForm
-                        text={'Name pack'}
+                        text={'Pack Name'}
                         inputType={'text'}
                         title={'Please enter package name'}
-                        placeholder={'Name Pack'}
+                        placeholder={'Pack Name'}
+                        onChangeText={onTextChangeHandler}
                     />
                 </div>
 
                 <div className={s.buttonsBox}>
-                    <ButtonReturnCancel />
+                    <ButtonReturnCancel onClick={()=>props.setClose(false)}  />
                     <div className={s.buttonContainer}>
                         <ButtonFormColor
+                            onClick={onSaveButtonClickHandler}
                             text={'Save'}
                         />
                     </div>

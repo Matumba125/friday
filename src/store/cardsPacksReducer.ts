@@ -96,7 +96,7 @@ export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async
 export const createCardsPackTC = createAsyncThunk('cardsPacks/createPack', async (param:{name: string, deckCover?: string}, {dispatch, rejectWithValue})=> {
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.createPack({name: param.name})
+        await cardsApi.createPack({cardsPack:{name: param.name}})
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)
