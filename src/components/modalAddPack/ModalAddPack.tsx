@@ -10,7 +10,6 @@ import {createCardsPackTC} from "../../store/cardsPacksReducer";
 type ModalAddPackType={
     open: boolean
     setClose: (open: boolean)=> void
-    title: string
 }
 
 
@@ -30,7 +29,7 @@ const ModalAddPack = (props: ModalAddPackType) => {
     }
 
     return (
-        <ModalBox open={props.open} setClose={props.setClose} title={props.title}>
+        <ModalBox open={props.open} setClose={props.setClose} title={'Add New Pack'}>
             <>
                 <div className={s.inputBox}>
                     <InputForm

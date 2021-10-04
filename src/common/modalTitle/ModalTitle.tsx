@@ -9,7 +9,7 @@ const ModalTitle = (props: ModalTitlePropsType) => {
 
     return (
         <h3 className={s.modalTitle}>
-        Add new pack
+            {props.text}
     </h3>
     )
 }

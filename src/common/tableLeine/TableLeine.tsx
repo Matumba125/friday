@@ -1,4 +1,4 @@
-import React, {MouseEvent} from "react";
+import React, {MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
@@ -6,6 +6,7 @@ import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCardsPackTC } from "../../store/cardsPacksReducer";
 import { getCurrentUserIdAvatar } from "../../store/selectots";
+import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
 
 type TableLinePropsType = {
     packName: string
@@ -32,9 +33,11 @@ const TableLine: React.FC<TableLinePropsType> = props => {
 
     const currentUserId = useSelector(getCurrentUserIdAvatar)
 
+    const[deleting, setDeleting] = useState(false)
+
     const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
-        dispatch(deleteCardsPackTC(_id))
+        setDeleting(true)
     }
 
     const isPacksBelogsToUser = user_id === currentUserId
@@ -43,6 +46,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
 
     return (
         <>
+            <ModalDeletePack packName={packName} setClose={setDeleting} packId={_id} open={deleting}/>
             <tr className={s.tableLine}>
                 <td className={s.tableItem}>{packName}</td>
                 <td className={s.tableItem}>{cardsCount}</td>

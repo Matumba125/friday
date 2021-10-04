@@ -41,7 +41,7 @@ const CardListMain = () => {
 
     return (
         <>
-            <ModalAddPack open={addPack} setClose={setAddPack} title={'Add New Pack'}/>
+            <ModalAddPack open={addPack} setClose={setAddPack}/>
             <main className={s.container}>
 
                 <div className={s.titleWrap}>
