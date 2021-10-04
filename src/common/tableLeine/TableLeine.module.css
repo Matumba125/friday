@@ -4,6 +4,13 @@
     min-height: 3rem;
 }
 
+.input {
+    width: 100%;
+    border: transparent;
+    border-bottom: 1.6px solid rgba(36, 37, 74, .2);
+    outline-color: #21268F;
+}
+
 .tableItem {
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
