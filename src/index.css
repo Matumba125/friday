@@ -13,7 +13,7 @@
 :root {
 
   /* 16 px  for 1440px*/
-  font-size: calc(0.8rem + 0.225vw);
+  font-size: calc(0.8rem + 0.3vw);
 }
 
 /* @media (min-width:1441px) {

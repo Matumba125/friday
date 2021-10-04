@@ -9,6 +9,7 @@ import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
 import EditProfile from '../editProfile/EditProfile';
 import CardsPacks from '../cardsPacks/CardsPacks';
+import ModalAddPack from '../modalAddPack/ModalAddPack';
 
 export const PATH ={
     LOGIN: '/login',
@@ -20,6 +21,7 @@ export const PATH ={
     REGISTRATION: '/registration',
     CARDS_PACKS: '/cards-packs',
     PACK_LIST: '/pack-list',
+    MODAL_ADDPACK: 'modal-add-pack',
 }
 const Routing = () => {
     return (
@@ -35,6 +37,7 @@ const Routing = () => {
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
                 <Route path={PATH.CARDS_PACKS} render={()=> <CardsPacks/>} />
                 <Route path={PATH.PACK_LIST} render={()=><PackList/>}/>
+                <Route path={PATH. MODAL_ADDPACK} render={()=><ModalAddPack/>}/>
             </Switch>
         </>
     );
