@@ -4,7 +4,7 @@ import s from './InputSearch.module.css';
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
 type InputSearchPropstype = DefaultInputPropsType & {
-    onChangeText: (value: string) => void
+    onChangeText?: (value: string) => void
 }
 
 export const InputSearch: React.FC<InputSearchPropstype> = props => {
@@ -30,8 +30,11 @@ export const InputSearch: React.FC<InputSearchPropstype> = props => {
                 placeholder={placeholder}
                 onChange={onChangeHandler}
                 value={value}
+                autoComplete="on"
             />
         </>
     )
 }
+
+export default InputSearch
 

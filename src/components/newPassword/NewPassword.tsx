@@ -32,7 +32,7 @@ const NewPassword = () => {
 
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
-        dispatch(setNewPasswordTC(password, params.token))
+        dispatch(setNewPasswordTC({password, token: params.token}))
     }
 
     if(passwordSetted){

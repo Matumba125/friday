@@ -1,23 +1,37 @@
-import { CardPacksType } from "../store/cardsPacksReducer"
+import { CardPacksType, ControlsType } from "../store/cardsPacksReducer"
 import {instance} from "./api"
 
 
 
 export const cardsApi = {
-    getPack(data: string) {
-        return instance.get<cardsPackDataType>(`/cards/pack${data}`)
+    getPack(data: GetPacksParamsType) {
+        return instance.get<cardsPackDataType>(`/cards/pack`,
+            {
+                params:{
+                    packName: data.controls.packName,
+                    min: data.controls.min,
+                    max: data.controls.max,
+                    sortPacks: data.controls.sortPacks,
+                    page: data.controls.page,
+                    pageCount: data.controls.pageCount,
+                    user_id: data.user_id ? data.user_id : '',
+                }
+            }
+            )
     },
 
-    postPack(data: postPackParamsType) {
-        return instance.post<{}>(`/cards/pack`, {data})
+    createPack(data: postPackParamsType) {
+        return instance.post<{}>(`/cards/pack`, data)
 },
 
-    deletePack(data: deleteCardsParamsType) {
-        return instance.delete<{}>(`/cards/pack`, {data})
+    deletePack(packId: string) {
+        return instance.delete<{}>(`/cards/pack`, {params:{
+            id: packId
+            }})
     },
 
-    putPack(data: putPackParamsType) {
-        return instance.put<{}>(`/cards/pack`, {data})
+    updatePack(data: putPackParamsType) {
+        return instance.put<{}>(`/cards/pack`, data)
     },
 
     getCard(data: getCardParamsType) {
@@ -28,8 +42,8 @@ export const cardsApi = {
         return instance.post<{}>(`/cards/card`, {data})
     },
 
-    deleteCard(data: deleteCardsParamsType) {
-        return instance.post<{}>(`/cards/card`, {data})
+    deleteCard() {
+        return instance.post<{}>(`/cards/card`,)
     },
 
     putCard(data: putCardParamsType) {
@@ -47,22 +61,24 @@ export type cardsPackDataType = {
     pageCount: number
 }
 
+export type GetPacksParamsType ={
+    controls: ControlsType
+    user_id: string | undefined
+}
+
 export type postPackParamsType = {
     cardsPack: {
         name: string
-        path: string
+        path?: string
         grade?: number
         shots?: number
         rating?: number
         deckCover?: string
-        private: false
-        type: string
+        private?: boolean
+        type?: string
     }
 }
 
-export type deleteCardsParamsType = {
-    id: string
-}
 
 export type putPackParamsType = {
     cardsPack: {

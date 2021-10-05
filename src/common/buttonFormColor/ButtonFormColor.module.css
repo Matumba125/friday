@@ -9,11 +9,12 @@
     font-family: 'SFUIDisplayMedium', sans-serif;
     font-size: 1rem;
     line-height: 2.1;
+    min-width: 8rem;
     width: 100%;
 }
 
 .buttonSubmitColor:hover {
-   opacity: .7;
+    opacity: .7;
 }
 
 

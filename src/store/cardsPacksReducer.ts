@@ -1,8 +1,7 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {Dispatch} from "redux"
-import {cardsApi} from "../api/cardsPackAPI"
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {cardsApi} from "../api/cardsAPI"
 import {setIsLoading} from "./appReducer"
-import store from "./store"
+import {AppStateType} from "./store"
 
 export type CardPacksType ={
     _id: string
@@ -20,9 +19,9 @@ export type CardPacksType ={
     more_id: string
 }
 
-type ControlsType = {
+export type ControlsType = {
     packName: string | undefined
-    min: number 
+    min: number
     max: number
     sortPacks: 0 | 1
     page: number
@@ -36,11 +35,11 @@ type CardsPackInitialStateType ={
     controls: ControlsType
 }
 
-const initialState: CardsPackInitialStateType ={
+const initialState: CardsPackInitialStateType = {
     cardPacks: [],
     controls: {
         packName: undefined,
-        min: 1,
+        min: 0,
         max: 100,
         sortPacks: 0,
         page: 1,
@@ -49,6 +48,62 @@ const initialState: CardsPackInitialStateType ={
         totalPagesCount: 0
     }
 }
+///////////
+
+export const getCardsPacksTC = createAsyncThunk('cardsPacks/getPacks', async (param, {dispatch, rejectWithValue, getState}) => {
+    const state = getState() as AppStateType
+    const controls = state.cardsPack.controls
+    const user_id = controls.isPrivate ? state.profile.userData._id : undefined
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        const res = await cardsApi.getPack({controls: controls, user_id: user_id})
+        dispatch(setTotalPagesCountAC({
+            pageCount: res.data.pageCount,
+            cardPacksTotalCount: res.data.cardPacksTotalCount
+        }))
+        return {cardPacks: res.data.cardPacks}
+    }catch (error) {
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
+
+export const deleteCardsPackTC = createAsyncThunk('cardsPacks/deletePack', async (packId: string, {dispatch, rejectWithValue}) => {
+    try{
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.deletePack(packId)
+        dispatch(getCardsPacksTC())
+    }catch (error) {
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
+
+export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async (param:{packId: string, name?: string}, {dispatch, rejectWithValue})=>{
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.updatePack({cardsPack:{_id: param.packId, name: param.name}})
+        dispatch(getCardsPacksTC())
+    }catch (error) {
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
+
+export const createCardsPackTC = createAsyncThunk('cardsPacks/createPack', async (param:{name: string, deckCover?: string}, {dispatch, rejectWithValue})=> {
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.createPack({cardsPack:{name: param.name}})
+        dispatch(getCardsPacksTC())
+    }catch (error) {
+        return rejectWithValue(error)
+    }finally {
+        dispatch(setIsLoading({isLoading:false}))
+    }
+})
 
 const slice = createSlice({
     name: 'cards-packs',
@@ -73,38 +128,26 @@ const slice = createSlice({
         setIsPrivateAC(state, action:PayloadAction<{ isPrivate: boolean }>){
             state.controls.isPrivate = action.payload.isPrivate
         },
-        setCardsPacks(state, action:PayloadAction<{ cardPacks: CardPacksType[]}>){
-            state.cardPacks = [...action.payload.cardPacks]
-        },
         setTotalPagesCountAC(state, action: PayloadAction<{pageCount: number, cardPacksTotalCount: number}>){
             state.controls.totalPagesCount = Math.ceil(action.payload.cardPacksTotalCount/action.payload.pageCount)
-        },
-        setSearchPackNameAC(state, action: PayloadAction<{ packName: string | undefined}>){
-            state.controls.packName = action.payload.packName
-        }     
+        }
+    },
+    extraReducers: builder =>{
+        builder.addCase(getCardsPacksTC.fulfilled, (state, action)=>{
+            state.cardPacks = action.payload.cardPacks
+        })
     }
 })
 
 export const cardsPacksReducer = slice.reducer
 
-export const {setCardsPacks, setIsPrivateAC, setMinMaxCardsAC, setPackNameAC, setPageAC, setPageCountAC, setSortPacksAC, setTotalPagesCountAC} = slice.actions
 
-
-
-export const getCardsPacksTC = () =>(
-    // @ts-ignore
-    (dispatch: Dispatch, getState: ()=> store)=>{
-        let controls: ControlsType = getState().cardsPack.controls
-        let urlWithParams = `/?${controls.packName ?`packName=${controls.packName}` : ''}${controls.min ? `&min=${controls.min}`: ''}${controls.max ? `&max=${controls.max}` : ''}${controls.sortPacks ? `&sortPacks=${controls.sortPacks}updated` : ''}${controls.page ? `&page=${controls.page}` : ''}${controls.pageCount ? `&pageCount=${controls.pageCount}` : ''}${controls.isPrivate ? `&user_id=${getState().profile.userData._id}` : ''}`
-        dispatch(setIsLoading(true))
-        cardsApi.getPack(urlWithParams)
-            .then((res)=>{
-                dispatch(setIsLoading(false))
-                dispatch(setCardsPacks({cardPacks: res.data.cardPacks}))
-                dispatch(setTotalPagesCountAC({pageCount: res.data.pageCount, cardPacksTotalCount: res.data.cardPacksTotalCount}))
-            })
-            .catch((err)=>{
-                dispatch(setIsLoading(false))
-            })
-    }
-)
+export const {
+    setIsPrivateAC,
+    setMinMaxCardsAC,
+    setPackNameAC,
+    setPageAC,
+    setPageCountAC,
+    setSortPacksAC,
+    setTotalPagesCountAC
+} = slice.actions

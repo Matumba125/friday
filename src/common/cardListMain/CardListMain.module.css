@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 48rem;
+    width: 76%;
+    /* max-width: 48rem; */
     padding: 1.5rem 2rem 1.5rem 2rem;
     background-color: #FEFEFF;
     border-top-right-radius: .5rem;
@@ -38,7 +39,7 @@
 
 .buttonContainer {
     display: flex;
-    width: 12rem;
+    width: 11.5rem;
     margin-left: 3rem;
 }
 
@@ -46,13 +47,13 @@
     max-width: 44rem;
     max-height: 27rem;
     box-shadow: 0px -2px 5px 0px #9890c7;
-    overflow-x: auto;
+    overflow: auto;
     margin-bottom: 1.5rem;
 }
 
 .table {
-    width: 100%;
-    table-layout: fixed;
+    width: 100%; /* for adaptive*/
+    table-layout: fixed; /* for adaptive*/
     min-width: 500px;
     box-shadow: 0px -2px 5px 0px #9890c7;
     text-align: justify;

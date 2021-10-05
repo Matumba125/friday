@@ -1,10 +1,13 @@
-import React from "react";
+import React, { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 import s from './ButtonTabEdit.module.css';
 
-const ButtonTabEdit = () => {
+type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,HTMLButtonElement>;
+
+
+const ButtonTabEdit: React.FC<DefaultButtonPropsType> = props=> {
 
     return (
-        <button className={s.tableButton}>Edit</button>
+        <button className={s.tableButton} {...props}>Edit</button>
     )
 }
 

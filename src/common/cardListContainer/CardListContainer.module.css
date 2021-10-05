@@ -10,8 +10,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 70.8%;
     max-width: 63rem;
-       background-color: #fff;
+    margin: 0 auto;
+    min-height: 40rem;
+    background-color: #fff;
     border-radius: .5rem;
     animation: rotate .6s ease-in forwards;
     opacity: 0;

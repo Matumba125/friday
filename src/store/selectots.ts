@@ -54,6 +54,9 @@ export const getUserName = (state: AppStateType): string => {
 export const getUserAvatar = (state: AppStateType): string | undefined => {
     return state.profile.userData.avatar
 }
+export const getCurrentUserIdAvatar = (state: AppStateType): string => {
+    return state.profile.userData._id
+}
 
 //// Card Packs Selectors
 
@@ -83,4 +86,7 @@ export const getMaxCardsCount = (state: AppStateType): number => {
 
 export const getIsPrivate = (state: AppStateType): boolean => {
     return state.cardsPack.controls.isPrivate
+}
+export const getSortPacks = (state: AppStateType): 0 | 1 => {
+    return state.cardsPack.controls.sortPacks
 }

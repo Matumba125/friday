@@ -8,7 +8,7 @@ import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
 import {Redirect} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
-import {registerTC, setErrorAC} from '../../store/registrationReducer';
+import {registerTC, setRegistrationErrorAC} from '../../store/registrationReducer';
 import {getRegistrationError, getRegistrationStatus} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 
@@ -28,7 +28,7 @@ const Registration = () => {
 
     const onEmailChangeHandler = (gainedEmail: string) => {
         setEmail(gainedEmail)
-        if (error) dispatch(setErrorAC(''))
+        if (error) dispatch(setRegistrationErrorAC({error: ''}))
     }
     const onPasswordChangeHandler = (gainedPassword: string) => {
         setPassword(gainedPassword)

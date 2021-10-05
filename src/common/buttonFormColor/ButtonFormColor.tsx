@@ -17,6 +17,7 @@ const ButtonFormColor: React.FC<ButtonFormColorPropsType> = props => {
                 className={s.buttonSubmitColor} 
                 type="submit" onClick={props.onClick}
                 disabled={props.disabled}
+                {...props}
             >{props.text}</button>
     )
 }
