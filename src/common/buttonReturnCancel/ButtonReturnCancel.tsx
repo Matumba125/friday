@@ -1,19 +1,16 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps} from "react";
+import React, {ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import s from './ButtonReturnCancel.module.css';
 
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
-type ButtonReturnCancelPropsType = DefaultButtonPropsType & {
-    text?: string
-}
 
-const ButtonReturnCancel:  React.FC<ButtonReturnCancelPropsType> = props => {
+const ButtonReturnCancel: React.FC<DefaultButtonPropsType> = props => {
 
     return (
         <button
             className={s.buttonCancel}
             type="submit"
-            onClick={props.onClick}
+            {...props}
         >  Cancel
         </button>
 

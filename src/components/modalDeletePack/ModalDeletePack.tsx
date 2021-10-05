@@ -1,32 +1,39 @@
 import React from "react";
 import s from './ModalDeletePack.module.css';
 import ModalBox from '../../common/modalBox/ModalBox';
-import ModalTitle from '../../common/modalTitle/ModalTitle';
-import ButtonCloseModal from '../../common/buttonCloseModal/ButtonCloseModal';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
+import {deleteCardsPackTC} from "../../store/cardsPacksReducer";
+import {useDispatch} from "react-redux";
 
-const ModalDeletePack = () => {
+type ModalDeletePackType={
+    open: boolean
+    setClose: (open: boolean)=> void
+    packName: string
+    packId: string
+}
 
-    return (
-        <ModalBox>
-            <>
-            <div className={s.headerModal}>
-                <ModalTitle
-                    text={'Delete Pack'}
-                />
-                <ButtonCloseModal />
-            </div>
+const ModalDeletePack = (props: ModalDeletePackType) => {
 
-            <p className={s.modalText}> Do you really want to remove <span className={s.modalTextBold}>Pack Name - Name Pack? </span>
+    const dispatch = useDispatch()
+
+    const onDeleteButtonClickHandler = () =>{
+        dispatch(deleteCardsPackTC(props.packId ))
+        props.setClose(false)
+    }
+
+    return(
+    <ModalBox open={props.open} setClose={props.setClose} title={'Delete Pack'}>
+        <>
+            <p className={s.modalText}> Do you really want to remove <span className={s.modalTextBold}>{props.packName} </span>
                 All cards will be excluded from this course.
             </p>
 
             <div className={s.buttonsBox}>
-                <ButtonReturnCancel />
-                <button className={s.buttonDelete} type='button'>Delete</button>
+                <ButtonReturnCancel onClick={()=>props.setClose(false)}  />
+                <button className={s.buttonDelete} type='button' onClick={onDeleteButtonClickHandler}>Delete</button>
             </div>
             </>
-        </ModalBox>
+    </ModalBox>
 
     )
 }

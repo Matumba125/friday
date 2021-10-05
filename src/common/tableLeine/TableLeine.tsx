@@ -1,10 +1,12 @@
-import React, {MouseEvent} from "react";
+import React, {ChangeEvent, KeyboardEvent, MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
-import { useDispatch } from "react-redux";
-import { deleteCardsPackTC } from "../../store/cardsPacksReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {updateCardsPackTC} from "../../store/cardsPacksReducer";
+import {getCurrentUserIdAvatar} from "../../store/selectots";
+import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
 
 type TableLinePropsType = {
     packName: string
@@ -29,19 +31,48 @@ const TableLine: React.FC<TableLinePropsType> = props => {
 
     const dispatch = useDispatch()
 
+    const currentUserId = useSelector(getCurrentUserIdAvatar)
+
+    const[deleting, setDeleting] = useState<boolean>(false)
+    const[packEditing, setPackEditing] = useState<boolean>(false)
+    const[newPackName, setNewPackName] = useState<string>(packName)
+
     const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
-        dispatch(deleteCardsPackTC(_id))
+        setDeleting(true)
     }
 
-    const isPacksBelogsToUser = _id === user_id
+    const onEditButtonClickHandler = (e:MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        setPackEditing(!packEditing)
+    }
+
+    const onNewPackNameChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>{
+        setNewPackName(e.currentTarget.value)
+    }
+
+    const onInputKeyPress = (e: KeyboardEvent<HTMLInputElement>) =>{
+        if(e.code === 'Enter'){
+            dispatch(updateCardsPackTC({name: newPackName, packId: _id}))
+            setPackEditing(false)
+        }
+    }
+
+    const isPacksBelogsToUser = user_id === currentUserId
 
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
 
     return (
         <>
+            <ModalDeletePack packName={packName} setClose={setDeleting} packId={_id} open={deleting}/>
             <tr className={s.tableLine}>
-                <td className={s.tableItem}>{packName}</td>
+                {packEditing ?
+                    <td className={s.tableItem}><input className={s.input} value={newPackName}
+                                                       onChange={onNewPackNameChangeHandler}
+                                                       onKeyPress={onInputKeyPress}/>
+                    </td>
+                    : <td className={s.tableItem}>{packName}</td>
+                }
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>
                 <td className={s.tableItem}>{userName}</td>
@@ -52,7 +83,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                                 {isPacksBelogsToUser && <ButtonTabDelete onClick={onDeleteButtonClickHandler}/>}
                             </div>
                             <div className={s.buttonContainer}>
-                                {isPacksBelogsToUser && <ButtonTabEdit/>}
+                                {isPacksBelogsToUser && <ButtonTabEdit onClick={onEditButtonClickHandler}/>}
                             </div>
                         </>
                         <div className={s.buttonContainer}>

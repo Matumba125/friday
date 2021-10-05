@@ -1,5 +1,4 @@
-import { on } from 'events';
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState, MouseEvent} from 'react';
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, MouseEvent, useState} from 'react';
 import s from './InputForm.module.css';
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>

@@ -1,3 +1,6 @@
+.formItem{
+text-align: start;
+}
 .input {
     width: 100%;
     border: transparent;

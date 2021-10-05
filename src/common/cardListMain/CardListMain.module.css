@@ -25,12 +25,12 @@
     flex-wrap: wrap;
     width: 100%;
     margin-bottom: 1.5rem;
-}
+    }
 
 .inputsContainer {
     display: flex;
     flex-direction: column;
-    width: 29rem;
+    width: 66%;
 }
 
 .inputWrap {
@@ -39,7 +39,8 @@
 
 .buttonContainer {
     display: flex;
-    width: 11.5rem;
+    align-self: flex-start;
+    width: 26%;
     margin-left: 3rem;
 }
 

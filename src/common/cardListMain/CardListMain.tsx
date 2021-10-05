@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import s from './CardListMain.module.css';
 import ListTitle from '../listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
@@ -7,9 +7,10 @@ import TableHead from '../tableHead/TableHead';
 import TableLeine from '../tableLeine/TableLeine';
 import {PaginationRounded} from '../pagination/Pagination';
 import Select from '../select/Select';
-import {useDispatch, useSelector } from "react-redux";
-import { getCardPacks } from "../../store/selectots";
-import { setPackNameAC } from "../../store/cardsPacksReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {getCardPacks} from "../../store/selectots";
+import {setPackNameAC} from "../../store/cardsPacksReducer";
+import ModalAddPack from "../../components/modalAddPack/ModalAddPack";
 
 const CardListMain = () => {
 
@@ -17,29 +18,35 @@ const CardListMain = () => {
 
     const dispatch = useDispatch()
 
-    const[packName, setPackName] = useState<string>('')
+    const [packName, setPackName] = useState<string>('')
+    const [addPack, setAddPack] = useState<boolean>(false)
 
-    const onPackNameChangeHandler = (newPackName: string) =>{
+    const onPackNameChangeHandler = (newPackName: string) => {
         setPackName(newPackName)
         dispatch(setPackNameAC({packName: newPackName}))
     }
 
-    const tBody = cardPacks.map((m,index) => <TableLeine cardsCount={m.cardsCount}
-        created={m.created}
-        userName={m.user_name}
-        packName={m.name}
-        key={index}
-        _id={m._id}
-        user_id={m.user_id}
+    const tBody = cardPacks.map((m, index) => <TableLeine cardsCount={m.cardsCount}
+                                                          created={m.created}
+                                                          userName={m.user_name}
+                                                          packName={m.name}
+                                                          key={index}
+                                                          _id={m._id}
+                                                          user_id={m.user_id}
     />)
+
+    const onAddPackClickHandler = () => {
+        setAddPack(true)
+    }
 
     return (
         <>
+            <ModalAddPack open={addPack} setClose={setAddPack}/>
             <main className={s.container}>
 
                 <div className={s.titleWrap}>
                     <ListTitle
-                        text={"Packs list"} />
+                        text={"Packs list"}/>
                 </div>
 
                 <div className={s.mainBlock}>
@@ -58,7 +65,9 @@ const CardListMain = () => {
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
-                                text={'Add new pack'} />
+                                text={'Add new pack'}
+                                onClick={onAddPackClickHandler}
+                            />
                         </div>
 
                     </div>
@@ -66,12 +75,12 @@ const CardListMain = () => {
                     {/* ! tabble */}
                     <div className={s.tabWrap}>
                         <table className={s.table}>
-                            
-                            <TableHead />
+
+                            <TableHead/>
 
                             <tbody className={s.tableBody}>
                             {/*<TableLeine packName={'new'} userName={'new'} user_id={'1'} _id={'1'} key={1} created={new Date()} cardsCount={10}/>*/}
-                                {tBody}
+                            {tBody}
                             </tbody>
                         </table>
 
@@ -79,14 +88,14 @@ const CardListMain = () => {
 
                     <div className={s.tableNavigation}>
 
-                        <PaginationRounded />
+                        <PaginationRounded/>
 
                         <div className={s.select}>
                             <span className={s.selectText}>
                                 Show
                             </span>
 
-                            <Select />
+                            <Select/>
 
                             <span className={s.selectText}>
                                 Cards per Page

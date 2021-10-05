@@ -21,7 +21,7 @@ export const cardsApi = {
     },
 
     createPack(data: postPackParamsType) {
-        return instance.post<{}>(`/cards/pack`, {data})
+        return instance.post<{}>(`/cards/pack`, data)
 },
 
     deletePack(packId: string) {
@@ -31,7 +31,7 @@ export const cardsApi = {
     },
 
     updatePack(data: putPackParamsType) {
-        return instance.put<{}>(`/cards/pack`, {data})
+        return instance.put<{}>(`/cards/pack`, data)
     },
 
     getCard(data: getCardParamsType) {
@@ -67,6 +67,7 @@ export type GetPacksParamsType ={
 }
 
 export type postPackParamsType = {
+    cardsPack: {
         name: string
         path?: string
         grade?: number
@@ -75,12 +76,15 @@ export type postPackParamsType = {
         deckCover?: string
         private?: boolean
         type?: string
+    }
 }
 
 
 export type putPackParamsType = {
+    cardsPack: {
         _id: string
         name?: string
+    }
 }
 
 export type getCardParamsType = {

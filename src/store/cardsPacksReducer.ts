@@ -39,7 +39,7 @@ const initialState: CardsPackInitialStateType = {
     cardPacks: [],
     controls: {
         packName: undefined,
-        min: 1,
+        min: 0,
         max: 100,
         sortPacks: 0,
         page: 1,
@@ -84,7 +84,7 @@ export const deleteCardsPackTC = createAsyncThunk('cardsPacks/deletePack', async
 export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async (param:{packId: string, name?: string}, {dispatch, rejectWithValue})=>{
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.updatePack({_id: param.packId, name: param.name})
+        await cardsApi.updatePack({cardsPack:{_id: param.packId, name: param.name}})
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)
@@ -96,7 +96,7 @@ export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async
 export const createCardsPackTC = createAsyncThunk('cardsPacks/createPack', async (param:{name: string, deckCover?: string}, {dispatch, rejectWithValue})=> {
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.createPack({name: param.name})
+        await cardsApi.createPack({cardsPack:{name: param.name}})
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)

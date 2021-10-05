@@ -1,4 +1,4 @@
-import React, {DetailedHTMLProps} from "react";
+import React from "react";
 import s from './ModalTitle.module.css';
 
 type ModalTitlePropsType = {
@@ -9,7 +9,7 @@ const ModalTitle = (props: ModalTitlePropsType) => {
 
     return (
         <h3 className={s.modalTitle}>
-        Add new pack
+            {props.text}
     </h3>
     )
 }

@@ -4,6 +4,13 @@
     min-height: 3rem;
 }
 
+.input {
+    width: 100%;
+    border: transparent;
+    border-bottom: 1.6px solid rgba(36, 37, 74, .2);
+    outline-color: #21268F;
+}
+
 .tableItem {
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
@@ -36,6 +43,10 @@
     background-color: rgba(33, 38, 143, .1);
 }
 
+.tableLine:hover {
+    background-color: rgba(33, 38, 143, .3)
+}
+
 .tableButtonsblock {
     display: flex;
     justify-content: space-between;
@@ -61,7 +72,7 @@
     width: 2.9rem;
 }
 
-.tableButton {
+/* .tableButton {
     display: inline-block;
     background-color: #D7D8EF;
     font-family: 'SFUIDisplaySemibold', sans-serif;
@@ -72,9 +83,9 @@
     border: transparent;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-}
+} */
 
-.tableButtonDelete {
+/* .tableButtonDelete {
     display: inline-block;
     font-family: 'SFUIDisplaySemibold', sans-serif;
     font-size: .8rem;
@@ -86,16 +97,13 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     transition: all .5s;
-}
+} */
 
 .tableButton:hover {
     box-shadow: 0 0 10px #19077e;
 }
 
-.tableLine:nth-child(even) {
+/* .tableLine:nth-child(even) {
     background-color: rgba(33, 38, 143, .1)
-}
+} */
 
-.tableLine:hover {
-    background-color: rgba(33, 38, 143, .3)
-}
