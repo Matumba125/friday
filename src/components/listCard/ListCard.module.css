@@ -14,7 +14,7 @@
 .tabWrap {
     width: 100%;
     max-height: 27rem;
-    box-shadow: 0px -2px 5px 0px #9890c7;
+    box-shadow: 0px -2px 5px 0px #87CEEB;
     overflow: auto;
     margin-bottom: 1.5rem;
 }
@@ -23,8 +23,8 @@
     table-layout: fixed;
     /* for adaptive*/
     width: 100%;
-    min-width: 700px;
-    box-shadow: 0px -2px 5px 0px #9890c7;
+    min-width: 44rem;
+    box-shadow: 0px -2px 5px 0px #87CEEB;
     text-align: justify;
     border-collapse: collapse;
     flex-wrap: wrap;

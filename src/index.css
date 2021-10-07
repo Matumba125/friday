@@ -29,7 +29,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'SFUIDisplayNormal', sans-serif;
   /* font-size: inherit; */
-  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -58,17 +58,12 @@ table {
 }
 
 button {
-  transition: all .5s;
+  transition: all .2s linear;
 }
 
 
 a {
   text-decoration: none;
   border: 1px solid transparent;
-  border-radius: 2rem;
-  transition: all .2s;
-}
-
-a:hover {
-  border: 1px solid;
+  transition: all .2s linear;
 }

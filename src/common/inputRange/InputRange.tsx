@@ -24,12 +24,12 @@ const useStyles: any = makeStyles({
         },
 
         '& span .MuiSlider-valueLabelOpen': {
-            backgroundColor: '#21268F',
+            backgroundColor: '#2F4F4F',
                     },
 
         '& .MuiSlider-thumb': {
             backgroundColor: '#ffff',
-            border: '4px solid #21268F',
+            border: '4px solid #2F4F4F',
             width: '1rem',
             height: '1rem',
         },
@@ -43,13 +43,13 @@ const useStyles: any = makeStyles({
          },
 
         '& span .MuiSlider-rail': {
-            backgroundColor: '#21268F',
+            backgroundColor: '#2F4F4F',
             opacity: '.5', 
             height: '.32rem', 
         },     
 
         '& span .MuiSlider-track,': {
-            color: '#21268F',
+            color: '#2F4F4F',
             height: '.32rem',
         },
 

@@ -20,19 +20,20 @@
 }
 
 .tableItem:nth-child(1) {
-    max-width: 21%;
+    min-width: 21%;
 }
 
 .tableItem:nth-child(2) {
-    width: 9%;
+    width: 10%;
 }
 
 .tableItem:nth-child(3) {
-    width: 18%;
+    min-width: 19%;
+    padding: 0;
 }
 
 .tableItem:nth-child(4) {
-    width: 27%;
+    width: 25%;
 }
 
 .tableItem:nth-child(5) {
