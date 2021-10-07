@@ -8,6 +8,9 @@ import { deleteCardsPackTC, updateCardsPackTC } from "../../store/cardsPacksRedu
 import { getCurrentUserIdAvatar } from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
 import InputForm from "../inputForm/InputForm";
+import { Link } from "react-router-dom";
+import { PATH } from "../../components/routing/Routing";
+import { getCards } from "../../store/cardsReducer";
 
 type TableLinePropsType = {
     packName: string
@@ -59,6 +62,10 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         }
     }
 
+    const onLinkClickHandler = ()=>{
+        dispatch(getCards(_id))
+    }
+
     const isPacksBelogsToUser = user_id === currentUserId
 
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
@@ -72,7 +79,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                                                        onChange={onNewPackNameChangeHandler}
                                                        onKeyPress={onInputKeyPress}/>
                     </td>
-                    : <td className={s.tableItem}>{packName}</td>
+                    : <td className={s.tableItem}><Link to={PATH.PACK_LIST} onClick={onLinkClickHandler}>{packName}</Link></td>
                 }
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>
