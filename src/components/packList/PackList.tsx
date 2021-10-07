@@ -4,8 +4,13 @@ import CardListContainer from '../../common/cardListContainer/CardListContainer'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
+import { useSelector } from 'react-redux';
+import { getCardsSelector } from '../../store/selectots';
 
 const PackList = () => {
+
+    const cards = useSelector(getCardsSelector)
+
 
     return (
         <>
