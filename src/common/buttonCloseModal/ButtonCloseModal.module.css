@@ -4,6 +4,7 @@
     height: 1.7rem;
     position: relative;
     border: transparent;
+    background-color: transparent;
 }
 
 .buttonCloseModal:hover {

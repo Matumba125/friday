@@ -3,14 +3,13 @@
     justify-content: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    perspective: 30rem;
 }
 
 .boxCardList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 70.8%;
+    width: 71%;
     max-width: 63rem;
     margin: 0 auto;
     min-height: 40rem;
@@ -19,6 +18,7 @@
     animation: rotate .6s ease-in forwards;
     opacity: 0;
     box-shadow: 0 0 10px #9890c7;
+    perspective: 30rem;
 }
 
 @keyframes rotate {
