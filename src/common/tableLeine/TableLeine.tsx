@@ -7,6 +7,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {updateCardsPackTC} from "../../store/cardsPacksReducer";
 import {getCurrentUserIdAvatar} from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
+import InputForm from "../inputForm/InputForm";
+import { Link } from "react-router-dom";
+import { PATH } from "../../components/routing/Routing";
+import { getCards } from "../../store/cardsReducer";
 
 type TableLinePropsType = {
     packName: string
@@ -56,6 +60,10 @@ const TableLine: React.FC<TableLinePropsType> = props => {
             dispatch(updateCardsPackTC({name: newPackName, packId: _id}))
             setPackEditing(false)
         }
+    }
+
+    const onLinkClickHandler = ()=>{
+        dispatch(getCards(_id))
     }
 
     const isPacksBelogsToUser = user_id === currentUserId
