@@ -27,8 +27,12 @@ const LearnQuestion = () => {
                             text={'Learn “Pack Name”'} />
                     </div>
 
-                    <p className={`${s.text} ${s.frontTextQuestion}`}>Question: <span className={`${s.question} ${s.span}`}>“How "This" works in JavaScript”
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque eveniet veritatis perferendis ipsa quia ipsam excepturi alias eos eaque earum asperiores sapiente enim ducimus laudantium labore accusantium ipsum, architecto, saepe laborum nihil quam ut? Non consequatur tempora debitis commodi nobis.</span> </p>
+                    <h4 className={`${s.textTitle} ${s.frontTextTutleQuestion}`}>Question:</h4>
+
+                    <div className={s.textBox}>
+                        <p className={`${s.textCard} ${s.textCardQuestion}`}>“How "This" works in JavaScript?”
+                        </p>
+                    </div>
 
                     <div className={s.buttonsBox}>
                         <div className={s.buttonCancelWrap}>
@@ -51,13 +55,20 @@ const LearnQuestion = () => {
                         <ListTitle
                             text={'Learn “Pack Name”'} />
                     </div>
-                    {/* <p className={`${s.text} ${s.backTextQuestion}`}>Question: <span className={`${s.question} ${s.span}`}>“How "This" works in JavaScript?”</span> </p> */}
+                    {/* <h4 className={`${s.title} ${s.backTextTitleQuestion}`}>Question:
+                       <div className={s.textBox}>
+                        <p className={s.textCard}>“How "This" works in JavaScript?"</p>
+                    </div>*/}
 
-                    <p className={`${s.text} ${s.backTextAnswer}`}>Answer: <span className={`${s.answer} ${s.span}`}>“This is how "This" works in JavaScript”
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ratione facere nobis, quo suscipit dolores consequatur quaerat veniam molestias vero! Voluptatum voluptates debitis mollitia deleniti eveniet perspiciatis voluptate quia, magnam animi eius corporis. Perferendis veniam fugiat fuga eos dolores veritatis?</span> </p>
+                    <h4 className={`${s.textTitle} ${s.backTextTitleAnswer}`}>Answer:</h4>
+
+                    <div className={`${s.textBox} ${s.textBoxBack}`}>
+                        <p className={`${s.textCard} ${s.textCardAnswer}`}>“This is how "This" works in JavaScript”
+                        </p>
+                    </div>
 
                     <div className={s.inputBox}>
-                        <p className={`${s.text} ${s.inputTitle}`}>Rate yourself:</p>
+                        <p className={`${s.textTitle} ${s.inputTitle}`}>Rate yourself:</p>
 
                         <form className={s.formRadio}>
                             <InputRadio

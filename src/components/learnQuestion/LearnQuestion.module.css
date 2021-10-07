@@ -13,8 +13,8 @@
     background-color: #F9F9FE;
     color: #2D2E46;
     border-radius: .5rem;
-    max-width: 35rem;
-    height: 38.5rem;
+    max-width: 32rem;
+    height: 38rem;
     box-shadow: 0 0 10px #9890c7;
     transition: all 1s;
     transform-style: preserve-3d;
@@ -59,17 +59,26 @@
     margin-bottom: 2rem;
 }
 
-.text {
+.textTitle {
     text-align: justify;
     font-family: 'SFUIDisplaySemibold', sans-serif;
     line-height: 1.5;
-    height: 8rem;
+    /* height: 8rem; */
     overflow: auto;
-    margin-bottom: 3rem;
+    margin-bottom: .5rem;
     padding-right: .2rem;
 }
 
-.span {
+.textBox{
+    height: 10rem;
+    padding: 0.5rem;
+    margin-bottom: 3rem;
+    border: 1px dashed #2D2E46;
+    text-align: justify;
+    overflow: auto;
+}
+
+.textCard {
     font-family: 'SFUIDisplayNormal', sans-serif;
 }
 
@@ -77,7 +86,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .buttonCancelWrap{
@@ -85,7 +94,7 @@
 }
 
 .buttonWrap {
-    width: 20rem;
+    width: 15rem;
 }
 
 /* front */
@@ -93,7 +102,7 @@
 .imgCard {
     display: inline-block;
     width: 80%;
-    animation: rotate 3s ease-in infinite;
+    animation: rotate 3s linear infinite;
 }
 
 @keyframes rotate {
@@ -144,6 +153,10 @@
 
 /* back */
 
+.textBoxBack{
+    margin-bottom: 2rem;
+}
+
 .inputTitle {
     height: auto;
     margin-bottom: 1rem;
@@ -154,10 +167,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     min-height: 8.25rem;
 }
 
 .buttonsBoxBack {
-    margin-bottom: none;
+    margin-bottom: 0;
     }
