@@ -11,7 +11,7 @@ import { PATH } from '../routing/Routing';
 import {setIsCardAdding} from '../../store/appReducer'
 import CardsList from '../CardsList/CardsList';
 
-const PackList = () => {
+const Cards = () => {
 
     const cards = useSelector(getCardsSelector)
     const isCardAdding = useSelector(getIsCardAdding)
@@ -66,4 +66,4 @@ const PackList = () => {
     )
 }
 
-export default PackList
+export default Cards
