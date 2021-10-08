@@ -1,12 +1,16 @@
-import React, {ChangeEvent, KeyboardEvent, MouseEvent, useState} from "react";
+import React, {ChangeEvent, MouseEvent, useState, KeyboardEvent} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
-import {useDispatch, useSelector} from "react-redux";
-import {updateCardsPackTC} from "../../store/cardsPacksReducer";
-import {getCurrentUserIdAvatar} from "../../store/selectots";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCardsPackTC, updateCardsPackTC } from "../../store/cardsPacksReducer";
+import { getCurrentUserIdAvatar } from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
+import InputForm from "../inputForm/InputForm";
+import { Link } from "react-router-dom";
+import { PATH } from "../../components/routing/Routing";
+import { getCards } from "../../store/cardsReducer";
 
 type TableLinePropsType = {
     packName: string
@@ -58,6 +62,10 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         }
     }
 
+    const onLinkClickHandler = ()=>{
+        dispatch(getCards(_id))
+    }
+
     const isPacksBelogsToUser = user_id === currentUserId
 
     const newDate = new Intl.DateTimeFormat().format(new Date(created))
@@ -71,7 +79,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                                                        onChange={onNewPackNameChangeHandler}
                                                        onKeyPress={onInputKeyPress}/>
                     </td>
-                    : <td className={s.tableItem}>{packName}</td>
+                    : <td className={s.tableItem}><Link to={PATH.PACK_LIST} onClick={onLinkClickHandler}>{packName}</Link></td>
                 }
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>

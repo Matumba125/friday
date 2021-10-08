@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import s from './ButtonFormColor.module.css'
 
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
@@ -22,4 +22,4 @@ const ButtonFormColor: React.FC<ButtonFormColorPropsType> = props => {
     )
 }
 
-export default ButtonFormColor 
+export default ButtonFormColor

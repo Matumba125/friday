@@ -1,3 +1,6 @@
+.formItem{
+text-align: start;
+}
 .input {
     width: 100%;
     border: transparent;
@@ -39,7 +42,7 @@
     padding: 1rem;
     background: url('../../assets/images/eyeView.svg') no-repeat center/80%;
     position: absolute;
-    top: 4px;
+    top: 3px;
     right: 1em;
 }
 

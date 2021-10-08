@@ -1,15 +1,16 @@
-import React, {MouseEvent, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import React, { MouseEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import s from './EditProfile.module.css';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import InputForm from '../../common/inputForm/InputForm';
 import Avatar from '../../common/avatar/Avatar';
 import ListTitle from '../../common/listTitle/ListTitle';
-import {setProfileIsEditingAC, updateProfileTC} from '../../store/profileReducer';
-import {getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
-import {PATH} from '../routing/Routing';
+import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
+import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
+import { setProfileIsEditingAC, updateProfileTC } from '../../store/profileReducer';
+import { getIsProfileEditing, getUserAvatar, getUserName } from '../../store/selectots';
+import { PATH } from '../routing/Routing';
 
 const EditProfile = () => {
 
@@ -32,16 +33,16 @@ const EditProfile = () => {
     };
 
     const onSaveButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-        dispatch(updateProfileTC({name, avatar}))
+        dispatch(updateProfileTC({ name, avatar }))
     }
 
     const onCancelButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        dispatch(setProfileIsEditingAC({isEditing: false}))
+        dispatch(setProfileIsEditingAC({ isEditing: false }))
     }
 
     if (!isEditing) {
-        return <Redirect to={PATH.PROFILE}/>
+        return <Redirect to={PATH.PROFILE} />
     }
 
     return (
@@ -55,7 +56,7 @@ const EditProfile = () => {
 
                 <div className={s.containerWrap}>
                     <div className={s.avatarBox}>
-                        <Avatar/>
+                        <Avatar />
                     </div>
                     <div className={s.inputBox}>
                         <InputForm
@@ -75,12 +76,11 @@ const EditProfile = () => {
                     </div>
 
                     <div className={s.buttonsBox}>
+
+                        <ButtonReturnCancel onClick={onCancelButtonClickHandler} />
+
                         <div className={s.buttonWrap}>
-                            <ButtonFormColor text={'Cancel'} onClick={onCancelButtonClickHandler}/>
-                            
-                        </div>
-                        <div className={s.buttonWrap}>
-                            <ButtonFormColor text={'Save'} onClick={onSaveButtonClickHandler}/>
+                            <ButtonFormColor text={'Save'} onClick={onSaveButtonClickHandler} />
                         </div>
 
                     </div>

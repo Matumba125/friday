@@ -1,4 +1,5 @@
 import {CardPacksType} from "./cardsPacksReducer"
+import { CardType } from "./cardsReducer"
 import {AppStateType} from "./store"
 
 
@@ -89,4 +90,10 @@ export const getIsPrivate = (state: AppStateType): boolean => {
 }
 export const getSortPacks = (state: AppStateType): 0 | 1 => {
     return state.cardsPack.controls.sortPacks
+}
+
+//// Cards Selectors
+
+export const getCardsSelector = (state: AppStateType): CardType[] =>{
+    return state.cards.cards
 }

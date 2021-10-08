@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import s from './PackList.module.css';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
-import ListTitle from '../../common/listTitle/ListTitle';
+import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
+import { useSelector } from 'react-redux';
+import { getCardsSelector } from '../../store/selectots';
 
 const PackList = () => {
+
+    const cards = useSelector(getCardsSelector)
+
 
     return (
         <>
@@ -13,10 +18,8 @@ const PackList = () => {
                 <>
                     <div className={s.packListWrap}>
 
-                        <Link className={s.linkCardList} to={''}>
-                            <ListTitle text="Pack Name" />
-                        </Link>
-
+                      <LinkPackName/>
+                      
                         <div className={s.searchBox}>
                             <div className={s.inputWrap}>
                                 <InputSearch

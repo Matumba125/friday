@@ -1,13 +1,13 @@
-import { CardPacksType, ControlsType } from "../store/cardsPacksReducer"
+import {CardPacksType, ControlsType} from "../store/cardsPacksReducer"
+import {CardsControlsType, CardType} from "../store/cardsReducer"
 import {instance} from "./api"
-
 
 
 export const cardsApi = {
     getPack(data: GetPacksParamsType) {
         return instance.get<cardsPackDataType>(`/cards/pack`,
             {
-                params:{
+                params: {
                     packName: data.controls.packName,
                     min: data.controls.min,
                     max: data.controls.max,
@@ -17,25 +17,37 @@ export const cardsApi = {
                     user_id: data.user_id ? data.user_id : '',
                 }
             }
-            )
+        )
     },
 
     createPack(data: postPackParamsType) {
         return instance.post<{}>(`/cards/pack`, data)
-},
+    },
 
     deletePack(packId: string) {
-        return instance.delete<{}>(`/cards/pack`, {params:{
-            id: packId
-            }})
+        return instance.delete<{}>(`/cards/pack`, {
+            params: {
+                id: packId
+            }
+        })
     },
 
     updatePack(data: putPackParamsType) {
         return instance.put<{}>(`/cards/pack`, data)
     },
 
-    getCard(data: getCardParamsType) {
-        return instance.get<getCardDataType>(`/cards/card`, {data})
+    getCard(data: GetCardsParamsType) {
+        return instance.get<getCardDataType>(`/cards/card`,
+            {
+                params: {
+                    cardQuestion: data.controls.cardQuestion,
+                    cardAnswer: data.controls.cardAnswer,
+                    page: data.controls.page,
+                    sortCards: data.controls.sortCards,
+                    pageCount: data.controls.pageCount,
+                    cardsPack_id: data.cardsPack_id,
+                }
+            })
     },
 
     postCard(data: postCardParamsType) {
@@ -61,9 +73,13 @@ export type cardsPackDataType = {
     pageCount: number
 }
 
-export type GetPacksParamsType ={
+export type GetPacksParamsType = {
     controls: ControlsType
     user_id: string | undefined
+}
+export type GetCardsParamsType = {
+    controls: CardsControlsType
+    cardsPack_id: string
 }
 
 export type postPackParamsType = {
@@ -99,22 +115,7 @@ export type getCardParamsType = {
 }
 
 export type getCardDataType = {
-    cards: [
-        {
-            answer: string
-            question: string
-            cardsPack_id: string
-            grade: number
-            rating: number
-            shots: number
-            type: string
-            user_id: string
-            created: string
-            updated: string
-            __v: number
-            _id: string
-        },
-    ]
+    cards: CardType[]
     cardsTotalCount: number
     maxGrade: number
     minGrade: number
