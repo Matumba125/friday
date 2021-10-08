@@ -5,7 +5,7 @@ import Stack from '@material-ui/core/Stack';
 import {makeStyles} from '@material-ui/styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {setPageAC} from '../../store/cardsPacksReducer';
-import {getTotalPagesCount} from '../../store/selectots';
+import {getCardsPage, getTotalPagesCount} from '../../store/selectots';
 
 const useStyles: any = makeStyles({
   root: {
@@ -32,6 +32,7 @@ export const PaginationRounded = () => {
 
   const dispatch = useDispatch()
 
+  const page = useSelector(getCardsPage)
   const pagesCount = useSelector(getTotalPagesCount)
   
   const onPaginationChangeHandler = (e: ChangeEvent<unknown> ,page: number) =>{
@@ -41,7 +42,7 @@ export const PaginationRounded = () => {
   const classes = useStyles();
   return (
     <Stack spacing={2}>
-      <Pagination count={pagesCount} onChange={onPaginationChangeHandler} shape="rounded" className={classes.root} />
+      <Pagination count={pagesCount} onChange={onPaginationChangeHandler} page={page} shape="rounded" className={classes.root} />
     </Stack>
   );
 }
