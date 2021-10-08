@@ -4,13 +4,13 @@ import Loginization from '../loginization/Loginization';
 import NotFound from "../NotFound/NotFound";
 import NewPassword from "../newPassword/NewPassword";
 import PasswordRecovery from "../passwordRecovery/PasswordRecovery";
-import PackList from "../packList/PackList";
 import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
 import EditProfile from '../editProfile/EditProfile';
 import CardsPacks from '../cardsPacks/CardsPacks';
 import AddNewCard from '../addNewCard/AddNewCard';
 import LearnQuestion from '../learnQuestion/LearnQuestion';
+import Cards from '../Cards/Cards';
 
 export const PATH ={
     LOGIN: '/login',
@@ -21,7 +21,7 @@ export const PATH ={
     EDIT_PROFILE: '/edit-profile',
     REGISTRATION: '/registration',
     CARDS_PACKS: '/cards-packs',
-    PACK_LIST: '/pack-list',
+    CARDS: '/cards',
     ADD_NEW_CARD: '/add-new-card',
     LEARN_QUESTION: '/learn-question',
 }
@@ -38,7 +38,7 @@ const Routing = () => {
                 <Route path={PATH.EDIT_PROFILE} render={()=> <EditProfile/>} />
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
                 <Route path={PATH.CARDS_PACKS} render={()=> <CardsPacks/>} />
-                <Route path={PATH.PACK_LIST} render={()=><PackList/>}/>
+                <Route path={PATH.CARDS} render={()=><Cards/>}/>
                 <Route path={PATH. ADD_NEW_CARD} render={()=><AddNewCard/>} />
                 <Route path={PATH. LEARN_QUESTION} render={()=><LearnQuestion/>} />
             </Switch>

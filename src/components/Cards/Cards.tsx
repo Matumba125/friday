@@ -1,5 +1,5 @@
 import { Link, Redirect } from 'react-router-dom';
-import s from './PackList.module.css';
+import s from './Cards.module.css';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
 import React, {MouseEvent} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'

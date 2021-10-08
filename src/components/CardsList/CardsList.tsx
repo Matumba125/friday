@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './ListCard.module.css';
+import s from './CardsList.module.css';
 import TableHead from '../../common/listCardTableHead/ListCardTableHead';
 import ListCardTableLeine from '../../common/listCardTableLeine/ListCardTableLeine'
 import {PaginationRounded} from '../../common/pagination/Pagination';

@@ -6,11 +6,11 @@ import InputForm from '../../common/inputForm/InputForm';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import InputFile from '../../common/inputFile/InputFile';
-import {useDispatch, useSelector } from "react-redux";
-import { getIsCardAdding } from "../../store/selectots";
-import { setIsCardAdding } from "../../store/appReducer";
-import { Redirect } from "react-router-dom";
-import { PATH } from "../routing/Routing";
+import {useDispatch, useSelector} from "react-redux";
+import {getIsCardAdding} from "../../store/selectots";
+import {setIsCardAdding} from "../../store/appReducer";
+import {Redirect} from "react-router-dom";
+import {PATH} from "../routing/Routing";
 
 const AddNewCard = () => {
 
@@ -24,7 +24,7 @@ const AddNewCard = () => {
     }
 
     if(!isCardAdding){
-        return <Redirect to={PATH.PACK_LIST}/>
+        return <Redirect to={PATH.CARDS}/>
     }
 
     return (
