@@ -5,7 +5,7 @@ import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCardsPackTC, updateCardsPackTC } from "../../store/cardsPacksReducer";
-import { getCurrentUserIdAvatar } from "../../store/selectots";
+import { getCurrentUserId } from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
 import InputForm from "../inputForm/InputForm";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
 
     const dispatch = useDispatch()
 
-    const currentUserId = useSelector(getCurrentUserIdAvatar)
+    const currentUserId = useSelector(getCurrentUserId)
 
     const[deleting, setDeleting] = useState<boolean>(false)
     const[packEditing, setPackEditing] = useState<boolean>(false)
@@ -62,7 +62,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         }
     }
 
-    const onLinkClickHandler = ()=>{
+    const onClickHandler = ()=>{
         dispatch(getCards(_id))
     }
 
@@ -79,7 +79,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                                                        onChange={onNewPackNameChangeHandler}
                                                        onKeyPress={onInputKeyPress}/>
                     </td>
-                    : <td className={s.tableItem}><Link to={PATH.PACK_LIST} onClick={onLinkClickHandler}>{packName}</Link></td>
+                    : <td className={s.tableItem}><Link to={PATH.PACK_LIST} onClick={onClickHandler}>{packName}</Link></td>
                 }
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>
@@ -95,7 +95,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                             </div>
                         </>
                         <div className={s.buttonContainer}>
-                            <ButtonLearn/>
+                            <ButtonLearn onClick={onClickHandler}/>
                         </div>
 
                     </div>

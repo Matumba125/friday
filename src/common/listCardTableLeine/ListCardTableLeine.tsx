@@ -1,31 +1,24 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import s from './ListCardTableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import HoverRating from '../rating/Rating';
-import { useDispatch } from "react-redux";
-import { deleteCardsPackTC } from "../../store/cardsPacksReducer";
+import {useSelector} from "react-redux";
+import {CardType} from "../../store/cardsReducer";
+import {getCurrentUserId} from "../../store/selectots";
 
-// type ListCardTableLeinePropsType = {
-//     packName: string
-//     cardsCount: number
-//     created: Date
-//     userName: string
-//     _id: string
-//     user_id: string
-// }
+type ListCardTableLeinePropsType = {
+    card: CardType
+}
 
-const ListCardTableLeine = () => {
+const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
 
-    //     const {
-    //         packName,
-    //         cardsCount,
-    //         created,
-    //         userName,
-    //         _id,
-    //         user_id,
-    //         ...restProps
-    //     } = props
+    const {
+        card,
+        ...restProps
+    } = props
+
+    const currentUserId = useSelector(getCurrentUserId)
 
     // const dispatch = useDispatch()
 
@@ -34,29 +27,30 @@ const ListCardTableLeine = () => {
     //     dispatch(deleteCardsPackTC(_id))
     // }
 
-    // const isPacksBelogsToUser = _id === user_id
+    const isCardsBelogsToUser = card.user_id === currentUserId
 
-    // const newDate = new Intl.DateTimeFormat().format(new Date(created))
+    const newDate = new Intl.DateTimeFormat().format(new Date(card.created))
 
 
     return (
         <>
             <tr className={s.tableLine}>
-                <td className={s.tableItem}>How "This" works in JavaScript?</td>
-                <td className={s.tableItem}>This is how "This" works in JavaScript</td>
-                <td className={s.tableItem}>18.03.2021</td>
+                <td className={s.tableItem}>{card.question}</td>
+                <td className={s.tableItem}>{card.answer}</td>
+                <td className={s.tableItem}>{newDate}</td>
                 <td className={s.tableItem}><HoverRating/></td>
                 <td className={s.tableItem}>
-                    <div className={s.tableButtonsblock}>
-                        <>
+                    {isCardsBelogsToUser ?
+                        <div className={s.tableButtonsblock}>
                             <div className={s.buttonContainer}>
-                                <ButtonTabDelete />
+                                <ButtonTabDelete/>
                             </div>
                             <div className={s.buttonContainer}>
-                                <ButtonTabEdit />
+                                <ButtonTabEdit/>
                             </div>
-                        </>
-                    </div>
+                        </div>
+                        :<></>
+                    }
                 </td>
             </tr>
         </>

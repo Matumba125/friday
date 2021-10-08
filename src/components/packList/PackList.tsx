@@ -1,16 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import s from './PackList.module.css';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
+import React, {MouseEvent} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
-import { useSelector } from 'react-redux';
-import { getCardsSelector } from '../../store/selectots';
+import {useDispatch, useSelector } from 'react-redux';
+import { getCardsSelector, getIsCardAdding } from '../../store/selectots';
+import { PATH } from '../routing/Routing';
+import {setIsCardAdding} from '../../store/appReducer'
+import CardsList from '../CardsList/CardsList';
 
 const PackList = () => {
 
     const cards = useSelector(getCardsSelector)
+    const isCardAdding = useSelector(getIsCardAdding)
 
+    const dispatch = useDispatch()
+
+    const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        dispatch(setIsCardAdding({isCardAdding: true}))
+    }
+
+    if(isCardAdding){
+        return <Redirect to={PATH.ADD_NEW_CARD}/>
+    }
 
     return (
         <>
@@ -28,11 +43,16 @@ const PackList = () => {
                             <div className={s.buttonWrap}>
                                 <ButtonFormColor
                                     text={'Add new card'}
+                                    onClick={onAddButtonClickHandler}
                                 />
                             </div>
 
                         </div>
-                        <span className={s.cardListText}>This pack is empty. Click add new card to fill this pack</span>
+                        { cards.length === 0 ?
+                            <span
+                                className={s.cardListText}>This pack is empty. Click add new card to fill this pack</span>
+                            :<CardsList cards={cards}/>
+                        }
                     </div>
                 </>
 
