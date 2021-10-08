@@ -10,7 +10,7 @@ import EditProfile from '../editProfile/EditProfile';
 import CardsPacks from '../cardsPacks/CardsPacks';
 import AddNewCard from '../addNewCard/AddNewCard';
 import LearnQuestion from '../learnQuestion/LearnQuestion';
-import Cards from '../Cards/Cards';
+import Cards from '../cards/Cards';
 
 export const PATH ={
     LOGIN: '/login',

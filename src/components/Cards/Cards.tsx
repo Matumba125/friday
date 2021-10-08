@@ -9,7 +9,7 @@ import {useDispatch, useSelector } from 'react-redux';
 import { getCardsSelector, getIsCardAdding, getIsLoggedIn } from '../../store/selectots';
 import { PATH } from '../routing/Routing';
 import {setIsCardAdding} from '../../store/appReducer'
-import CardsList from '../CardsList/CardsList';
+import CardsList from '../cardsList/CardsList';
 
 const Cards = () => {
 
