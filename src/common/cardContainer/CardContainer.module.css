@@ -5,6 +5,12 @@
     perspective: 30rem;
 }
 
+@media (max-width: 350px){
+    .container{
+        padding-top: 0.4rem;
+    }
+}
+
 .boxForm {
     margin: auto;
     padding: 1.56rem 2.06rem 1.63rem 2.06rem;

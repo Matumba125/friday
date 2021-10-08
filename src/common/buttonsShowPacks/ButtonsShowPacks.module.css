@@ -2,6 +2,13 @@
     display: flex;
 }
 
+@media (max-width:1320px){
+    .buttonsBlock{
+        width: 100%;
+    }
+}
+
+
 .button {
     flex: 1;
     font-size: .9rem;
@@ -12,15 +19,14 @@
 
 .button:hover {
     color: #fff;
-    background-color: #9A91C8;
+    background-color: #2F4F4F;
 }
 
 .active {
-    background-color: #9A91C8;
+    background-color: #2F4F4F;
     flex: 1;
     font-size: .9rem;
     line-height: 2.5;
-    color: #2D2E46;
-    color: #fff;
+      color: #fff;
     border: transparent;
 }

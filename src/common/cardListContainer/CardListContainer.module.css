@@ -15,10 +15,10 @@
     min-height: 40rem;
     background-color: #fff;
     border-radius: .5rem;
+    box-shadow: 0px -2px 5px 0px #87CEEB;
+    perspective: 30rem;
     animation: rotate .6s ease-in forwards;
     opacity: 0;
-    box-shadow: 0 0 10px #9890c7;
-    perspective: 30rem;
 }
 
 @keyframes rotate {
