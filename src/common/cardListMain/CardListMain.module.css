@@ -10,6 +10,13 @@
     border-bottom-right-radius: .5rem;
 }
 
+@media (max-width: 1320px) {
+    .container {
+        width: 100%;
+        border-bottom-left-radius: .5rem;
+    }
+}
+
 .titleWrap {
     margin-bottom: 1rem;
 }
@@ -25,7 +32,7 @@
     flex-wrap: wrap;
     width: 100%;
     margin-bottom: 1.5rem;
-    }
+}
 
 .inputsContainer {
     display: flex;
@@ -33,11 +40,25 @@
     width: 66%;
 }
 
+@media (max-width: 880px) {
+    .inputsContainer {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
 .buttonContainer {
     display: flex;
     align-self: flex-start;
     width: 26%;
     margin-left: 3rem;
+}
+
+@media (max-width: 880px) {
+    .buttonContainer {
+        width: 35%;
+       margin-left: 0;
+    }
 }
 
 .tabWrap {
@@ -49,8 +70,10 @@
 }
 
 .table {
-    width: 100%; /* for adaptive*/
-    table-layout: fixed; /* for adaptive*/
+    width: 100%;
+    /* for adaptive*/
+    table-layout: fixed;
+    /* for adaptive*/
     min-width: 600px;
     box-shadow: 0px -2px 5px 0px #87CEEB;
     text-align: justify;
@@ -66,6 +89,13 @@
     align-items: center;
     max-width: 36rem;
     margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+    .tableNavigation {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 }
 
 .selectText {

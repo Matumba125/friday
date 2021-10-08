@@ -6,7 +6,12 @@
     flex-wrap: wrap;
     position: relative;
     opacity: .9;
+}
 
+@media (max-width:350px) {
+    .header {
+        margin-bottom: .5rem;
+    }
 }
 
 .headerInner {
@@ -19,15 +24,52 @@
     padding-left: .5rem;
 }
 
+@media (max-width: 684px) {
+    .headerInner {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 350px) {
+    .headerInner {
+        flex-direction: column;
+    }
+}
+
+.globalTitleInner {
+    margin-right: 1.5rem;
+}
+
+@media (max-width: 684px) {
+    .globalTitleInner {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
 .headerNavigation {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    position: relative;
+}
+
+@media (max-width: 350px) {
+    .headerNavigation {
+        flex-direction: column;
+    }
 }
 
 .headerLinks {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 350px) {
+    .headerLinks {
+        flex-direction: column;
+        margin-bottom: .5rem;
+    }
 }
 
 .headerLink {
@@ -44,6 +86,14 @@
     line-height: 1.1;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+}
+
+@media (max-width: 510px) {
+    .headerLink {
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        max-width: 8rem;
+    }
 }
 
 .headerLink:hover {
@@ -68,6 +118,21 @@
     margin-right: 0.5rem;
 }
 
+@media (max-width: 510px) {
+    .headerLinkImg {
+        height: 4rem;
+        width: 4rem;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 350px) {
+    .headerLinkImg {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
 .headerButton {
     display: flex;
     align-items: center;
@@ -81,6 +146,23 @@
     color: #2D2E46;
     text-shadow: 0px 1px 1px rgb(0 0 0 / 25%);
     opacity: .5;
+}
+
+@media (max-width: 510px) {
+    .headerButton {
+        margin-left: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        max-width: 8rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .headerButton {
+        margin-left: 0;
+        margin-bottom: .5rem;
+        max-width: 7rem;
+    }
 }
 
 .headerButton:hover {
@@ -98,4 +180,30 @@
     height: 1.2rem;
     width: 1.2rem;
     margin-right: 0.5rem;
+}
+
+@media (max-width: 510px) {
+    .headerButtonImg {
+        height: 2rem;
+        width: 2rem;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 350px) {
+    .headerButtonImg {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+@media (max-width: 510px) {
+
+    .linkText,
+    .buttonText {
+        display: inline-block;
+        font-size: 1px;
+        text-indent: 20rem;
+        position: absolute;
+    }
 }

@@ -1,12 +1,14 @@
 .profileInner{
     perspective: 30rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .profileWrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 22rem;
+    max-width: 22rem;
     min-height: 25rem;
     background-color: #F9F9FE;
     margin: 0 auto;
