@@ -24,7 +24,7 @@
     padding-left: .5rem;
 }
 
-@media (max-width: 684px) {
+@media (max-width: 693px) {
     .headerInner {
         justify-content: center;
     }
@@ -37,12 +37,12 @@
 }
 
 .globalTitleInner {
-    margin-right: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
-@media (max-width: 684px) {
+@media (max-width: 693px) {
     .globalTitleInner {
-        margin-right: 0;
         margin-bottom: 1rem;
     }
 }
