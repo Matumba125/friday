@@ -50,11 +50,11 @@ export type UserDataType = {
     avatar?: string
     publicCardPacksCount: number // количество колод
 
-    created: Date
-    updated: Date
-    isAdmin: boolean
-    verified: boolean // подтвердил ли почту
-    rememberMe: boolean
+    created?: Date
+    updated?: Date
+    isAdmin?: boolean
+    verified?: boolean // подтвердил ли почту
+    rememberMe?: boolean
 
 }
 

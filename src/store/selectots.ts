@@ -17,6 +17,9 @@ export const getRegistrationStatus = (state: AppStateType): boolean => {
 export const getIsLoading = (state: AppStateType): boolean => {
     return state.app.isLoading
 }
+export const getIsCardAdding = (state: AppStateType): boolean => {
+    return state.app.isCardAdding
+}
 
 //// Login Page Selectors
 
@@ -55,7 +58,7 @@ export const getUserName = (state: AppStateType): string => {
 export const getUserAvatar = (state: AppStateType): string | undefined => {
     return state.profile.userData.avatar
 }
-export const getCurrentUserIdAvatar = (state: AppStateType): string => {
+export const getCurrentUserId = (state: AppStateType): string => {
     return state.profile.userData._id
 }
 
