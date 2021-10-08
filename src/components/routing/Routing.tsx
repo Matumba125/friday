@@ -23,7 +23,7 @@ export const PATH ={
     REGISTRATION: '/registration',
     CARDS_PACKS: '/cards-packs',
     PACK_LIST: '/pack-list',
-    LISR_CARD: '/list-card',
+    LIST_CARD: '/list-card',
     ADD_NEWCARD: '/add-newcard',
     LEARN_QUESTION: '/learn-question',
 }
@@ -41,9 +41,9 @@ const Routing = () => {
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
                 <Route path={PATH.CARDS_PACKS} render={()=> <CardsPacks/>} />
                 <Route path={PATH.PACK_LIST} render={()=><PackList/>}/>
-                <Route path={PATH. LISR_CARD} render={()=><ListCard/>}/>
-                <Route path={PATH. ADD_NEWCARD} render={()=><AddNewCard/>} />
-                <Route path={PATH. LEARN_QUESTION} render={()=><LearnQuestion/>} />
+                <Route path={PATH.LIST_CARD} render={()=><ListCard/>}/>
+                <Route path={PATH.ADD_NEWCARD} render={()=><AddNewCard/>} />
+                <Route path={PATH.LEARN_QUESTION} render={()=><LearnQuestion/>} />
             </Switch>
         </>
     );
