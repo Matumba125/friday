@@ -1,8 +1,8 @@
-import React, { useState, KeyboardEvent } from "react";
+import React, {KeyboardEvent, useState} from "react";
 import s from './ModalEditPack.module.css';
 import ModalBox from '../../common/modalBox/ModalBox';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
-import {deleteCardsPackTC, updateCardsPackTC} from "../../store/cardsPacksReducer";
+import {updateCardsPackTC} from "../../store/cardsPacksReducer";
 import {useDispatch} from "react-redux";
 import InputForm from "../../common/inputForm/InputForm";
 import ButtonFormColor from "../../common/buttonFormColor/ButtonFormColor";
