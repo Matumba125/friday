@@ -1,16 +1,14 @@
-import React, {ChangeEvent, MouseEvent, useState, KeyboardEvent} from "react";
+import React, {ChangeEvent, MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
-import { useDispatch, useSelector } from "react-redux";
-import { deleteCardsPackTC, updateCardsPackTC } from "../../store/cardsPacksReducer";
-import { getCurrentUserId } from "../../store/selectots";
+import {useDispatch, useSelector} from "react-redux";
+import {getCurrentUserId} from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
-import InputForm from "../inputForm/InputForm";
-import { Link } from "react-router-dom";
-import { PATH } from "../../components/routing/Routing";
-import { getCards } from "../../store/cardsReducer";
+import {Link} from "react-router-dom";
+import {PATH} from "../../components/routing/Routing";
+import {getCards} from "../../store/cardsReducer";
 import ModalEditPack from "../../components/modalEditPack/ModalEditPack";
 
 type TableLinePropsType = {
@@ -40,7 +38,6 @@ const TableLine: React.FC<TableLinePropsType> = props => {
 
     const[deleting, setDeleting] = useState<boolean>(false)
     const[packEditing, setPackEditing] = useState<boolean>(false)
-    const[newPackName, setNewPackName] = useState<string>(packName)
 
     const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
@@ -51,11 +48,6 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         e.preventDefault()
         setPackEditing(!packEditing)
     }
-
-    const onNewPackNameChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>{
-        setNewPackName(e.currentTarget.value)
-    }
-
     const onClickHandler = ()=>{
         dispatch(getCards(_id))
     }
