@@ -29,13 +29,6 @@ const initialState: ProfileReducerInitialStateType = {
         avatar: '',
         publicCardPacksCount: 0,
 
-        created: new Date(),
-        updated: new Date(),
-        isAdmin: false,
-        verified: false,
-        rememberMe: false,
-
-
     },
     isEditing: false,
 }

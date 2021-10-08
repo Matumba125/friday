@@ -27,7 +27,7 @@ const CardListMain = () => {
     }
 
     const tBody = cardPacks.map((m, index) => <TableLeine cardsCount={m.cardsCount}
-                                                          created={m.created}
+                                                          updated={m.updated}
                                                           userName={m.user_name}
                                                           packName={m.name}
                                                           key={index}

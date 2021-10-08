@@ -11,11 +11,12 @@ import InputForm from "../inputForm/InputForm";
 import { Link } from "react-router-dom";
 import { PATH } from "../../components/routing/Routing";
 import { getCards } from "../../store/cardsReducer";
+import ModalEditPack from "../../components/modalEditPack/ModalEditPack";
 
 type TableLinePropsType = {
     packName: string
     cardsCount: number
-    created: Date
+    updated: Date
     userName: string
     _id: string
     user_id: string
@@ -26,7 +27,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
     const {
         packName,
         cardsCount,
-        created,
+        updated,
         userName,
         _id,
         user_id,
@@ -55,32 +56,19 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         setNewPackName(e.currentTarget.value)
     }
 
-    const onInputKeyPress = (e: KeyboardEvent<HTMLInputElement>) =>{
-        if(e.code === 'Enter'){
-            dispatch(updateCardsPackTC({name: newPackName, packId: _id}))
-            setPackEditing(false)
-        }
-    }
-
     const onClickHandler = ()=>{
         dispatch(getCards(_id))
     }
 
     const isPacksBelogsToUser = user_id === currentUserId
 
-    const newDate = new Intl.DateTimeFormat().format(new Date(created))
+    const newDate = new Intl.DateTimeFormat().format(new Date(updated))
 
     return (
         <>
             <ModalDeletePack packName={packName} setClose={setDeleting} packId={_id} open={deleting}/>
-            <tr className={s.tableLine}>
-                {packEditing ?
-                    <td className={s.tableItem}><input className={s.input} value={newPackName}
-                                                       onChange={onNewPackNameChangeHandler}
-                                                       onKeyPress={onInputKeyPress}/>
-                    </td>
-                    : <td className={s.tableItem}><Link to={PATH.PACK_LIST} onClick={onClickHandler}>{packName}</Link></td>
-                }
+            <ModalEditPack packName={packName} packId={_id} open={packEditing} setClose={setPackEditing}/>
+            <tr className={s.tableLine}><td className={s.tableItem}><Link to={PATH.PACK_LIST} onClick={onClickHandler}>{packName}</Link></td>
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>
                 <td className={s.tableItem}>{userName}</td>

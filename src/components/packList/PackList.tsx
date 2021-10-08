@@ -6,7 +6,7 @@ import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector } from 'react-redux';
-import { getCardsSelector, getIsCardAdding } from '../../store/selectots';
+import { getCardsSelector, getIsCardAdding, getIsLoggedIn } from '../../store/selectots';
 import { PATH } from '../routing/Routing';
 import {setIsCardAdding} from '../../store/appReducer'
 import CardsList from '../CardsList/CardsList';
@@ -15,6 +15,7 @@ const PackList = () => {
 
     const cards = useSelector(getCardsSelector)
     const isCardAdding = useSelector(getIsCardAdding)
+    const isLoggedIn = useSelector(getIsLoggedIn)
 
     const dispatch = useDispatch()
 
@@ -25,6 +26,10 @@ const PackList = () => {
 
     if(isCardAdding){
         return <Redirect to={PATH.ADD_NEW_CARD}/>
+    }
+
+    if (!isLoggedIn) {
+        return <Redirect to={PATH.LOGIN} />
     }
 
     return (
