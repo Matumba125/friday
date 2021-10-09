@@ -20,9 +20,9 @@ export type CardType = {
     rating: number
     shots: number
     type: string
-    user_id: string
     created: string
     updated: string
+    more_id: string
     _id: string
 }
 
@@ -113,6 +113,25 @@ export const editCard = createAsyncThunk('cards/editCard', async (params:{questi
         dispatch(setIsLoading({isLoading: false}))
     }
 })
+export const gradeCard = createAsyncThunk('cards/gradeCard', async (params:{grade: number, cardId: string}, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
+    const state = getState() as AppStateType
+    const cardsPack_id = state.cards.currentPackId
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.gradeCard({grade: params.grade, card_id:params.cardId})
+        dispatch(getCards(cardsPack_id))
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading({isLoading: false}))
+    }
+})
+
+
 
 const slice = createSlice({
     name: 'cards',
