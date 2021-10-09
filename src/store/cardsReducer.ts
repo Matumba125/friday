@@ -7,9 +7,9 @@ export type CardsControlsType = {
     cardQuestion?: string
     cardAnswer?: string
     sortCards?: number
-    page?: number
-    pageCount?: number
-    totalPagesCount?: number
+    page: number
+    pageCount: number
+    totalPagesCount: number
 }
 
 export type CardType = {
@@ -103,16 +103,20 @@ const slice = createSlice({
     reducers: {
         setCurrentPackId(state, action: PayloadAction<{currentPackId: string}>){
             state.currentPackId = action.payload.currentPackId
-        }
+        },
+        setCurrentCardsPage(state, action: PayloadAction<{currentPage: number}>){
+            state.controls.page = action.payload.currentPage
+        },
     },
     extraReducers: builder => {
         builder.addCase(getCards.fulfilled, (state, action) => {
             state.cards = action.payload.cardsData.cards
             state.packUserId = action.payload.cardsData.packUserId
+            state.controls.totalPagesCount = Math.ceil(action.payload.cardsData.cardsTotalCount/state.controls.pageCount)
         })
     }
 })
 
 export const cardsReducer = slice.reducer
 
-export const {setCurrentPackId} =slice.actions
+export const {setCurrentPackId, setCurrentCardsPage} =slice.actions
