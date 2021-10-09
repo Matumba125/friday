@@ -9,7 +9,7 @@ import {PaginationRounded} from '../pagination/Pagination';
 import Select from '../select/Select';
 import {useDispatch, useSelector} from "react-redux";
 import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../store/selectots";
-import {setPackNameAC, setPageAC} from "../../store/cardsPacksReducer";
+import {setPackNameAC, setPageAC, setPageCountAC} from "../../store/cardsPacksReducer";
 import ModalAddPack from "../../components/PackModals/modalAddPack/ModalAddPack";
 
 const PacksListMain = () => {
@@ -27,6 +27,10 @@ const PacksListMain = () => {
 
     const onPaginationChangeHandler = (page: number) =>{
         dispatch(setPageAC({page: page}))
+    }
+
+    const onSelectChangeHandler=(pageCount: number)=>{
+        dispatch(setPageCountAC({pageCount}))
     }
 
     const onPackNameChangeHandler = (newPackName: string) => {
@@ -103,7 +107,7 @@ const PacksListMain = () => {
                                 Show
                             </span>
 
-                            <Select/>
+                            <Select changeHandler={onSelectChangeHandler}/>
 
                             <span className={s.selectText}>
                                 Cards per Page

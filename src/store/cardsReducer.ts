@@ -107,6 +107,9 @@ const slice = createSlice({
         setCurrentCardsPage(state, action: PayloadAction<{currentPage: number}>){
             state.controls.page = action.payload.currentPage
         },
+        setCardsPageCount(state, action: PayloadAction<{pageCount: number}>){
+            state.controls.pageCount = action.payload.pageCount
+        },
     },
     extraReducers: builder => {
         builder.addCase(getCards.fulfilled, (state, action) => {
@@ -119,4 +122,4 @@ const slice = createSlice({
 
 export const cardsReducer = slice.reducer
 
-export const {setCurrentPackId, setCurrentCardsPage} =slice.actions
+export const {setCurrentPackId, setCurrentCardsPage, setCardsPageCount} =slice.actions

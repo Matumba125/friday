@@ -3,7 +3,7 @@ import s from './CardsList.module.css';
 import ListCardTableLeine from '../../common/listCardTableLeine/ListCardTableLeine'
 import {PaginationRounded} from '../../common/pagination/Pagination';
 import Select from '../../common/select/Select';
-import {CardType, setCurrentCardsPage} from '../../store/cardsReducer';
+import {CardType, setCardsPageCount, setCurrentCardsPage} from '../../store/cardsReducer';
 import CardListHead from '../../common/CardListHead/CardListHead';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCardsPage, getTotalCardsPages} from '../../store/selectots';
@@ -22,6 +22,10 @@ const CardsList: React.FC<CardsListType> = props => {
 
     const onPaginationChangeHandler = (page: number) => {
         dispatch(setCurrentCardsPage({currentPage: page}))
+    }
+
+    const onSelectChangeHandler = (pageCount: number) => {
+        dispatch(setCardsPageCount({pageCount}))
     }
 
     return (
@@ -52,7 +56,7 @@ const CardsList: React.FC<CardsListType> = props => {
                                     Show
                                 </span>
 
-                    <Select/>
+                    <Select changeHandler={onSelectChangeHandler}/>
 
                     <span className={s.selectText}>
                                     Cards per Page

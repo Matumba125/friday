@@ -6,7 +6,8 @@ import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector} from 'react-redux';
-import {getCardsPage, getCardsSelector, getCurrentPackId, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
+import {getCardsPage,
+    getCardsPageCount, getCardsSelector, getCurrentPackId, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import CardsList from '../CardsList/CardsList';
 import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
@@ -24,10 +25,11 @@ const Cards = () => {
     const packUserId = useSelector(getPackUserId)
     const currentPage = useSelector(getCardsPage)
     const currentPackId = useSelector(getCurrentPackId)
+    const pageCount = useSelector(getCardsPageCount)
 
     useEffect(() => {
        dispatch(getCards(currentPackId))
-    }, [currentPage])
+    }, [currentPage, pageCount])
 
     const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
