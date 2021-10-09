@@ -21,7 +21,7 @@ const CardsList: React.FC<CardsListType> = props => {
 
                     <tbody className={s.tableBody}>
                     {
-                       props.cards.map( m => <ListCardTableLeine card={m}/>)
+                       props.cards.map( (m, index) => <ListCardTableLeine key={index} card={m}/>)
                     }
 
                     </tbody>

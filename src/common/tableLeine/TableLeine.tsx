@@ -8,7 +8,7 @@ import {getCurrentUserId} from "../../store/selectots";
 import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
 import {Link} from "react-router-dom";
 import {PATH} from "../../components/routing/Routing";
-import {getCards} from "../../store/cardsReducer";
+import {getCards, setCurrentPackId} from "../../store/cardsReducer";
 import ModalEditPack from "../../components/modalEditPack/ModalEditPack";
 
 type TableLinePropsType = {
@@ -50,6 +50,7 @@ const TableLine: React.FC<TableLinePropsType> = props => {
     }
     const onClickHandler = ()=>{
         dispatch(getCards(_id))
+        dispatch(setCurrentPackId({currentPackId: _id}))
     }
 
     const isPacksBelogsToUser = user_id === currentUserId

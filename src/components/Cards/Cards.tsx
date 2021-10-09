@@ -1,32 +1,32 @@
 import {Redirect} from 'react-router-dom';
 import s from './Cards.module.css';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
-import React, {MouseEvent} from 'react'
+import React, {MouseEvent, useState} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector} from 'react-redux';
-import {getCardsSelector, getIsCardAdding, getIsLoggedIn} from '../../store/selectots';
+import {getCardsSelector, getIsLoggedIn} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import {setIsCardAdding} from '../../store/appReducer'
 import CardsList from '../CardsList/CardsList';
+import AddNewCard from '../addNewCard/AddNewCard';
 
 const Cards = () => {
 
+    const[addCard, setAddCard] = useState<boolean>(false)
+
+
     const cards = useSelector(getCardsSelector)
-    const isCardAdding = useSelector(getIsCardAdding)
     const isLoggedIn = useSelector(getIsLoggedIn)
 
     const dispatch = useDispatch()
 
     const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
         e.preventDefault()
-        dispatch(setIsCardAdding({isCardAdding: true}))
+        setAddCard(true)
     }
 
-    if(isCardAdding){
-        return <Redirect to={PATH.ADD_NEW_CARD}/>
-    }
 
     if (!isLoggedIn) {
         return <Redirect to={PATH.LOGIN} />
@@ -34,6 +34,7 @@ const Cards = () => {
 
     return (
         <>
+            <AddNewCard setOpen={setAddCard} open={addCard}/>
             <CardListContainer>
                 <>
                     <div className={s.packListWrap}>

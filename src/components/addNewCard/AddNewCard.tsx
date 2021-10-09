@@ -1,74 +1,94 @@
-import React, {MouseEvent} from "react";
+import React, {MouseEvent, useState} from "react";
 import s from './AddNewCard.module.css';
-import CardContainer from '../../common/cardContainer/CardContainer';
-import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import InputFile from '../../common/inputFile/InputFile';
-import {useDispatch, useSelector} from "react-redux";
-import {getIsCardAdding} from "../../store/selectots";
-import {setIsCardAdding} from "../../store/appReducer";
-import {Redirect} from "react-router-dom";
-import {PATH} from "../routing/Routing";
+import {useDispatch} from "react-redux";
+import ModalBox from "../../common/modalBox/ModalBox";
+import { createCard } from "../../store/cardsReducer";
 
-const AddNewCard = () => {
+type AddNewCardType ={
+    open: boolean
+    setOpen: (open: boolean)=> void
+}
 
-    const isCardAdding = useSelector(getIsCardAdding)
+
+const AddNewCard: React.FC<AddNewCardType> = props => {
 
     const dispatch = useDispatch()
 
-    const onCancelClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
-        e.preventDefault()
-        dispatch(setIsCardAdding({isCardAdding: false}))
+    const[question, setQuestion] = useState<string>('')
+    const[answer, setAnswer] = useState<string>('')
+
+    const onQuestionChangeHandler = (text: string) =>{
+        setQuestion(text)
+    }
+    const onAnswerChangeHandler = (text: string) =>{
+        setAnswer(text)
     }
 
-    if(!isCardAdding){
-        return <Redirect to={PATH.CARDS}/>
+    const onCancelClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        props.setOpen(false)
+        setAnswer('')
+        setQuestion('')
+    }
+
+    const onSaveClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        try{
+            dispatch(createCard({question, answer}))
+        }finally {
+            setAnswer('')
+            setQuestion('')
+            props.setOpen(false)
+        }
     }
 
     return (
-        <CardContainer>
-            <>
-                <div className={s.titleBox}>
-                    <ListTitle
-                        text={'Card Info'} />
-                </div>
+        <ModalBox open={props.open} setClose={props.setOpen} title={'Card Info'}>
+                <>
+                    <InputForm
+                        text={'Question'}
+                        inputType={'text'}
+                        placeholder={'Please enter a question'}
+                        title={' '}
+                        value={question}
+                        onChangeText={onQuestionChangeHandler}
+                    />
 
-                <InputForm
-                    text={'Question'}
-                    inputType={'text'}
-                    placeholder={'Please enter a question'}
-                    title={' '}
-                />
-
-                <div className={s.inputFileBox}>
-                    <InputFile />
-                </div>
-
-                <InputForm
-                    text={'Answer'}
-                    inputType={'text'}
-                    placeholder={'Please enter  your answer'}
-                    title={' '}
-                />
-
-                <div className={s.inputFileBox}>
-                    <InputFile />
-                </div>
-
-                <div className={s.buttonsBox}>
-                    <ButtonReturnCancel onClick={onCancelClickHandler} />
-
-                    <div className={s.buttonBox}>
-                        <ButtonFormColor
-                            text={'Save'} />
+                    <div className={s.inputFileBox}>
+                        <InputFile/>
                     </div>
 
-                </div>
+                    <InputForm
+                        text={'Answer'}
+                        inputType={'text'}
+                        placeholder={'Please enter  your answer'}
+                        title={' '}
+                        value={answer}
+                        onChangeText={onAnswerChangeHandler}
+                    />
 
-            </>
-        </CardContainer>
+                    <div className={s.inputFileBox}>
+                        <InputFile/>
+                    </div>
+
+                    <div className={s.buttonsBox}>
+                        <ButtonReturnCancel onClick={onCancelClickHandler}/>
+
+                        <div className={s.buttonBox}>
+                            <ButtonFormColor
+                                text={'Save'}
+                                onClick={onSaveClickHandler}
+                            />
+                        </div>
+
+                    </div>
+
+                </>
+        </ModalBox>
 
     )
 }

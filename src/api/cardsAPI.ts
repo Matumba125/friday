@@ -50,8 +50,8 @@ export const cardsApi = {
             })
     },
 
-    postCard(data: postCardParamsType) {
-        return instance.post<{}>(`/cards/card`, {data})
+    createCard(card: postCardParamsType) {
+        return instance.post<{}>(`/cards/card`, {card})
     },
 
     deleteCard() {
@@ -125,19 +125,19 @@ export type getCardDataType = {
 }
 
 export type postCardParamsType = {
-    card: {
-        cardsPack_id: string
-        question: string
-        answer: string
-        grade?: number
-        shots?: number
-        rating?: number
-        answerImg?: string
-        questionImg?: string
-        questionVideo?: string
-        answerVideo?: string
-        type: string
-    }
+
+    cardsPack_id: string
+    question: string
+    answer: string
+    grade?: number
+    shots?: number
+    rating?: number
+    answerImg?: string
+    questionImg?: string
+    questionVideo?: string
+    answerVideo?: string
+    type?: string
+
 }
 
 export type putCardParamsType = {
