@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {Rating, Box} from '@material-ui/core';
+import {Box, Rating} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {ChangeEvent} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import StarIcon from '@material-ui/icons/Star';
+import { useState } from 'react';
 
 const useStyles: any = makeStyles(
   {
@@ -35,8 +34,8 @@ const labels: { [index: string]: string } = {
 };
 
 export default function HoverRating() {
-  const [value, setValue] = React.useState<number | null>(2);
-  const [hover, setHover] = React.useState(-1);
+  const [value, setValue] = useState<number | null>(2);
+  const [hover, setHover] = useState(-1);
 
   const classes = useStyles();
 

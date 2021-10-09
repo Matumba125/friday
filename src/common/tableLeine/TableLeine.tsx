@@ -1,4 +1,4 @@
-import React, {ChangeEvent, MouseEvent, useState} from "react";
+import React, {MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';

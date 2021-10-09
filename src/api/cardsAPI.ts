@@ -54,8 +54,12 @@ export const cardsApi = {
         return instance.post<{}>(`/cards/card`, {card})
     },
 
-    deleteCard() {
-        return instance.post<{}>(`/cards/card`,)
+    deleteCard(id: string) {
+        return instance.delete<{}>(`/cards/card`, {
+            params: {
+                id
+            }
+        })
     },
 
     putCard(data: putCardParamsType) {

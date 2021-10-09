@@ -4,7 +4,7 @@ import ListCardTableLeine from '../../common/listCardTableLeine/ListCardTableLei
 import {PaginationRounded} from '../../common/pagination/Pagination';
 import Select from '../../common/select/Select';
 import { CardType } from '../../store/cardsReducer';
-import CardListHead from '../../common/listCardTableHead/CardListHead';
+import CardListHead from '../../common/CardListHead/CardListHead';
 
 type CardsListType = {
     cards: CardType[]

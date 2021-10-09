@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, MouseEvent } from "react";
 import s from './ListCardTableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import HoverRating from '../rating/Rating';
-import {useSelector} from "react-redux";
 import {CardType} from "../../store/cardsReducer";
-import {getCurrentUserId} from "../../store/selectots";
+import ModalDeleteCard from "../../components/CardsModals/modalDeleteCard/ModalDeleteCard";
 
 type ListCardTableLeinePropsType = {
     card: CardType
@@ -20,21 +19,18 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
         ...restProps
     } = props
 
-    const currentUserId = useSelector(getCurrentUserId)
-
-    // const dispatch = useDispatch()
-
-    // const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
-    //     e.preventDefault()
-    //     dispatch(deleteCardsPackTC(_id))
-    // }
-
-
     const newDate = new Intl.DateTimeFormat().format(new Date(card.created))
 
+    const [deleteCard, setDeleteCard] = useState<boolean>(false)
+
+    const onDeleteClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        setDeleteCard(true)
+    }
 
     return (
         <>
+            <ModalDeleteCard open={deleteCard} setClose={setDeleteCard} cardId={card._id} />
             <tr className={s.tableLine}>
                 <td className={s.tableItem}>{card.question}</td>
                 <td className={s.tableItem}>{card.answer}</td>
@@ -44,7 +40,7 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
                     {isPackBelongsToUser ?
                         <div className={s.tableButtonsblock}>
                             <div className={s.buttonContainer}>
-                                <ButtonTabDelete/>
+                                <ButtonTabDelete  onClick={onDeleteClickHandler} />
                             </div>
                             <div className={s.buttonContainer}>
                                 <ButtonTabEdit/>

@@ -20,6 +20,11 @@
     margin-bottom: 1rem;
 }
 
+.inputWrapBig{
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+}
+
 .buttonWrap{
     margin-left: 1rem;
     flex-basis: 17%;

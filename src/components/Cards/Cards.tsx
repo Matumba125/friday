@@ -42,16 +42,18 @@ const Cards = () => {
                       <LinkPackName/>
                       
                         <div className={s.searchBox}>
-                            <div className={s.inputWrap}>
+                            <div className={isPackBelogsToUser ? s.inputWrap : s.inputWrapBig}>
                                 <InputSearch
                                     placeholder={'Search...'} />
                             </div>
-                            <div className={s.buttonWrap}>
-                                <ButtonFormColor
-                                    text={'Add new card'}
-                                    onClick={onAddButtonClickHandler}
-                                />
-                            </div>
+                            {isPackBelogsToUser &&
+                                <div className={s.buttonWrap}>
+                                    <ButtonFormColor
+                                        text={'Add new card'}
+                                        onClick={onAddButtonClickHandler}
+                                    />
+                                </div>
+                            }
 
                         </div>
                         { cards.length === 0 ?

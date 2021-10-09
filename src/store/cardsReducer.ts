@@ -79,6 +79,23 @@ export const createCard = createAsyncThunk('cards/createCard', async (params:{qu
         dispatch(setIsLoading({isLoading: false}))
     }
 })
+export const deleteCard = createAsyncThunk('cards/deleteCard', async (cardId: string, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
+    const state = getState() as AppStateType
+    const cardsPack_id = state.cards.currentPackId
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.deleteCard(cardId)
+        dispatch(getCards(cardsPack_id))
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading({isLoading: false}))
+    }
+})
 
 const slice = createSlice({
     name: 'cards',
