@@ -71,7 +71,7 @@ export const createCard = createAsyncThunk('cards/createCard', async (params:{qu
     const cardsPack_id = state.cards.currentPackId
     try {
         dispatch(setIsLoading({isLoading: true}))
-        const res = await cardsApi.createCard({cardsPack_id: cardsPack_id, answer: params.answer, question: params.question})
+        await cardsApi.createCard({cardsPack_id: cardsPack_id, answer: params.answer, question: params.question})
         dispatch(getCards(cardsPack_id))
     } catch (error) {
         return rejectWithValue(error)

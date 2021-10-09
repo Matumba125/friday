@@ -2,11 +2,11 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
 import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
-import CardListMain from '../../common/cardListMain/CardListMain';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../routing/Routing';
 import {getCardsPage, getIsLoggedIn, getIsPrivate, getPageCount, getSortPacks} from '../../store/selectots';
 import {getCardsPacksTC} from '../../store/cardsPacksReducer';
+import PacksListMain from '../../common/packsListMain/CardListMain';
 
 const CardsPacks = () => {
 
@@ -32,7 +32,7 @@ const CardsPacks = () => {
                 <>
                     <CardListSaidbar />
 
-                    <CardListMain />
+                    <PacksListMain />
                 </>
             </CardListContainer>
         </>

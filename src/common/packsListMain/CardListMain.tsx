@@ -12,7 +12,7 @@ import {getCardPacks} from "../../store/selectots";
 import {setPackNameAC} from "../../store/cardsPacksReducer";
 import ModalAddPack from "../../components/modalAddPack/ModalAddPack";
 
-const CardListMain = () => {
+const PacksListMain = () => {
 
     const cardPacks = useSelector(getCardPacks)
 
@@ -112,6 +112,6 @@ const CardListMain = () => {
     )
 }
 
-export default CardListMain;
+export default PacksListMain;
 
 
