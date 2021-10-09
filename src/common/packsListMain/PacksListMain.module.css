@@ -10,7 +10,7 @@
     border-bottom-right-radius: .5rem;
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 900px) {
     .container {
         width: 100%;
         border-bottom-left-radius: .5rem;

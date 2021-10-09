@@ -2,9 +2,9 @@
     display: flex;
 }
 
-@media (max-width:1320px){
+@media (max-width:900px){
     .buttonsBlock{
-        width: 100%;
+        width: 70%;
     }
 }
 

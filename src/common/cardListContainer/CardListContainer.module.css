@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     width: 71%;
-    max-width: 63rem;
+    /* max-width: 63rem; */
     margin: 0 auto;
     min-height: 40rem;
     background-color: #fff;
@@ -37,13 +37,19 @@
     }
 }
 
-@media (max-width:950px) {
+@media (min-width:1441px) {
+    .boxCardList {
+        width: 70rem;
+    }
+}
+
+@media (max-width:1200px) {
     .boxCardList {
         width: 90%;
     }
 }
 
-@media (max-width:880px) {
+@media (max-width:900px) {
     .boxCardList {
         flex-wrap: wrap;
     }
