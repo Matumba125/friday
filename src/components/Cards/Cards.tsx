@@ -1,62 +1,75 @@
 import {Redirect} from 'react-router-dom';
 import s from './Cards.module.css';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
-import React, {MouseEvent} from 'react'
+import React, {MouseEvent, useEffect, useState} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector} from 'react-redux';
-import {getCardsSelector, getIsCardAdding, getIsLoggedIn} from '../../store/selectots';
+import {getCardsPage,
+    getCardsPageCount, getCardsSelector, getCurrentPackId, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
-import {setIsCardAdding} from '../../store/appReducer'
 import CardsList from '../cardsList/CardsList';
+import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
+import { getCards } from '../../store/cardsReducer';
 
 const Cards = () => {
 
-    const cards = useSelector(getCardsSelector)
-    const isCardAdding = useSelector(getIsCardAdding)
-    const isLoggedIn = useSelector(getIsLoggedIn)
+    const [addCard, setAddCard] = useState<boolean>(false)
 
     const dispatch = useDispatch()
 
-    const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+    const cards = useSelector(getCardsSelector)
+    const isLoggedIn = useSelector(getIsLoggedIn)
+    const currentUserId = useSelector(getCurrentUserId)
+    const packUserId = useSelector(getPackUserId)
+    const currentPage = useSelector(getCardsPage)
+    const currentPackId = useSelector(getCurrentPackId)
+    const pageCount = useSelector(getCardsPageCount)
+
+    useEffect(() => {
+       dispatch(getCards(currentPackId))
+    }, [currentPage, pageCount])
+
+    const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        dispatch(setIsCardAdding({isCardAdding: true}))
+        setAddCard(true)
     }
 
-    if(isCardAdding){
-        return <Redirect to={PATH.ADD_NEW_CARD}/>
-    }
+    const isPackBelogsToUser = packUserId === currentUserId
 
     if (!isLoggedIn) {
-        return <Redirect to={PATH.LOGIN} />
+        return <Redirect to={PATH.LOGIN}/>
     }
 
     return (
         <>
+            <ModalAddNewCard setOpen={setAddCard} open={addCard}/>
             <CardListContainer>
                 <>
                     <div className={s.packListWrap}>
 
-                      <LinkPackName/>
-                      
+                        <LinkPackName/>
+
                         <div className={s.searchBox}>
-                            <div className={s.inputWrap}>
+                            <div className={isPackBelogsToUser ? s.inputWrap : s.inputWrapBig}>
                                 <InputSearch
-                                    placeholder={'Search...'} />
+                                    placeholder={'Search...'}/>
                             </div>
+                            {isPackBelogsToUser &&
                             <div className={s.buttonWrap}>
                                 <ButtonFormColor
                                     text={'Add new card'}
                                     onClick={onAddButtonClickHandler}
                                 />
                             </div>
+                            }
 
                         </div>
-                        { cards.length === 0 ?
+                        {cards.length === 0 ?
                             <span
                                 className={s.cardListText}>This pack is empty. Click add new card to fill this pack</span>
-                            :<CardsList cards={cards}/>
+                            : <CardsList isPackBelongsToUser={isPackBelogsToUser} cards={cards}/>
                         }
                     </div>
                 </>

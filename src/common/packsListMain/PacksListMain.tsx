@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import s from './CardListMain.module.css';
+import s from './PacksListMain.module.css';
 import ListTitle from '../listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {InputSearch} from '../../common/inputSearch/InputSearch';
@@ -8,11 +8,11 @@ import TableLeine from '../tableLeine/TableLeine';
 import {PaginationRounded} from '../pagination/Pagination';
 import Select from '../select/Select';
 import {useDispatch, useSelector} from "react-redux";
-import {getCardPacks} from "../../store/selectots";
-import {setPackNameAC} from "../../store/cardsPacksReducer";
-import ModalAddPack from "../../components/modalAddPack/ModalAddPack";
+import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../store/selectots";
+import {setPackNameAC, setPageAC, setPageCountAC} from "../../store/cardsPacksReducer";
+import ModalAddPack from "../../components/PackModals/modalAddPack/ModalAddPack";
 
-const CardListMain = () => {
+const PacksListMain = () => {
 
     const cardPacks = useSelector(getCardPacks)
 
@@ -20,6 +20,18 @@ const CardListMain = () => {
 
     const [packName, setPackName] = useState<string>('')
     const [addPack, setAddPack] = useState<boolean>(false)
+
+
+    const page = useSelector(getPacksPage)
+    const pagesCount = useSelector(getTotalPagesCount)
+
+    const onPaginationChangeHandler = (page: number) =>{
+        dispatch(setPageAC({page: page}))
+    }
+
+    const onSelectChangeHandler=(pageCount: number)=>{
+        dispatch(setPageCountAC({pageCount}))
+    }
 
     const onPackNameChangeHandler = (newPackName: string) => {
         setPackName(newPackName)
@@ -88,14 +100,14 @@ const CardListMain = () => {
 
                     <div className={s.tableNavigation}>
 
-                        <PaginationRounded/>
+                        <PaginationRounded totalPages={pagesCount} setNewPage={onPaginationChangeHandler} currentPage={page}/>
 
                         <div className={s.select}>
                             <span className={s.selectText}>
                                 Show
                             </span>
 
-                            <Select/>
+                            <Select changeHandler={onSelectChangeHandler}/>
 
                             <span className={s.selectText}>
                                 Cards per Page
@@ -112,6 +124,6 @@ const CardListMain = () => {
     )
 }
 
-export default CardListMain;
+export default PacksListMain;
 
 

@@ -50,17 +50,24 @@ export const cardsApi = {
             })
     },
 
-    postCard(data: postCardParamsType) {
-        return instance.post<{}>(`/cards/card`, {data})
+    createCard(card: postCardParamsType) {
+        return instance.post<{}>(`/cards/card`, {card})
     },
 
-    deleteCard() {
-        return instance.post<{}>(`/cards/card`,)
+    deleteCard(id: string) {
+        return instance.delete<{}>(`/cards/card`, {
+            params: {
+                id
+            }
+        })
     },
 
-    putCard(data: putCardParamsType) {
-        return instance.post<{}>(`/cards/card`, {data})
+    editCard(card: putCardParamsType) {
+        return instance.put<{}>(`/cards/card`, {card})
     },
+    gradeCard(card: GradeCardParamsType){
+        return instance.put(`cards/grade`, card)
+    }
 
 }
 
@@ -125,25 +132,28 @@ export type getCardDataType = {
 }
 
 export type postCardParamsType = {
-    card: {
-        cardsPack_id: string
-        question: string
-        answer: string
-        grade?: number
-        shots?: number
-        rating?: number
-        answerImg?: string
-        questionImg?: string
-        questionVideo?: string
-        answerVideo?: string
-        type: string
-    }
+
+    cardsPack_id: string
+    question: string
+    answer: string
+    grade?: number
+    shots?: number
+    rating?: number
+    answerImg?: string
+    questionImg?: string
+    questionVideo?: string
+    answerVideo?: string
+    type?: string
+
 }
 
 export type putCardParamsType = {
-    card: {
-        _id: string
-        question?: string
-        comments?: string
-    }
+    _id: string
+    question?: string
+    answer?: string
+}
+
+export type GradeCardParamsType ={
+    grade: number
+    card_id: string
 }

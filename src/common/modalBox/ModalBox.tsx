@@ -5,7 +5,7 @@ import ModalTitle from "../modalTitle/ModalTitle";
 import s from './ModalBox.module.css';
 
 type ModalBoxPropsType = {
-    children?: JSX.Element;
+    children: JSX.Element;
     open: boolean
     setClose: (open: boolean)=> void
     title: string

@@ -28,7 +28,7 @@
 .modalContent {
     position: fixed;
     width: 25rem;
-    height: 15rem;
+    min-height: 15rem;
     right: calc(50% - 12.5rem);
     top: calc(50% - 7.5rem);
     background-color: #fff;

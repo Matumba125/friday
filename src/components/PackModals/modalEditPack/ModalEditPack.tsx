@@ -1,11 +1,12 @@
 import React, {KeyboardEvent, useState} from "react";
 import s from './ModalEditPack.module.css';
-import ModalBox from '../../common/modalBox/ModalBox';
-import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
-import {updateCardsPackTC} from "../../store/cardsPacksReducer";
 import {useDispatch} from "react-redux";
-import InputForm from "../../common/inputForm/InputForm";
-import ButtonFormColor from "../../common/buttonFormColor/ButtonFormColor";
+import { updateCardsPackTC } from "../../../store/cardsPacksReducer";
+import ModalBox from "../../../common/modalBox/ModalBox";
+import InputForm from "../../../common/inputForm/InputForm";
+import ButtonReturnCancel from "../../../common/buttonReturnCancel/ButtonReturnCancel";
+import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
+
 
 type ModalDeletePackType={
     open: boolean
