@@ -1,9 +1,9 @@
 import React from "react";
 import s from './ModalDeletePack.module.css';
-import ModalBox from '../../common/modalBox/ModalBox';
-import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
-import {deleteCardsPackTC} from "../../store/cardsPacksReducer";
 import {useDispatch} from "react-redux";
+import { deleteCardsPackTC } from "../../../store/cardsPacksReducer";
+import ModalBox from "../../../common/modalBox/ModalBox";
+import ButtonReturnCancel from "../../../common/buttonReturnCancel/ButtonReturnCancel";
 
 type ModalDeletePackType={
     open: boolean

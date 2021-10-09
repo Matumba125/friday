@@ -5,11 +5,11 @@ import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentUserId} from "../../store/selectots";
-import ModalDeletePack from "../../components/modalDeletePack/ModalDeletePack";
 import {Link} from "react-router-dom";
 import {PATH} from "../../components/routing/Routing";
 import {getCards, setCurrentPackId} from "../../store/cardsReducer";
-import ModalEditPack from "../../components/modalEditPack/ModalEditPack";
+import ModalDeletePack from "../../components/PackModals/modalDeletePack/ModalDeletePack";
+import ModalEditPack from "../../components/PackModals/modalEditPack/ModalEditPack";
 
 type TableLinePropsType = {
     packName: string

@@ -10,7 +10,7 @@ import {getCardsSelector, getIsLoggedIn} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import {setIsCardAdding} from '../../store/appReducer'
 import CardsList from '../CardsList/CardsList';
-import AddNewCard from '../addNewCard/AddNewCard';
+import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
 
 const Cards = () => {
 
@@ -34,7 +34,7 @@ const Cards = () => {
 
     return (
         <>
-            <AddNewCard setOpen={setAddCard} open={addCard}/>
+            <ModalAddNewCard setOpen={setAddCard} open={addCard}/>
             <CardListContainer>
                 <>
                     <div className={s.packListWrap}>

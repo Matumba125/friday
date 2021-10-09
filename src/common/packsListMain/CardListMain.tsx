@@ -10,7 +10,7 @@ import Select from '../select/Select';
 import {useDispatch, useSelector} from "react-redux";
 import {getCardPacks} from "../../store/selectots";
 import {setPackNameAC} from "../../store/cardsPacksReducer";
-import ModalAddPack from "../../components/modalAddPack/ModalAddPack";
+import ModalAddPack from "../../components/PackModals/modalAddPack/ModalAddPack";
 
 const PacksListMain = () => {
 
