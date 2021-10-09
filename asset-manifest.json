@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/friday/static/css/main.1814d788.chunk.css",
-    "main.js": "/friday/static/js/main.1931a1ff.chunk.js",
-    "main.js.map": "/friday/static/js/main.1931a1ff.chunk.js.map",
-    "runtime-main.js": "/friday/static/js/runtime-main.5a55a4c0.js",
-    "runtime-main.js.map": "/friday/static/js/runtime-main.5a55a4c0.js.map",
+    "main.css": "/friday/static/css/main.d605f0e7.chunk.css",
+    "main.js": "/friday/static/js/main.4a57149b.chunk.js",
+    "main.js.map": "/friday/static/js/main.4a57149b.chunk.js.map",
+    "runtime-main.js": "/friday/static/js/runtime-main.64eedfcf.js",
+    "runtime-main.js.map": "/friday/static/js/runtime-main.64eedfcf.js.map",
     "static/css/2.679831fc.chunk.css": "/friday/static/css/2.679831fc.chunk.css",
-    "static/js/2.65149314.chunk.js": "/friday/static/js/2.65149314.chunk.js",
-    "static/js/2.65149314.chunk.js.map": "/friday/static/js/2.65149314.chunk.js.map",
-    "static/js/3.9d9d1e46.chunk.js": "/friday/static/js/3.9d9d1e46.chunk.js",
-    "static/js/3.9d9d1e46.chunk.js.map": "/friday/static/js/3.9d9d1e46.chunk.js.map",
+    "static/js/2.5626de07.chunk.js": "/friday/static/js/2.5626de07.chunk.js",
+    "static/js/2.5626de07.chunk.js.map": "/friday/static/js/2.5626de07.chunk.js.map",
+    "static/js/3.f802a42d.chunk.js": "/friday/static/js/3.f802a42d.chunk.js",
+    "static/js/3.f802a42d.chunk.js.map": "/friday/static/js/3.f802a42d.chunk.js.map",
     "index.html": "/friday/index.html",
     "static/css/2.679831fc.chunk.css.map": "/friday/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.1814d788.chunk.css.map": "/friday/static/css/main.1814d788.chunk.css.map",
-    "static/js/2.65149314.chunk.js.LICENSE.txt": "/friday/static/js/2.65149314.chunk.js.LICENSE.txt",
+    "static/css/main.d605f0e7.chunk.css.map": "/friday/static/css/main.d605f0e7.chunk.css.map",
+    "static/js/2.5626de07.chunk.js.LICENSE.txt": "/friday/static/js/2.5626de07.chunk.js.LICENSE.txt",
     "static/media/index.css": "/friday/static/media/SFUIDisplay-Semibold.d3f53e85.woff2",
     "static/media/App.css": "/friday/static/media/bgGlobal.82244eac.jpg",
     "static/media/checkbox.module.css": "/friday/static/media/checkOnSquare.31c0128b.svg",
@@ -25,10 +25,10 @@
     "static/media/userActive.6008b765.svg": "/friday/static/media/userActive.6008b765.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5a55a4c0.js",
+    "static/js/runtime-main.64eedfcf.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.65149314.chunk.js",
-    "static/css/main.1814d788.chunk.css",
-    "static/js/main.1931a1ff.chunk.js"
+    "static/js/2.5626de07.chunk.js",
+    "static/css/main.d605f0e7.chunk.css",
+    "static/js/main.4a57149b.chunk.js"
   ]
 }
