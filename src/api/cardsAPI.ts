@@ -62,8 +62,8 @@ export const cardsApi = {
         })
     },
 
-    putCard(data: putCardParamsType) {
-        return instance.post<{}>(`/cards/card`, {data})
+    editCard(card: putCardParamsType) {
+        return instance.put<{}>(`/cards/card`, {card})
     },
 
 }
@@ -145,9 +145,7 @@ export type postCardParamsType = {
 }
 
 export type putCardParamsType = {
-    card: {
-        _id: string
-        question?: string
-        comments?: string
-    }
+    _id: string
+    question?: string
+    answer?: string
 }
