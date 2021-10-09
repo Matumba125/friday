@@ -15,7 +15,7 @@ const InputRadio: React.FC<InputRadioPropsType> = props => {
         onChange,
         value,
         text,
-        // checked,
+        checked,
     } = props
 
     return (
@@ -26,8 +26,8 @@ const InputRadio: React.FC<InputRadioPropsType> = props => {
                     type="radio"
                     name={name}
                     value={value}
-                    // checked={checked}
-                    // onChange={onChange}
+                    checked={checked}
+                    onChange={onChange}
                 />
                 <span className={s.radioStyle}></span>
                 <p className={s.inputText}>{text}</p>

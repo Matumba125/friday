@@ -68,7 +68,7 @@ export const getCardPacks = (state: AppStateType): CardPacksType[] => {
     return state.cardsPack.cardPacks
 }
 
-export const getCardsPage = (state: AppStateType): number => {
+export const getPacksPage = (state: AppStateType): number => {
     return state.cardsPack.controls.page
 }
 
@@ -99,4 +99,19 @@ export const getSortPacks = (state: AppStateType): 0 | 1 => {
 
 export const getCardsSelector = (state: AppStateType): CardType[] =>{
     return state.cards.cards
+}
+export const getPackUserId = (state: AppStateType): string =>{
+    return state.cards.packUserId
+}
+export const getCurrentPackId = (state: AppStateType): string =>{
+    return state.cards.currentPackId
+}
+export const getCardsPage = (state: AppStateType): number => {
+    return state.cards.controls.page
+}
+export const getCardsPageCount = (state: AppStateType): number => {
+    return state.cards.controls.pageCount
+}
+export const getTotalCardsPages = (state: AppStateType): number => {
+    return state.cards.controls.totalPagesCount
 }

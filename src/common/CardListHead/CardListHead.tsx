@@ -1,8 +1,12 @@
 import React from "react";
-import s from './ListCardTableHead.module.css';
+import s from './CardListHead.module.css';
 import ButtonFilterHeadTabl from '../buttonFilterHeadTabl/ButtonFilterHeadTabl';
 
-const ListCardTableHead = () => {
+type CardListHeadType = {
+    isPackBelongsToUser: boolean
+}
+
+const CardListHead: React.FC<CardListHeadType> = props => {
 
     return (
         <>
@@ -16,11 +20,11 @@ const ListCardTableHead = () => {
                 <th className={s.tableItem}>
                    Grade
                 </th>
-                <th className={s.tableItem}>Actions</th>
+                {props.isPackBelongsToUser &&   <th className={s.tableItem}>Actions</th>}
             </tr>
         </thead>
     </>
     )
 }
 
-export default ListCardTableHead
+export default CardListHead

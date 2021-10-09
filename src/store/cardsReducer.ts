@@ -7,9 +7,9 @@ export type CardsControlsType = {
     cardQuestion?: string
     cardAnswer?: string
     sortCards?: number
-    page?: number
-    pageCount?: number
-    totalPagesCount?: number
+    page: number
+    pageCount: number
+    totalPagesCount: number
 }
 
 export type CardType = {
@@ -20,9 +20,9 @@ export type CardType = {
     rating: number
     shots: number
     type: string
-    user_id: string
     created: string
     updated: string
+    more_id: string
     _id: string
 }
 
@@ -79,6 +79,59 @@ export const createCard = createAsyncThunk('cards/createCard', async (params:{qu
         dispatch(setIsLoading({isLoading: false}))
     }
 })
+export const deleteCard = createAsyncThunk('cards/deleteCard', async (cardId: string, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
+    const state = getState() as AppStateType
+    const cardsPack_id = state.cards.currentPackId
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.deleteCard(cardId)
+        dispatch(getCards(cardsPack_id))
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading({isLoading: false}))
+    }
+})
+export const editCard = createAsyncThunk('cards/editCard', async (params:{question: string, answer: string, cardId: string}, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
+    const state = getState() as AppStateType
+    const cardsPack_id = state.cards.currentPackId
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.editCard({_id: params.cardId, answer: params.answer, question: params.question})
+        dispatch(getCards(cardsPack_id))
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading({isLoading: false}))
+    }
+})
+export const gradeCard = createAsyncThunk('cards/gradeCard', async (params:{grade: number, cardId: string}, {
+    dispatch,
+    rejectWithValue,
+    getState
+}) => {
+    const state = getState() as AppStateType
+    const cardsPack_id = state.cards.currentPackId
+    try {
+        dispatch(setIsLoading({isLoading: true}))
+        await cardsApi.gradeCard({grade: params.grade, card_id:params.cardId})
+        dispatch(getCards(cardsPack_id))
+    } catch (error) {
+        return rejectWithValue(error)
+    } finally {
+        dispatch(setIsLoading({isLoading: false}))
+    }
+})
+
+
 
 const slice = createSlice({
     name: 'cards',
@@ -86,16 +139,23 @@ const slice = createSlice({
     reducers: {
         setCurrentPackId(state, action: PayloadAction<{currentPackId: string}>){
             state.currentPackId = action.payload.currentPackId
-        }
+        },
+        setCurrentCardsPage(state, action: PayloadAction<{currentPage: number}>){
+            state.controls.page = action.payload.currentPage
+        },
+        setCardsPageCount(state, action: PayloadAction<{pageCount: number}>){
+            state.controls.pageCount = action.payload.pageCount
+        },
     },
     extraReducers: builder => {
         builder.addCase(getCards.fulfilled, (state, action) => {
             state.cards = action.payload.cardsData.cards
             state.packUserId = action.payload.cardsData.packUserId
+            state.controls.totalPagesCount = Math.ceil(action.payload.cardsData.cardsTotalCount/state.controls.pageCount)
         })
     }
 })
 
 export const cardsReducer = slice.reducer
 
-export const {setCurrentPackId} =slice.actions
+export const {setCurrentPackId, setCurrentCardsPage, setCardsPageCount} =slice.actions

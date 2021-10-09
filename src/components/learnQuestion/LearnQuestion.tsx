@@ -1,16 +1,83 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import s from './LearnQuestion.module.css';
 import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputRadio from "../../common/inputRadio/InputRadio";
 import logo from "../../assets/images/logo.png";
+import {useDispatch, useSelector} from "react-redux";
+import {getCardsSelector, getIsLoggedIn} from "../../store/selectots";
+import {CardType, gradeCard} from "../../store/cardsReducer";
+import { Redirect } from "react-router-dom";
+import { PATH } from "../routing/Routing";
+
+const getCard = (cards: CardType[]) => {
+    const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);
+    const rand = Math.random() * sum;
+    const res = cards.reduce((acc: { sum: number, id: number }, card, i) => {
+            const newSum = acc.sum + (6 - card.grade) * (6 - card.grade);
+            return {sum: newSum, id: newSum < rand ? i : acc.id}
+        }
+        , {sum: 0, id: -1});
+
+    return cards[res.id + 1];
+}
 
 const LearnQuestion = () => {
     const [isRotate, setIsRotate] = useState(false);
 
+    const cards = useSelector(getCardsSelector)
+    const isLoggedIn = useSelector(getIsLoggedIn)
+
+    const [first, setFirst] = useState<boolean>(true);
+    const [grade, setGrade] = useState<number>(0)
+
+    const [card, setCard] = useState<CardType>({
+        _id: 'fake',
+        cardsPack_id: '',
+
+        answer: 'answer fake',
+        question: 'question fake',
+        grade: 0,
+        shots: 0,
+
+        type: '',
+        rating: 0,
+        more_id: '',
+
+        created: '',
+        updated: '',
+    });
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+
+        if (cards.length > 0) setCard(getCard(cards));
+
+        return () => {}
+    }, [cards]);
+
     const rotate = () => {
-        setIsRotate(state => !state)
+        setIsRotate(!isRotate)
+    }
+
+    const onNextClickHandler = () => {
+        try {
+            dispatch(gradeCard({grade, cardId: card._id}))
+        }finally {
+            setIsRotate(!isRotate)
+            setCard(getCard(cards))
+        }
+    }
+
+
+    if (!isLoggedIn) {
+        return <Redirect to={PATH.LOGIN}/>
+    }
+
+    const onClickHandler = ()=>{
+
     }
 
     return (
@@ -24,46 +91,41 @@ const LearnQuestion = () => {
                 <div className={s.cardFront}>
                     <div className={s.titleBox}>
                         <ListTitle
-                            text={'Learn “Pack Name”'} />
+                            text={'Learn “Pack Name”'}/>
                     </div>
 
                     <h4 className={`${s.textTitle} ${s.frontTextTutleQuestion}`}>Question:</h4>
 
                     <div className={s.textBox}>
-                        <p className={`${s.textCard} ${s.textCardQuestion}`}>“How "This" works in JavaScript?”
+                        <p className={`${s.textCard} ${s.textCardQuestion}`}>{card.question}
                         </p>
                     </div>
 
                     <div className={s.buttonsBox}>
                         <div className={s.buttonCancelWrap}>
-                            <ButtonReturnCancel />
+                            <ButtonReturnCancel/>
                         </div>
 
                         <div className={s.buttonWrap}>
                             <ButtonFormColor
                                 text={'Show answer'}
-                                onClick={rotate} />
+                                onClick={rotate}/>
                         </div>
                     </div>
 
-                    <img className={s.imgCard} src={logo} alt="logo" />
+                    <img className={s.imgCard} src={logo} alt="logo"/>
                 </div>
 
                 {/* back */}
                 <div className={s.cardBack}>
                     <div className={s.titleBox}>
                         <ListTitle
-                            text={'Learn “Pack Name”'} />
+                            text={'Learn “Pack Name”'}/>
                     </div>
-                    {/* <h4 className={`${s.title} ${s.backTextTitleQuestion}`}>Question:
-                       <div className={s.textBox}>
-                        <p className={s.textCard}>“How "This" works in JavaScript?"</p>
-                    </div>*/}
-
                     <h4 className={`${s.textTitle} ${s.backTextTitleAnswer}`}>Answer:</h4>
 
                     <div className={`${s.textBox} ${s.textBoxBack}`}>
-                        <p className={`${s.textCard} ${s.textCardAnswer}`}>“This is how "This" works in JavaScript”
+                        <p className={`${s.textCard} ${s.textCardAnswer}`}>{card.answer}
                         </p>
                     </div>
 
@@ -75,52 +137,54 @@ const LearnQuestion = () => {
                                 name={'answer'}
                                 value={'Did not know'}
                                 text={'Did not know'}
-                            //    checked={}
-                            //    onChange={''}
+                                checked={grade === 1}
+                                onChange={()=>setGrade(1)}
                             />
 
                             <InputRadio
                                 name={'answer'}
                                 value={'Forgot'}
                                 text={'Forgot'}
-                            //    checked={}
-                            //    onChange={''}
+                                checked={grade === 2}
+                                onChange={()=>setGrade(2)}
                             />
 
                             <InputRadio
                                 name={'answer'}
+                                value={'A lot of thought'}
+                                text={'A lot of thought'}
+                                checked={grade === 3}
+                                onChange={() => setGrade(3)}
+                            />
+                            <InputRadio
+                                name={'answer'}
                                 value={'Сonfused'}
                                 text={'Сonfused'}
-                            //    checked={}
-                            //    onChange={''}
+                                checked={grade === 4}
+                                onChange={()=> setGrade(4)}
                             />
 
                             <InputRadio
                                 name={'answer'}
                                 value={'Knew the answer'}
                                 text={'Knew the answer'}
-                            //    checked={}
-                            //    onChange={''}
+                                checked={grade === 5}
+                                onChange={()=> setGrade(5)}
                             />
 
-                            <InputRadio
-                                name={'answer'}
-                                value={'Did not know'}
-                                text={'Did not know'}
-                            //    checked={}
-                            //    onChange={''}
-                            />
                         </form>
                     </div>
 
                     <div className={`${s.buttonsBox} ${s.buttonsBoxBack}`}>
                         <div className={s.buttonCancelWrap}>
                             <ButtonReturnCancel
-                                onClick={rotate} />
+                                onClick={rotate}/>
                         </div>
                         <div className={s.buttonWrap}>
                             <ButtonFormColor
-                                text={'Next'} />
+                                text={'Next'}
+                                onClick={onNextClickHandler}
+                            />
                         </div>
                     </div>
 
