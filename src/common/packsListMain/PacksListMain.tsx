@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import s from './CardListMain.module.css';
+import s from './PacksListMain.module.css';
 import ListTitle from '../listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {InputSearch} from '../../common/inputSearch/InputSearch';

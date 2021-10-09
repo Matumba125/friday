@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom';
 import {PATH} from '../routing/Routing';
 import {getCardsPage, getIsLoggedIn, getIsPrivate, getPageCount, getSortPacks} from '../../store/selectots';
 import {getCardsPacksTC} from '../../store/cardsPacksReducer';
-import PacksListMain from '../../common/packsListMain/CardListMain';
+import PacksListMain from '../../common/packsListMain/PacksListMain';
 
 const CardsPacks = () => {
 
