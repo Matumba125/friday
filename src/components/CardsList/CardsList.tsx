@@ -1,13 +1,14 @@
 import React from 'react';
 import s from './CardsList.module.css';
-import TableHead from '../../common/listCardTableHead/ListCardTableHead';
 import ListCardTableLeine from '../../common/listCardTableLeine/ListCardTableLeine'
 import {PaginationRounded} from '../../common/pagination/Pagination';
 import Select from '../../common/select/Select';
 import { CardType } from '../../store/cardsReducer';
+import CardListHead from '../../common/listCardTableHead/CardListHead';
 
 type CardsListType = {
     cards: CardType[]
+    isPackBelongsToUser: boolean
 }
 
 const CardsList: React.FC<CardsListType> = props => {
@@ -17,11 +18,11 @@ const CardsList: React.FC<CardsListType> = props => {
             <div className={s.tabWrap}>
                 <table className={s.table}>
 
-                    <TableHead/>
+                    <CardListHead isPackBelongsToUser={props.isPackBelongsToUser}/>
 
                     <tbody className={s.tableBody}>
                     {
-                       props.cards.map( (m, index) => <ListCardTableLeine key={index} card={m}/>)
+                       props.cards.map( (m, index) => <ListCardTableLeine isPackBelongsToUser={props.isPackBelongsToUser} key={index} card={m}/>)
                     }
 
                     </tbody>

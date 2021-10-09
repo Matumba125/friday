@@ -5,10 +5,9 @@ import React, {MouseEvent, useState} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
-import {useDispatch, useSelector} from 'react-redux';
-import {getCardsSelector, getIsLoggedIn} from '../../store/selectots';
+import {useSelector} from 'react-redux';
+import {getCardsSelector, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
-import {setIsCardAdding} from '../../store/appReducer'
 import CardsList from '../CardsList/CardsList';
 import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
 
@@ -19,14 +18,15 @@ const Cards = () => {
 
     const cards = useSelector(getCardsSelector)
     const isLoggedIn = useSelector(getIsLoggedIn)
-
-    const dispatch = useDispatch()
+    const currentUserId = useSelector(getCurrentUserId)
+    const packUserId = useSelector(getPackUserId)
 
     const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
         e.preventDefault()
         setAddCard(true)
     }
 
+    const isPackBelogsToUser = packUserId === currentUserId
 
     if (!isLoggedIn) {
         return <Redirect to={PATH.LOGIN} />
@@ -57,7 +57,7 @@ const Cards = () => {
                         { cards.length === 0 ?
                             <span
                                 className={s.cardListText}>This pack is empty. Click add new card to fill this pack</span>
-                            :<CardsList cards={cards}/>
+                            :<CardsList isPackBelongsToUser={isPackBelogsToUser} cards={cards}/>
                         }
                     </div>
                 </>

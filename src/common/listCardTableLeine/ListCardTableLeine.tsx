@@ -9,12 +9,14 @@ import {getCurrentUserId} from "../../store/selectots";
 
 type ListCardTableLeinePropsType = {
     card: CardType
+    isPackBelongsToUser: boolean
 }
 
 const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
 
     const {
         card,
+        isPackBelongsToUser,
         ...restProps
     } = props
 
@@ -27,7 +29,6 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
     //     dispatch(deleteCardsPackTC(_id))
     // }
 
-    const isCardsBelogsToUser = card.user_id === currentUserId
 
     const newDate = new Intl.DateTimeFormat().format(new Date(card.created))
 
@@ -40,7 +41,7 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
                 <td className={s.tableItem}>{newDate}</td>
                 <td className={s.tableItem}><HoverRating/></td>
                 <td className={s.tableItem}>
-                    {isCardsBelogsToUser ?
+                    {isPackBelongsToUser ?
                         <div className={s.tableButtonsblock}>
                             <div className={s.buttonContainer}>
                                 <ButtonTabDelete/>

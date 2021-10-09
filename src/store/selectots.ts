@@ -100,3 +100,6 @@ export const getSortPacks = (state: AppStateType): 0 | 1 => {
 export const getCardsSelector = (state: AppStateType): CardType[] =>{
     return state.cards.cards
 }
+export const getPackUserId = (state: AppStateType): string =>{
+    return state.cards.packUserId
+}
