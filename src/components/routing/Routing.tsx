@@ -9,7 +9,7 @@ import Registration from "../registration/Registration";
 import EditProfile from '../editProfile/EditProfile';
 import Packs from '../Packs/Packs';
 import LearnQuestion from '../learnQuestion/LearnQuestion';
-import Cards from '../Cards/Cards';
+import Cards from '../cards/Cards';
 
 export const PATH ={
     LOGIN: '/login',
