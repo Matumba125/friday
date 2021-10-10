@@ -5,7 +5,7 @@ import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
 import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentUserId} from "../../store/selectots";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {PATH} from "../../components/routing/Routing";
 import {getCards, setCurrentPackId} from "../../store/cardsReducer";
 import ModalDeletePack from "../../components/PackModals/modalDeletePack/ModalDeletePack";
@@ -29,7 +29,6 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         userName,
         _id,
         user_id,
-        ...restProps
     } = props
 
     const dispatch = useDispatch()

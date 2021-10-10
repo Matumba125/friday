@@ -37,7 +37,7 @@ const Routing = () => {
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
                 <Route path={PATH.CARDS_PACKS} render={()=> <CardsPacks/>} />
                 <Route path={PATH.CARDS} render={()=><Cards/>}/>
-                <Route path={PATH. LEARN_QUESTION} render={()=><LearnQuestion/>} />
+                <Route path={PATH.LEARN_QUESTION} render={()=><LearnQuestion/>} />
             </Switch>
         </>
     );

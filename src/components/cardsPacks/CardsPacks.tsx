@@ -21,7 +21,7 @@ const CardsPacks = () => {
 
     useEffect(()=>{
         dispatch(getCardsPacksTC())
-    },[currentPage, pageCount, isPrivate, sortPacks])
+    },[dispatch, currentPage, pageCount, isPrivate, sortPacks])
 
     const isLoggedIn = useSelector(getIsLoggedIn)
 

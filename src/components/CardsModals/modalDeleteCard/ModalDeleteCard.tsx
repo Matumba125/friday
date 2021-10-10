@@ -1,10 +1,9 @@
 import React from "react";
 import s from './ModalDeleteCard.module.css';
 import {useDispatch} from "react-redux";
-import { deleteCardsPackTC } from "../../../store/cardsPacksReducer";
 import ModalBox from "../../../common/modalBox/ModalBox";
 import ButtonReturnCancel from "../../../common/buttonReturnCancel/ButtonReturnCancel";
-import { deleteCard } from "../../../store/cardsReducer";
+import {deleteCard} from "../../../store/cardsReducer";
 
 type ModalDeletePackType={
     open: boolean

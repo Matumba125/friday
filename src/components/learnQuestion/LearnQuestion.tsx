@@ -8,8 +8,8 @@ import logo from "../../assets/images/logo.png";
 import {useDispatch, useSelector} from "react-redux";
 import {getCardsSelector, getIsLoggedIn} from "../../store/selectots";
 import {CardType, gradeCard} from "../../store/cardsReducer";
-import { Redirect } from "react-router-dom";
-import { PATH } from "../routing/Routing";
+import {Redirect} from "react-router-dom";
+import {PATH} from "../routing/Routing";
 
 const getCard = (cards: CardType[]) => {
     const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);
@@ -29,7 +29,6 @@ const LearnQuestion = () => {
     const cards = useSelector(getCardsSelector)
     const isLoggedIn = useSelector(getIsLoggedIn)
 
-    const [first, setFirst] = useState<boolean>(true);
     const [grade, setGrade] = useState<number>(0)
 
     const [card, setCard] = useState<CardType>({
@@ -74,10 +73,6 @@ const LearnQuestion = () => {
 
     if (!isLoggedIn) {
         return <Redirect to={PATH.LOGIN}/>
-    }
-
-    const onClickHandler = ()=>{
-
     }
 
     return (

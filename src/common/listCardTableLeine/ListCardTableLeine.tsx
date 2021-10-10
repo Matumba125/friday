@@ -17,7 +17,6 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
     const {
         card,
         isPackBelongsToUser,
-        ...restProps
     } = props
 
     const newDate = new Intl.DateTimeFormat().format(new Date(card.created))
