@@ -28,6 +28,11 @@
     }
 }
 
+/* ! */
+/* .inputWrapBig{
+    flex-basis: 100%;
+} */
+
 .buttonWrap {
     flex-basis: 19%;
 }
