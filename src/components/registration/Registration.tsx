@@ -5,8 +5,7 @@ import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import ButtonFormCancel from '../../common/buttonFormCancel/ButtonFormCancel'
-import {Redirect} from 'react-router';
+import {Redirect, useHistory} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
 import {registerTC, setRegistrationErrorAC} from '../../store/registrationReducer';
 import {getRegistrationError, getRegistrationStatus} from '../../store/selectots';
@@ -17,6 +16,8 @@ const Registration = () => {
     //testing comment
 
     const dispatch = useDispatch();
+
+    const history = useHistory()
 
     const error = useSelector(getRegistrationError)
     const registered = useSelector(getRegistrationStatus)
@@ -36,6 +37,10 @@ const Registration = () => {
     const onPasswordConfirmChangeHandler = (gainedPasswordConfirm: string) => {
         setConfirmPassword(gainedPasswordConfirm)
         setPasswordsUnmatch(false)
+    }
+
+    const onCancelClickHandler = ()=>{
+        history.goBack()
     }
 
     const onClickHandler = () => {
@@ -111,7 +116,7 @@ const Registration = () => {
 
                     <div className={s.buttonsContainer}>
 
-                        <ButtonFormCancel/>
+                        <ButtonFormColor text={'Cancel'} onClick={onCancelClickHandler}/>
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor

@@ -56,7 +56,7 @@ const InputForm: React.FC<InputFormPropsType>= props => {
                     required
                 />
 
-               {inputType === 'password' && <button className={viewPassStyle} onClick={(e:  MouseEvent<HTMLButtonElement>) => onViewPass(e)} />}
+               {inputType === 'password' && <button className={viewPassStyle} onClick={onViewPass} />}
             </div>
         </label>
 

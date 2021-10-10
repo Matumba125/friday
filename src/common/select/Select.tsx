@@ -1,6 +1,4 @@
 import React, {ChangeEvent} from "react";
-import {useDispatch} from "react-redux";
-import {setPageCountAC} from "../../store/cardsPacksReducer";
 import s from "./Select.module.css";
 
 type SelectPropsType ={

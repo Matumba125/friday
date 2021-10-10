@@ -11,6 +11,7 @@ export const authMeTC = createAsyncThunk('auth/authMe', async (param, {dispatch,
         dispatch(setLoggedAC({isLoggedIn: true}))
         dispatch(setUserDataAC({userData: res.data}))
     } catch (error) {
+        dispatch(setLoggedAC({isLoggedIn: false}))
         return rejectWithValue(error)
     } finally {
         dispatch(setIsLoading({isLoading:false}))

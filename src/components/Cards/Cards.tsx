@@ -1,17 +1,25 @@
 import {Redirect} from 'react-router-dom';
 import s from './Cards.module.css';
-import CardListContainer from '../../common/cardListContainer/CardListContainer';
 import React, {MouseEvent, useEffect, useState} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector} from 'react-redux';
-import {getCardsPage,
-    getCardsPageCount, getCardsSelector, getCurrentPackId, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
+import {
+    getCardsPage,
+    getCardsPageCount,
+    getCardsSelector,
+    getCurrentPackId,
+    getCurrentPackName,
+    getCurrentUserId,
+    getIsLoggedIn,
+    getPackUserId
+} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import CardsList from '../cardsList/CardsList';
 import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
-import { getCards } from '../../store/cardsReducer';
+import {getCards} from '../../store/cardsReducer';
+import ListContainer from '../../common/ListContainer/ListContainer';
 
 const Cards = () => {
 
@@ -26,10 +34,11 @@ const Cards = () => {
     const currentPage = useSelector(getCardsPage)
     const currentPackId = useSelector(getCurrentPackId)
     const pageCount = useSelector(getCardsPageCount)
+    const currentPackName = useSelector(getCurrentPackName)
 
     useEffect(() => {
        dispatch(getCards(currentPackId))
-    }, [currentPage, pageCount])
+    }, [currentPage, pageCount, currentPackId, dispatch, currentPackName])
 
     const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
@@ -45,11 +54,11 @@ const Cards = () => {
     return (
         <>
             <ModalAddNewCard setOpen={setAddCard} open={addCard}/>
-            <CardListContainer>
+            <ListContainer>
                 <>
                     <div className={s.packListWrap}>
 
-                        <LinkPackName/>
+                        <LinkPackName packName={currentPackName}/>
 
                         <div className={s.searchBox}>
                             <div className={isPackBelogsToUser ? s.inputWrap : s.inputWrapBig}>
@@ -74,7 +83,7 @@ const Cards = () => {
                     </div>
                 </>
 
-            </CardListContainer>
+            </ListContainer>
         </>
     )
 }

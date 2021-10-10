@@ -31,6 +31,7 @@ type CardsInitialStateType = {
     controls: CardsControlsType
     packUserId: string
     currentPackId: string
+    currentPackName: string
 }
 
 const initialState: CardsInitialStateType = {
@@ -43,6 +44,7 @@ const initialState: CardsInitialStateType = {
     },
     packUserId: '',
     currentPackId:'',
+    currentPackName: '',
 }
 
 export const getCards = createAsyncThunk('cards/getCards', async (cardsPack_id: string, {
@@ -146,6 +148,9 @@ const slice = createSlice({
         setCardsPageCount(state, action: PayloadAction<{pageCount: number}>){
             state.controls.pageCount = action.payload.pageCount
         },
+        setCurrentPackName(state, action: PayloadAction<{currentPackName: string}>){
+            state.currentPackName = action.payload.currentPackName
+        },
     },
     extraReducers: builder => {
         builder.addCase(getCards.fulfilled, (state, action) => {
@@ -158,4 +163,4 @@ const slice = createSlice({
 
 export const cardsReducer = slice.reducer
 
-export const {setCurrentPackId, setCurrentCardsPage, setCardsPageCount} =slice.actions
+export const {setCurrentPackId, setCurrentCardsPage, setCardsPageCount, setCurrentPackName} =slice.actions

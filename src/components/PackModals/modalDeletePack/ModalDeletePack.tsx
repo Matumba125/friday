@@ -1,9 +1,9 @@
 import React from "react";
 import s from './ModalDeletePack.module.css';
 import {useDispatch} from "react-redux";
-import { deleteCardsPackTC } from "../../../store/cardsPacksReducer";
+import {deleteCardsPackTC} from "../../../store/cardsPacksReducer";
 import ModalBox from "../../../common/modalBox/ModalBox";
-import ButtonReturnCancel from "../../../common/buttonReturnCancel/ButtonReturnCancel";
+import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
 
 type ModalDeletePackType={
     open: boolean
@@ -29,7 +29,7 @@ const ModalDeletePack = (props: ModalDeletePackType) => {
             </p>
 
             <div className={s.buttonsBox}>
-                <ButtonReturnCancel onClick={()=>props.setClose(false)}  />
+                <ButtonFormColor text={'Cancel'} onClick={()=>props.setClose(false)}  />
                 <button className={s.buttonDelete} type='button' onClick={onDeleteButtonClickHandler}>Delete</button>
             </div>
             </>

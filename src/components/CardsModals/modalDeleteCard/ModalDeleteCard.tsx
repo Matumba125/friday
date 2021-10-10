@@ -1,10 +1,9 @@
 import React from "react";
 import s from './ModalDeleteCard.module.css';
 import {useDispatch} from "react-redux";
-import { deleteCardsPackTC } from "../../../store/cardsPacksReducer";
 import ModalBox from "../../../common/modalBox/ModalBox";
-import ButtonReturnCancel from "../../../common/buttonReturnCancel/ButtonReturnCancel";
-import { deleteCard } from "../../../store/cardsReducer";
+import {deleteCard} from "../../../store/cardsReducer";
+import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
 
 type ModalDeletePackType={
     open: boolean
@@ -27,7 +26,7 @@ const ModalDeleteCard = (props: ModalDeletePackType) => {
                 <p className={s.modalText}> Do you really want to remove <span className={s.modalTextBold}>this card</span>?</p>
 
                 <div className={s.buttonsBox}>
-                    <ButtonReturnCancel onClick={()=>props.setClose(false)}  />
+                    <ButtonFormColor text={'Cancel'} onClick={()=>props.setClose(false)}  />
                     <button className={s.buttonDelete} type='button' onClick={onDeleteButtonClickHandler}>Delete</button>
                 </div>
             </>

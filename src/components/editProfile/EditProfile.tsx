@@ -1,16 +1,15 @@
-import React, { MouseEvent, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import React, {MouseEvent, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import s from './EditProfile.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import InputForm from '../../common/inputForm/InputForm';
 import Avatar from '../../common/avatar/Avatar';
 import ListTitle from '../../common/listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
-import { setProfileIsEditingAC, updateProfileTC } from '../../store/profileReducer';
-import { getIsProfileEditing, getUserAvatar, getUserName } from '../../store/selectots';
-import { PATH } from '../routing/Routing';
+import {setProfileIsEditingAC, updateProfileTC} from '../../store/profileReducer';
+import {getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
+import {PATH} from '../routing/Routing';
 
 const EditProfile = () => {
 
@@ -77,7 +76,7 @@ const EditProfile = () => {
 
                     <div className={s.buttonsBox}>
 
-                        <ButtonReturnCancel onClick={onCancelButtonClickHandler} />
+                        <ButtonFormColor text={'Cancel'} onClick={onCancelButtonClickHandler} />
 
                         <div className={s.buttonWrap}>
                             <ButtonFormColor text={'Save'} onClick={onSaveButtonClickHandler} />

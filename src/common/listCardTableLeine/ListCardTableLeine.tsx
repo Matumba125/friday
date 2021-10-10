@@ -1,11 +1,10 @@
-import React, { useState, MouseEvent } from "react";
+import React, {MouseEvent, useState} from "react";
 import s from './ListCardTableLeine.module.css';
-import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
-import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
-import HoverRating from '../rating/Rating';
-import { CardType } from "../../store/cardsReducer";
+import {CardType} from "../../store/cardsReducer";
 import ModalDeleteCard from "../../components/CardsModals/modalDeleteCard/ModalDeleteCard";
 import ModalEditCard from "../../components/CardsModals/modalEditCard/ModalEditCard";
+import {HoverRating} from "../rating/Rating";
+import ButtonFormColor from "../buttonFormColor/ButtonFormColor";
 
 type ListCardTableLeinePropsType = {
     card: CardType
@@ -17,7 +16,6 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
     const {
         card,
         isPackBelongsToUser,
-        ...restProps
     } = props
 
     const newDate = new Intl.DateTimeFormat().format(new Date(card.created))
@@ -42,20 +40,20 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
                 <td className={s.tableItem}>{card.question}</td>
                 <td className={s.tableItem}>{card.answer}</td>
                 <td className={s.tableItem}>{newDate}</td>
-                <td className={s.tableItem}><HoverRating /></td>
-                <td className={s.tableItem}>
-                    {isPackBelongsToUser ?
+                <td className={s.tableItem}><HoverRating grade={card.grade}/></td>
+                {isPackBelongsToUser ?
+                    <td className={s.tableItem}>
                         <div className={s.tableButtonsblock}>
                             <div className={s.buttonContainer}>
-                                <ButtonTabDelete onClick={onDeleteClickHandler} />
+                                <ButtonFormColor text={'Delete'} onClick={onDeleteClickHandler}/>
                             </div>
                             <div className={s.buttonContainer}>
-                                <ButtonTabEdit onClick={onEditClickHandler} />
+                                <ButtonFormColor text={'Edit'} onClick={onEditClickHandler}/>
                             </div>
                         </div>
-                        : <></>
-                    }
-                </td>
+                    </td>
+                    :<></>
+                }
             </tr>
         </>
 

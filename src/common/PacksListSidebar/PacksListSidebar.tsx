@@ -1,13 +1,13 @@
 import React, {MouseEvent} from 'react';
 import {useDispatch} from 'react-redux';
-import s from './CardListSaidbar.module.css';
+import s from './PacksListSidebar.module.css';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ButtonsShowPacks from '../../common/buttonsShowPacks/ButtonsShowPacks';
 import {RangeSlider} from '../../common/inputRange/InputRange';
 import SaidbarTitle from '../saidbarTitle/SaidbarTitle';
 import {getCardsPacksTC} from '../../store/cardsPacksReducer';
 
-const  CardListSaidbar = () => {
+const  PacksListSidebar = () => {
 
     const dispatch = useDispatch()
 
@@ -46,6 +46,6 @@ const  CardListSaidbar = () => {
 }
 
 
-export default CardListSaidbar;
+export default PacksListSidebar;
 
 

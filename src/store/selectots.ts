@@ -106,6 +106,9 @@ export const getPackUserId = (state: AppStateType): string =>{
 export const getCurrentPackId = (state: AppStateType): string =>{
     return state.cards.currentPackId
 }
+export const getCurrentPackName = (state: AppStateType): string =>{
+    return state.cards.currentPackName
+}
 export const getCardsPage = (state: AppStateType): number => {
     return state.cards.controls.page
 }
