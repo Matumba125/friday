@@ -13,8 +13,8 @@
 
 .imgCard {
     position: absolute;
-    bottom: 20%;
-    left: 20%;
+    bottom: calc(50% - 31px);
+    left: calc(50% - 32.5px);
     animation: rotate 2s ease-in infinite;
     opacity: 1;
 }

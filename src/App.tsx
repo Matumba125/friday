@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     dispatch(authMeTC());
-  }, [isLoggedIn]);
+  }, [dispatch]);
 
   return (
     <HashRouter>

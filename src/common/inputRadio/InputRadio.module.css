@@ -23,7 +23,7 @@
 
 .input:checked+.radioStyle {
     display: inline-block;
-  border: 4px solid #21268F;
+  border: 4px solid #2F4F4F;
 }
 
 .inputText {

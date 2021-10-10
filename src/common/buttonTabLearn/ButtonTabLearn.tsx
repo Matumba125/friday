@@ -1,10 +1,13 @@
-import React from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import s from './ButtonTabLearn.module.css';
 
-const ButtonLearn = () => {
+type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,HTMLButtonElement>;
+
+
+const ButtonLearn: React.FC<DefaultButtonPropsType> = props=> {
 
     return (
-        <button className={s.tableButton}>Learn</button>
+        <button className={s.tableButton} {...props}>Learn</button>
     )
 }
 

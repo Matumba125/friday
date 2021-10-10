@@ -1,17 +1,33 @@
 import * as React from 'react';
-import {makeStyles} from '@material-ui/styles';
-import {Box, Slider} from '@material-ui/core';
-import {useDispatch, useSelector} from 'react-redux';
-import {setMinMaxCardsAC} from '../../store/cardsPacksReducer';
-import {getMaxCardsCount, getMinCardsCount} from '../../store/selectots';
+import { makeStyles } from '@material-ui/styles';
+import { Box, createTheme, Slider } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMinMaxCardsAC } from '../../store/cardsPacksReducer';
+import { getMaxCardsCount, getMinCardsCount } from '../../store/selectots';
+
+const theme = createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1320,
+            xl: 1536,
+        },
+    },
+});
 
 const useStyles: any = makeStyles({
     root: {
         maxWidth: '100%',
         paddingTop: '1.3rem',
         paddingBottom: '2.8rem',
-      
-        '& span .MuiSlider-valueLabel': {
+
+        [theme.breakpoints.down('lg')]: {
+            width: '100%',
+        },
+
+'& span .MuiSlider-valueLabel': {
             fontSize: '.9rem',
             fontFamily: 'SFUIDisplayNormal',
             padding: '0',
@@ -20,43 +36,44 @@ const useStyles: any = makeStyles({
         },
 
         '& span .MuiSlider-valueLabel::before': {
-           display: 'none',
+            display: 'none',
         },
 
         '& span .MuiSlider-valueLabelOpen': {
-            backgroundColor: '#21268F',
-                    },
+            backgroundColor: '#2F4F4F',
+        },
 
         '& .MuiSlider-thumb': {
             backgroundColor: '#ffff',
-            border: '4px solid #21268F',
+            border: '4px solid #2F4F4F',
             width: '1rem',
             height: '1rem',
         },
 
         '& .MuiSlider-thumb.Mui-active': {
-           boxShadow: 'none',
+            boxShadow: 'none',
         },
 
         '& .MuiSlider-thumb:hover': {
             boxShadow: 'none',
-         },
+        },
 
         '& span .MuiSlider-rail': {
-            backgroundColor: '#21268F',
-            opacity: '.5', 
-            height: '.32rem', 
-        },     
+            backgroundColor: '#2F4F4F',
+            opacity: '.5',
+            height: '.32rem',
+        },
 
         '& span .MuiSlider-track,': {
-            color: '#21268F',
+            color: '#2F4F4F',
             height: '.32rem',
         },
 
         '& span .MuiSlider-root': {
-            height: '10rem', 
+            height: '10rem',
         },
-    },
+    }
+
 
 })
 
@@ -75,7 +92,7 @@ export const RangeSlider = () => {
     const handleChange = (event: Event, newValue: number | number[]) => {
         let value = newValue as number[]
         setValue(value);
-        dispatch(setMinMaxCardsAC({min: value[0], max: value[1]}))
+        dispatch(setMinMaxCardsAC({ min: value[0], max: value[1] }))
     };
 
     return (

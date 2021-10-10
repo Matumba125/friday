@@ -35,10 +35,10 @@
     max-width: 8.7rem;
     margin-bottom: 5rem;
     margin-left: auto;
-
+    border-radius: 2rem;
 }
 
-.checkboxWrap{
+.checkboxWrap {
     padding-left: .4rem;
 }
 
@@ -58,5 +58,11 @@
     font-family: 'SFUIDisplaySemibold', sans-serif;
     font-size: 1rem;
     line-height: 2;
-    color: #21268F;
+    color: #2F4F4F;
+    border-radius: 2rem;
+}
+
+.passForgot:hover,
+.linkCardBottom:hover {
+    border: 1px solid;
 }

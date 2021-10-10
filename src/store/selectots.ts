@@ -17,6 +17,9 @@ export const getRegistrationStatus = (state: AppStateType): boolean => {
 export const getIsLoading = (state: AppStateType): boolean => {
     return state.app.isLoading
 }
+export const getIsCardAdding = (state: AppStateType): boolean => {
+    return state.app.isCardAdding
+}
 
 //// Login Page Selectors
 
@@ -55,7 +58,7 @@ export const getUserName = (state: AppStateType): string => {
 export const getUserAvatar = (state: AppStateType): string | undefined => {
     return state.profile.userData.avatar
 }
-export const getCurrentUserIdAvatar = (state: AppStateType): string => {
+export const getCurrentUserId = (state: AppStateType): string => {
     return state.profile.userData._id
 }
 
@@ -65,7 +68,7 @@ export const getCardPacks = (state: AppStateType): CardPacksType[] => {
     return state.cardsPack.cardPacks
 }
 
-export const getCardsPage = (state: AppStateType): number => {
+export const getPacksPage = (state: AppStateType): number => {
     return state.cardsPack.controls.page
 }
 
@@ -96,4 +99,22 @@ export const getSortPacks = (state: AppStateType): 0 | 1 => {
 
 export const getCardsSelector = (state: AppStateType): CardType[] =>{
     return state.cards.cards
+}
+export const getPackUserId = (state: AppStateType): string =>{
+    return state.cards.packUserId
+}
+export const getCurrentPackId = (state: AppStateType): string =>{
+    return state.cards.currentPackId
+}
+export const getCurrentPackName = (state: AppStateType): string =>{
+    return state.cards.currentPackName
+}
+export const getCardsPage = (state: AppStateType): number => {
+    return state.cards.controls.page
+}
+export const getCardsPageCount = (state: AppStateType): number => {
+    return state.cards.controls.pageCount
+}
+export const getTotalCardsPages = (state: AppStateType): number => {
+    return state.cards.controls.totalPagesCount
 }

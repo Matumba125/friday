@@ -1,63 +1,60 @@
-import React, { MouseEvent } from "react";
+import React, {MouseEvent, useState} from "react";
 import s from './ListCardTableLeine.module.css';
 import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
 import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
-import HoverRating from '../rating/Rating';
-import { useDispatch } from "react-redux";
-import { deleteCardsPackTC } from "../../store/cardsPacksReducer";
+import {CardType} from "../../store/cardsReducer";
+import ModalDeleteCard from "../../components/CardsModals/modalDeleteCard/ModalDeleteCard";
+import ModalEditCard from "../../components/CardsModals/modalEditCard/ModalEditCard";
+import { HoverRating } from "../rating/Rating";
 
-// type ListCardTableLeinePropsType = {
-//     packName: string
-//     cardsCount: number
-//     created: Date
-//     userName: string
-//     _id: string
-//     user_id: string
-// }
+type ListCardTableLeinePropsType = {
+    card: CardType
+    isPackBelongsToUser: boolean
+}
 
-const ListCardTableLeine = () => {
+const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
 
-    //     const {
-    //         packName,
-    //         cardsCount,
-    //         created,
-    //         userName,
-    //         _id,
-    //         user_id,
-    //         ...restProps
-    //     } = props
+    const {
+        card,
+        isPackBelongsToUser,
+    } = props
 
-    // const dispatch = useDispatch()
+    const newDate = new Intl.DateTimeFormat().format(new Date(card.created))
 
-    // const onDeleteButtonClickHandler = (e:MouseEvent<HTMLButtonElement>)=>{
-    //     e.preventDefault()
-    //     dispatch(deleteCardsPackTC(_id))
-    // }
+    const [deleteCard, setDeleteCard] = useState<boolean>(false)
+    const [editCard, setEditCard] = useState<boolean>(false)
 
-    // const isPacksBelogsToUser = _id === user_id
-
-    // const newDate = new Intl.DateTimeFormat().format(new Date(created))
-
+    const onDeleteClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        setDeleteCard(true)
+    }
+    const onEditClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+        e.preventDefault()
+        setEditCard(true)
+    }
 
     return (
         <>
+            <ModalDeleteCard open={deleteCard} setClose={setDeleteCard} cardId={card._id} />
+            <ModalEditCard open={editCard} setOpen={setEditCard} cardId={card._id} question={card.question} answer={card.answer} />
             <tr className={s.tableLine}>
-                <td className={s.tableItem}>How "This" works in JavaScript?</td>
-                <td className={s.tableItem}>This is how "This" works in JavaScript</td>
-                <td className={s.tableItem}>18.03.2021</td>
-                <td className={s.tableItem}><HoverRating/></td>
-                <td className={s.tableItem}>
-                    <div className={s.tableButtonsblock}>
-                        <>
+                <td className={s.tableItem}>{card.question}</td>
+                <td className={s.tableItem}>{card.answer}</td>
+                <td className={s.tableItem}>{newDate}</td>
+                <td className={s.tableItem}><HoverRating grade={card.grade}/></td>
+                {isPackBelongsToUser ?
+                    <td className={s.tableItem}>
+                        <div className={s.tableButtonsblock}>
                             <div className={s.buttonContainer}>
-                                <ButtonTabDelete />
+                                <ButtonTabDelete onClick={onDeleteClickHandler}/>
                             </div>
                             <div className={s.buttonContainer}>
-                                <ButtonTabEdit />
+                                <ButtonTabEdit onClick={onEditClickHandler}/>
                             </div>
-                        </>
-                    </div>
-                </td>
+                        </div>
+                    </td>
+                    :<></>
+                }
             </tr>
         </>
 

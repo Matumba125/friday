@@ -1,14 +1,15 @@
 import React, {ChangeEvent} from "react";
-import {useDispatch} from "react-redux";
-import {setPageCountAC} from "../../store/cardsPacksReducer";
 import s from "./Select.module.css";
 
-const Select = () => {
+type SelectPropsType ={
+    changeHandler: (pageCount: number) =>void
+}
 
-    const dispatch = useDispatch()
+const Select = (props: SelectPropsType) => {
+
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        dispatch(setPageCountAC({pageCount: +e.currentTarget.value}))
+        props.changeHandler(+e.currentTarget.value)
     }
 
 
