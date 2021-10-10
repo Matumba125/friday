@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getCardsPage,
     getCardsPageCount, getCardsSelector, getCurrentPackId, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
-import CardsList from '../cardsList/CardsList';
+import CardsList from '../CardsList/CardsList';
 import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
 import { getCards } from '../../store/cardsReducer';
 

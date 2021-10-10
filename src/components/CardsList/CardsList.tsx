@@ -4,7 +4,7 @@ import ListCardTableLeine from '../../common/listCardTableLeine/ListCardTableLei
 import {PaginationRounded} from '../../common/pagination/Pagination';
 import Select from '../../common/select/Select';
 import {CardType, setCardsPageCount, setCurrentCardsPage} from '../../store/cardsReducer';
-import CardListHead from '../../common/cardListHead/CardListHead';
+import CardListHead from '../../common/CardListHead/CardListHead';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCardsPage, getTotalCardsPages} from '../../store/selectots';
 
