@@ -4,3 +4,7 @@
     background: url('../../assets/images/arrowLeft.png') center left  no-repeat;
     margin-bottom: 1.25rem;
 }
+
+.linkCardList:hover{
+    opacity: .7;
+}

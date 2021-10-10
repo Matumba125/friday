@@ -12,24 +12,25 @@
     width: 100%;
 }
 
-.tableBody .tabLeine:nth-child(even) {
+.tableBody .tableLeine:nth-child(even) {
     background-color: rgba(33, 38, 143, .1);
 }
 
-.tableLine:hover {
+.tableLeine:hover {
     background-color: rgba(33, 38, 143, .3)
 }
 
 .tableItem:nth-child(1) {
-    min-width: 27%;
+    min-width: 26%;
   }
 
 .tableItem:nth-child(2) {
-    min-width: 27%;
+    min-width: 26%;
    }
 
 .tableItem:nth-child(3) {
-    width: 16%;
+    width: 18%;
+    max-width: 8rem;
     padding: 0;
 }
 

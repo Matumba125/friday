@@ -22,7 +22,7 @@ const ButtonFilterHeadTabl = () => {
     return (
         <button className={s.buttonHead} onClick={onChangeDirection}>
             Last Updated
-            <div id={'arrowBtn'} className={s.buttonArrow}>
+            <div id={'arrowBtn'} className={`${s.buttonArrow} ${s.buttonArrowCards}`}>
             </div>
         </button>
     )

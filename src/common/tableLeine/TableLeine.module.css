@@ -40,12 +40,12 @@
     width: 25%;
 }
 
-.tableBody .tabLeine:nth-child(even) {
+.tableLeine:nth-child(even) {
     background-color: rgba(33, 38, 143, .1);
 }
 
-.tableLine:hover {
-    background-color: rgba(33, 38, 143, .3)
+.tableLeine:hover {
+    background-color: rgba(88, 94, 201, 0.3)
 }
 
 .tableButtonsblock {

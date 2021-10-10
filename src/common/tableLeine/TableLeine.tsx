@@ -65,7 +65,8 @@ const TableLine: React.FC<TableLinePropsType> = props => {
         <>
             <ModalDeletePack packName={packName} setClose={setDeleting} packId={_id} open={deleting}/>
             <ModalEditPack packName={packName} packId={_id} open={packEditing} setClose={setPackEditing}/>
-            <tr className={s.tableLine}><td className={s.tableItem}><Link to={PATH.CARDS} onClick={onLinkClickHandler}>{packName}</Link></td>
+            <tr className={s.tableLeine}>
+                <td className={s.tableItem}><Link to={PATH.CARDS} onClick={onLinkClickHandler}>{packName}</Link></td>
                 <td className={s.tableItem}>{cardsCount}</td>
                 <td className={s.tableItem}>{newDate}</td>
                 <td className={s.tableItem}>{userName}</td>
