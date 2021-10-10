@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import CardListContainer from '../../common/cardListContainer/CardListContainer';
-import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
 import PacksListMain from '../../common/packsListMain/PacksListMain';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../routing/Routing';
 import {getIsLoggedIn, getIsPrivate, getPacksPage, getPageCount, getSortPacks} from '../../store/selectots';
 import {getCardsPacksTC} from '../../store/cardsPacksReducer';
+import PacksListSidebar from '../../common/PacksListSidebar/PacksListSidebar';
+import ListContainer from '../../common/ListContainer/ListContainer';
 
 
-const CardsPacks = () => {
+const Packs = () => {
 
     const dispatch = useDispatch()
 
@@ -29,15 +29,15 @@ const CardsPacks = () => {
     }
     return (
         <>
-            <CardListContainer>
+            <ListContainer>
                 <>
-                    <CardListSaidbar />
+                    <PacksListSidebar />
 
                     <PacksListMain />
                 </>
-            </CardListContainer>
+            </ListContainer>
         </>
     );
 };
 
-export default CardsPacks;
+export default Packs;

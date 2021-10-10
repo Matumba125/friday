@@ -1,11 +1,11 @@
 import React from "react";
-import s from './CardListContainer.module.css';
+import s from './ListContainer.module.css';
 
 type CardListContainerPropsType = {
     children: JSX.Element;  
 }
 
-const CardListContainer = (props: CardListContainerPropsType) => {
+const ListContainer = (props: CardListContainerPropsType) => {
 
     return (
         
@@ -14,9 +14,8 @@ const CardListContainer = (props: CardListContainerPropsType) => {
                   {props.children}
                 </div>
             </div>
-      
 
     )
 }
 
-export default CardListContainer
+export default ListContainer

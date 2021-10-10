@@ -1,18 +1,25 @@
 import {Redirect} from 'react-router-dom';
 import s from './Cards.module.css';
-import CardListContainer from '../../common/cardListContainer/CardListContainer';
 import React, {MouseEvent, useEffect, useState} from 'react'
 import LinkPackName from '../../common/linkPackName/LinkPackName'
 import InputSearch from '../../common/inputSearch/InputSearch';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector} from 'react-redux';
-import {getCardsPage,
-    getCardsPageCount, getCardsSelector, getCurrentPackId,
-    getCurrentPackName, getCurrentUserId, getIsLoggedIn, getPackUserId} from '../../store/selectots';
+import {
+    getCardsPage,
+    getCardsPageCount,
+    getCardsSelector,
+    getCurrentPackId,
+    getCurrentPackName,
+    getCurrentUserId,
+    getIsLoggedIn,
+    getPackUserId
+} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import CardsList from '../CardsList/CardsList';
 import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
-import { getCards } from '../../store/cardsReducer';
+import {getCards} from '../../store/cardsReducer';
+import ListContainer from '../../common/ListContainer/ListContainer';
 
 const Cards = () => {
 
@@ -47,7 +54,7 @@ const Cards = () => {
     return (
         <>
             <ModalAddNewCard setOpen={setAddCard} open={addCard}/>
-            <CardListContainer>
+            <ListContainer>
                 <>
                     <div className={s.packListWrap}>
 
@@ -76,7 +83,7 @@ const Cards = () => {
                     </div>
                 </>
 
-            </CardListContainer>
+            </ListContainer>
         </>
     )
 }

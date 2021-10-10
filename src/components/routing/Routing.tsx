@@ -7,7 +7,7 @@ import PasswordRecovery from "../passwordRecovery/PasswordRecovery";
 import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
 import EditProfile from '../editProfile/EditProfile';
-import CardsPacks from '../cardsPacks/CardsPacks';
+import Packs from '../Packs/Packs';
 import LearnQuestion from '../learnQuestion/LearnQuestion';
 import Cards from '../Cards/Cards';
 
@@ -35,7 +35,7 @@ const Routing = () => {
                 <Route path={PATH.PROFILE} render={()=> <Profile/>} />
                 <Route path={PATH.EDIT_PROFILE} render={()=> <EditProfile/>} />
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
-                <Route path={PATH.CARDS_PACKS} render={()=> <CardsPacks/>} />
+                <Route path={PATH.CARDS_PACKS} render={()=> <Packs/>} />
                 <Route path={PATH.CARDS} render={()=><Cards/>}/>
                 <Route path={PATH.LEARN_QUESTION} render={()=><LearnQuestion/>} />
             </Switch>
