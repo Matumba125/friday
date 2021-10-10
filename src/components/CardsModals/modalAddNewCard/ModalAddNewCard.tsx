@@ -1,12 +1,11 @@
 import React, {MouseEvent, useState} from "react";
 import s from './ModalAddNewCard.module.css';
 import InputForm from '../../../common/inputForm/InputForm';
-import ButtonReturnCancel from '../../../common/buttonReturnCancel/ButtonReturnCancel';
 import ButtonFormColor from '../../../common/buttonFormColor/ButtonFormColor';
 import InputFile from '../../../common/inputFile/InputFile';
 import {useDispatch} from "react-redux";
 import ModalBox from "../../../common/modalBox/ModalBox";
-import { createCard } from "../../../store/cardsReducer";
+import {createCard} from "../../../store/cardsReducer";
 
 type AddNewCardType ={
     open: boolean
@@ -76,7 +75,7 @@ const ModalAddNewCard: React.FC<AddNewCardType> = props => {
                     </div>
 
                     <div className={s.buttonsBox}>
-                        <ButtonReturnCancel onClick={onCancelClickHandler}/>
+                        <ButtonFormColor text={'Cancel'} onClick={onCancelClickHandler}/>
 
                         <div className={s.buttonBox}>
                             <ButtonFormColor

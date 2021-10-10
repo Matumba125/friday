@@ -23,3 +23,16 @@
     box-shadow: 0 0 0 3px #000;
     opacity: .7;
 }
+
+.buttonCancel {
+    display: inline-block;
+    width: 7.75rem;
+    background: #D7D8EF;
+    border: transparent;
+    border-radius: 2rem;
+    color: #2F4F4F;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    font-family: 'SFUIDisplayMedium', sans-serif;
+    font-size: 1rem;
+    line-height: 2.1;
+}

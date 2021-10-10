@@ -11,11 +11,13 @@ type ButtonFormColorPropsType = DefaultButtonPropsType & {
 
 const ButtonFormColor: React.FC<ButtonFormColorPropsType> = props => {
 
+    const btnClassName = props.text === 'Cancel' ? s.buttonCancel : s.buttonSubmitColor
+
     return (
        
             <button 
-                className={s.buttonSubmitColor} 
-                type="submit" onClick={props.onClick}
+                className={btnClassName}
+                type="submit"
                 disabled={props.disabled}
                 {...props}
             >{props.text}</button>

@@ -1,10 +1,9 @@
 import React, {KeyboardEvent, useState} from "react";
 import s from './ModalEditPack.module.css';
 import {useDispatch} from "react-redux";
-import { updateCardsPackTC } from "../../../store/cardsPacksReducer";
+import {updateCardsPackTC} from "../../../store/cardsPacksReducer";
 import ModalBox from "../../../common/modalBox/ModalBox";
 import InputForm from "../../../common/inputForm/InputForm";
-import ButtonReturnCancel from "../../../common/buttonReturnCancel/ButtonReturnCancel";
 import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
 
 
@@ -54,7 +53,7 @@ const ModalEditPack = (props: ModalDeletePackType) => {
                 </div>
 
                 <div className={s.buttonsBox}>
-                    <ButtonReturnCancel onClick={()=>props.setClose(false)}  />
+                    <ButtonFormColor text={'Cancel'} onClick={()=>props.setClose(false)}  />
                     <div className={s.buttonContainer}>
                         <ButtonFormColor
                             onClick={onSaveButtonClickHandler}
