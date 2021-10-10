@@ -19,7 +19,7 @@ export const PATH ={
     PROFILE: '/profile',
     EDIT_PROFILE: '/edit-profile',
     REGISTRATION: '/registration',
-    CARDS_PACKS: '/cards-packs',
+    PACKS: '/packs',
     CARDS: '/cards',
     LEARN_QUESTION: '/learn-question',
 }
@@ -35,7 +35,7 @@ const Routing = () => {
                 <Route path={PATH.PROFILE} render={()=> <Profile/>} />
                 <Route path={PATH.EDIT_PROFILE} render={()=> <EditProfile/>} />
                 <Route path={PATH.REGISTRATION} render={()=> <Registration/>} />
-                <Route path={PATH.CARDS_PACKS} render={()=> <Packs/>} />
+                <Route path={PATH.PACKS} render={()=> <Packs/>} />
                 <Route path={PATH.CARDS} render={()=><Cards/>}/>
                 <Route path={PATH.LEARN_QUESTION} render={()=><LearnQuestion/>} />
             </Switch>

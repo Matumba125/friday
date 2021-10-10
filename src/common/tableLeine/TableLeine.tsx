@@ -1,8 +1,5 @@
 import React, {MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
-import ButtonTabDelete from '../buttonTabDelete/ButtonTabDelete';
-import ButtonTabEdit from '../buttonTabEdit/ButtonTabEdit';
-import ButtonLearn from '../buttonTabLearn/ButtonTabLearn';
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentUserId} from "../../store/selectots";
 import {Link} from "react-router-dom";
@@ -10,6 +7,7 @@ import {PATH} from "../../components/routing/Routing";
 import {getCards, setCurrentPackId, setCurrentPackName} from "../../store/cardsReducer";
 import ModalDeletePack from "../../components/PackModals/modalDeletePack/ModalDeletePack";
 import ModalEditPack from "../../components/PackModals/modalEditPack/ModalEditPack";
+import ButtonFormColor from "../buttonFormColor/ButtonFormColor";
 
 type TableLinePropsType = {
     packName: string
@@ -74,14 +72,14 @@ const TableLine: React.FC<TableLinePropsType> = props => {
                     <div className={s.tableButtonsblock}>
                         <>
                             <div className={s.buttonContainer}>
-                                {isPacksBelogsToUser && <ButtonTabDelete onClick={onDeleteButtonClickHandler}/>}
+                                {isPacksBelogsToUser && <ButtonFormColor text={'Delete'} onClick={onDeleteButtonClickHandler}/>}
                             </div>
                             <div className={s.buttonContainer}>
-                                {isPacksBelogsToUser && <ButtonTabEdit onClick={onEditButtonClickHandler}/>}
+                                {isPacksBelogsToUser && <ButtonFormColor text={'Edit'} onClick={onEditButtonClickHandler}/>}
                             </div>
                         </>
                         <div className={s.buttonContainer}>
-                            <Link to={PATH.LEARN_QUESTION}><ButtonLearn onClick={onLearnClickHandler}/></Link>
+                            <Link to={PATH.LEARN_QUESTION}><ButtonFormColor text={'Learn'} onClick={onLearnClickHandler}/></Link>
                         </div>
 
                     </div>

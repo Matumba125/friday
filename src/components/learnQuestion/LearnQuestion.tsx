@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import s from './LearnQuestion.module.css';
-import ButtonReturnCancel from '../../common/buttonReturnCancel/ButtonReturnCancel';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import ListTitle from '../../common/listTitle/ListTitle';
 import InputRadio from "../../common/inputRadio/InputRadio";
@@ -8,7 +7,7 @@ import logo from "../../assets/images/logo.png";
 import {useDispatch, useSelector} from "react-redux";
 import {getCardsSelector, getCurrentPackName, getIsLoggedIn} from "../../store/selectots";
 import {CardType, gradeCard} from "../../store/cardsReducer";
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {PATH} from "../routing/Routing";
 
 const getCard = (cards: CardType[]) => {
@@ -101,7 +100,7 @@ const LearnQuestion = () => {
 
                     <div className={s.buttonsBox}>
                         <div className={s.buttonCancelWrap}>
-                            <ButtonReturnCancel/>
+                            <Link to={PATH.PACKS}><ButtonFormColor text={'Cancel'}/></Link>
                         </div>
 
                         <div className={s.buttonWrap}>
@@ -175,7 +174,8 @@ const LearnQuestion = () => {
 
                     <div className={`${s.buttonsBox} ${s.buttonsBoxBack}`}>
                         <div className={s.buttonCancelWrap}>
-                            <ButtonReturnCancel
+                            <ButtonFormColor
+                                text={'Cancel'}
                                 onClick={rotate}/>
                         </div>
                         <div className={s.buttonWrap}>

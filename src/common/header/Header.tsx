@@ -27,7 +27,7 @@ const Header = () => {
                     </div>
                     <div className={s.headerNavigation}>
                         <div className={s.headerLinks}>
-                            <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.CARDS_PACKS}>
+                            <NavLink className={s.headerLink} activeClassName={s.active} to={PATH.PACKS}>
                                 <img className={s.headerLinkImg} src={PacksList} alt="Card img" />
                                 <span className={s.linkText}>Packs list</span>
                             </NavLink>

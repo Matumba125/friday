@@ -11,7 +11,7 @@ const LinkToPacks: React.FC<LinkToPacksType> = props => {
 
     return (
         <>
-            <Link className={s.linkCardList} to={PATH.CARDS_PACKS}>
+            <Link className={s.linkCardList} to={PATH.PACKS}>
                 <ListTitle text={props.packName} />
             </Link>
         </>
