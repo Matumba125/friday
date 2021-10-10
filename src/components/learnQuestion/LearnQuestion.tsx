@@ -6,7 +6,7 @@ import ListTitle from '../../common/listTitle/ListTitle';
 import InputRadio from "../../common/inputRadio/InputRadio";
 import logo from "../../assets/images/logo.png";
 import {useDispatch, useSelector} from "react-redux";
-import {getCardsSelector, getIsLoggedIn} from "../../store/selectots";
+import {getCardsSelector, getCurrentPackName, getIsLoggedIn} from "../../store/selectots";
 import {CardType, gradeCard} from "../../store/cardsReducer";
 import {Redirect} from "react-router-dom";
 import {PATH} from "../routing/Routing";
@@ -28,6 +28,8 @@ const LearnQuestion = () => {
 
     const cards = useSelector(getCardsSelector)
     const isLoggedIn = useSelector(getIsLoggedIn)
+    const currentPackName = useSelector(getCurrentPackName)
+
 
     const [grade, setGrade] = useState<number>(0)
 
@@ -67,6 +69,7 @@ const LearnQuestion = () => {
         }finally {
             setIsRotate(!isRotate)
             setCard(getCard(cards))
+            setGrade(0)
         }
     }
 
@@ -86,7 +89,7 @@ const LearnQuestion = () => {
                 <div className={s.cardFront}>
                     <div className={s.titleBox}>
                         <ListTitle
-                            text={'Learn “Pack Name”'}/>
+                            text={currentPackName}/>
                     </div>
 
                     <h4 className={`${s.textTitle} ${s.frontTextTutleQuestion}`}>Question:</h4>

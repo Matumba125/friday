@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import s from './CardsPacks.module.css';
 import CardListContainer from '../../common/cardListContainer/CardListContainer';
 import CardListSaidbar from '../../common/cardListSaidbar/CardListSaidbar';
 import PacksListMain from '../../common/packsListMain/PacksListMain';

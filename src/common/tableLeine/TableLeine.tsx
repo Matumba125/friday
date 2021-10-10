@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getCurrentUserId} from "../../store/selectots";
 import {Link} from "react-router-dom";
 import {PATH} from "../../components/routing/Routing";
-import {getCards, setCurrentPackId} from "../../store/cardsReducer";
+import {getCards, setCurrentPackId, setCurrentPackName} from "../../store/cardsReducer";
 import ModalDeletePack from "../../components/PackModals/modalDeletePack/ModalDeletePack";
 import ModalEditPack from "../../components/PackModals/modalEditPack/ModalEditPack";
 
@@ -49,11 +49,13 @@ const TableLine: React.FC<TableLinePropsType> = props => {
     }
     const onLinkClickHandler = ()=>{
         dispatch(setCurrentPackId({currentPackId: _id}))
+        dispatch(setCurrentPackName({currentPackName:packName}))
     }
 
     const onLearnClickHandler = () =>{
         dispatch(setCurrentPackId({currentPackId: _id}))
         dispatch(getCards(_id))
+        dispatch(setCurrentPackName({currentPackName:packName}))
     }
 
     const isPacksBelogsToUser = user_id === currentUserId
