@@ -14,7 +14,7 @@ const useStyles: any = makeStyles(
             maxWidth: '17%',
 
             '& .MuiRating-decimal': {
-                fontSize: '.8rem',
+                fontSize: '1rem',
                 color: '#21268F'
             }
 
