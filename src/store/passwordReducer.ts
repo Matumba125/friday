@@ -21,7 +21,7 @@ export const sendRecoveryMailTC = createAsyncThunk('password/sendRecoveryMail', 
         from: "test-front-admin <lonely__wind@mail.ru>",
         message: `<div style="padding: 15px">
                     Password recovery link:
-                    <a href='https://matumba125.github.io/friday/#/new-password/$token$'>Click Here</a>
+                    <a href='https://matumba125.github.io/learningApp/#/new-password/$token$'>Click Here</a>
                     </div>`
     }
 
