@@ -1,11 +1,11 @@
 import React, {MouseEvent, useState} from "react";
 import s from './ModalEditCard.module.css';
-import InputForm from '../../../common/inputForm/InputForm';
-import ButtonFormColor from '../../../common/buttonFormColor/ButtonFormColor';
-import InputFile from '../../../common/inputFile/InputFile';
+import InputForm from '../../../../common/inputForm/InputForm';
+import ButtonFormColor from '../../../../common/buttonFormColor/ButtonFormColor';
+import InputFile from '../../../../common/inputFile/InputFile';
 import {useDispatch} from "react-redux";
-import ModalBox from "../../../common/modalBox/ModalBox";
-import {editCard} from "../../../store/cardsReducer";
+import ModalBox from "../../../../common/modalBox/ModalBox";
+import {editCard} from "../../../../store/cardsReducer";
 
 type AddNewCardType = {
     open: boolean
@@ -16,7 +16,7 @@ type AddNewCardType = {
 }
 
 
-const ModalAddNewCard: React.FC<AddNewCardType> = props => {
+const ModalEditCard: React.FC<AddNewCardType> = props => {
 
     const dispatch = useDispatch()
 
@@ -96,4 +96,4 @@ const ModalAddNewCard: React.FC<AddNewCardType> = props => {
     )
 }
 
-export default ModalAddNewCard
+export default ModalEditCard

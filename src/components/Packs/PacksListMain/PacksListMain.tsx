@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import s from './PacksListMain.module.css';
-import ListTitle from '../listTitle/ListTitle';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import {InputSearch} from '../../common/inputSearch/InputSearch';
-import TableHead from '../tableHead/TableHead';
-import TableLeine from '../tableLeine/TableLeine';
-import {PaginationRounded} from '../pagination/Pagination';
-import Select from '../select/Select';
+import TableHead from '../../../common/tableHead/TableHead';
 import {useDispatch, useSelector} from "react-redux";
-import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../store/selectots";
-import {setPackNameAC, setPageAC, setPageCountAC} from "../../store/cardsPacksReducer";
-import ModalAddPack from "../../components/PackModals/modalAddPack/ModalAddPack";
+import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../../store/selectots";
+import {setPackNameAC, setPageAC, setPageCountAC} from "../../../store/cardsPacksReducer";
+import TableLeine from "../../../common/tableLeine/TableLeine";
+import ModalAddPack from "../../PackModals/modalAddPack/ModalAddPack";
+import ListTitle from "../../../common/listTitle/ListTitle";
+import {InputSearch} from "../../../common/inputSearch/InputSearch";
+import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
+import {PaginationRounded} from "../../../common/pagination/Pagination";
+import Select from '../../../common/select/Select'
 
 const PacksListMain = () => {
 
@@ -25,11 +25,11 @@ const PacksListMain = () => {
     const page = useSelector(getPacksPage)
     const pagesCount = useSelector(getTotalPagesCount)
 
-    const onPaginationChangeHandler = (page: number) =>{
+    const onPaginationChangeHandler = (page: number) => {
         dispatch(setPageAC({page: page}))
     }
 
-    const onSelectChangeHandler=(pageCount: number)=>{
+    const onSelectChangeHandler = (pageCount: number) => {
         dispatch(setPageCountAC({pageCount}))
     }
 
@@ -81,44 +81,31 @@ const PacksListMain = () => {
                                 onClick={onAddPackClickHandler}
                             />
                         </div>
-
                     </div>
 
-                    {/* ! tabble */}
                     <div className={s.tabWrap}>
                         <table className={s.table}>
-
                             <TableHead/>
-
                             <tbody className={s.tableBody}>
-                            {/*<TableLeine packName={'new'} userName={'new'} user_id={'1'} _id={'1'} key={1} created={new Date()} cardsCount={10}/>*/}
                             {tBody}
                             </tbody>
                         </table>
-
                     </div>
 
                     <div className={s.tableNavigation}>
-
-                        <PaginationRounded totalPages={pagesCount} setNewPage={onPaginationChangeHandler} currentPage={page}/>
-
+                        <PaginationRounded totalPages={pagesCount} setNewPage={onPaginationChangeHandler}
+                                           currentPage={page}/>
                         <div className={s.select}>
                             <span className={s.selectText}>
                                 Show
                             </span>
-
                             <Select changeHandler={onSelectChangeHandler}/>
-
                             <span className={s.selectText}>
                                 Packs per Page
                             </span>
                         </div>
-
                     </div>
-
-
                 </div>
-
             </main>
         </>
     )

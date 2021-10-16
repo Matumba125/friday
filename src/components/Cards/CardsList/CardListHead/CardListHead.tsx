@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import s from './CardListHead.module.css';
-import ButtonFilterHeadTabl from '../buttonFilterHeadTabl/ButtonFilterHeadTabl';
+import ButtonFilterHeadTabl from '../../../../common/buttonFilterHeadTabl/ButtonFilterHeadTabl';
 import { useDispatch } from "react-redux";
-import { setSortCards } from "../../store/cardsReducer";
+import { setSortCards } from "../../../../store/cardsReducer";
 
 type CardListHeadType = {
     isPackBelongsToUser: boolean

@@ -1,11 +1,11 @@
 import React, {MouseEvent, useState} from "react";
 import s from './ModalAddNewCard.module.css';
-import InputForm from '../../../common/inputForm/InputForm';
-import ButtonFormColor from '../../../common/buttonFormColor/ButtonFormColor';
-import InputFile from '../../../common/inputFile/InputFile';
+import InputForm from '../../../../common/inputForm/InputForm';
+import ButtonFormColor from '../../../../common/buttonFormColor/ButtonFormColor';
+import InputFile from '../../../../common/inputFile/InputFile';
 import {useDispatch} from "react-redux";
-import ModalBox from "../../../common/modalBox/ModalBox";
-import {createCard} from "../../../store/cardsReducer";
+import ModalBox from "../../../../common/modalBox/ModalBox";
+import {createCard} from "../../../../store/cardsReducer";
 
 type AddNewCardType ={
     open: boolean

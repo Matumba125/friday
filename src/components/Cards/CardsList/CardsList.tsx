@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './CardsList.module.css';
-import ListCardTableLeine from '../../common/listCardTableLeine/ListCardTableLeine'
-import {PaginationRounded} from '../../common/pagination/Pagination';
-import Select from '../../common/select/Select';
-import {CardType, setCardsPageCount, setCurrentCardsPage} from '../../store/cardsReducer';
-import CardListHead from '../../common/CardListHead/CardListHead';
-import {useDispatch, useSelector} from 'react-redux';
-import {getCardsPage, getTotalCardsPages} from '../../store/selectots';
+import {PaginationRounded} from '../../../common/pagination/Pagination';
+import Select from '../../../common/select/Select';
+import {CardType, setCardsPageCount, setCurrentCardsPage} from '../../../store/cardsReducer';
+import {getCardsPage, getTotalCardsPages} from '../../../store/selectots';
+import CardsListLine from './CardsListLine/CardsListLine';
+import CardListHead from './CardListHead/CardListHead';
+import { useDispatch, useSelector } from 'react-redux';
 
 type CardsListType = {
     cards: CardType[]
@@ -38,7 +38,7 @@ const CardsList: React.FC<CardsListType> = props => {
                     <tbody className={s.tableBody}>
                     {
                         
-                        props.cards.map((m, index) => <ListCardTableLeine
+                        props.cards.map((m, index) => <CardsListLine
                             isPackBelongsToUser={props.isPackBelongsToUser} key={index} card={m}/>)
                     }
 

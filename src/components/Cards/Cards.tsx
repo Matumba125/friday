@@ -17,10 +17,10 @@ import {
     getPackUserId
 } from '../../store/selectots';
 import {PATH} from '../routing/Routing';
-import CardsList from '../CardsList/CardsList';
-import ModalAddNewCard from '../CardsModals/modalAddNewCard/ModalAddNewCard';
 import {getCards} from '../../store/cardsReducer';
 import ListContainer from '../../common/ListContainer/ListContainer';
+import ModalAddNewCard from './CardsModals/modalAddNewCard/ModalAddNewCard';
+import CardsList from './CardsList/CardsList';
 
 const Cards = () => {
 

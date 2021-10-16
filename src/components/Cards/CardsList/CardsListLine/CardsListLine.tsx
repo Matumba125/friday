@@ -1,17 +1,17 @@
 import React, {MouseEvent, useState} from "react";
-import s from './ListCardTableLeine.module.css';
-import {CardType} from "../../store/cardsReducer";
-import ModalDeleteCard from "../../components/CardsModals/modalDeleteCard/ModalDeleteCard";
-import ModalEditCard from "../../components/CardsModals/modalEditCard/ModalEditCard";
-import {HoverRating} from "../rating/Rating";
-import ButtonFormColor from "../buttonFormColor/ButtonFormColor";
+import s from './CardsListLine.module.css';
+import {CardType} from "../../../../store/cardsReducer";
+import {HoverRating} from "../../../../common/rating/Rating";
+import ButtonFormColor from "../../../../common/buttonFormColor/ButtonFormColor";
+import ModalDeleteCard from "../../CardsModals/modalDeleteCard/ModalDeleteCard";
+import ModalEditCard from "../../CardsModals/modalEditCard/ModalEditCard";
 
 type ListCardTableLeinePropsType = {
     card: CardType
     isPackBelongsToUser: boolean
 }
 
-const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
+const CardsListLine: React.FC<ListCardTableLeinePropsType> = props => {
 
     const {
         card,
@@ -60,4 +60,4 @@ const ListCardTableLeine: React.FC<ListCardTableLeinePropsType> = props => {
     )
 }
 
-export default ListCardTableLeine
+export default CardsListLine
