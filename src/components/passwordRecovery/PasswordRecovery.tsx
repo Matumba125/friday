@@ -2,7 +2,6 @@ import {Link} from 'react-router-dom';
 import s from './PasswordRecovery.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
-import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {PATH} from '../routing/Routing';
@@ -11,6 +10,7 @@ import CheckEmail from '../../common/checkEmail/CheckEmail';
 import {useDispatch, useSelector} from 'react-redux';
 import {getIsSended, getPasswordRecoveryError} from '../../store/selectots';
 import {sendRecoveryMailTC} from '../../store/passwordReducer';
+import ListTitle from '../../common/listTititle/ListTitile';
 
 const PasswordRecovery = () => {
 

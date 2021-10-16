@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import s from './Registration.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
-import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {Redirect, useHistory} from 'react-router';
@@ -10,6 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {registerTC, setRegistrationErrorAC} from '../../store/registrationReducer';
 import {getRegistrationError, getRegistrationStatus} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
+import ListTitle from '../../common/listTititle/ListTitile';
 
 const Registration = () => {
 

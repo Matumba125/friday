@@ -6,11 +6,11 @@ import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../../store/sel
 import {setPackNameAC, setPageAC, setPageCountAC} from "../../../store/cardsPacksReducer";
 import TableLeine from "../../../common/tableLeine/TableLeine";
 import ModalAddPack from "../../PackModals/modalAddPack/ModalAddPack";
-import ListTitle from "../../../common/listTitle/ListTitle";
 import {InputSearch} from "../../../common/inputSearch/InputSearch";
 import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
 import {PaginationRounded} from "../../../common/pagination/Pagination";
 import Select from '../../../common/select/Select'
+import ListTitle from "../../../common/listTititle/ListTitile";
 
 const PacksListMain = () => {
 

@@ -2,7 +2,6 @@ import React, {FormEvent, useState} from 'react';
 import s from './NewPassword.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
-import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {Redirect, useParams} from 'react-router-dom';
@@ -10,13 +9,14 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getPasswordRecoveryError, getPasswordSetted} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import {setNewPasswordTC} from '../../store/passwordReducer';
+import ListTitle from '../../common/listTititle/ListTitile';
 
 type ParamsType = {
     token: string
 }
 
 const NewPassword = () => {
-    
+
     const [password, setPassword] = useState<string>('')
 
     const dispatch = useDispatch()
@@ -26,32 +26,30 @@ const NewPassword = () => {
 
     const params = useParams<ParamsType>()
 
-    const onPasswordChangeHandler = (gainedPass: string) =>{
+    const onPasswordChangeHandler = (gainedPass: string) => {
         setPassword(gainedPass)
     }
 
-    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) =>{
+    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         dispatch(setNewPasswordTC({password, token: params.token}))
     }
 
-    if(passwordSetted){
+    if (passwordSetted) {
         return <Redirect to={PATH.LOGIN}/>
     }
-    
+
     return (
         <>
 
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>
-                        <GlobalTitle />
+                        <GlobalTitle/>
                     </div>
 
                     <div className={s.listTitleBox}>
-                        <ListTitle
-                            text='Create new password'
-                        />
+                        <ListTitle text={'Create new password'}/>
                     </div>
 
                     <form className={s.formWrap} onSubmit={onSubmitHandler}>
@@ -77,7 +75,7 @@ const NewPassword = () => {
 
                         <div className={s.buttonContainer}>
                             <ButtonFormColor
-                                text='Create new password' />
+                                text='Create new password'/>
                         </div>
                     </form>
 

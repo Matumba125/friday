@@ -5,11 +5,11 @@ import s from './EditProfile.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import InputForm from '../../common/inputForm/InputForm';
 import Avatar from '../../common/avatar/Avatar';
-import ListTitle from '../../common/listTitle/ListTitle';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import {setProfileIsEditingAC, updateProfileTC} from '../../store/profileReducer';
 import {getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
 import {PATH} from '../routing/Routing';
+import ListTitle from '../../common/listTititle/ListTitile';
 
 const EditProfile = () => {
 
@@ -48,9 +48,7 @@ const EditProfile = () => {
         <CardContainer>
             <>
                 <div className={s.listTitleBox}>
-                    <ListTitle
-                        text={'Personal Information'}
-                    />
+                    <ListTitle text={'Personal Information'}/>
                 </div>
 
                 <div className={s.containerWrap}>

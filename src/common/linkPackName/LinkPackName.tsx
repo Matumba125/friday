@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import s from './LinkPackName.module.css';
-import ListTitle from '../../common/listTitle/ListTitle';
-import { PATH } from '../../components/routing/Routing';
+import {PATH} from '../../components/routing/Routing';
+import ListTitle from '../listTititle/ListTitile';
 
 type LinkToPacksType = {
     packName: string
@@ -10,11 +10,9 @@ type LinkToPacksType = {
 const LinkToPacks: React.FC<LinkToPacksType> = props => {
 
     return (
-        <>
-            <Link className={s.linkCardList} to={PATH.PACKS}>
-                <ListTitle text={props.packName} />
-            </Link>
-        </>
+        <Link className={s.linkCardList} to={PATH.PACKS}>
+            <ListTitle text={props.packName}/>
+        </Link>
     )
 }
 

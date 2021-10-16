@@ -2,7 +2,6 @@ import {Link, Redirect} from 'react-router-dom';
 import s from './Loginization.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
-import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import Checkbox from '../../common/checkbox/checkbox';
@@ -11,6 +10,7 @@ import React, {MouseEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
 import {getIsLoggedIn, getLoginError} from '../../store/selectots';
+import ListTitle from '../../common/listTititle/ListTitile';
 
 const Loginization = () => {
     const [email, setEmail] = useState<string>('');
@@ -57,7 +57,7 @@ const Loginization = () => {
                     </div>
 
                     <div className={s.listTitleBox}>
-                        <ListTitle text="Sign In"/>
+                        <ListTitle text={'Sign In'} />
                     </div>
 
                     <form

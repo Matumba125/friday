@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import s from './LearnQuestion.module.css';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import ListTitle from '../../common/listTitle/ListTitle';
 import InputRadio from "../../common/inputRadio/InputRadio";
 import logo from "../../assets/images/logo.png";
 import {useDispatch, useSelector} from "react-redux";
@@ -9,6 +8,7 @@ import {getCardsSelector, getCurrentPackName, getIsLoggedIn} from "../../store/s
 import {CardType, gradeCard} from "../../store/cardsReducer";
 import {Link, Redirect} from "react-router-dom";
 import {PATH} from "../routing/Routing";
+import ListTitle from "../../common/listTititle/ListTitile";
 
 const getCard = (cards: CardType[]) => {
     const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);
@@ -87,8 +87,8 @@ const LearnQuestion = () => {
                 {/* front */}
                 <div className={s.cardFront}>
                     <div className={s.titleBox}>
-                        <ListTitle
-                            text={currentPackName}/>
+                        <ListTitle text={currentPackName}/>
+
                     </div>
 
                     <h4 className={`${s.textTitle} ${s.frontTextTutleQuestion}`}>Question:</h4>
@@ -116,8 +116,7 @@ const LearnQuestion = () => {
                 {/* back */}
                 <div className={s.cardBack}>
                     <div className={s.titleBox}>
-                        <ListTitle
-                            text={'Learn “Pack Name”'}/>
+                        <ListTitle text={`Learn ${currentPackName}`}/>
                     </div>
                     <h4 className={`${s.textTitle} ${s.backTextTitleAnswer}`}>Answer:</h4>
 
