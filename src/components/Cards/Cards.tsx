@@ -9,6 +9,7 @@ import {
     getCardsPage,
     getCardsPageCount,
     getCardsSelector,
+    getCardsSort,
     getCurrentPackId,
     getCurrentPackName,
     getCurrentUserId,
@@ -35,10 +36,11 @@ const Cards = () => {
     const currentPackId = useSelector(getCurrentPackId)
     const pageCount = useSelector(getCardsPageCount)
     const currentPackName = useSelector(getCurrentPackName)
+    const cardsSort = useSelector(getCardsSort)
 
     useEffect(() => {
        dispatch(getCards(currentPackId))
-    }, [currentPage, pageCount, currentPackId, dispatch, currentPackName])
+    }, [currentPage, pageCount, currentPackId, dispatch, currentPackName, cardsSort])
 
     const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()

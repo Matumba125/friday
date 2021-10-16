@@ -6,7 +6,7 @@ import {AppStateType} from "./store"
 export type CardsControlsType = {
     cardQuestion?: string
     cardAnswer?: string
-    sortCards?: number
+    sortCards: number
     page: number
     pageCount: number
     totalPagesCount: number
@@ -151,6 +151,9 @@ const slice = createSlice({
         setCurrentPackName(state, action: PayloadAction<{currentPackName: string}>){
             state.currentPackName = action.payload.currentPackName
         },
+        setSortCards(state, action: PayloadAction<{cardsSort: number}>){
+            state.controls.sortCards = action.payload.cardsSort
+        }
     },
     extraReducers: builder => {
         builder.addCase(getCards.fulfilled, (state, action) => {
@@ -163,4 +166,4 @@ const slice = createSlice({
 
 export const cardsReducer = slice.reducer
 
-export const {setCurrentPackId, setCurrentCardsPage, setCardsPageCount, setCurrentPackName} =slice.actions
+export const {setCurrentPackId, setCurrentCardsPage, setCardsPageCount, setCurrentPackName, setSortCards} =slice.actions

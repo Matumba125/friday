@@ -3,24 +3,17 @@ import { useDispatch } from "react-redux";
 import { setSortPacksAC } from "../../store/cardsPacksReducer";
 import s from './ButtonFilterHeadTabl.module.css';
 
-const ButtonFilterHeadTabl = () => {
+type ButtonFilterHeadProps ={
+    direction: 0 | 1
+    setDirection: () => void
+}
 
-    const dispatch = useDispatch()
+const ButtonFilterHeadTabl: React.FC<ButtonFilterHeadProps> = props => {
 
-    const [direction, setDirection] = useState<0 | 1>(0)
 
-    const onChangeDirection = (e: MouseEvent<HTMLButtonElement>) => {
-        if (direction === 0) {
-            dispatch(setSortPacksAC({ sortPacks: 1 }))
-            setDirection(1)
-        } else {
-            dispatch(setSortPacksAC({ sortPacks: 0 }))
-            setDirection(0)
-        }
-    }
 
     return (
-        <button className={s.buttonHead} onClick={onChangeDirection}>
+        <button className={s.buttonHead} onClick={props.setDirection}>
             Last Updated
             <div id={'arrowBtn'} className={s.buttonArrow}>
             </div>

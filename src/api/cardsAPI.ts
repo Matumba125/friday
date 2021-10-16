@@ -11,7 +11,7 @@ export const cardsApi = {
                     packName: data.controls.packName,
                     min: data.controls.min,
                     max: data.controls.max,
-                    sortPacks: data.controls.sortPacks,
+                    sortPacks: `${data.controls.sortPacks}updated`,
                     page: data.controls.page,
                     pageCount: data.controls.pageCount,
                     user_id: data.user_id ? data.user_id : '',
@@ -43,7 +43,7 @@ export const cardsApi = {
                     cardQuestion: data.controls.cardQuestion,
                     cardAnswer: data.controls.cardAnswer,
                     page: data.controls.page,
-                    sortCards: data.controls.sortCards,
+                    sortCards: `${data.controls.sortCards}updated`,
                     pageCount: data.controls.pageCount,
                     cardsPack_id: data.cardsPack_id,
                 }

@@ -118,3 +118,6 @@ export const getCardsPageCount = (state: AppStateType): number => {
 export const getTotalCardsPages = (state: AppStateType): number => {
     return state.cards.controls.totalPagesCount
 }
+export const getCardsSort = (state: AppStateType): number => {
+    return state.cards.controls.sortCards
+}

@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
  import s from './TableHead.module.css';
 import ButtonFilterHeadTabl from '../buttonFilterHeadTabl/ButtonFilterHeadTabl';
+import { useDispatch } from "react-redux";
+import { setSortPacksAC } from "../../store/cardsPacksReducer";
 
 const TableHead = () => {
+
+    const dispatch = useDispatch()
+
+    const [packsSort, setPacksSort] = useState<0 | 1>(0)
+
+    const onSortChange = ()=>{
+        if(packsSort === 0){
+            setPacksSort(1)
+            dispatch(setSortPacksAC({sortPacks: 1}))
+        }
+        if(packsSort === 1) {
+            setPacksSort(0)
+            dispatch(setSortPacksAC({sortPacks: 0}))
+        }
+    }
 
     return (
         <>
@@ -11,7 +28,7 @@ const TableHead = () => {
                     <th className={s.tableItem}>Name</th>
                     <th className={s.tableItem}>Cards</th>
                     <th className={s.tableItem}>
-                        <ButtonFilterHeadTabl />
+                        <ButtonFilterHeadTabl setDirection={onSortChange} direction={packsSort} />
                     </th>
                     <th className={s.tableItem}>
                         Created by
