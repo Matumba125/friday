@@ -1,6 +1,4 @@
-import React, { useState, MouseEvent } from "react";
-import { useDispatch } from "react-redux";
-import { setSortPacksAC } from "../../store/cardsPacksReducer";
+import React from "react";
 import s from './ButtonFilterHeadTabl.module.css';
 
 type ButtonFilterHeadProps ={
