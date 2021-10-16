@@ -110,7 +110,7 @@ const PacksListMain = () => {
                             <Select changeHandler={onSelectChangeHandler}/>
 
                             <span className={s.selectText}>
-                                Cards per Page
+                                Packs per Page
                             </span>
                         </div>
 
