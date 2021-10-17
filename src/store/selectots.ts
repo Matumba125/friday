@@ -1,6 +1,6 @@
-import { CardPacksType } from "../components/f-1-packs/p-2-bll/packsReducer"
-import { CardType } from "./cardsReducer"
-import {AppStateType} from "./store"
+import { CardPacksType } from "../la-2-features/f-1-packs/p-2-bll/packsReducer"
+import { CardType } from "../la-2-features/f-2-cards/c-2-bll/cardsReducer"
+import { AppStateType } from "../la-3-main/m-2-bll/store"
 
 
 //// Registration Selectors

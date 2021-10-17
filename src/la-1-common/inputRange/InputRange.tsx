@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Box, createTheme, Slider } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMaxCardsCount, getMinCardsCount } from '../../store/selectots';
-import { setMinMaxCardsAC } from '../../components/f-1-packs/p-2-bll/packsReducer';
+import { setMinMaxCardsAC } from '../../la-2-features/f-1-packs/p-2-bll/packsReducer';
 
 const theme = createTheme({
     breakpoints: {

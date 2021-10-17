@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import s from './LinkPackName.module.css';
-import {PATH} from '../../components/routing/Routing';
 import ListTitle from '../listTititle/ListTitile';
+import { PATH } from '../../la-3-main/m-1-ui/Routing/Routing';
 
 type LinkToPacksType = {
     packName: string

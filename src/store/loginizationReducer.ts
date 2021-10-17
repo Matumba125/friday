@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {authApi, LoginParamsType} from "../api/auth-api"
-import {setIsLoading} from "./appReducer"
+import { setIsLoading } from "../la-3-main/m-2-bll/appReducer"
+import { authApi, LoginParamsType } from "../la-3-main/m-3-dal/auth-api"
 import {setUserDataAC} from "./profileReducer"
 
 
