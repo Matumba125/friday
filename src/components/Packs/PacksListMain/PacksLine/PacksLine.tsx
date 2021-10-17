@@ -1,13 +1,14 @@
 import React, {MouseEvent, useState} from "react";
 import s from './TableLeine.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {getCurrentUserId} from "../../store/selectots";
+import {getCurrentUserId} from "../../../../store/selectots";
 import {Link} from "react-router-dom";
-import {PATH} from "../../components/routing/Routing";
-import {getCards, setCurrentPackId, setCurrentPackName} from "../../store/cardsReducer";
-import ModalDeletePack from "../../components/PackModals/modalDeletePack/ModalDeletePack";
-import ModalEditPack from "../../components/PackModals/modalEditPack/ModalEditPack";
-import ButtonFormColor from "../buttonFormColor/ButtonFormColor";
+import {PATH} from "../../../routing/Routing";
+import {getCards, setCurrentPackId, setCurrentPackName} from "../../../../store/cardsReducer";
+
+import ButtonFormColor from "../../../../common/buttonFormColor/ButtonFormColor";
+import ModalDeletePack from "../../PackModals/modalDeletePack/ModalDeletePack";
+import ModalEditPack from "../../PackModals/modalEditPack/ModalEditPack";
 
 type TableLinePropsType = {
     packName: string
@@ -18,7 +19,7 @@ type TableLinePropsType = {
     user_id: string
 }
 
-const TableLine: React.FC<TableLinePropsType> = props => {
+const PacksLine: React.FC<TableLinePropsType> = props => {
 
     const {
         packName,
@@ -89,4 +90,4 @@ const TableLine: React.FC<TableLinePropsType> = props => {
     )
 }
 
-export default TableLine;
+export default PacksLine;

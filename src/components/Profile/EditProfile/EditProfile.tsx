@@ -2,14 +2,14 @@ import React, {MouseEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import s from './EditProfile.module.css';
-import CardContainer from '../../common/cardContainer/CardContainer';
-import InputForm from '../../common/inputForm/InputForm';
-import Avatar from '../../common/avatar/Avatar';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import {setProfileIsEditingAC, updateProfileTC} from '../../store/profileReducer';
-import {getIsProfileEditing, getUserAvatar, getUserName} from '../../store/selectots';
-import {PATH} from '../routing/Routing';
-import ListTitle from '../../common/listTititle/ListTitile';
+import CardContainer from '../../../common/cardContainer/CardContainer';
+import InputForm from '../../../common/inputForm/InputForm';
+import Avatar from '../../../common/avatar/Avatar';
+import ButtonFormColor from '../../../common/buttonFormColor/ButtonFormColor';
+import {setProfileIsEditingAC, updateProfileTC} from '../../../store/profileReducer';
+import {getIsProfileEditing, getUserAvatar, getUserName} from '../../../store/selectots';
+import {PATH} from '../../routing/Routing';
+import ListTitle from '../../../common/listTititle/ListTitile';
 
 const EditProfile = () => {
 

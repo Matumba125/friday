@@ -4,12 +4,12 @@ import Loginization from '../loginization/Loginization';
 import NotFound from "../NotFound/NotFound";
 import NewPassword from "../newPassword/NewPassword";
 import PasswordRecovery from "../passwordRecovery/PasswordRecovery";
-import Profile from "../profile/Profile";
 import Registration from "../registration/Registration";
-import EditProfile from '../editProfile/EditProfile';
 import Packs from '../Packs/Packs';
 import LearnQuestion from '../learnQuestion/LearnQuestion';
 import Cards from '../Cards/Cards';
+import Profile from '../Profile/Profile';
+import EditProfile from '../Profile/EditProfile/EditProfile';
 
 export const PATH ={
     LOGIN: '/login',

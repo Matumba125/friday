@@ -4,13 +4,13 @@ import TableHead from '../../../common/tableHead/TableHead';
 import {useDispatch, useSelector} from "react-redux";
 import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../../store/selectots";
 import {setPackNameAC, setPageAC, setPageCountAC} from "../../../store/cardsPacksReducer";
-import TableLeine from "../../../common/tableLeine/TableLeine";
-import ModalAddPack from "../../PackModals/modalAddPack/ModalAddPack";
 import {InputSearch} from "../../../common/inputSearch/InputSearch";
 import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
 import {PaginationRounded} from "../../../common/pagination/Pagination";
 import Select from '../../../common/select/Select'
 import ListTitle from "../../../common/listTititle/ListTitile";
+import ModalAddPack from "../PackModals/modalAddPack/ModalAddPack";
+import PacksLine from "./PacksLine/PacksLine";
 
 const PacksListMain = () => {
 
@@ -38,7 +38,7 @@ const PacksListMain = () => {
         dispatch(setPackNameAC({packName: newPackName}))
     }
 
-    const tBody = cardPacks.map((m, index) => <TableLeine cardsCount={m.cardsCount}
+    const tBody = cardPacks.map((m, index) => <PacksLine cardsCount={m.cardsCount}
                                                           updated={m.updated}
                                                           userName={m.user_name}
                                                           packName={m.name}
