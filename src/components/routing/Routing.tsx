@@ -5,11 +5,11 @@ import NotFound from "../NotFound/NotFound";
 import NewPassword from "../newPassword/NewPassword";
 import PasswordRecovery from "../passwordRecovery/PasswordRecovery";
 import Registration from "../registration/Registration";
-import Packs from '../Packs/Packs';
 import LearnQuestion from '../learnQuestion/LearnQuestion';
 import Cards from '../Cards/Cards';
 import Profile from '../Profile/Profile';
 import EditProfile from '../Profile/EditProfile/EditProfile';
+import Packs from '../f-1-packs/p-1-ui/Packs';
 
 export const PATH ={
     LOGIN: '/login',

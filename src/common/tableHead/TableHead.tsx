@@ -2,7 +2,7 @@ import React, { useState } from "react";
  import s from './TableHead.module.css';
 import ButtonFilterHeadTabl from '../buttonFilterHeadTabl/ButtonFilterHeadTabl';
 import { useDispatch } from "react-redux";
-import { setSortPacksAC } from "../../store/cardsPacksReducer";
+import { setSortPacksAC } from "../../components/f-1-packs/p-2-bll/packsReducer";
 
 const TableHead = () => {
 

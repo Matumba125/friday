@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
 import {getIsLoggedIn, getLoginError} from '../../store/selectots';
 import ListTitle from '../../common/listTititle/ListTitile';
+import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 
 const Loginization = () => {
     const [email, setEmail] = useState<string>('');

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Box, createTheme, Slider } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { setMinMaxCardsAC } from '../../store/cardsPacksReducer';
 import { getMaxCardsCount, getMinCardsCount } from '../../store/selectots';
+import { setMinMaxCardsAC } from '../../components/f-1-packs/p-2-bll/packsReducer';
 
 const theme = createTheme({
     breakpoints: {

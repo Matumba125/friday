@@ -1,6 +1,6 @@
 import React, {MouseEvent} from "react";
 import { useDispatch } from "react-redux";
-import { setIsPrivateAC } from "../../store/cardsPacksReducer";
+import { setIsPrivateAC } from "../../components/f-1-packs/p-2-bll/packsReducer";
 import s from './ButtonsShowPacks.module.css';
 
 const ButtonsShowPacks = () => {

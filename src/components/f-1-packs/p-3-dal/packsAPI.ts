@@ -1,4 +1,3 @@
-import { CardsControlsType } from "../../../store/cardsReducer"
 import { instance } from "../../../api/api"
 import {CardPacksType, ControlsType } from "../p-2-bll/packsReducer"
 
