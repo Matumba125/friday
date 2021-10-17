@@ -7,7 +7,6 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: .5rem;
-    padding-right: 1.5rem;
     border: none;
     background-color: transparent;
 }
@@ -25,20 +24,20 @@
     display: inline-block;
     border: .3rem solid;
     border-color: #000 transparent transparent;
-    position: absolute;
-    top: 46%;
-    right: 10%;
+    margin-left: 0.5rem;
+    transform: translateY(3px);
+
 }
+
 
 /*!for layout*/
 /* .buttonHead:hover .buttonArrow, */
-/* .buttonHead:active .buttonArrow, */
-/* .buttonHead:focus .buttonArrow {
+.buttonHead:active .buttonArrow,
+.buttonHead:focus .buttonArrow {
     border-color: transparent transparent #000;
-    position: absolute;
-    top: 37%;
-    right: 10%;
-} */
+    margin-left: 0.5rem;
+    transform: translateY(-2px);
+}
 
 
 /* ! to filter in ascending order TSX*/

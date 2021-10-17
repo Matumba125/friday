@@ -13,7 +13,7 @@ const ButtonFilterHeadTabl: React.FC<ButtonFilterHeadProps> = props => {
     return (
         <button className={s.buttonHead} onClick={props.setDirection}>
             Last Updated
-            <div id={'arrowBtn'} className={s.buttonArrow}>
+            <div id={'arrowBtn'} className={`${s.buttonArrow} ${s.buttonArrowCards}`}>
             </div>
         </button>
     )

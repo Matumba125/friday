@@ -23,11 +23,11 @@ const CardsListLine: React.FC<ListCardTableLeinePropsType> = props => {
     const [deleteCard, setDeleteCard] = useState<boolean>(false)
     const [editCard, setEditCard] = useState<boolean>(false)
 
-    const onDeleteClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+    const onDeleteClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         setDeleteCard(true)
     }
-    const onEditClickHandler = (e: MouseEvent<HTMLButtonElement>) =>{
+    const onEditClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         setEditCard(true)
     }
@@ -36,7 +36,7 @@ const CardsListLine: React.FC<ListCardTableLeinePropsType> = props => {
         <>
             <ModalDeleteCard open={deleteCard} setClose={setDeleteCard} cardId={card._id} />
             <ModalEditCard open={editCard} setOpen={setEditCard} cardId={card._id} question={card.question} answer={card.answer} />
-            <tr className={s.tableLine}>
+            <tr className={s.tableLeine}>
                 <td className={s.tableItem}>{card.question}</td>
                 <td className={s.tableItem}>{card.answer}</td>
                 <td className={s.tableItem}>{newDate}</td>

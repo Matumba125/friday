@@ -2,6 +2,7 @@
     background-color: #87CEEB;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 .tabLeine {
@@ -23,20 +24,22 @@
 }
 
 .tableItem:nth-child(1) {
-    min-width: 27%;
+    min-width: 26%;
   }
 
 .tableItem:nth-child(2) {
-    min-width: 27%;
+    min-width: 26%;
    }
 
 .tableItem:nth-child(3) {
-    width: 16%;
-    padding: 0;
+    width: 18%;
+      padding: 0;
 }
 
 .tableItem:nth-child(4) {
     width: 14%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .tableItem:nth-child(5) {

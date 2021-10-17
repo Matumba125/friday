@@ -8,6 +8,12 @@
     }
 }
 
+@media (max-width:600px){
+    .buttonsBlock{
+        width: 80%;
+    }
+}
+
 
 .button {
     flex: 1;

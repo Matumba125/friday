@@ -65,14 +65,12 @@ const PacksListMain = () => {
 
                     <div className={s.controlBlock}>
 
-                        <div className={s.inputsContainer}>
-                            <div className={s.inputWrap}>
-                                <InputSearch
-                                    placeholder={"Search by pack name"}
-                                    value={packName}
-                                    onChangeText={onPackNameChangeHandler}
-                                />
-                            </div>
+                        <div className={s.inputWrap}>
+                            <InputSearch
+                                placeholder={"Search by pack name"}
+                                value={packName}
+                                onChangeText={onPackNameChangeHandler}
+                            />
                         </div>
 
                         <div className={s.buttonContainer}>

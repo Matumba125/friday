@@ -52,7 +52,7 @@ const CardsList: React.FC<CardsListType> = props => {
                 <PaginationRounded setNewPage={onPaginationChangeHandler} currentPage={currentPage}
                                    totalPages={totalPages}/>
 
-                <div className={s.select}>
+                <div className={s.selectWrap}>
                                 <span className={s.selectText}>
                                     Show
                                 </span>
