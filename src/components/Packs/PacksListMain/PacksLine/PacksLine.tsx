@@ -1,5 +1,5 @@
 import React, {MouseEvent, useState} from "react";
-import s from './TableLeine.module.css';
+import s from './PacksLine.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentUserId} from "../../../../store/selectots";
 import {Link} from "react-router-dom";

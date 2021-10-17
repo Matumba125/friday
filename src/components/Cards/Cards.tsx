@@ -40,7 +40,7 @@ const Cards = () => {
 
     useEffect(() => {
        dispatch(getCards(currentPackId))
-    }, [currentPage, pageCount, currentPackId, dispatch, currentPackName])
+    }, [currentPage, pageCount, currentPackId, dispatch, currentPackName, cardsSort])
 
     const onAddButtonClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
