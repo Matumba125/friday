@@ -5,9 +5,9 @@ import {loginizationReducer} from "./loginizationReducer";
 import {profileReducer} from "./profileReducer";
 import {registrationReducer} from "./registrationReducer";
 import {appReducer} from "./appReducer";
-import {cardsPacksReducer} from "./cardsPacksReducer";
 import {cardsReducer} from "./cardsReducer";
 import {configureStore} from "@reduxjs/toolkit";
+import { packsReducer } from "../components/f-1-packs/p-2-bll/packsReducer";
 
 
 export const rootReducer = combineReducers({
@@ -16,7 +16,7 @@ export const rootReducer = combineReducers({
     profile: profileReducer,
     registration: registrationReducer,
     app: appReducer,
-    cardsPack: cardsPacksReducer,
+    packs: packsReducer,
     cards: cardsReducer,
 })
 

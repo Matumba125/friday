@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import s from './PacksListMain.module.css';
-import TableHead from '../../../common/tableHead/TableHead';
+import TableHead from '../../../../common/tableHead/TableHead';
 import {useDispatch, useSelector} from "react-redux";
-import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../../store/selectots";
-import {setPackNameAC, setPageAC, setPageCountAC} from "../../../store/cardsPacksReducer";
-import {InputSearch} from "../../../common/inputSearch/InputSearch";
-import ButtonFormColor from "../../../common/buttonFormColor/ButtonFormColor";
-import {PaginationRounded} from "../../../common/pagination/Pagination";
-import Select from '../../../common/select/Select'
-import ListTitle from "../../../common/listTititle/ListTitile";
-import ModalAddPack from "../PackModals/modalAddPack/ModalAddPack";
+import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../../../store/selectots";
+import {InputSearch} from "../../../../common/inputSearch/InputSearch";
+import ButtonFormColor from "../../../../common/buttonFormColor/ButtonFormColor";
+import {PaginationRounded} from "../../../../common/pagination/Pagination";
+import Select from '../../../../common/select/Select'
+import ListTitle from "../../../../common/listTititle/ListTitile";
 import PacksLine from "./PacksLine/PacksLine";
+import { setPackNameAC, setPageAC, setPageCountAC } from "../../p-2-bll/packsReducer";
+import ModalAddPack from "../PackModals/modalAddPack/ModalAddPack";
 
 const PacksListMain = () => {
 

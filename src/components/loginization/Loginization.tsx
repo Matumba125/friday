@@ -1,7 +1,6 @@
 import {Link, Redirect} from 'react-router-dom';
 import s from './Loginization.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
-import GlobalTitle from '../../common/globalTitle/GlobalTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import Checkbox from '../../common/checkbox/checkbox';

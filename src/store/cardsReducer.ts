@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {cardsApi} from "../api/cardsAPI"
+import {cardsAPI} from "../api/cardsAPI"
 import {setIsLoading} from "./appReducer"
 import {AppStateType} from "./store"
 
@@ -56,7 +56,7 @@ export const getCards = createAsyncThunk('cards/getCards', async (cardsPack_id: 
     const controls = state.cards.controls
     try {
         dispatch(setIsLoading({isLoading: true}))
-        const res = await cardsApi.getCard({controls, cardsPack_id})
+        const res = await cardsAPI.getCard({controls, cardsPack_id})
         return {cardsData: res.data}
     } catch (error) {
         return rejectWithValue(error)
@@ -73,7 +73,7 @@ export const createCard = createAsyncThunk('cards/createCard', async (params:{qu
     const cardsPack_id = state.cards.currentPackId
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.createCard({cardsPack_id: cardsPack_id, answer: params.answer, question: params.question})
+        await cardsAPI.createCard({cardsPack_id: cardsPack_id, answer: params.answer, question: params.question})
         dispatch(getCards(cardsPack_id))
     } catch (error) {
         return rejectWithValue(error)
@@ -90,7 +90,7 @@ export const deleteCard = createAsyncThunk('cards/deleteCard', async (cardId: st
     const cardsPack_id = state.cards.currentPackId
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.deleteCard(cardId)
+        await cardsAPI.deleteCard(cardId)
         dispatch(getCards(cardsPack_id))
     } catch (error) {
         return rejectWithValue(error)
@@ -107,7 +107,7 @@ export const editCard = createAsyncThunk('cards/editCard', async (params:{questi
     const cardsPack_id = state.cards.currentPackId
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.editCard({_id: params.cardId, answer: params.answer, question: params.question})
+        await cardsAPI.editCard({_id: params.cardId, answer: params.answer, question: params.question})
         dispatch(getCards(cardsPack_id))
     } catch (error) {
         return rejectWithValue(error)
@@ -124,7 +124,7 @@ export const gradeCard = createAsyncThunk('cards/gradeCard', async (params:{grad
     const cardsPack_id = state.cards.currentPackId
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.gradeCard({grade: params.grade, card_id:params.cardId})
+        await cardsAPI.gradeCard({grade: params.grade, card_id:params.cardId})
         dispatch(getCards(cardsPack_id))
     } catch (error) {
         return rejectWithValue(error)

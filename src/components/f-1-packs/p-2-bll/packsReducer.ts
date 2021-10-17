@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {cardsApi} from "../api/cardsAPI"
-import {setIsLoading} from "./appReducer"
-import {AppStateType} from "./store"
+import {setIsLoading} from "../../../store/appReducer"
+import {AppStateType} from "../../../store/store"
+import { packsAPI } from "../p-3-dal/packsAPI"
 
 export type CardPacksType ={
     _id: string
@@ -52,11 +52,11 @@ const initialState: CardsPackInitialStateType = {
 
 export const getCardsPacksTC = createAsyncThunk('cardsPacks/getPacks', async (param, {dispatch, rejectWithValue, getState}) => {
     const state = getState() as AppStateType
-    const controls = state.cardsPack.controls
+    const controls = state.packs.controls
     const user_id = controls.isPrivate ? state.profile.userData._id : undefined
     try {
         dispatch(setIsLoading({isLoading: true}))
-        const res = await cardsApi.getPack({controls: controls, user_id: user_id})
+        const res = await packsAPI.getPack({controls: controls, user_id: user_id})
         dispatch(setTotalPagesCountAC({
             pageCount: res.data.pageCount,
             cardPacksTotalCount: res.data.cardPacksTotalCount
@@ -72,7 +72,7 @@ export const getCardsPacksTC = createAsyncThunk('cardsPacks/getPacks', async (pa
 export const deleteCardsPackTC = createAsyncThunk('cardsPacks/deletePack', async (packId: string, {dispatch, rejectWithValue}) => {
     try{
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.deletePack(packId)
+        await packsAPI.deletePack(packId)
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)
@@ -84,7 +84,7 @@ export const deleteCardsPackTC = createAsyncThunk('cardsPacks/deletePack', async
 export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async (param:{packId: string, name?: string}, {dispatch, rejectWithValue})=>{
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.updatePack({cardsPack:{_id: param.packId, name: param.name}})
+        await packsAPI.updatePack({cardsPack:{_id: param.packId, name: param.name}})
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)
@@ -96,7 +96,7 @@ export const updateCardsPackTC = createAsyncThunk('cardsPacks/updatePack', async
 export const createCardsPackTC = createAsyncThunk('cardsPacks/createPack', async (param:{name: string, deckCover?: string}, {dispatch, rejectWithValue})=> {
     try {
         dispatch(setIsLoading({isLoading: true}))
-        await cardsApi.createPack({cardsPack:{name: param.name}})
+        await packsAPI.createPack({cardsPack:{name: param.name}})
         dispatch(getCardsPacksTC())
     }catch (error) {
         return rejectWithValue(error)
@@ -139,7 +139,7 @@ const slice = createSlice({
     }
 })
 
-export const cardsPacksReducer = slice.reducer
+export const packsReducer = slice.reducer
 
 
 export const {

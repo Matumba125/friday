@@ -1,4 +1,4 @@
-import {CardPacksType} from "./cardsPacksReducer"
+import { CardPacksType } from "../components/f-1-packs/p-2-bll/packsReducer"
 import { CardType } from "./cardsReducer"
 import {AppStateType} from "./store"
 
@@ -65,34 +65,34 @@ export const getCurrentUserId = (state: AppStateType): string => {
 //// Card Packs Selectors
 
 export const getCardPacks = (state: AppStateType): CardPacksType[] => {
-    return state.cardsPack.cardPacks
+    return state.packs.cardPacks
 }
 
 export const getPacksPage = (state: AppStateType): number => {
-    return state.cardsPack.controls.page
+    return state.packs.controls.page
 }
 
 export const getTotalPagesCount = (state: AppStateType): number => {
-    return state.cardsPack.controls.totalPagesCount
+    return state.packs.controls.totalPagesCount
 }
 
 export const getPageCount = (state: AppStateType): number => {
-    return state.cardsPack.controls.pageCount
+    return state.packs.controls.pageCount
 }
 
 export const getMinCardsCount = (state: AppStateType): number => {
-    return state.cardsPack.controls.min
+    return state.packs.controls.min
 }
 
 export const getMaxCardsCount = (state: AppStateType): number => {
-    return state.cardsPack.controls.max
+    return state.packs.controls.max
 }
 
 export const getIsPrivate = (state: AppStateType): boolean => {
-    return state.cardsPack.controls.isPrivate
+    return state.packs.controls.isPrivate
 }
 export const getSortPacks = (state: AppStateType): 0 | 1 => {
-    return state.cardsPack.controls.sortPacks
+    return state.packs.controls.sortPacks
 }
 
 //// Cards Selectors

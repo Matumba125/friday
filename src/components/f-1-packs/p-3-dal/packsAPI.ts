@@ -1,10 +1,10 @@
-import {CardPacksType, ControlsType } from "../store/cardsPacksReducer"
-import { CardsControlsType } from "../store/cardsReducer"
-import { instance } from "./api"
+import { CardsControlsType } from "../../../store/cardsReducer"
+import { instance } from "../../../api/api"
+import {CardPacksType, ControlsType } from "../p-2-bll/packsReducer"
 
 
 
-const packsAPI = {
+export const packsAPI = {
     getPack(data: GetPacksParamsType) {
         return instance.get<cardsPackDataType>(`/cards/pack`,
             {

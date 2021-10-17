@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import s from './ModalAddPack.module.css';
 import {useDispatch} from "react-redux";
-import {createCardsPackTC} from "../../../../store/cardsPacksReducer";
-import ModalBox from "../../../../common/modalBox/ModalBox";
-import InputForm from "../../../../common/inputForm/InputForm";
-import ButtonFormColor from "../../../../common/buttonFormColor/ButtonFormColor";
+import ModalBox from "../../../../../common/modalBox/ModalBox";
+import InputForm from "../../../../../common/inputForm/InputForm";
+import ButtonFormColor from "../../../../../common/buttonFormColor/ButtonFormColor";
+import { createCardsPackTC } from "../../../p-2-bll/packsReducer";
 
 type ModalAddPackType={
     open: boolean

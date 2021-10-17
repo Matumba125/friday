@@ -1,10 +1,10 @@
 import React, {MouseEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import s from './PacksListSidebar.module.css';
-import {getCardsPacksTC} from '../../../store/cardsPacksReducer';
-import ButtonsShowPacks from '../../../common/buttonsShowPacks/ButtonsShowPacks';
-import {RangeSlider} from '../../../common/inputRange/InputRange';
-import ButtonFormColor from '../../../common/buttonFormColor/ButtonFormColor';
+import ButtonsShowPacks from '../../../../common/buttonsShowPacks/ButtonsShowPacks';
+import {RangeSlider} from '../../../../common/inputRange/InputRange';
+import ButtonFormColor from '../../../../common/buttonFormColor/ButtonFormColor';
+import { getCardsPacksTC } from '../../p-2-bll/packsReducer';
 
 const PacksListSidebar = () => {
 
