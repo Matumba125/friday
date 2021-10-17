@@ -1,12 +1,12 @@
 import React, {MouseEvent} from 'react'
 import {NavLink} from 'react-router-dom';
 import s from './Header.module.css';
-import PacksList from '../../la-0-assets/images/packsListInactive.svg';
-import User from '../../la-0-assets/images/userActive.svg';
-import LogOut from '../../la-0-assets/images/log-out1.svg';
+import PacksList from '../../../la-0-assets/images/packsListInactive.svg';
+import User from '../../../la-0-assets/images/userActive.svg';
+import LogOut from '../../../la-0-assets/images/log-out1.svg';
 import {useDispatch} from 'react-redux';
-import {logOutTC} from '../../store/loginizationReducer';
-import { PATH } from '../../la-3-main/m-1-ui/Routing/Routing';
+import { PATH } from '../u-2-routing/Routing';
+import { logOutTC } from '../../../la-2-features/f-3-loginization/l-2-bll/loginizationReducer';
 
 const Header = () => {
 

@@ -6,7 +6,7 @@ import PacksListSidebar from './PacksListSidebar/PacksListSidebar';
 import { getCardsPacksTC } from '../p-2-bll/packsReducer';
 import PacksListMain from './PacksListMain/PacksListMain';
 import ListContainer from '../../../la-1-common/ListContainer/ListContainer';
-import { PATH } from '../../../la-3-main/m-1-ui/Routing/Routing';
+import { PATH } from '../../../la-3-main/m-1-ui/u-2-routing/Routing';
 
 
 const Packs = () => {

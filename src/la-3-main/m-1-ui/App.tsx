@@ -5,8 +5,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getIsLoading, getIsLoggedIn} from '../../store/selectots';
 import IsLoading from '../../la-1-common/isLoading/IsLoading';
 import { authMeTC } from '../m-2-bll/authReducer';
-import Header from '../../la-2-features/Header/Header';
-import Routing from './Routing/Routing';
+import Header from './u-1-header/Header';
+import Routing from './u-2-routing/Routing';
 
 function App() {
   

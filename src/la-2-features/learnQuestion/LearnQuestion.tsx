@@ -8,7 +8,7 @@ import ButtonFormColor from "../../la-1-common/buttonFormColor/ButtonFormColor";
 import InputRadio from "../../la-1-common/inputRadio/InputRadio";
 import ListTitle from "../../la-1-common/listTititle/ListTitile";
 import { CardType, gradeCard } from "../../la-2-features/f-2-cards/c-2-bll/cardsReducer";
-import { PATH } from "../../la-3-main/m-1-ui/Routing/Routing";
+import { PATH } from "../../la-3-main/m-1-ui/u-2-routing/Routing";
 
 const getCard = (cards: CardType[]) => {
     const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);

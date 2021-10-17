@@ -10,7 +10,7 @@ import ListTitle from '../../la-1-common/listTititle/ListTitile';
 import InputForm from '../../la-1-common/inputForm/InputForm';
 import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
 import CheckEmail from '../../la-1-common/checkEmail/CheckEmail';
-import { PATH } from '../../la-3-main/m-1-ui/Routing/Routing';
+import { PATH } from '../../la-3-main/m-1-ui/u-2-routing/Routing';
 
 const PasswordRecovery = () => {
 

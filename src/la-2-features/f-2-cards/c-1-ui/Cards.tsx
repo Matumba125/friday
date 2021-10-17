@@ -20,7 +20,7 @@ import LinkPackName from '../../../la-1-common/linkPackName/LinkPackName';
 import { InputSearch } from '../../../la-1-common/inputSearch/InputSearch';
 import ButtonFormColor from '../../../la-1-common/buttonFormColor/ButtonFormColor';
 import { getCards } from '../c-2-bll/cardsReducer';
-import { PATH } from '../../../la-3-main/m-1-ui/Routing/Routing';
+import { PATH } from '../../../la-3-main/m-1-ui/u-2-routing/Routing';
 
 const Cards = () => {
 

@@ -9,7 +9,7 @@ import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
 import InputForm from '../../la-1-common/inputForm/InputForm';
 import ListTitle from '../../la-1-common/listTititle/ListTitile';
 import GlobalTitle from '../../la-1-common/globalTitle/GlobalTitle';
-import { PATH } from '../../la-3-main/m-1-ui/Routing/Routing';
+import { PATH } from '../../la-3-main/m-1-ui/u-2-routing/Routing';
 
 type ParamsType = {
     token: string
