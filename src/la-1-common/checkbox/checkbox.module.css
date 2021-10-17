@@ -22,7 +22,7 @@
 
 .checkbox:checked+.checkStyle {
     display: inline-block;
-    background: url('../../assets/images/checkbox/checkOnSquare.svg') no-repeat center/88%;
+    background: url('../../../src/la-0-assets/images/checkbox/checkOnSquare.svg') no-repeat center/88%;
 }
 
 .inputText {

@@ -1,9 +1,9 @@
 import React from "react";
 import s from './ModalDeleteCard.module.css';
 import {useDispatch} from "react-redux";
-import ModalBox from "../../../../common/modalBox/ModalBox";
 import {deleteCard} from "../../../../store/cardsReducer";
-import ButtonFormColor from "../../../../common/buttonFormColor/ButtonFormColor";
+import ButtonFormColor from "../../../../la-1-common/buttonFormColor/ButtonFormColor";
+import ModalBox from "../../../../la-1-common/modalBox/ModalBox";
 
 type ModalDeletePackType={
     open: boolean

@@ -5,9 +5,9 @@ import {getCurrentUserId} from "../../../../../store/selectots";
 import {Link} from "react-router-dom";
 import {PATH} from "../../../../routing/Routing";
 import {getCards, setCurrentPackId, setCurrentPackName} from "../../../../../store/cardsReducer";
-import ButtonFormColor from "../../../../../common/buttonFormColor/ButtonFormColor";
 import ModalDeletePack from "../../PackModals/modalDeletePack/ModalDeletePack";
 import ModalEditPack from "../../PackModals/modalEditPack/ModalEditPack";
+import ButtonFormColor from "../../../../../la-1-common/buttonFormColor/ButtonFormColor";
 
 
 type TableLinePropsType = {

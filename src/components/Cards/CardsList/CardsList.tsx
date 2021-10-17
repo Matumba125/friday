@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './CardsList.module.css';
-import {PaginationRounded} from '../../../common/pagination/Pagination';
-import Select from '../../../common/select/Select';
 import {CardType, setCardsPageCount, setCurrentCardsPage} from '../../../store/cardsReducer';
 import {getCardsPage, getTotalCardsPages} from '../../../store/selectots';
 import CardsListLine from './CardsListLine/CardsListLine';
 import CardListHead from './CardListHead/CardListHead';
 import { useDispatch, useSelector } from 'react-redux';
+import { PaginationRounded } from '../../../la-1-common/pagination/Pagination';
+import Select  from "../../../la-1-common/select/Select";
 
 type CardsListType = {
     cards: CardType[]

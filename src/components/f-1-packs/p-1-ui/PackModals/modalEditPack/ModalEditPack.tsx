@@ -1,10 +1,10 @@
 import React, {KeyboardEvent, useState} from "react";
 import s from './ModalEditPack.module.css';
 import {useDispatch} from "react-redux";
-import ModalBox from "../../../../../common/modalBox/ModalBox";
-import InputForm from "../../../../../common/inputForm/InputForm";
-import ButtonFormColor from "../../../../../common/buttonFormColor/ButtonFormColor";
 import { updateCardsPackTC } from "../../../p-2-bll/packsReducer";
+import ModalBox from "../../../../../la-1-common/modalBox/ModalBox";
+import InputForm from "../../../../../la-1-common/inputForm/InputForm";
+import ButtonFormColor from "../../../../../la-1-common/buttonFormColor/ButtonFormColor";
 
 
 type ModalDeletePackType={

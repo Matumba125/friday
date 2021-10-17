@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import s from './LearnQuestion.module.css';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import InputRadio from "../../common/inputRadio/InputRadio";
-import logo from "../../assets/images/logo.png";
+import logo from "../../la-0-assets/images/logo.png";
 import {useDispatch, useSelector} from "react-redux";
 import {getCardsSelector, getCurrentPackName, getIsLoggedIn} from "../../store/selectots";
 import {CardType, gradeCard} from "../../store/cardsReducer";
 import {Link, Redirect} from "react-router-dom";
 import {PATH} from "../routing/Routing";
-import ListTitle from "../../common/listTititle/ListTitile";
+import ButtonFormColor from "../../la-1-common/buttonFormColor/ButtonFormColor";
+import InputRadio from "../../la-1-common/inputRadio/InputRadio";
+import ListTitle from "../../la-1-common/listTititle/ListTitile";
 
 const getCard = (cards: CardType[]) => {
     const sum = cards.reduce((acc, card) => acc + (6 - card.grade) * (6 - card.grade), 0);

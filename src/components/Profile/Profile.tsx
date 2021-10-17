@@ -4,8 +4,8 @@ import {getIsLoggedIn, getIsProfileEditing, getUserName} from '../../store/selec
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../routing/Routing';
 import s from './Profile.module.css';
-import Avatar from '../../common/avatar/Avatar';
 import {setProfileIsEditingAC} from '../../store/profileReducer';
+import Avatar from '../../la-1-common/avatar/Avatar'
 
 
 const Profile = () => {

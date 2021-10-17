@@ -1,7 +1,7 @@
 .linkCardList{
     display: inline-block;
     padding: 0 2.13rem;
-    background: url('../../assets/images/arrowLeft.png') center left  no-repeat;
+    background: url('../../../src/la-0-assets/images/arrowLeft.png') center left  no-repeat;
     margin-bottom: 1.25rem;
 }
 

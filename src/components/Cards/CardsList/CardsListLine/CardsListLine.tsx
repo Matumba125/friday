@@ -1,10 +1,10 @@
 import React, {MouseEvent, useState} from "react";
 import s from './CardsListLine.module.css';
 import {CardType} from "../../../../store/cardsReducer";
-import {HoverRating} from "../../../../common/rating/Rating";
-import ButtonFormColor from "../../../../common/buttonFormColor/ButtonFormColor";
 import ModalDeleteCard from "../../CardsModals/modalDeleteCard/ModalDeleteCard";
 import ModalEditCard from "../../CardsModals/modalEditCard/ModalEditCard";
+import { HoverRating } from "../../../../la-1-common/rating/Rating";
+import ButtonFormColor from "../../../../la-1-common/buttonFormColor/ButtonFormColor";
 
 type ListCardTableLeinePropsType = {
     card: CardType

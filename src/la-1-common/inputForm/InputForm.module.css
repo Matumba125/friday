@@ -40,17 +40,12 @@ text-align: start;
     width: 1.5rem;
     height: 1.5rem;
     padding: 1rem;
-    background: url('../../assets/images/eyeView.svg') no-repeat center/80%;
+    background: url('../../../src/la-0-assets/images/eyeView.svg') no-repeat center/80%;
     position: absolute;
     top: 3px;
     right: 1em;
 }
 
-/* !password control */
 .view {
-    background: url('../../assets/images/eyeNoView.svg') no-repeat center/80%;
+    background: url('../../../src/la-0-assets/images/eyeNoView.svg') no-repeat center/80%;
 }
-
-/* .input:invalid.error{
-    outline: 1px solid red;
-} */

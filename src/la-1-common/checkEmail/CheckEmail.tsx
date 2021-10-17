@@ -2,7 +2,7 @@ import React from "react";
 import s from './CheckEmail.module.css';
 import CardContainer from '../cardContainer/CardContainer';
 import GlobalTitle from '../globalTitle/GlobalTitle';
-import checkEmailImg from '../../assets/images/checkEmailImg.png';
+import checkEmailImg from '../../la-0-assets/images/checkEmailImg.png';
 import ListTitle from "../listTititle/ListTitile";
 
 type CheckEmailPropsType ={

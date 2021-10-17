@@ -3,10 +3,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../../routing/Routing';
 import {getIsLoggedIn, getIsPrivate, getPacksPage, getPageCount, getSortPacks} from '../../../store/selectots';
-import ListContainer from '../../../common/ListContainer/ListContainer';
 import PacksListSidebar from './PacksListSidebar/PacksListSidebar';
 import { getCardsPacksTC } from '../p-2-bll/packsReducer';
 import PacksListMain from './PacksListMain/PacksListMain';
+import ListContainer from '../../../la-1-common/ListContainer/ListContainer';
 
 
 const Packs = () => {

@@ -1,9 +1,9 @@
 import React, {MouseEvent} from 'react'
 import {NavLink} from 'react-router-dom';
 import s from './Header.module.css';
-import PacksList from '../../assets/images/packsListInactive.svg';
-import User from '../../assets/images/userActive.svg';
-import LogOut from '../../assets/images/log-out1.svg';
+import PacksList from '../../la-0-assets/images/packsListInactive.svg';
+import User from '../../la-0-assets/images/userActive.svg';
+import LogOut from '../../la-0-assets/images/log-out1.svg';
 import {PATH} from '../routing/Routing';
 import {useDispatch} from 'react-redux';
 import {logOutTC} from '../../store/loginizationReducer';

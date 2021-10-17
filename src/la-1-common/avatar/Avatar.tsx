@@ -1,6 +1,6 @@
 import React from "react";
 import s from './Avatar.module.css';
-import UserImages from '../../../src/assets/images/Users/user.jpg';
+import UserImages from '../../la-0-assets/images/Users/user.jpg';
 import { useSelector } from "react-redux";
 import { getUserAvatar } from "../../store/selectots";
 

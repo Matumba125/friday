@@ -1,16 +1,16 @@
 import {Link, Redirect} from 'react-router-dom';
 import s from './Loginization.module.css';
-import CardContainer from '../../common/cardContainer/CardContainer';
-import InputForm from '../../common/inputForm/InputForm';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
-import Checkbox from '../../common/checkbox/checkbox';
 import {PATH} from '../routing/Routing';
 import React, {MouseEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
 import {getIsLoggedIn, getLoginError} from '../../store/selectots';
-import ListTitle from '../../common/listTititle/ListTitile';
-import GlobalTitle from '../../common/globalTitle/GlobalTitle';
+import CardContainer from '../../la-1-common/cardContainer/CardContainer';
+import GlobalTitle from '../../la-1-common/globalTitle/GlobalTitle';
+import ListTitle from '../../la-1-common/listTititle/ListTitile';
+import InputForm from '../../la-1-common/inputForm/InputForm';
+import Checkbox from '../../la-1-common/checkbox/checkbox';
+import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
 
 const Loginization = () => {
     const [email, setEmail] = useState<string>('');
@@ -49,7 +49,7 @@ const Loginization = () => {
     }
 
     return (
-        <>
+
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>
@@ -92,7 +92,6 @@ const Loginization = () => {
                                 name={'remember'}
                                 value={'remember'}
                                 text={'Remember me'}
-                                // checked={'checked'}
                                 onChange={onRememberMeChangeHandler}/>
                         </div>
                         {
@@ -117,7 +116,6 @@ const Loginization = () => {
                     </Link>
                 </>
             </CardContainer>
-        </>
     );
 };
 

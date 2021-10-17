@@ -6,7 +6,7 @@
     border: 1px solid #635D80;
     border-radius: 0.12rem;
     outline-color: #2F4F4F;
-    background: url('../../assets/images/search.png') no-repeat 1rem 50%;
+    background: url('../../../src/la-0-assets/images/search.png') no-repeat 1rem 50%;
 }
 
 .input[placeholder] {

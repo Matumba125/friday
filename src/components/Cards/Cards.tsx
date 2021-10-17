@@ -1,9 +1,6 @@
 import {Redirect} from 'react-router-dom';
 import s from './Cards.module.css';
 import React, {MouseEvent, useEffect, useState} from 'react'
-import LinkPackName from '../../common/linkPackName/LinkPackName'
-import InputSearch from '../../common/inputSearch/InputSearch';
-import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor'
 import {useDispatch, useSelector} from 'react-redux';
 import {
     getCardsPage,
@@ -18,9 +15,12 @@ import {
 } from '../../store/selectots';
 import {PATH} from '../routing/Routing';
 import {getCards} from '../../store/cardsReducer';
-import ListContainer from '../../common/ListContainer/ListContainer';
 import ModalAddNewCard from './CardsModals/modalAddNewCard/ModalAddNewCard';
 import CardsList from './CardsList/CardsList';
+import ListContainer from '../../la-1-common/ListContainer/ListContainer';
+import LinkPackName from '../../la-1-common/linkPackName/LinkPackName';
+import { InputSearch } from '../../la-1-common/inputSearch/InputSearch';
+import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
 
 const Cards = () => {
 

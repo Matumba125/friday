@@ -4,9 +4,9 @@ import {HashRouter} from "react-router-dom";
 import Routing from "./components/routing/Routing";
 import {useDispatch, useSelector} from 'react-redux';
 import {getIsLoading, getIsLoggedIn} from './store/selectots';
-import IsLoading from './common/isLoading/IsLoading';
 import { authMeTC } from './store/authReducer';
 import Header from './components/Header/Header';
+import IsLoading from './la-1-common/isLoading/IsLoading';
 
 function App() {
   
