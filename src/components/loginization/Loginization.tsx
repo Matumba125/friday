@@ -1,4 +1,4 @@
-import {Link, Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import s from './Loginization.module.css';
 import CardContainer from '../../common/cardContainer/CardContainer';
 import GlobalTitle from '../../common/globalTitle/GlobalTitle';
@@ -6,11 +6,11 @@ import ListTitle from '../../common/listTitle/ListTitle';
 import InputForm from '../../common/inputForm/InputForm';
 import ButtonFormColor from '../../common/buttonFormColor/ButtonFormColor';
 import Checkbox from '../../common/checkbox/checkbox';
-import {PATH} from '../routing/Routing';
-import React, {MouseEvent, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {loginTC, setLoginErrorAC} from '../../store/loginizationReducer';
-import {getIsLoggedIn, getLoginError} from '../../store/selectots';
+import { PATH } from '../routing/Routing';
+import React, { MouseEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginTC, setLoginErrorAC } from '../../store/loginizationReducer';
+import { getIsLoggedIn, getLoginError } from '../../store/selectots';
 
 const Loginization = () => {
     const [email, setEmail] = useState<string>('');
@@ -23,11 +23,11 @@ const Loginization = () => {
 
     const onEmailChangeHandler = (getEmail: string) => {
         setEmail(getEmail);
-        if (error) dispatch(setLoginErrorAC({error: ''}))
+        if (error) dispatch(setLoginErrorAC({ error: '' }))
     };
     const onPasswordChangeHandler = (getPassword: string) => {
         setPassword(getPassword);
-        if (error) dispatch(setLoginErrorAC({error: ''}))
+        if (error) dispatch(setLoginErrorAC({ error: '' }))
     };
     const onRememberMeChangeHandler = () => {
         setRememberMe(!rememberMe);
@@ -45,7 +45,7 @@ const Loginization = () => {
 
 
     if (isLoggedIn) {
-        return <Redirect to={PATH.PROFILE}/>
+        return <Redirect to={PATH.PROFILE} />
     }
 
     return (
@@ -53,11 +53,11 @@ const Loginization = () => {
             <CardContainer>
                 <>
                     <div className={s.globalTitleBox}>
-                        <GlobalTitle/>
+                        <GlobalTitle />
                     </div>
 
                     <div className={s.listTitleBox}>
-                        <ListTitle text="Sign In"/>
+                        <ListTitle text="Sign In" />
                     </div>
 
                     <form
@@ -93,7 +93,7 @@ const Loginization = () => {
                                 value={'remember'}
                                 text={'Remember me'}
                                 // checked={'checked'}
-                                onChange={onRememberMeChangeHandler}/>
+                                onChange={onRememberMeChangeHandler} />
                         </div>
                         {
                             error && <p className={s.error}>{error}</p>
@@ -106,7 +106,7 @@ const Loginization = () => {
                         </div>
 
                         <div className={s.buttonContainer}>
-                            <ButtonFormColor text="Login" type={'submit'} onClick={onClickHandler}/>
+                            <ButtonFormColor text="Login" type={'submit'} onClick={onClickHandler} />
                         </div>
 
                         <p className={s.formText}>Don’t have an account?</p>
