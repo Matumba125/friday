@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './store/store';
+import { store } from './la-3-main/m-2-bll/store';
+import App from './la-3-main/m-1-ui/App';
 
 
 ReactDOM.render(
