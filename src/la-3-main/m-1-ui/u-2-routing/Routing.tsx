@@ -5,11 +5,11 @@ import Cards from '../../../la-2-features/f-2-cards/c-1-ui/Cards';
 import Loginization from '../../../la-2-features/f-3-loginization/l-1-ui/Loginization';
 import Profile from '../../../la-2-features/f-3-profile/p-1-ui/Profile';
 import EditProfile from '../../../la-2-features/f-3-profile/p-1-ui/u-1-edit/EditProfile';
-import LearnQuestion from '../../../la-2-features/learnQuestion/LearnQuestion';
-import NewPassword from '../../../la-2-features/newPassword/NewPassword';
-import NotFound from '../../../la-2-features/NotFound/NotFound';
-import PasswordRecovery from '../../../la-2-features/passwordRecovery/PasswordRecovery';
-import Registration from '../../../la-2-features/registration/Registration';
+import Registration from '../../../la-2-features/f-4-registrartion/r-1-ui/Registration';
+import PasswordRecovery from '../../../la-2-features/f-5-password/p-1-ui/u-1-recovery/PasswordRecovery';
+import NewPassword from '../../../la-2-features/f-5-password/p-1-ui/u-2-new/NewPassword';
+import LearnQuestion from '../../../la-2-features/f-6-learning/l-1-ui/LearnQuestion';
+import NotFound from '../../../la-2-features/f-7-notFound/NotFound';
 
 export const PATH ={
     LOGIN: '/login',

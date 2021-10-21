@@ -2,7 +2,6 @@ import {Link, Redirect} from 'react-router-dom';
 import s from './Loginization.module.css';
 import React, {MouseEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getIsLoggedIn, getLoginError} from '../../../store/selectots';
 import CardContainer from '../../../la-1-common/cardContainer/CardContainer';
 import GlobalTitle from '../../../la-1-common/globalTitle/GlobalTitle';
 import ListTitle from '../../../la-1-common/listTititle/ListTitile';
@@ -11,6 +10,7 @@ import Checkbox from '../../../la-1-common/checkbox/checkbox';
 import ButtonFormColor from '../../../la-1-common/buttonFormColor/ButtonFormColor';
 import { PATH } from '../../../la-3-main/m-1-ui/u-2-routing/Routing';
 import { loginTC, setLoginErrorAC } from '../l-2-bll/loginizationReducer';
+import { getIsLoggedIn, getLoginError } from '../../../la-3-main/m-2-bll/selectots';
 
 const Loginization = () => {
     const [email, setEmail] = useState<string>('');

@@ -2,14 +2,14 @@ import React, {FormEvent, useState} from 'react';
 import s from './NewPassword.module.css';
 import {Redirect, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {getPasswordRecoveryError, getPasswordSetted} from '../../store/selectots';
-import {setNewPasswordTC} from '../../store/passwordReducer';
-import CardContainer from '../../la-1-common/cardContainer/CardContainer';
-import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
-import InputForm from '../../la-1-common/inputForm/InputForm';
-import ListTitle from '../../la-1-common/listTititle/ListTitile';
-import GlobalTitle from '../../la-1-common/globalTitle/GlobalTitle';
-import { PATH } from '../../la-3-main/m-1-ui/u-2-routing/Routing';
+import CardContainer from '../../../../la-1-common/cardContainer/CardContainer';
+import ButtonFormColor from '../../../../la-1-common/buttonFormColor/ButtonFormColor';
+import InputForm from '../../../../la-1-common/inputForm/InputForm';
+import ListTitle from '../../../../la-1-common/listTititle/ListTitile';
+import GlobalTitle from '../../../../la-1-common/globalTitle/GlobalTitle';
+import { PATH } from '../../../../la-3-main/m-1-ui/u-2-routing/Routing';
+import {getPasswordRecoveryError, getPasswordSetted } from '../../../../la-3-main/m-2-bll/selectots';
+import { setNewPasswordTC } from '../../p-2-bll/passwordReducer';
 
 type ParamsType = {
     token: string

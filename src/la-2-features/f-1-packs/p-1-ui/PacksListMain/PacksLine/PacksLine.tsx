@@ -1,13 +1,13 @@
 import React, {MouseEvent, useState} from "react";
 import s from './PacksLine.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {getCurrentUserId} from "../../../../../store/selectots";
 import {Link} from "react-router-dom";
 import ModalDeletePack from "../../PackModals/modalDeletePack/ModalDeletePack";
 import ModalEditPack from "../../PackModals/modalEditPack/ModalEditPack";
 import ButtonFormColor from "../../../../../la-1-common/buttonFormColor/ButtonFormColor";
 import {getCards, setCurrentPackId, setCurrentPackName } from "../../../../../la-2-features/f-2-cards/c-2-bll/cardsReducer";
 import { PATH } from "../../../../../la-3-main/m-1-ui/u-2-routing/Routing";
+import { getCurrentUserId } from "../../../../../la-3-main/m-2-bll/selectots";
 
 
 type TableLinePropsType = {

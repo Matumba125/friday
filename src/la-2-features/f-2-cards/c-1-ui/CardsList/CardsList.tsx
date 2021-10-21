@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PaginationRounded } from '../../../../la-1-common/pagination/Pagination';
 import Select  from "../../../../la-1-common/select/Select";
 import { CardType, setCardsPageCount, setCurrentCardsPage } from '../../c-2-bll/cardsReducer';
-import { getCardsPage, getTotalCardsPages } from '../../../../store/selectots';
+import { getCardsPage, getTotalCardsPages } from '../../../../la-3-main/m-2-bll/selectots';
 
 type CardsListType = {
     cards: CardType[]

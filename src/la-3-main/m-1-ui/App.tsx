@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import './App.css';
 import {HashRouter} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import {getIsLoading, getIsLoggedIn} from '../../store/selectots';
 import IsLoading from '../../la-1-common/isLoading/IsLoading';
 import { authMeTC } from '../m-2-bll/authReducer';
 import Header from './u-1-header/Header';
 import Routing from './u-2-routing/Routing';
+import { getIsLoading } from '../m-2-bll/selectots';
+import { getIsLoggedIn } from '../m-2-bll/selectots';
 
 function App() {
   

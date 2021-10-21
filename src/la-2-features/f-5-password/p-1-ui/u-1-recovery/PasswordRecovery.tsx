@@ -1,16 +1,17 @@
 import {Link} from 'react-router-dom';
 import s from './PasswordRecovery.module.css';
 import {FormEvent, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {getIsSended, getPasswordRecoveryError} from '../../store/selectots';
-import {sendRecoveryMailTC} from '../../store/passwordReducer';
-import CardContainer from '../../la-1-common/cardContainer/CardContainer';
-import GlobalTitle from '../../la-1-common/globalTitle/GlobalTitle';
-import ListTitle from '../../la-1-common/listTititle/ListTitile';
-import InputForm from '../../la-1-common/inputForm/InputForm';
-import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
-import CheckEmail from '../../la-1-common/checkEmail/CheckEmail';
-import { PATH } from '../../la-3-main/m-1-ui/u-2-routing/Routing';
+import CardContainer from '../../../../la-1-common/cardContainer/CardContainer';
+import GlobalTitle from '../../../../la-1-common/globalTitle/GlobalTitle';
+import ListTitle from '../../../../la-1-common/listTititle/ListTitile';
+import InputForm from '../../../../la-1-common/inputForm/InputForm';
+import ButtonFormColor from '../../../../la-1-common/buttonFormColor/ButtonFormColor';
+import CheckEmail from '../../../../la-1-common/checkEmail/CheckEmail';
+import { PATH } from '../../../../la-3-main/m-1-ui/u-2-routing/Routing';
+import { getIsSended, getPasswordRecoveryError } from '../../../../la-3-main/m-2-bll/selectots';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { sendRecoveryMailTC } from '../../p-2-bll/passwordReducer';
 
 const PasswordRecovery = () => {
 

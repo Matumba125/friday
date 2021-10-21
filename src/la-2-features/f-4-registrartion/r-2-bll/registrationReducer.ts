@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
-import { setIsLoading } from "../la-3-main/m-2-bll/appReducer"
-import {authApi, RegisterParamsType } from "../la-3-main/m-3-dal/auth-api"
+import { setIsLoading } from "../../../la-3-main/m-2-bll/appReducer"
+import {authApi, RegisterParamsType } from "../../../la-3-main/m-3-dal/auth-api"
 
 
 export const registerTC = createAsyncThunk('registration/register', async (regData: RegisterParamsType, {dispatch, rejectWithValue})=>{

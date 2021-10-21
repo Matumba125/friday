@@ -2,7 +2,7 @@ import React from "react";
 import s from './Avatar.module.css';
 import UserImages from '../../la-0-assets/images/Users/user.jpg';
 import { useSelector } from "react-redux";
-import { getUserAvatar } from "../../store/selectots";
+import { getUserAvatar } from "../../la-3-main/m-2-bll/selectots";
 
 const Avatar = () => {
     const userAvatar = useSelector(getUserAvatar)

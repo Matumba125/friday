@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import s from './Registration.module.css';
 import {Redirect, useHistory} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
-import {registerTC, setRegistrationErrorAC} from '../../store/registrationReducer';
-import {getRegistrationError, getRegistrationStatus} from '../../store/selectots';
-import CardContainer from '../../la-1-common/cardContainer/CardContainer';
-import GlobalTitle from '../../la-1-common/globalTitle/GlobalTitle';
-import ListTitle from '../../la-1-common/listTititle/ListTitile';
-import InputForm from '../../la-1-common/inputForm/InputForm';
-import ButtonFormColor from '../../la-1-common/buttonFormColor/ButtonFormColor';
-import { PATH } from '../../la-3-main/m-1-ui/u-2-routing/Routing';
+import {getRegistrationError, getRegistrationStatus} from '../../../la-3-main/m-2-bll/selectots';
+import CardContainer from '../../../la-1-common/cardContainer/CardContainer';
+import GlobalTitle from '../../../la-1-common/globalTitle/GlobalTitle';
+import ListTitle from '../../../la-1-common/listTititle/ListTitile';
+import InputForm from '../../../la-1-common/inputForm/InputForm';
+import ButtonFormColor from '../../../la-1-common/buttonFormColor/ButtonFormColor';
+import { PATH } from '../../../la-3-main/m-1-ui/u-2-routing/Routing';
+import {registerTC, setRegistrationErrorAC } from '../r-2-bll/registrationReducer';
 
 const Registration = () => {
 

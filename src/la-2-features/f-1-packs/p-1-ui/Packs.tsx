@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {getIsLoggedIn, getIsPrivate, getPacksPage, getPageCount, getSortPacks} from '../../../store/selectots';
 import PacksListSidebar from './PacksListSidebar/PacksListSidebar';
 import { getCardsPacksTC } from '../p-2-bll/packsReducer';
 import PacksListMain from './PacksListMain/PacksListMain';
 import ListContainer from '../../../la-1-common/ListContainer/ListContainer';
 import { PATH } from '../../../la-3-main/m-1-ui/u-2-routing/Routing';
+import {getIsLoggedIn, getIsPrivate, getPacksPage, getPageCount, getSortPacks } from '../../../la-3-main/m-2-bll/selectots';
 
 
 const Packs = () => {

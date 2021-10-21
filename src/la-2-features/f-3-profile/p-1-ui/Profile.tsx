@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getIsLoggedIn, getIsProfileEditing, getUserName} from '../../../store/selectots';
+import {getIsLoggedIn, getIsProfileEditing, getUserName} from '../../../la-3-main/m-2-bll/selectots';
 import {Redirect} from 'react-router-dom';
 import s from './Profile.module.css';
 import Avatar from '../../../la-1-common/avatar/Avatar'

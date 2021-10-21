@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import s from './PacksListMain.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import {getCardPacks, getPacksPage, getTotalPagesCount} from "../../../../store/selectots";
 import PacksLine from "./PacksLine/PacksLine";
 import { setPackNameAC, setPageAC, setPageCountAC } from "../../p-2-bll/packsReducer";
 import ModalAddPack from "../PackModals/modalAddPack/ModalAddPack";
@@ -11,6 +10,7 @@ import ButtonFormColor from "../../../../la-1-common/buttonFormColor/ButtonFormC
 import { PaginationRounded } from "../../../../la-1-common/pagination/Pagination";
 import Select  from "../../../../la-1-common/select/Select";
 import TableHead  from "../../../../la-1-common/tableHead/TableHead";
+import { getCardPacks, getPacksPage, getTotalPagesCount } from "../../../../la-3-main/m-2-bll/selectots";
 
 const PacksListMain = () => {
 

@@ -12,7 +12,7 @@ import {
     getCurrentUserId,
     getIsLoggedIn,
     getPackUserId
-} from '../../../store/selectots';
+} from '../../../la-3-main/m-2-bll/selectots';
 import ModalAddNewCard from './CardsModals/modalAddNewCard/ModalAddNewCard';
 import CardsList from './CardsList/CardsList';
 import ListContainer from '../../../la-1-common/ListContainer/ListContainer';
