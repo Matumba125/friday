@@ -2,14 +2,14 @@ import React, {MouseEvent, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import s from './EditProfile.module.css';
-import {setProfileIsEditingAC, updateProfileTC} from '../../../store/profileReducer';
-import {getIsProfileEditing, getUserAvatar, getUserName} from '../../../store/selectots';
-import CardContainer from '../../../la-1-common/cardContainer/CardContainer';
-import ListTitle from '../../../la-1-common/listTititle/ListTitile';
-import InputForm from '../../../la-1-common/inputForm/InputForm';
-import Avatar from '../../../la-1-common/avatar/Avatar';
-import ButtonFormColor from '../../../la-1-common/buttonFormColor/ButtonFormColor';
-import { PATH } from '../../../la-3-main/m-1-ui/u-2-routing/Routing';
+import {getIsProfileEditing, getUserAvatar, getUserName} from '../../../../store/selectots';
+import CardContainer from '../../../../la-1-common/cardContainer/CardContainer';
+import ListTitle from '../../../../la-1-common/listTititle/ListTitile';
+import InputForm from '../../../../la-1-common/inputForm/InputForm';
+import Avatar from '../../../../la-1-common/avatar/Avatar';
+import ButtonFormColor from '../../../../la-1-common/buttonFormColor/ButtonFormColor';
+import { PATH } from '../../../../la-3-main/m-1-ui/u-2-routing/Routing';
+import {setProfileIsEditingAC, updateProfileTC } from '../../p-2-bll/profileReducer';
 
 const EditProfile = () => {
 

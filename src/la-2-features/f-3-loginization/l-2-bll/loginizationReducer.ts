@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit"
 import { setIsLoading } from "../../../la-3-main/m-2-bll/appReducer"
 import { authApi, LoginParamsType } from "../../../la-3-main/m-3-dal/auth-api"
-import {setUserDataAC} from "../../../store/profileReducer"
+import { setUserDataAC } from "../../f-3-profile/p-2-bll/profileReducer"
 
 
 export const logOutTC = createAsyncThunk('login/logOut', async (param, {dispatch, rejectWithValue}) => {

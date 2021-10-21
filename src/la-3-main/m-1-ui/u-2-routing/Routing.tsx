@@ -3,12 +3,12 @@ import {Redirect, Route, Switch} from "react-router";
 import Packs from '../../../la-2-features/f-1-packs/p-1-ui/Packs';
 import Cards from '../../../la-2-features/f-2-cards/c-1-ui/Cards';
 import Loginization from '../../../la-2-features/f-3-loginization/l-1-ui/Loginization';
+import Profile from '../../../la-2-features/f-3-profile/p-1-ui/Profile';
+import EditProfile from '../../../la-2-features/f-3-profile/p-1-ui/u-1-edit/EditProfile';
 import LearnQuestion from '../../../la-2-features/learnQuestion/LearnQuestion';
 import NewPassword from '../../../la-2-features/newPassword/NewPassword';
 import NotFound from '../../../la-2-features/NotFound/NotFound';
 import PasswordRecovery from '../../../la-2-features/passwordRecovery/PasswordRecovery';
-import EditProfile from '../../../la-2-features/Profile/EditProfile/EditProfile';
-import Profile from '../../../la-2-features/Profile/Profile';
 import Registration from '../../../la-2-features/registration/Registration';
 
 export const PATH ={
